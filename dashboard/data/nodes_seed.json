@@ -1,44 +1,1111 @@
 {
   "nodes": [
-    { "id": "SNPS", "name": "Synopsys", "ticker": "SNPS", "exchange": "NASDAQ", "layer": 2, "stage": "EDA_IP", "chokepoint_rating": 0.85, "basket": "BK_FRONT" },
-    { "id": "CDNS", "name": "Cadence", "ticker": "CDNS", "exchange": "NASDAQ", "layer": 2, "stage": "EDA_IP", "chokepoint_rating": 0.85, "basket": "BK_FRONT" },
-    { "id": "ARM", "name": "Arm Holdings", "ticker": "ARM", "exchange": "NASDAQ", "layer": 2, "stage": "EDA_IP", "chokepoint_rating": 0.95, "basket": "BK_CHOKE" },
-    { "id": "SHIN_ETSU", "name": "Shin-Etsu Chemical", "ticker": "4063.T", "exchange": "TYO", "layer": 2, "stage": "RAW_MATERIALS_CHEMISTRY", "chokepoint_rating": 0.90, "basket": "BK_FRONT" },
-    { "id": "SUMCO", "name": "SUMCO", "ticker": "3436.T", "exchange": "TYO", "layer": 2, "stage": "RAW_MATERIALS_CHEMISTRY", "chokepoint_rating": 0.80, "basket": "BK_FRONT" },
-    { "id": "ASML", "name": "ASML", "ticker": "ASML", "exchange": "NASDAQ", "layer": 2, "stage": "WFE_LITHOGRAPHY", "chokepoint_rating": 1.00, "basket": "BK_CHOKE" },
-    { "id": "AMAT", "name": "Applied Materials", "ticker": "AMAT", "exchange": "NASDAQ", "layer": 2, "stage": "WFE_LITHOGRAPHY", "chokepoint_rating": 0.85, "basket": "BK_FRONT" },
-    { "id": "LRCX", "name": "Lam Research", "ticker": "LRCX", "exchange": "NASDAQ", "layer": 2, "stage": "WFE_LITHOGRAPHY", "chokepoint_rating": 0.85, "basket": "BK_FRONT" },
-    { "id": "TEL", "name": "Tokyo Electron", "ticker": "8035.T", "exchange": "TYO", "layer": 2, "stage": "WFE_LITHOGRAPHY", "chokepoint_rating": 0.85, "basket": "BK_FRONT" },
-    { "id": "TSMC", "name": "Taiwan Semiconductor", "ticker": "TSM", "exchange": "NYSE", "layer": 2, "stage": "FOUNDRY", "chokepoint_rating": 0.98, "basket": "BK_FRONT" },
-    { "id": "DISCO", "name": "Disco Corporation", "ticker": "6146.T", "exchange": "TYO", "layer": 2, "stage": "DICING_PACKAGING_SUBSTRATE", "chokepoint_rating": 0.95, "basket": "BK_CHOKE" },
-    { "id": "AJINOMOTO", "name": "Ajinomoto", "ticker": "2802.T", "exchange": "TYO", "layer": 2, "stage": "DICING_PACKAGING_SUBSTRATE", "chokepoint_rating": 0.98, "basket": "BK_CHOKE" },
-    { "id": "SK_HYNIX", "name": "SK Hynix", "ticker": "000660.KS", "exchange": "KRX", "layer": 2, "stage": "MEMORY_HBM", "chokepoint_rating": 0.90, "basket": "BK_BACK" },
-    { "id": "MICRON", "name": "Micron", "ticker": "MU", "exchange": "NASDAQ", "layer": 2, "stage": "MEMORY_HBM", "chokepoint_rating": 0.80, "basket": "BK_BACK" },
-    { "id": "KLAC", "name": "KLA Corporation", "ticker": "KLAC", "exchange": "NASDAQ", "layer": 2, "stage": "INSPECTION_TESTING", "chokepoint_rating": 0.95, "basket": "BK_CHOKE" },
-    { "id": "TERADYNE", "name": "Teradyne", "ticker": "TER", "exchange": "NASDAQ", "layer": 2, "stage": "INSPECTION_TESTING", "chokepoint_rating": 0.85, "basket": "BK_BACK" },
-    { "id": "ADVANTEST", "name": "Advantest", "ticker": "6857.T", "exchange": "TYO", "layer": 2, "stage": "INSPECTION_TESTING", "chokepoint_rating": 0.85, "basket": "BK_BACK" },
-    { "id": "NVIDIA", "name": "NVIDIA", "ticker": "NVDA", "exchange": "NASDAQ", "layer": 2, "stage": "FOUNDRY", "chokepoint_rating": 0.95, "basket": "BK_FABLESS" },
-    { "id": "BROADCOM", "name": "Broadcom", "ticker": "AVGO", "exchange": "NASDAQ", "layer": 2, "stage": "FOUNDRY", "chokepoint_rating": 0.85, "basket": "BK_FABLESS" },
-    { "id": "FOXCONN", "name": "Hon Hai / Foxconn", "ticker": "2317.TW", "exchange": "TWSE", "layer": 3, "stage": "ODM_RACK_INTEGRATION", "chokepoint_rating": 0.80, "basket": "BK_INFRA" },
-    { "id": "ARISTA", "name": "Arista Networks", "ticker": "ANET", "exchange": "NYSE", "layer": 3, "stage": "OPTICAL_FABRIC", "chokepoint_rating": 0.85, "basket": "BK_INFRA" },
-    { "id": "VERTIV", "name": "Vertiv Holdings", "ticker": "VRT", "exchange": "NYSE", "layer": 3, "stage": "COOLING_THERMAL", "chokepoint_rating": 0.85, "basket": "BK_INFRA" },
-    { "id": "EATON", "name": "Eaton Corp", "ticker": "ETN", "exchange": "NYSE", "layer": 1, "stage": "ENERGY_GRID", "chokepoint_rating": 0.80, "basket": "BK_INFRA" },
-    { "id": "CONSTELLATION", "name": "Constellation Energy", "ticker": "CEG", "exchange": "NASDAQ", "layer": 1, "stage": "ENERGY_GRID", "chokepoint_rating": 0.75, "basket": "BK_INFRA" }
+    {
+      "id": "SNPS",
+      "name": "Synopsys",
+      "ticker": "SNPS",
+      "exchange": "NASDAQ",
+      "layer": 2,
+      "stage": "EDA_IP",
+      "chokepoint_rating": 0.85,
+      "basket": "BK_FRONT",
+      "country": "US"
+    },
+    {
+      "id": "CDNS",
+      "name": "Cadence",
+      "ticker": "CDNS",
+      "exchange": "NASDAQ",
+      "layer": 2,
+      "stage": "EDA_IP",
+      "chokepoint_rating": 0.85,
+      "basket": "BK_FRONT",
+      "country": "US"
+    },
+    {
+      "id": "ARM",
+      "name": "Arm Holdings",
+      "ticker": "ARM",
+      "exchange": "NASDAQ",
+      "layer": 2,
+      "stage": "EDA_IP",
+      "chokepoint_rating": 0.95,
+      "basket": "BK_CHOKE",
+      "country": "GB"
+    },
+    {
+      "id": "SHIN_ETSU",
+      "name": "Shin-Etsu Chemical",
+      "ticker": "4063.T",
+      "exchange": "TYO",
+      "layer": 2,
+      "stage": "RAW_MATERIALS_CHEMISTRY",
+      "chokepoint_rating": 0.9,
+      "basket": "BK_FRONT",
+      "country": "JP"
+    },
+    {
+      "id": "SUMCO",
+      "name": "SUMCO",
+      "ticker": "3436.T",
+      "exchange": "TYO",
+      "layer": 2,
+      "stage": "RAW_MATERIALS_CHEMISTRY",
+      "chokepoint_rating": 0.8,
+      "basket": "BK_FRONT",
+      "country": "JP"
+    },
+    {
+      "id": "ASML",
+      "name": "ASML",
+      "ticker": "ASML",
+      "exchange": "NASDAQ",
+      "layer": 2,
+      "stage": "WFE_LITHOGRAPHY",
+      "chokepoint_rating": 1.0,
+      "basket": "BK_CHOKE",
+      "country": "NL"
+    },
+    {
+      "id": "AMAT",
+      "name": "Applied Materials",
+      "ticker": "AMAT",
+      "exchange": "NASDAQ",
+      "layer": 2,
+      "stage": "WFE_LITHOGRAPHY",
+      "chokepoint_rating": 0.85,
+      "basket": "BK_FRONT",
+      "country": "US"
+    },
+    {
+      "id": "LRCX",
+      "name": "Lam Research",
+      "ticker": "LRCX",
+      "exchange": "NASDAQ",
+      "layer": 2,
+      "stage": "WFE_LITHOGRAPHY",
+      "chokepoint_rating": 0.85,
+      "basket": "BK_FRONT",
+      "country": "US"
+    },
+    {
+      "id": "TEL",
+      "name": "Tokyo Electron",
+      "ticker": "8035.T",
+      "exchange": "TYO",
+      "layer": 2,
+      "stage": "WFE_LITHOGRAPHY",
+      "chokepoint_rating": 0.85,
+      "basket": "BK_FRONT",
+      "country": "JP"
+    },
+    {
+      "id": "TSMC",
+      "name": "Taiwan Semiconductor",
+      "ticker": "TSM",
+      "exchange": "NYSE",
+      "layer": 2,
+      "stage": "FOUNDRY",
+      "chokepoint_rating": 0.98,
+      "basket": "BK_FRONT",
+      "country": "TW"
+    },
+    {
+      "id": "DISCO",
+      "name": "Disco Corporation",
+      "ticker": "6146.T",
+      "exchange": "TYO",
+      "layer": 2,
+      "stage": "DICING_PACKAGING_SUBSTRATE",
+      "chokepoint_rating": 0.95,
+      "basket": "BK_CHOKE",
+      "country": "JP"
+    },
+    {
+      "id": "AJINOMOTO",
+      "name": "Ajinomoto",
+      "ticker": "2802.T",
+      "exchange": "TYO",
+      "layer": 2,
+      "stage": "DICING_PACKAGING_SUBSTRATE",
+      "chokepoint_rating": 0.98,
+      "basket": "BK_CHOKE",
+      "country": "JP"
+    },
+    {
+      "id": "SK_HYNIX",
+      "name": "SK Hynix",
+      "ticker": "000660.KS",
+      "exchange": "KRX",
+      "layer": 2,
+      "stage": "MEMORY_HBM",
+      "chokepoint_rating": 0.9,
+      "basket": "BK_BACK",
+      "country": "KR"
+    },
+    {
+      "id": "MICRON",
+      "name": "Micron",
+      "ticker": "MU",
+      "exchange": "NASDAQ",
+      "layer": 2,
+      "stage": "MEMORY_HBM",
+      "chokepoint_rating": 0.8,
+      "basket": "BK_BACK",
+      "country": "US"
+    },
+    {
+      "id": "KLAC",
+      "name": "KLA Corporation",
+      "ticker": "KLAC",
+      "exchange": "NASDAQ",
+      "layer": 2,
+      "stage": "INSPECTION_TESTING",
+      "chokepoint_rating": 0.95,
+      "basket": "BK_CHOKE",
+      "country": "US"
+    },
+    {
+      "id": "TERADYNE",
+      "name": "Teradyne",
+      "ticker": "TER",
+      "exchange": "NASDAQ",
+      "layer": 2,
+      "stage": "INSPECTION_TESTING",
+      "chokepoint_rating": 0.85,
+      "basket": "BK_BACK",
+      "country": "US"
+    },
+    {
+      "id": "ADVANTEST",
+      "name": "Advantest",
+      "ticker": "6857.T",
+      "exchange": "TYO",
+      "layer": 2,
+      "stage": "INSPECTION_TESTING",
+      "chokepoint_rating": 0.85,
+      "basket": "BK_BACK",
+      "country": "JP"
+    },
+    {
+      "id": "NVIDIA",
+      "name": "NVIDIA",
+      "ticker": "NVDA",
+      "exchange": "NASDAQ",
+      "layer": 2,
+      "stage": "FOUNDRY",
+      "chokepoint_rating": 0.95,
+      "basket": "BK_FABLESS",
+      "country": "US"
+    },
+    {
+      "id": "BROADCOM",
+      "name": "Broadcom",
+      "ticker": "AVGO",
+      "exchange": "NASDAQ",
+      "layer": 2,
+      "stage": "FOUNDRY",
+      "chokepoint_rating": 0.85,
+      "basket": "BK_FABLESS",
+      "country": "US"
+    },
+    {
+      "id": "FOXCONN",
+      "name": "Hon Hai / Foxconn",
+      "ticker": "2317.TW",
+      "exchange": "TWSE",
+      "layer": 3,
+      "stage": "ODM_RACK_INTEGRATION",
+      "chokepoint_rating": 0.8,
+      "basket": "BK_INFRA",
+      "country": "TW"
+    },
+    {
+      "id": "ARISTA",
+      "name": "Arista Networks",
+      "ticker": "ANET",
+      "exchange": "NYSE",
+      "layer": 3,
+      "stage": "OPTICAL_FABRIC",
+      "chokepoint_rating": 0.85,
+      "basket": "BK_INFRA",
+      "country": "US"
+    },
+    {
+      "id": "VERTIV",
+      "name": "Vertiv Holdings",
+      "ticker": "VRT",
+      "exchange": "NYSE",
+      "layer": 3,
+      "stage": "COOLING_THERMAL",
+      "chokepoint_rating": 0.85,
+      "basket": "BK_INFRA",
+      "country": "US"
+    },
+    {
+      "id": "EATON",
+      "name": "Eaton Corp",
+      "ticker": "ETN",
+      "exchange": "NYSE",
+      "layer": 1,
+      "stage": "ENERGY_GRID",
+      "chokepoint_rating": 0.8,
+      "basket": "BK_INFRA",
+      "country": "US"
+    },
+    {
+      "id": "CONSTELLATION",
+      "name": "Constellation Energy",
+      "ticker": "CEG",
+      "exchange": "NASDAQ",
+      "layer": 1,
+      "stage": "ENERGY_GRID",
+      "chokepoint_rating": 0.75,
+      "basket": "BK_INFRA",
+      "country": "US"
+    },
+    {
+      "id": "HOYA",
+      "name": "Hoya (mask blanks)",
+      "ticker": "7741.T",
+      "exchange": "TYO",
+      "layer": 2,
+      "stage": "RAW_MATERIALS_CHEMISTRY",
+      "chokepoint_rating": 0.92,
+      "basket": "BK_CHOKE",
+      "country": "JP"
+    },
+    {
+      "id": "TOK",
+      "name": "Tokyo Ohka Kogyo",
+      "ticker": "4186.T",
+      "exchange": "TYO",
+      "layer": 2,
+      "stage": "RAW_MATERIALS_CHEMISTRY",
+      "chokepoint_rating": 0.85,
+      "basket": "BK_FRONT",
+      "country": "JP"
+    },
+    {
+      "id": "ENTEGRIS",
+      "name": "Entegris",
+      "ticker": "ENTG",
+      "exchange": "NASDAQ",
+      "layer": 2,
+      "stage": "RAW_MATERIALS_CHEMISTRY",
+      "chokepoint_rating": 0.75,
+      "basket": "BK_FRONT",
+      "country": "US"
+    },
+    {
+      "id": "LINDE",
+      "name": "Linde",
+      "ticker": "LIN",
+      "exchange": "NASDAQ",
+      "layer": 2,
+      "stage": "RAW_MATERIALS_CHEMISTRY",
+      "chokepoint_rating": 0.7,
+      "basket": "BK_FRONT",
+      "country": "US"
+    },
+    {
+      "id": "AIR_LIQUIDE",
+      "name": "Air Liquide",
+      "ticker": "AI.PA",
+      "exchange": "EPA",
+      "layer": 2,
+      "stage": "RAW_MATERIALS_CHEMISTRY",
+      "chokepoint_rating": 0.7,
+      "basket": "BK_FRONT",
+      "country": "FR"
+    },
+    {
+      "id": "SCREEN",
+      "name": "Screen Holdings",
+      "ticker": "7735.T",
+      "exchange": "TYO",
+      "layer": 2,
+      "stage": "WFE_LITHOGRAPHY",
+      "chokepoint_rating": 0.8,
+      "basket": "BK_FRONT",
+      "country": "JP"
+    },
+    {
+      "id": "KOKUSAI",
+      "name": "Kokusai Electric",
+      "ticker": "6525.T",
+      "exchange": "TYO",
+      "layer": 2,
+      "stage": "WFE_LITHOGRAPHY",
+      "chokepoint_rating": 0.75,
+      "basket": "BK_FRONT",
+      "country": "JP"
+    },
+    {
+      "id": "ASMI",
+      "name": "ASM International",
+      "ticker": "ASM.AS",
+      "exchange": "AMS",
+      "layer": 2,
+      "stage": "WFE_LITHOGRAPHY",
+      "chokepoint_rating": 0.85,
+      "basket": "BK_FRONT",
+      "country": "NL"
+    },
+    {
+      "id": "LASERTEC",
+      "name": "Lasertec (EUV mask insp.)",
+      "ticker": "6920.T",
+      "exchange": "TYO",
+      "layer": 2,
+      "stage": "INSPECTION_TESTING",
+      "chokepoint_rating": 0.97,
+      "basket": "BK_CHOKE",
+      "country": "JP"
+    },
+    {
+      "id": "ONTO",
+      "name": "Onto Innovation",
+      "ticker": "ONTO",
+      "exchange": "NYSE",
+      "layer": 2,
+      "stage": "INSPECTION_TESTING",
+      "chokepoint_rating": 0.7,
+      "basket": "BK_BACK",
+      "country": "US"
+    },
+    {
+      "id": "SAMSUNG",
+      "name": "Samsung Electronics",
+      "ticker": "005930.KS",
+      "exchange": "KRX",
+      "layer": 2,
+      "stage": "MEMORY_HBM",
+      "chokepoint_rating": 0.85,
+      "basket": "BK_BACK",
+      "country": "KR"
+    },
+    {
+      "id": "INTEL",
+      "name": "Intel",
+      "ticker": "INTC",
+      "exchange": "NASDAQ",
+      "layer": 2,
+      "stage": "FOUNDRY",
+      "chokepoint_rating": 0.7,
+      "basket": "BK_FRONT",
+      "country": "US"
+    },
+    {
+      "id": "AMD",
+      "name": "AMD",
+      "ticker": "AMD",
+      "exchange": "NASDAQ",
+      "layer": 2,
+      "stage": "FOUNDRY",
+      "chokepoint_rating": 0.8,
+      "basket": "BK_FABLESS",
+      "country": "US"
+    },
+    {
+      "id": "QUALCOMM",
+      "name": "Qualcomm",
+      "ticker": "QCOM",
+      "exchange": "NASDAQ",
+      "layer": 2,
+      "stage": "FOUNDRY",
+      "chokepoint_rating": 0.75,
+      "basket": "BK_FABLESS",
+      "country": "US"
+    },
+    {
+      "id": "MARVELL",
+      "name": "Marvell",
+      "ticker": "MRVL",
+      "exchange": "NASDAQ",
+      "layer": 2,
+      "stage": "FOUNDRY",
+      "chokepoint_rating": 0.75,
+      "basket": "BK_FABLESS",
+      "country": "US"
+    },
+    {
+      "id": "IBIDEN",
+      "name": "Ibiden (ABF substrate)",
+      "ticker": "4062.T",
+      "exchange": "TYO",
+      "layer": 2,
+      "stage": "DICING_PACKAGING_SUBSTRATE",
+      "chokepoint_rating": 0.85,
+      "basket": "BK_BACK",
+      "country": "JP"
+    },
+    {
+      "id": "UNIMICRON",
+      "name": "Unimicron",
+      "ticker": "3037.TW",
+      "exchange": "TWSE",
+      "layer": 2,
+      "stage": "DICING_PACKAGING_SUBSTRATE",
+      "chokepoint_rating": 0.8,
+      "basket": "BK_BACK",
+      "country": "TW"
+    },
+    {
+      "id": "ASE",
+      "name": "ASE Technology",
+      "ticker": "3711.TW",
+      "exchange": "TWSE",
+      "layer": 2,
+      "stage": "DICING_PACKAGING_SUBSTRATE",
+      "chokepoint_rating": 0.85,
+      "basket": "BK_BACK",
+      "country": "TW"
+    },
+    {
+      "id": "AMKOR",
+      "name": "Amkor Technology",
+      "ticker": "AMKR",
+      "exchange": "NASDAQ",
+      "layer": 2,
+      "stage": "DICING_PACKAGING_SUBSTRATE",
+      "chokepoint_rating": 0.7,
+      "basket": "BK_BACK",
+      "country": "US"
+    },
+    {
+      "id": "QUANTA",
+      "name": "Quanta Computer",
+      "ticker": "2382.TW",
+      "exchange": "TWSE",
+      "layer": 3,
+      "stage": "ODM_RACK_INTEGRATION",
+      "chokepoint_rating": 0.8,
+      "basket": "BK_INFRA",
+      "country": "TW"
+    },
+    {
+      "id": "WISTRON",
+      "name": "Wistron",
+      "ticker": "3231.TW",
+      "exchange": "TWSE",
+      "layer": 3,
+      "stage": "ODM_RACK_INTEGRATION",
+      "chokepoint_rating": 0.75,
+      "basket": "BK_INFRA",
+      "country": "TW"
+    },
+    {
+      "id": "SMCI",
+      "name": "Super Micro",
+      "ticker": "SMCI",
+      "exchange": "NASDAQ",
+      "layer": 3,
+      "stage": "ODM_RACK_INTEGRATION",
+      "chokepoint_rating": 0.65,
+      "basket": "BK_INFRA",
+      "country": "US"
+    },
+    {
+      "id": "DELL",
+      "name": "Dell Technologies",
+      "ticker": "DELL",
+      "exchange": "NYSE",
+      "layer": 3,
+      "stage": "ODM_RACK_INTEGRATION",
+      "chokepoint_rating": 0.65,
+      "basket": "BK_INFRA",
+      "country": "US"
+    },
+    {
+      "id": "NVENT",
+      "name": "nVent Electric",
+      "ticker": "NVT",
+      "exchange": "NYSE",
+      "layer": 3,
+      "stage": "COOLING_THERMAL",
+      "chokepoint_rating": 0.65,
+      "basket": "BK_INFRA",
+      "country": "US"
+    },
+    {
+      "id": "COHERENT",
+      "name": "Coherent",
+      "ticker": "COHR",
+      "exchange": "NYSE",
+      "layer": 3,
+      "stage": "OPTICAL_FABRIC",
+      "chokepoint_rating": 0.8,
+      "basket": "BK_INFRA",
+      "country": "US"
+    },
+    {
+      "id": "LUMENTUM",
+      "name": "Lumentum",
+      "ticker": "LITE",
+      "exchange": "NASDAQ",
+      "layer": 3,
+      "stage": "OPTICAL_FABRIC",
+      "chokepoint_rating": 0.75,
+      "basket": "BK_INFRA",
+      "country": "US"
+    },
+    {
+      "id": "FABRINET",
+      "name": "Fabrinet",
+      "ticker": "FN",
+      "exchange": "NYSE",
+      "layer": 3,
+      "stage": "OPTICAL_FABRIC",
+      "chokepoint_rating": 0.75,
+      "basket": "BK_INFRA",
+      "country": "US"
+    },
+    {
+      "id": "CREDO",
+      "name": "Credo Technology",
+      "ticker": "CRDO",
+      "exchange": "NASDAQ",
+      "layer": 3,
+      "stage": "OPTICAL_FABRIC",
+      "chokepoint_rating": 0.7,
+      "basket": "BK_INFRA",
+      "country": "US"
+    },
+    {
+      "id": "ASTERA",
+      "name": "Astera Labs",
+      "ticker": "ALAB",
+      "exchange": "NASDAQ",
+      "layer": 3,
+      "stage": "OPTICAL_FABRIC",
+      "chokepoint_rating": 0.7,
+      "basket": "BK_INFRA",
+      "country": "US"
+    },
+    {
+      "id": "VISTRA",
+      "name": "Vistra",
+      "ticker": "VST",
+      "exchange": "NYSE",
+      "layer": 1,
+      "stage": "ENERGY_GRID",
+      "chokepoint_rating": 0.75,
+      "basket": "BK_INFRA",
+      "country": "US"
+    },
+    {
+      "id": "GEVERNOVA",
+      "name": "GE Vernova",
+      "ticker": "GEV",
+      "exchange": "NYSE",
+      "layer": 1,
+      "stage": "ENERGY_GRID",
+      "chokepoint_rating": 0.8,
+      "basket": "BK_INFRA",
+      "country": "US"
+    },
+    {
+      "id": "SCHNEIDER",
+      "name": "Schneider Electric",
+      "ticker": "SU.PA",
+      "exchange": "EPA",
+      "layer": 1,
+      "stage": "ENERGY_GRID",
+      "chokepoint_rating": 0.8,
+      "basket": "BK_INFRA",
+      "country": "FR"
+    },
+    {
+      "id": "BLOOM",
+      "name": "Bloom Energy",
+      "ticker": "BE",
+      "exchange": "NYSE",
+      "layer": 1,
+      "stage": "ENERGY_GRID",
+      "chokepoint_rating": 0.6,
+      "basket": "BK_INFRA",
+      "country": "US"
+    },
+    {
+      "id": "MICROSOFT",
+      "name": "Microsoft",
+      "ticker": "MSFT",
+      "exchange": "NASDAQ",
+      "layer": 4,
+      "stage": "HYPERSCALE_DEPLOYMENT",
+      "chokepoint_rating": 0.7,
+      "basket": "BK_INFRA",
+      "country": "US"
+    },
+    {
+      "id": "GOOGLE",
+      "name": "Alphabet",
+      "ticker": "GOOGL",
+      "exchange": "NASDAQ",
+      "layer": 4,
+      "stage": "HYPERSCALE_DEPLOYMENT",
+      "chokepoint_rating": 0.7,
+      "basket": "BK_INFRA",
+      "country": "US"
+    },
+    {
+      "id": "AMAZON",
+      "name": "Amazon",
+      "ticker": "AMZN",
+      "exchange": "NASDAQ",
+      "layer": 4,
+      "stage": "HYPERSCALE_DEPLOYMENT",
+      "chokepoint_rating": 0.7,
+      "basket": "BK_INFRA",
+      "country": "US"
+    },
+    {
+      "id": "META",
+      "name": "Meta Platforms",
+      "ticker": "META",
+      "exchange": "NASDAQ",
+      "layer": 4,
+      "stage": "HYPERSCALE_DEPLOYMENT",
+      "chokepoint_rating": 0.7,
+      "basket": "BK_INFRA",
+      "country": "US"
+    }
   ],
   "edges": [
-    { "source": "ASML", "target": "TSMC", "relationship": "EUV_EQUIPMENT_SUPPLY", "lead_time_days": 365, "criticality": "CRITICAL" },
-    { "source": "SHIN_ETSU", "target": "TSMC", "relationship": "SILICON_WAFER_SUPPLY", "lead_time_days": 90, "criticality": "CRITICAL" },
-    { "source": "AMAT", "target": "TSMC", "relationship": "DEPOSITION_ETCH_TOOLS", "lead_time_days": 180, "criticality": "CRITICAL" },
-    { "source": "CDNS", "target": "NVIDIA", "relationship": "EDA_DESIGN_SOFTWARE", "lead_time_days": 30, "criticality": "HIGH" },
-    { "source": "TSMC", "target": "DISCO", "relationship": "WAFER_DICING", "lead_time_days": 14, "criticality": "HIGH" },
-    { "source": "AJINOMOTO", "target": "TSMC", "relationship": "ABF_SUBSTRATE_FILM", "lead_time_days": 60, "criticality": "CRITICAL" },
-    { "source": "SK_HYNIX", "target": "TSMC", "relationship": "HBM_INTEGRATION", "lead_time_days": 60, "criticality": "CRITICAL" },
-    { "source": "KLAC", "target": "TSMC", "relationship": "YIELD_INSPECTION", "lead_time_days": 120, "criticality": "CRITICAL" },
-    { "source": "TSMC", "target": "TERADYNE", "relationship": "ATE_FINAL_TEST", "lead_time_days": 30, "criticality": "CRITICAL" },
-    { "source": "TSMC", "target": "NVIDIA", "relationship": "COWOS_PACKAGED_GPU", "lead_time_days": 120, "criticality": "CRITICAL" },
-    { "source": "NVIDIA", "target": "FOXCONN", "relationship": "COMPUTE_TRAY_ASSEMBLY", "lead_time_days": 45, "criticality": "HIGH" },
-    { "source": "ARISTA", "target": "FOXCONN", "relationship": "SWITCH_TRAY_INTEGRATION", "lead_time_days": 30, "criticality": "HIGH" },
-    { "source": "VERTIV", "target": "FOXCONN", "relationship": "LIQUID_COOLING_MANIFOLD", "lead_time_days": 45, "criticality": "HIGH" },
-    { "source": "EATON", "target": "FOXCONN", "relationship": "PDU_POWER_DISTRIBUTION", "lead_time_days": 60, "criticality": "HIGH" }
+    {
+      "source": "ASML",
+      "target": "TSMC",
+      "relationship": "EUV_EQUIPMENT_SUPPLY",
+      "lead_time_days": 365,
+      "criticality": "CRITICAL"
+    },
+    {
+      "source": "SHIN_ETSU",
+      "target": "TSMC",
+      "relationship": "SILICON_WAFER_SUPPLY",
+      "lead_time_days": 90,
+      "criticality": "CRITICAL"
+    },
+    {
+      "source": "AMAT",
+      "target": "TSMC",
+      "relationship": "DEPOSITION_ETCH_TOOLS",
+      "lead_time_days": 180,
+      "criticality": "CRITICAL"
+    },
+    {
+      "source": "CDNS",
+      "target": "NVIDIA",
+      "relationship": "EDA_DESIGN_SOFTWARE",
+      "lead_time_days": 30,
+      "criticality": "HIGH"
+    },
+    {
+      "source": "TSMC",
+      "target": "DISCO",
+      "relationship": "WAFER_DICING",
+      "lead_time_days": 14,
+      "criticality": "HIGH"
+    },
+    {
+      "source": "AJINOMOTO",
+      "target": "TSMC",
+      "relationship": "ABF_SUBSTRATE_FILM",
+      "lead_time_days": 60,
+      "criticality": "CRITICAL"
+    },
+    {
+      "source": "SK_HYNIX",
+      "target": "TSMC",
+      "relationship": "HBM_INTEGRATION",
+      "lead_time_days": 60,
+      "criticality": "CRITICAL"
+    },
+    {
+      "source": "KLAC",
+      "target": "TSMC",
+      "relationship": "YIELD_INSPECTION",
+      "lead_time_days": 120,
+      "criticality": "CRITICAL"
+    },
+    {
+      "source": "TSMC",
+      "target": "TERADYNE",
+      "relationship": "ATE_FINAL_TEST",
+      "lead_time_days": 30,
+      "criticality": "CRITICAL"
+    },
+    {
+      "source": "TSMC",
+      "target": "NVIDIA",
+      "relationship": "COWOS_PACKAGED_GPU",
+      "lead_time_days": 120,
+      "criticality": "CRITICAL"
+    },
+    {
+      "source": "NVIDIA",
+      "target": "FOXCONN",
+      "relationship": "COMPUTE_TRAY_ASSEMBLY",
+      "lead_time_days": 45,
+      "criticality": "HIGH"
+    },
+    {
+      "source": "ARISTA",
+      "target": "FOXCONN",
+      "relationship": "SWITCH_TRAY_INTEGRATION",
+      "lead_time_days": 30,
+      "criticality": "HIGH"
+    },
+    {
+      "source": "VERTIV",
+      "target": "FOXCONN",
+      "relationship": "LIQUID_COOLING_MANIFOLD",
+      "lead_time_days": 45,
+      "criticality": "HIGH"
+    },
+    {
+      "source": "EATON",
+      "target": "FOXCONN",
+      "relationship": "PDU_POWER_DISTRIBUTION",
+      "lead_time_days": 60,
+      "criticality": "HIGH"
+    },
+    {
+      "source": "ARM",
+      "target": "NVIDIA",
+      "relationship": "ISA_ARCHITECTURE_LICENSE",
+      "lead_time_days": 30,
+      "criticality": "HIGH"
+    },
+    {
+      "source": "SNPS",
+      "target": "BROADCOM",
+      "relationship": "EDA_DESIGN_SOFTWARE",
+      "lead_time_days": 30,
+      "criticality": "HIGH"
+    },
+    {
+      "source": "HOYA",
+      "target": "TSMC",
+      "relationship": "EUV_MASK_BLANKS",
+      "lead_time_days": 90,
+      "criticality": "CRITICAL"
+    },
+    {
+      "source": "TOK",
+      "target": "TSMC",
+      "relationship": "PHOTORESIST_SUPPLY",
+      "lead_time_days": 60,
+      "criticality": "CRITICAL"
+    },
+    {
+      "source": "ENTEGRIS",
+      "target": "TSMC",
+      "relationship": "FILTRATION_MATERIALS",
+      "lead_time_days": 45,
+      "criticality": "HIGH"
+    },
+    {
+      "source": "LINDE",
+      "target": "TSMC",
+      "relationship": "INDUSTRIAL_GASES",
+      "lead_time_days": 30,
+      "criticality": "HIGH"
+    },
+    {
+      "source": "AIR_LIQUIDE",
+      "target": "SAMSUNG",
+      "relationship": "INDUSTRIAL_GASES",
+      "lead_time_days": 30,
+      "criticality": "HIGH"
+    },
+    {
+      "source": "SUMCO",
+      "target": "SAMSUNG",
+      "relationship": "SILICON_WAFER_SUPPLY",
+      "lead_time_days": 90,
+      "criticality": "HIGH"
+    },
+    {
+      "source": "SCREEN",
+      "target": "TSMC",
+      "relationship": "CLEAN_TRACK_TOOLS",
+      "lead_time_days": 150,
+      "criticality": "HIGH"
+    },
+    {
+      "source": "KOKUSAI",
+      "target": "SAMSUNG",
+      "relationship": "BATCH_DEPOSITION_TOOLS",
+      "lead_time_days": 150,
+      "criticality": "MODERATE"
+    },
+    {
+      "source": "ASMI",
+      "target": "TSMC",
+      "relationship": "ALD_TOOLS",
+      "lead_time_days": 180,
+      "criticality": "HIGH"
+    },
+    {
+      "source": "LRCX",
+      "target": "SAMSUNG",
+      "relationship": "ETCH_TOOLS",
+      "lead_time_days": 180,
+      "criticality": "HIGH"
+    },
+    {
+      "source": "TEL",
+      "target": "TSMC",
+      "relationship": "COATER_DEVELOPER_TOOLS",
+      "lead_time_days": 180,
+      "criticality": "CRITICAL"
+    },
+    {
+      "source": "LASERTEC",
+      "target": "TSMC",
+      "relationship": "EUV_MASK_INSPECTION",
+      "lead_time_days": 180,
+      "criticality": "CRITICAL"
+    },
+    {
+      "source": "ASML",
+      "target": "SAMSUNG",
+      "relationship": "EUV_EQUIPMENT_SUPPLY",
+      "lead_time_days": 365,
+      "criticality": "CRITICAL"
+    },
+    {
+      "source": "ASML",
+      "target": "INTEL",
+      "relationship": "EUV_EQUIPMENT_SUPPLY",
+      "lead_time_days": 365,
+      "criticality": "CRITICAL"
+    },
+    {
+      "source": "SAMSUNG",
+      "target": "NVIDIA",
+      "relationship": "HBM_SUPPLY",
+      "lead_time_days": 60,
+      "criticality": "HIGH"
+    },
+    {
+      "source": "MICRON",
+      "target": "NVIDIA",
+      "relationship": "HBM_SUPPLY",
+      "lead_time_days": 60,
+      "criticality": "CRITICAL"
+    },
+    {
+      "source": "TSMC",
+      "target": "AMD",
+      "relationship": "ADVANCED_NODE_WAFERS",
+      "lead_time_days": 120,
+      "criticality": "CRITICAL"
+    },
+    {
+      "source": "TSMC",
+      "target": "QUALCOMM",
+      "relationship": "ADVANCED_NODE_WAFERS",
+      "lead_time_days": 90,
+      "criticality": "HIGH"
+    },
+    {
+      "source": "TSMC",
+      "target": "MARVELL",
+      "relationship": "ADVANCED_NODE_WAFERS",
+      "lead_time_days": 90,
+      "criticality": "HIGH"
+    },
+    {
+      "source": "TSMC",
+      "target": "BROADCOM",
+      "relationship": "ADVANCED_NODE_WAFERS",
+      "lead_time_days": 120,
+      "criticality": "CRITICAL"
+    },
+    {
+      "source": "IBIDEN",
+      "target": "TSMC",
+      "relationship": "ABF_SUBSTRATE",
+      "lead_time_days": 60,
+      "criticality": "CRITICAL"
+    },
+    {
+      "source": "UNIMICRON",
+      "target": "TSMC",
+      "relationship": "ABF_SUBSTRATE",
+      "lead_time_days": 60,
+      "criticality": "HIGH"
+    },
+    {
+      "source": "ASE",
+      "target": "NVIDIA",
+      "relationship": "OSAT_PACKAGING",
+      "lead_time_days": 45,
+      "criticality": "HIGH"
+    },
+    {
+      "source": "AMKOR",
+      "target": "AMD",
+      "relationship": "OSAT_PACKAGING",
+      "lead_time_days": 45,
+      "criticality": "HIGH"
+    },
+    {
+      "source": "ADVANTEST",
+      "target": "NVIDIA",
+      "relationship": "SOC_ATE_TEST",
+      "lead_time_days": 30,
+      "criticality": "CRITICAL"
+    },
+    {
+      "source": "NVIDIA",
+      "target": "QUANTA",
+      "relationship": "COMPUTE_TRAY_ASSEMBLY",
+      "lead_time_days": 45,
+      "criticality": "HIGH"
+    },
+    {
+      "source": "NVIDIA",
+      "target": "WISTRON",
+      "relationship": "COMPUTE_TRAY_ASSEMBLY",
+      "lead_time_days": 45,
+      "criticality": "HIGH"
+    },
+    {
+      "source": "NVIDIA",
+      "target": "SMCI",
+      "relationship": "COMPUTE_TRAY_ASSEMBLY",
+      "lead_time_days": 45,
+      "criticality": "HIGH"
+    },
+    {
+      "source": "NVIDIA",
+      "target": "DELL",
+      "relationship": "COMPUTE_TRAY_ASSEMBLY",
+      "lead_time_days": 45,
+      "criticality": "MODERATE"
+    },
+    {
+      "source": "AMD",
+      "target": "SMCI",
+      "relationship": "COMPUTE_TRAY_ASSEMBLY",
+      "lead_time_days": 45,
+      "criticality": "MODERATE"
+    },
+    {
+      "source": "COHERENT",
+      "target": "ARISTA",
+      "relationship": "OPTICAL_TRANSCEIVERS",
+      "lead_time_days": 60,
+      "criticality": "HIGH"
+    },
+    {
+      "source": "LUMENTUM",
+      "target": "ARISTA",
+      "relationship": "OPTICAL_TRANSCEIVERS",
+      "lead_time_days": 60,
+      "criticality": "HIGH"
+    },
+    {
+      "source": "FABRINET",
+      "target": "COHERENT",
+      "relationship": "OPTICS_CONTRACT_MFG",
+      "lead_time_days": 45,
+      "criticality": "HIGH"
+    },
+    {
+      "source": "CREDO",
+      "target": "AMAZON",
+      "relationship": "AEC_INTERCONNECT",
+      "lead_time_days": 45,
+      "criticality": "MODERATE"
+    },
+    {
+      "source": "ASTERA",
+      "target": "SMCI",
+      "relationship": "PCIE_CXL_CONNECTIVITY",
+      "lead_time_days": 45,
+      "criticality": "MODERATE"
+    },
+    {
+      "source": "NVENT",
+      "target": "SMCI",
+      "relationship": "LIQUID_COOLING_ENCLOSURES",
+      "lead_time_days": 45,
+      "criticality": "MODERATE"
+    },
+    {
+      "source": "FOXCONN",
+      "target": "MICROSOFT",
+      "relationship": "RACK_SCALE_DELIVERY",
+      "lead_time_days": 60,
+      "criticality": "CRITICAL"
+    },
+    {
+      "source": "QUANTA",
+      "target": "META",
+      "relationship": "RACK_SCALE_DELIVERY",
+      "lead_time_days": 60,
+      "criticality": "HIGH"
+    },
+    {
+      "source": "WISTRON",
+      "target": "GOOGLE",
+      "relationship": "RACK_SCALE_DELIVERY",
+      "lead_time_days": 60,
+      "criticality": "HIGH"
+    },
+    {
+      "source": "DELL",
+      "target": "AMAZON",
+      "relationship": "RACK_SCALE_DELIVERY",
+      "lead_time_days": 60,
+      "criticality": "MODERATE"
+    },
+    {
+      "source": "CONSTELLATION",
+      "target": "MICROSOFT",
+      "relationship": "NUCLEAR_PPA",
+      "lead_time_days": 720,
+      "criticality": "CRITICAL"
+    },
+    {
+      "source": "VISTRA",
+      "target": "AMAZON",
+      "relationship": "NUCLEAR_PPA",
+      "lead_time_days": 720,
+      "criticality": "HIGH"
+    },
+    {
+      "source": "GEVERNOVA",
+      "target": "CONSTELLATION",
+      "relationship": "TURBINES_GRID_EQUIPMENT",
+      "lead_time_days": 540,
+      "criticality": "HIGH"
+    },
+    {
+      "source": "SCHNEIDER",
+      "target": "AMAZON",
+      "relationship": "DATACENTER_POWER_SYSTEMS",
+      "lead_time_days": 90,
+      "criticality": "HIGH"
+    },
+    {
+      "source": "BLOOM",
+      "target": "GOOGLE",
+      "relationship": "FUEL_CELL_POWER",
+      "lead_time_days": 120,
+      "criticality": "MODERATE"
+    },
+    {
+      "source": "EATON",
+      "target": "MICROSOFT",
+      "relationship": "GRID_SWITCHGEAR",
+      "lead_time_days": 180,
+      "criticality": "HIGH"
+    }
   ]
 }

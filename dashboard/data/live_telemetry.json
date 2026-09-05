@@ -2,8 +2,8 @@
   "metadata": {
     "source": "AlphaTopology Ingestion Engine",
     "provider": "yfinance",
-    "total_nodes": 24,
-    "live_quotes": 24
+    "total_nodes": 61,
+    "live_quotes": 61
   },
   "nodes": [
     {
@@ -15,6 +15,7 @@
       "stage": "EDA_IP",
       "chokepoint_rating": 0.85,
       "basket": "BK_FRONT",
+      "country": "US",
       "market_data": {
         "price": 393.84,
         "change_pct": -5.4,
@@ -38,6 +39,7 @@
       "stage": "EDA_IP",
       "chokepoint_rating": 0.85,
       "basket": "BK_FRONT",
+      "country": "US",
       "market_data": {
         "price": 292.7,
         "change_pct": -3.86,
@@ -61,6 +63,7 @@
       "stage": "EDA_IP",
       "chokepoint_rating": 0.95,
       "basket": "BK_CHOKE",
+      "country": "GB",
       "market_data": {
         "price": 252.09,
         "change_pct": 4.13,
@@ -84,6 +87,7 @@
       "stage": "RAW_MATERIALS_CHEMISTRY",
       "chokepoint_rating": 0.9,
       "basket": "BK_FRONT",
+      "country": "JP",
       "market_data": {
         "price": 5786.0,
         "change_pct": -1.23,
@@ -107,6 +111,7 @@
       "stage": "RAW_MATERIALS_CHEMISTRY",
       "chokepoint_rating": 0.8,
       "basket": "BK_FRONT",
+      "country": "JP",
       "market_data": {
         "price": 3229.0,
         "change_pct": 2.67,
@@ -130,6 +135,7 @@
       "stage": "WFE_LITHOGRAPHY",
       "chokepoint_rating": 1.0,
       "basket": "BK_CHOKE",
+      "country": "NL",
       "market_data": {
         "price": 1714.88,
         "change_pct": 4.17,
@@ -153,6 +159,7 @@
       "stage": "WFE_LITHOGRAPHY",
       "chokepoint_rating": 0.85,
       "basket": "BK_FRONT",
+      "country": "US",
       "market_data": {
         "price": 454.71,
         "change_pct": 4.38,
@@ -176,6 +183,7 @@
       "stage": "WFE_LITHOGRAPHY",
       "chokepoint_rating": 0.85,
       "basket": "BK_FRONT",
+      "country": "US",
       "market_data": {
         "price": 307.65,
         "change_pct": 4.96,
@@ -199,6 +207,7 @@
       "stage": "WFE_LITHOGRAPHY",
       "chokepoint_rating": 0.85,
       "basket": "BK_FRONT",
+      "country": "JP",
       "market_data": {
         "price": 53320.0,
         "change_pct": -0.19,
@@ -222,6 +231,7 @@
       "stage": "FOUNDRY",
       "chokepoint_rating": 0.98,
       "basket": "BK_FRONT",
+      "country": "TW",
       "market_data": {
         "price": 428.91,
         "change_pct": 3.0,
@@ -245,6 +255,7 @@
       "stage": "DICING_PACKAGING_SUBSTRATE",
       "chokepoint_rating": 0.95,
       "basket": "BK_CHOKE",
+      "country": "JP",
       "market_data": {
         "price": 54460.0,
         "change_pct": 0.54,
@@ -268,6 +279,7 @@
       "stage": "DICING_PACKAGING_SUBSTRATE",
       "chokepoint_rating": 0.98,
       "basket": "BK_CHOKE",
+      "country": "JP",
       "market_data": {
         "price": 5174.0,
         "change_pct": -0.42,
@@ -291,6 +303,7 @@
       "stage": "MEMORY_HBM",
       "chokepoint_rating": 0.9,
       "basket": "BK_BACK",
+      "country": "KR",
       "market_data": {
         "price": 1647000.0,
         "change_pct": 3.2,
@@ -314,6 +327,7 @@
       "stage": "MEMORY_HBM",
       "chokepoint_rating": 0.8,
       "basket": "BK_BACK",
+      "country": "US",
       "market_data": {
         "price": 1016.59,
         "change_pct": 6.58,
@@ -337,6 +351,7 @@
       "stage": "INSPECTION_TESTING",
       "chokepoint_rating": 0.95,
       "basket": "BK_CHOKE",
+      "country": "US",
       "market_data": {
         "price": 185.6,
         "change_pct": 7.28,
@@ -360,6 +375,7 @@
       "stage": "INSPECTION_TESTING",
       "chokepoint_rating": 0.85,
       "basket": "BK_BACK",
+      "country": "US",
       "market_data": {
         "price": 357.03,
         "change_pct": 5.43,
@@ -383,6 +399,7 @@
       "stage": "INSPECTION_TESTING",
       "chokepoint_rating": 0.85,
       "basket": "BK_BACK",
+      "country": "JP",
       "market_data": {
         "price": 33090.0,
         "change_pct": 2.35,
@@ -406,6 +423,7 @@
       "stage": "FOUNDRY",
       "chokepoint_rating": 0.95,
       "basket": "BK_FABLESS",
+      "country": "US",
       "market_data": {
         "price": 230.36,
         "change_pct": 0.32,
@@ -429,6 +447,7 @@
       "stage": "FOUNDRY",
       "chokepoint_rating": 0.85,
       "basket": "BK_FABLESS",
+      "country": "US",
       "market_data": {
         "price": 357.9,
         "change_pct": 0.4,
@@ -452,6 +471,7 @@
       "stage": "ODM_RACK_INTEGRATION",
       "chokepoint_rating": 0.8,
       "basket": "BK_INFRA",
+      "country": "TW",
       "market_data": {
         "price": 256.0,
         "change_pct": 3.02,
@@ -475,6 +495,7 @@
       "stage": "OPTICAL_FABRIC",
       "chokepoint_rating": 0.85,
       "basket": "BK_INFRA",
+      "country": "US",
       "market_data": {
         "price": 193.78,
         "change_pct": 1.36,
@@ -498,6 +519,7 @@
       "stage": "COOLING_THERMAL",
       "chokepoint_rating": 0.85,
       "basket": "BK_INFRA",
+      "country": "US",
       "market_data": {
         "price": 280.53,
         "change_pct": 4.32,
@@ -521,6 +543,7 @@
       "stage": "ENERGY_GRID",
       "chokepoint_rating": 0.8,
       "basket": "BK_INFRA",
+      "country": "US",
       "market_data": {
         "price": 410.85,
         "change_pct": 3.42,
@@ -544,6 +567,7 @@
       "stage": "ENERGY_GRID",
       "chokepoint_rating": 0.75,
       "basket": "BK_INFRA",
+      "country": "US",
       "market_data": {
         "price": 298.96,
         "change_pct": 4.77,
@@ -555,6 +579,894 @@
         "metric": "PPA Baseload Spread",
         "value": "$95/MWh",
         "status": "COMMITTED",
+        "lead_time_trend": "STABLE"
+      }
+    },
+    {
+      "id": "HOYA",
+      "name": "Hoya (mask blanks)",
+      "ticker": "7741.T",
+      "exchange": "TYO",
+      "layer": 2,
+      "stage": "RAW_MATERIALS_CHEMISTRY",
+      "chokepoint_rating": 0.92,
+      "basket": "BK_CHOKE",
+      "country": "JP",
+      "market_data": {
+        "price": 24140.0,
+        "change_pct": -1.39,
+        "volume": 985000,
+        "currency": "JPY",
+        "live": true
+      },
+      "telemetry": {
+        "metric": "Operational Throughput",
+        "value": "Normal Run-rate",
+        "status": "BALANCED",
+        "lead_time_trend": "STABLE"
+      }
+    },
+    {
+      "id": "TOK",
+      "name": "Tokyo Ohka Kogyo",
+      "ticker": "4186.T",
+      "exchange": "TYO",
+      "layer": 2,
+      "stage": "RAW_MATERIALS_CHEMISTRY",
+      "chokepoint_rating": 0.85,
+      "basket": "BK_FRONT",
+      "country": "JP",
+      "market_data": {
+        "price": 8276.0,
+        "change_pct": 1.82,
+        "volume": 713600,
+        "currency": "JPY",
+        "live": true
+      },
+      "telemetry": {
+        "metric": "Operational Throughput",
+        "value": "Normal Run-rate",
+        "status": "BALANCED",
+        "lead_time_trend": "STABLE"
+      }
+    },
+    {
+      "id": "ENTEGRIS",
+      "name": "Entegris",
+      "ticker": "ENTG",
+      "exchange": "NASDAQ",
+      "layer": 2,
+      "stage": "RAW_MATERIALS_CHEMISTRY",
+      "chokepoint_rating": 0.75,
+      "basket": "BK_FRONT",
+      "country": "US",
+      "market_data": {
+        "price": 138.74,
+        "change_pct": 5.91,
+        "volume": 1885000,
+        "currency": "USD",
+        "live": true
+      },
+      "telemetry": {
+        "metric": "Operational Throughput",
+        "value": "Normal Run-rate",
+        "status": "BALANCED",
+        "lead_time_trend": "STABLE"
+      }
+    },
+    {
+      "id": "LINDE",
+      "name": "Linde",
+      "ticker": "LIN",
+      "exchange": "NASDAQ",
+      "layer": 2,
+      "stage": "RAW_MATERIALS_CHEMISTRY",
+      "chokepoint_rating": 0.7,
+      "basket": "BK_FRONT",
+      "country": "US",
+      "market_data": {
+        "price": 477.57,
+        "change_pct": -1.91,
+        "volume": 2273700,
+        "currency": "USD",
+        "live": true
+      },
+      "telemetry": {
+        "metric": "Operational Throughput",
+        "value": "Normal Run-rate",
+        "status": "BALANCED",
+        "lead_time_trend": "STABLE"
+      }
+    },
+    {
+      "id": "AIR_LIQUIDE",
+      "name": "Air Liquide",
+      "ticker": "AI.PA",
+      "exchange": "EPA",
+      "layer": 2,
+      "stage": "RAW_MATERIALS_CHEMISTRY",
+      "chokepoint_rating": 0.7,
+      "basket": "BK_FRONT",
+      "country": "FR",
+      "market_data": {
+        "price": 170.44,
+        "change_pct": -1.64,
+        "volume": 624292,
+        "currency": "EUR",
+        "live": true
+      },
+      "telemetry": {
+        "metric": "Operational Throughput",
+        "value": "Normal Run-rate",
+        "status": "BALANCED",
+        "lead_time_trend": "STABLE"
+      }
+    },
+    {
+      "id": "SCREEN",
+      "name": "Screen Holdings",
+      "ticker": "7735.T",
+      "exchange": "TYO",
+      "layer": 2,
+      "stage": "WFE_LITHOGRAPHY",
+      "chokepoint_rating": 0.8,
+      "basket": "BK_FRONT",
+      "country": "JP",
+      "market_data": {
+        "price": 13030.0,
+        "change_pct": 0.31,
+        "volume": 1576000,
+        "currency": "JPY",
+        "live": true
+      },
+      "telemetry": {
+        "metric": "Operational Throughput",
+        "value": "Normal Run-rate",
+        "status": "BALANCED",
+        "lead_time_trend": "STABLE"
+      }
+    },
+    {
+      "id": "KOKUSAI",
+      "name": "Kokusai Electric",
+      "ticker": "6525.T",
+      "exchange": "TYO",
+      "layer": 2,
+      "stage": "WFE_LITHOGRAPHY",
+      "chokepoint_rating": 0.75,
+      "basket": "BK_FRONT",
+      "country": "JP",
+      "market_data": {
+        "price": 8295.0,
+        "change_pct": -0.36,
+        "volume": 5562600,
+        "currency": "JPY",
+        "live": true
+      },
+      "telemetry": {
+        "metric": "Operational Throughput",
+        "value": "Normal Run-rate",
+        "status": "BALANCED",
+        "lead_time_trend": "STABLE"
+      }
+    },
+    {
+      "id": "ASMI",
+      "name": "ASM International",
+      "ticker": "ASM.AS",
+      "exchange": "AMS",
+      "layer": 2,
+      "stage": "WFE_LITHOGRAPHY",
+      "chokepoint_rating": 0.85,
+      "basket": "BK_FRONT",
+      "country": "NL",
+      "market_data": {
+        "price": 825.2,
+        "change_pct": 6.59,
+        "volume": 150880,
+        "currency": "EUR",
+        "live": true
+      },
+      "telemetry": {
+        "metric": "Operational Throughput",
+        "value": "Normal Run-rate",
+        "status": "BALANCED",
+        "lead_time_trend": "STABLE"
+      }
+    },
+    {
+      "id": "LASERTEC",
+      "name": "Lasertec (EUV mask insp.)",
+      "ticker": "6920.T",
+      "exchange": "TYO",
+      "layer": 2,
+      "stage": "INSPECTION_TESTING",
+      "chokepoint_rating": 0.97,
+      "basket": "BK_CHOKE",
+      "country": "JP",
+      "market_data": {
+        "price": 33180.0,
+        "change_pct": -1.95,
+        "volume": 3214400,
+        "currency": "JPY",
+        "live": true
+      },
+      "telemetry": {
+        "metric": "Operational Throughput",
+        "value": "Normal Run-rate",
+        "status": "BALANCED",
+        "lead_time_trend": "STABLE"
+      }
+    },
+    {
+      "id": "ONTO",
+      "name": "Onto Innovation",
+      "ticker": "ONTO",
+      "exchange": "NYSE",
+      "layer": 2,
+      "stage": "INSPECTION_TESTING",
+      "chokepoint_rating": 0.7,
+      "basket": "BK_BACK",
+      "country": "US",
+      "market_data": {
+        "price": 268.01,
+        "change_pct": 5.06,
+        "volume": 721600,
+        "currency": "USD",
+        "live": true
+      },
+      "telemetry": {
+        "metric": "Operational Throughput",
+        "value": "Normal Run-rate",
+        "status": "BALANCED",
+        "lead_time_trend": "STABLE"
+      }
+    },
+    {
+      "id": "SAMSUNG",
+      "name": "Samsung Electronics",
+      "ticker": "005930.KS",
+      "exchange": "KRX",
+      "layer": 2,
+      "stage": "MEMORY_HBM",
+      "chokepoint_rating": 0.85,
+      "basket": "BK_BACK",
+      "country": "KR",
+      "market_data": {
+        "price": 255500.0,
+        "change_pct": 2.2,
+        "volume": 14031862,
+        "currency": "KRW",
+        "live": true
+      },
+      "telemetry": {
+        "metric": "Operational Throughput",
+        "value": "Normal Run-rate",
+        "status": "BALANCED",
+        "lead_time_trend": "STABLE"
+      }
+    },
+    {
+      "id": "INTEL",
+      "name": "Intel",
+      "ticker": "INTC",
+      "exchange": "NASDAQ",
+      "layer": 2,
+      "stage": "FOUNDRY",
+      "chokepoint_rating": 0.7,
+      "basket": "BK_FRONT",
+      "country": "US",
+      "market_data": {
+        "price": 95.8,
+        "change_pct": 4.72,
+        "volume": 97428100,
+        "currency": "USD",
+        "live": true
+      },
+      "telemetry": {
+        "metric": "Operational Throughput",
+        "value": "Normal Run-rate",
+        "status": "BALANCED",
+        "lead_time_trend": "STABLE"
+      }
+    },
+    {
+      "id": "AMD",
+      "name": "AMD",
+      "ticker": "AMD",
+      "exchange": "NASDAQ",
+      "layer": 2,
+      "stage": "FOUNDRY",
+      "chokepoint_rating": 0.8,
+      "basket": "BK_FABLESS",
+      "country": "US",
+      "market_data": {
+        "price": 477.57,
+        "change_pct": 4.94,
+        "volume": 19651900,
+        "currency": "USD",
+        "live": true
+      },
+      "telemetry": {
+        "metric": "Operational Throughput",
+        "value": "Normal Run-rate",
+        "status": "BALANCED",
+        "lead_time_trend": "STABLE"
+      }
+    },
+    {
+      "id": "QUALCOMM",
+      "name": "Qualcomm",
+      "ticker": "QCOM",
+      "exchange": "NASDAQ",
+      "layer": 2,
+      "stage": "FOUNDRY",
+      "chokepoint_rating": 0.75,
+      "basket": "BK_FABLESS",
+      "country": "US",
+      "market_data": {
+        "price": 168.74,
+        "change_pct": 0.12,
+        "volume": 8531400,
+        "currency": "USD",
+        "live": true
+      },
+      "telemetry": {
+        "metric": "Operational Throughput",
+        "value": "Normal Run-rate",
+        "status": "BALANCED",
+        "lead_time_trend": "STABLE"
+      }
+    },
+    {
+      "id": "MARVELL",
+      "name": "Marvell",
+      "ticker": "MRVL",
+      "exchange": "NASDAQ",
+      "layer": 2,
+      "stage": "FOUNDRY",
+      "chokepoint_rating": 0.75,
+      "basket": "BK_FABLESS",
+      "country": "US",
+      "market_data": {
+        "price": 223.55,
+        "change_pct": 7.11,
+        "volume": 21150500,
+        "currency": "USD",
+        "live": true
+      },
+      "telemetry": {
+        "metric": "Operational Throughput",
+        "value": "Normal Run-rate",
+        "status": "BALANCED",
+        "lead_time_trend": "STABLE"
+      }
+    },
+    {
+      "id": "IBIDEN",
+      "name": "Ibiden (ABF substrate)",
+      "ticker": "4062.T",
+      "exchange": "TYO",
+      "layer": 2,
+      "stage": "DICING_PACKAGING_SUBSTRATE",
+      "chokepoint_rating": 0.85,
+      "basket": "BK_BACK",
+      "country": "JP",
+      "market_data": {
+        "price": 20475.0,
+        "change_pct": 3.85,
+        "volume": 7940600,
+        "currency": "JPY",
+        "live": true
+      },
+      "telemetry": {
+        "metric": "Operational Throughput",
+        "value": "Normal Run-rate",
+        "status": "BALANCED",
+        "lead_time_trend": "STABLE"
+      }
+    },
+    {
+      "id": "UNIMICRON",
+      "name": "Unimicron",
+      "ticker": "3037.TW",
+      "exchange": "TWSE",
+      "layer": 2,
+      "stage": "DICING_PACKAGING_SUBSTRATE",
+      "chokepoint_rating": 0.8,
+      "basket": "BK_BACK",
+      "country": "TW",
+      "market_data": {
+        "price": 902.0,
+        "change_pct": -2.38,
+        "volume": 38880594,
+        "currency": "TWD",
+        "live": true
+      },
+      "telemetry": {
+        "metric": "Operational Throughput",
+        "value": "Normal Run-rate",
+        "status": "BALANCED",
+        "lead_time_trend": "STABLE"
+      }
+    },
+    {
+      "id": "ASE",
+      "name": "ASE Technology",
+      "ticker": "3711.TW",
+      "exchange": "TWSE",
+      "layer": 2,
+      "stage": "DICING_PACKAGING_SUBSTRATE",
+      "chokepoint_rating": 0.85,
+      "basket": "BK_BACK",
+      "country": "TW",
+      "market_data": {
+        "price": 588.0,
+        "change_pct": -0.34,
+        "volume": 15085248,
+        "currency": "TWD",
+        "live": true
+      },
+      "telemetry": {
+        "metric": "Operational Throughput",
+        "value": "Normal Run-rate",
+        "status": "BALANCED",
+        "lead_time_trend": "STABLE"
+      }
+    },
+    {
+      "id": "AMKOR",
+      "name": "Amkor Technology",
+      "ticker": "AMKR",
+      "exchange": "NASDAQ",
+      "layer": 2,
+      "stage": "DICING_PACKAGING_SUBSTRATE",
+      "chokepoint_rating": 0.7,
+      "basket": "BK_BACK",
+      "country": "US",
+      "market_data": {
+        "price": 47.77,
+        "change_pct": 1.85,
+        "volume": 4140000,
+        "currency": "USD",
+        "live": true
+      },
+      "telemetry": {
+        "metric": "Operational Throughput",
+        "value": "Normal Run-rate",
+        "status": "BALANCED",
+        "lead_time_trend": "STABLE"
+      }
+    },
+    {
+      "id": "QUANTA",
+      "name": "Quanta Computer",
+      "ticker": "2382.TW",
+      "exchange": "TWSE",
+      "layer": 3,
+      "stage": "ODM_RACK_INTEGRATION",
+      "chokepoint_rating": 0.8,
+      "basket": "BK_INFRA",
+      "country": "TW",
+      "market_data": {
+        "price": 345.0,
+        "change_pct": 3.29,
+        "volume": 19888501,
+        "currency": "TWD",
+        "live": true
+      },
+      "telemetry": {
+        "metric": "Operational Throughput",
+        "value": "Normal Run-rate",
+        "status": "BALANCED",
+        "lead_time_trend": "STABLE"
+      }
+    },
+    {
+      "id": "WISTRON",
+      "name": "Wistron",
+      "ticker": "3231.TW",
+      "exchange": "TWSE",
+      "layer": 3,
+      "stage": "ODM_RACK_INTEGRATION",
+      "chokepoint_rating": 0.75,
+      "basket": "BK_INFRA",
+      "country": "TW",
+      "market_data": {
+        "price": 198.0,
+        "change_pct": 5.04,
+        "volume": 81732660,
+        "currency": "TWD",
+        "live": true
+      },
+      "telemetry": {
+        "metric": "Operational Throughput",
+        "value": "Normal Run-rate",
+        "status": "BALANCED",
+        "lead_time_trend": "STABLE"
+      }
+    },
+    {
+      "id": "SMCI",
+      "name": "Super Micro",
+      "ticker": "SMCI",
+      "exchange": "NASDAQ",
+      "layer": 3,
+      "stage": "ODM_RACK_INTEGRATION",
+      "chokepoint_rating": 0.65,
+      "basket": "BK_INFRA",
+      "country": "US",
+      "market_data": {
+        "price": 39.59,
+        "change_pct": 4.62,
+        "volume": 53548400,
+        "currency": "USD",
+        "live": true
+      },
+      "telemetry": {
+        "metric": "Operational Throughput",
+        "value": "Normal Run-rate",
+        "status": "BALANCED",
+        "lead_time_trend": "STABLE"
+      }
+    },
+    {
+      "id": "DELL",
+      "name": "Dell Technologies",
+      "ticker": "DELL",
+      "exchange": "NYSE",
+      "layer": 3,
+      "stage": "ODM_RACK_INTEGRATION",
+      "chokepoint_rating": 0.65,
+      "basket": "BK_INFRA",
+      "country": "US",
+      "market_data": {
+        "price": 524.14,
+        "change_pct": 1.77,
+        "volume": 11108300,
+        "currency": "USD",
+        "live": true
+      },
+      "telemetry": {
+        "metric": "Operational Throughput",
+        "value": "Normal Run-rate",
+        "status": "BALANCED",
+        "lead_time_trend": "STABLE"
+      }
+    },
+    {
+      "id": "NVENT",
+      "name": "nVent Electric",
+      "ticker": "NVT",
+      "exchange": "NYSE",
+      "layer": 3,
+      "stage": "COOLING_THERMAL",
+      "chokepoint_rating": 0.65,
+      "basket": "BK_INFRA",
+      "country": "US",
+      "market_data": {
+        "price": 156.03,
+        "change_pct": 0.35,
+        "volume": 1610500,
+        "currency": "USD",
+        "live": true
+      },
+      "telemetry": {
+        "metric": "Operational Throughput",
+        "value": "Normal Run-rate",
+        "status": "BALANCED",
+        "lead_time_trend": "STABLE"
+      }
+    },
+    {
+      "id": "COHERENT",
+      "name": "Coherent",
+      "ticker": "COHR",
+      "exchange": "NYSE",
+      "layer": 3,
+      "stage": "OPTICAL_FABRIC",
+      "chokepoint_rating": 0.8,
+      "basket": "BK_INFRA",
+      "country": "US",
+      "market_data": {
+        "price": 281.86,
+        "change_pct": 6.55,
+        "volume": 5035800,
+        "currency": "USD",
+        "live": true
+      },
+      "telemetry": {
+        "metric": "Operational Throughput",
+        "value": "Normal Run-rate",
+        "status": "BALANCED",
+        "lead_time_trend": "STABLE"
+      }
+    },
+    {
+      "id": "LUMENTUM",
+      "name": "Lumentum",
+      "ticker": "LITE",
+      "exchange": "NASDAQ",
+      "layer": 3,
+      "stage": "OPTICAL_FABRIC",
+      "chokepoint_rating": 0.75,
+      "basket": "BK_INFRA",
+      "country": "US",
+      "market_data": {
+        "price": 881.26,
+        "change_pct": 4.01,
+        "volume": 3558500,
+        "currency": "USD",
+        "live": true
+      },
+      "telemetry": {
+        "metric": "Operational Throughput",
+        "value": "Normal Run-rate",
+        "status": "BALANCED",
+        "lead_time_trend": "STABLE"
+      }
+    },
+    {
+      "id": "FABRINET",
+      "name": "Fabrinet",
+      "ticker": "FN",
+      "exchange": "NYSE",
+      "layer": 3,
+      "stage": "OPTICAL_FABRIC",
+      "chokepoint_rating": 0.75,
+      "basket": "BK_INFRA",
+      "country": "US",
+      "market_data": {
+        "price": 407.4,
+        "change_pct": 2.63,
+        "volume": 578300,
+        "currency": "USD",
+        "live": true
+      },
+      "telemetry": {
+        "metric": "Operational Throughput",
+        "value": "Normal Run-rate",
+        "status": "BALANCED",
+        "lead_time_trend": "STABLE"
+      }
+    },
+    {
+      "id": "CREDO",
+      "name": "Credo Technology",
+      "ticker": "CRDO",
+      "exchange": "NASDAQ",
+      "layer": 3,
+      "stage": "OPTICAL_FABRIC",
+      "chokepoint_rating": 0.7,
+      "basket": "BK_INFRA",
+      "country": "US",
+      "market_data": {
+        "price": 170.57,
+        "change_pct": 3.5,
+        "volume": 10710100,
+        "currency": "USD",
+        "live": true
+      },
+      "telemetry": {
+        "metric": "Operational Throughput",
+        "value": "Normal Run-rate",
+        "status": "BALANCED",
+        "lead_time_trend": "STABLE"
+      }
+    },
+    {
+      "id": "ASTERA",
+      "name": "Astera Labs",
+      "ticker": "ALAB",
+      "exchange": "NASDAQ",
+      "layer": 3,
+      "stage": "OPTICAL_FABRIC",
+      "chokepoint_rating": 0.7,
+      "basket": "BK_INFRA",
+      "country": "US",
+      "market_data": {
+        "price": 310.4,
+        "change_pct": 10.69,
+        "volume": 6503400,
+        "currency": "USD",
+        "live": true
+      },
+      "telemetry": {
+        "metric": "Operational Throughput",
+        "value": "Normal Run-rate",
+        "status": "BALANCED",
+        "lead_time_trend": "STABLE"
+      }
+    },
+    {
+      "id": "VISTRA",
+      "name": "Vistra",
+      "ticker": "VST",
+      "exchange": "NYSE",
+      "layer": 1,
+      "stage": "ENERGY_GRID",
+      "chokepoint_rating": 0.75,
+      "basket": "BK_INFRA",
+      "country": "US",
+      "market_data": {
+        "price": 149.3,
+        "change_pct": 3.25,
+        "volume": 4599200,
+        "currency": "USD",
+        "live": true
+      },
+      "telemetry": {
+        "metric": "Operational Throughput",
+        "value": "Normal Run-rate",
+        "status": "BALANCED",
+        "lead_time_trend": "STABLE"
+      }
+    },
+    {
+      "id": "GEVERNOVA",
+      "name": "GE Vernova",
+      "ticker": "GEV",
+      "exchange": "NYSE",
+      "layer": 1,
+      "stage": "ENERGY_GRID",
+      "chokepoint_rating": 0.8,
+      "basket": "BK_INFRA",
+      "country": "US",
+      "market_data": {
+        "price": 941.95,
+        "change_pct": 0.01,
+        "volume": 1236500,
+        "currency": "USD",
+        "live": true
+      },
+      "telemetry": {
+        "metric": "Operational Throughput",
+        "value": "Normal Run-rate",
+        "status": "BALANCED",
+        "lead_time_trend": "STABLE"
+      }
+    },
+    {
+      "id": "SCHNEIDER",
+      "name": "Schneider Electric",
+      "ticker": "SU.PA",
+      "exchange": "EPA",
+      "layer": 1,
+      "stage": "ENERGY_GRID",
+      "chokepoint_rating": 0.8,
+      "basket": "BK_INFRA",
+      "country": "FR",
+      "market_data": {
+        "price": 288.0,
+        "change_pct": 0.42,
+        "volume": 462863,
+        "currency": "EUR",
+        "live": true
+      },
+      "telemetry": {
+        "metric": "Operational Throughput",
+        "value": "Normal Run-rate",
+        "status": "BALANCED",
+        "lead_time_trend": "STABLE"
+      }
+    },
+    {
+      "id": "BLOOM",
+      "name": "Bloom Energy",
+      "ticker": "BE",
+      "exchange": "NYSE",
+      "layer": 1,
+      "stage": "ENERGY_GRID",
+      "chokepoint_rating": 0.6,
+      "basket": "BK_INFRA",
+      "country": "US",
+      "market_data": {
+        "price": 252.87,
+        "change_pct": 7.4,
+        "volume": 16015100,
+        "currency": "USD",
+        "live": true
+      },
+      "telemetry": {
+        "metric": "Operational Throughput",
+        "value": "Normal Run-rate",
+        "status": "BALANCED",
+        "lead_time_trend": "STABLE"
+      }
+    },
+    {
+      "id": "MICROSOFT",
+      "name": "Microsoft",
+      "ticker": "MSFT",
+      "exchange": "NASDAQ",
+      "layer": 4,
+      "stage": "HYPERSCALE_DEPLOYMENT",
+      "chokepoint_rating": 0.7,
+      "basket": "BK_INFRA",
+      "country": "US",
+      "market_data": {
+        "price": 499.7,
+        "change_pct": -1.94,
+        "volume": 18074400,
+        "currency": "USD",
+        "live": true
+      },
+      "telemetry": {
+        "metric": "Operational Throughput",
+        "value": "Normal Run-rate",
+        "status": "BALANCED",
+        "lead_time_trend": "STABLE"
+      }
+    },
+    {
+      "id": "GOOGLE",
+      "name": "Alphabet",
+      "ticker": "GOOGL",
+      "exchange": "NASDAQ",
+      "layer": 4,
+      "stage": "HYPERSCALE_DEPLOYMENT",
+      "chokepoint_rating": 0.7,
+      "basket": "BK_INFRA",
+      "country": "US",
+      "market_data": {
+        "price": 338.46,
+        "change_pct": -1.3,
+        "volume": 23157700,
+        "currency": "USD",
+        "live": true
+      },
+      "telemetry": {
+        "metric": "Operational Throughput",
+        "value": "Normal Run-rate",
+        "status": "BALANCED",
+        "lead_time_trend": "STABLE"
+      }
+    },
+    {
+      "id": "AMAZON",
+      "name": "Amazon",
+      "ticker": "AMZN",
+      "exchange": "NASDAQ",
+      "layer": 4,
+      "stage": "HYPERSCALE_DEPLOYMENT",
+      "chokepoint_rating": 0.7,
+      "basket": "BK_INFRA",
+      "country": "US",
+      "market_data": {
+        "price": 258.51,
+        "change_pct": -0.29,
+        "volume": 30698000,
+        "currency": "USD",
+        "live": true
+      },
+      "telemetry": {
+        "metric": "Operational Throughput",
+        "value": "Normal Run-rate",
+        "status": "BALANCED",
+        "lead_time_trend": "STABLE"
+      }
+    },
+    {
+      "id": "META",
+      "name": "Meta Platforms",
+      "ticker": "META",
+      "exchange": "NASDAQ",
+      "layer": 4,
+      "stage": "HYPERSCALE_DEPLOYMENT",
+      "chokepoint_rating": 0.7,
+      "basket": "BK_INFRA",
+      "country": "US",
+      "market_data": {
+        "price": 616.77,
+        "change_pct": 0.47,
+        "volume": 15942700,
+        "currency": "USD",
+        "live": true
+      },
+      "telemetry": {
+        "metric": "Operational Throughput",
+        "value": "Normal Run-rate",
+        "status": "BALANCED",
         "lead_time_trend": "STABLE"
       }
     }
@@ -656,6 +1568,342 @@
       "target": "FOXCONN",
       "relationship": "PDU_POWER_DISTRIBUTION",
       "lead_time_days": 60,
+      "criticality": "HIGH"
+    },
+    {
+      "source": "ARM",
+      "target": "NVIDIA",
+      "relationship": "ISA_ARCHITECTURE_LICENSE",
+      "lead_time_days": 30,
+      "criticality": "HIGH"
+    },
+    {
+      "source": "SNPS",
+      "target": "BROADCOM",
+      "relationship": "EDA_DESIGN_SOFTWARE",
+      "lead_time_days": 30,
+      "criticality": "HIGH"
+    },
+    {
+      "source": "HOYA",
+      "target": "TSMC",
+      "relationship": "EUV_MASK_BLANKS",
+      "lead_time_days": 90,
+      "criticality": "CRITICAL"
+    },
+    {
+      "source": "TOK",
+      "target": "TSMC",
+      "relationship": "PHOTORESIST_SUPPLY",
+      "lead_time_days": 60,
+      "criticality": "CRITICAL"
+    },
+    {
+      "source": "ENTEGRIS",
+      "target": "TSMC",
+      "relationship": "FILTRATION_MATERIALS",
+      "lead_time_days": 45,
+      "criticality": "HIGH"
+    },
+    {
+      "source": "LINDE",
+      "target": "TSMC",
+      "relationship": "INDUSTRIAL_GASES",
+      "lead_time_days": 30,
+      "criticality": "HIGH"
+    },
+    {
+      "source": "AIR_LIQUIDE",
+      "target": "SAMSUNG",
+      "relationship": "INDUSTRIAL_GASES",
+      "lead_time_days": 30,
+      "criticality": "HIGH"
+    },
+    {
+      "source": "SUMCO",
+      "target": "SAMSUNG",
+      "relationship": "SILICON_WAFER_SUPPLY",
+      "lead_time_days": 90,
+      "criticality": "HIGH"
+    },
+    {
+      "source": "SCREEN",
+      "target": "TSMC",
+      "relationship": "CLEAN_TRACK_TOOLS",
+      "lead_time_days": 150,
+      "criticality": "HIGH"
+    },
+    {
+      "source": "KOKUSAI",
+      "target": "SAMSUNG",
+      "relationship": "BATCH_DEPOSITION_TOOLS",
+      "lead_time_days": 150,
+      "criticality": "MODERATE"
+    },
+    {
+      "source": "ASMI",
+      "target": "TSMC",
+      "relationship": "ALD_TOOLS",
+      "lead_time_days": 180,
+      "criticality": "HIGH"
+    },
+    {
+      "source": "LRCX",
+      "target": "SAMSUNG",
+      "relationship": "ETCH_TOOLS",
+      "lead_time_days": 180,
+      "criticality": "HIGH"
+    },
+    {
+      "source": "TEL",
+      "target": "TSMC",
+      "relationship": "COATER_DEVELOPER_TOOLS",
+      "lead_time_days": 180,
+      "criticality": "CRITICAL"
+    },
+    {
+      "source": "LASERTEC",
+      "target": "TSMC",
+      "relationship": "EUV_MASK_INSPECTION",
+      "lead_time_days": 180,
+      "criticality": "CRITICAL"
+    },
+    {
+      "source": "ASML",
+      "target": "SAMSUNG",
+      "relationship": "EUV_EQUIPMENT_SUPPLY",
+      "lead_time_days": 365,
+      "criticality": "CRITICAL"
+    },
+    {
+      "source": "ASML",
+      "target": "INTEL",
+      "relationship": "EUV_EQUIPMENT_SUPPLY",
+      "lead_time_days": 365,
+      "criticality": "CRITICAL"
+    },
+    {
+      "source": "SAMSUNG",
+      "target": "NVIDIA",
+      "relationship": "HBM_SUPPLY",
+      "lead_time_days": 60,
+      "criticality": "HIGH"
+    },
+    {
+      "source": "MICRON",
+      "target": "NVIDIA",
+      "relationship": "HBM_SUPPLY",
+      "lead_time_days": 60,
+      "criticality": "CRITICAL"
+    },
+    {
+      "source": "TSMC",
+      "target": "AMD",
+      "relationship": "ADVANCED_NODE_WAFERS",
+      "lead_time_days": 120,
+      "criticality": "CRITICAL"
+    },
+    {
+      "source": "TSMC",
+      "target": "QUALCOMM",
+      "relationship": "ADVANCED_NODE_WAFERS",
+      "lead_time_days": 90,
+      "criticality": "HIGH"
+    },
+    {
+      "source": "TSMC",
+      "target": "MARVELL",
+      "relationship": "ADVANCED_NODE_WAFERS",
+      "lead_time_days": 90,
+      "criticality": "HIGH"
+    },
+    {
+      "source": "TSMC",
+      "target": "BROADCOM",
+      "relationship": "ADVANCED_NODE_WAFERS",
+      "lead_time_days": 120,
+      "criticality": "CRITICAL"
+    },
+    {
+      "source": "IBIDEN",
+      "target": "TSMC",
+      "relationship": "ABF_SUBSTRATE",
+      "lead_time_days": 60,
+      "criticality": "CRITICAL"
+    },
+    {
+      "source": "UNIMICRON",
+      "target": "TSMC",
+      "relationship": "ABF_SUBSTRATE",
+      "lead_time_days": 60,
+      "criticality": "HIGH"
+    },
+    {
+      "source": "ASE",
+      "target": "NVIDIA",
+      "relationship": "OSAT_PACKAGING",
+      "lead_time_days": 45,
+      "criticality": "HIGH"
+    },
+    {
+      "source": "AMKOR",
+      "target": "AMD",
+      "relationship": "OSAT_PACKAGING",
+      "lead_time_days": 45,
+      "criticality": "HIGH"
+    },
+    {
+      "source": "ADVANTEST",
+      "target": "NVIDIA",
+      "relationship": "SOC_ATE_TEST",
+      "lead_time_days": 30,
+      "criticality": "CRITICAL"
+    },
+    {
+      "source": "NVIDIA",
+      "target": "QUANTA",
+      "relationship": "COMPUTE_TRAY_ASSEMBLY",
+      "lead_time_days": 45,
+      "criticality": "HIGH"
+    },
+    {
+      "source": "NVIDIA",
+      "target": "WISTRON",
+      "relationship": "COMPUTE_TRAY_ASSEMBLY",
+      "lead_time_days": 45,
+      "criticality": "HIGH"
+    },
+    {
+      "source": "NVIDIA",
+      "target": "SMCI",
+      "relationship": "COMPUTE_TRAY_ASSEMBLY",
+      "lead_time_days": 45,
+      "criticality": "HIGH"
+    },
+    {
+      "source": "NVIDIA",
+      "target": "DELL",
+      "relationship": "COMPUTE_TRAY_ASSEMBLY",
+      "lead_time_days": 45,
+      "criticality": "MODERATE"
+    },
+    {
+      "source": "AMD",
+      "target": "SMCI",
+      "relationship": "COMPUTE_TRAY_ASSEMBLY",
+      "lead_time_days": 45,
+      "criticality": "MODERATE"
+    },
+    {
+      "source": "COHERENT",
+      "target": "ARISTA",
+      "relationship": "OPTICAL_TRANSCEIVERS",
+      "lead_time_days": 60,
+      "criticality": "HIGH"
+    },
+    {
+      "source": "LUMENTUM",
+      "target": "ARISTA",
+      "relationship": "OPTICAL_TRANSCEIVERS",
+      "lead_time_days": 60,
+      "criticality": "HIGH"
+    },
+    {
+      "source": "FABRINET",
+      "target": "COHERENT",
+      "relationship": "OPTICS_CONTRACT_MFG",
+      "lead_time_days": 45,
+      "criticality": "HIGH"
+    },
+    {
+      "source": "CREDO",
+      "target": "AMAZON",
+      "relationship": "AEC_INTERCONNECT",
+      "lead_time_days": 45,
+      "criticality": "MODERATE"
+    },
+    {
+      "source": "ASTERA",
+      "target": "SMCI",
+      "relationship": "PCIE_CXL_CONNECTIVITY",
+      "lead_time_days": 45,
+      "criticality": "MODERATE"
+    },
+    {
+      "source": "NVENT",
+      "target": "SMCI",
+      "relationship": "LIQUID_COOLING_ENCLOSURES",
+      "lead_time_days": 45,
+      "criticality": "MODERATE"
+    },
+    {
+      "source": "FOXCONN",
+      "target": "MICROSOFT",
+      "relationship": "RACK_SCALE_DELIVERY",
+      "lead_time_days": 60,
+      "criticality": "CRITICAL"
+    },
+    {
+      "source": "QUANTA",
+      "target": "META",
+      "relationship": "RACK_SCALE_DELIVERY",
+      "lead_time_days": 60,
+      "criticality": "HIGH"
+    },
+    {
+      "source": "WISTRON",
+      "target": "GOOGLE",
+      "relationship": "RACK_SCALE_DELIVERY",
+      "lead_time_days": 60,
+      "criticality": "HIGH"
+    },
+    {
+      "source": "DELL",
+      "target": "AMAZON",
+      "relationship": "RACK_SCALE_DELIVERY",
+      "lead_time_days": 60,
+      "criticality": "MODERATE"
+    },
+    {
+      "source": "CONSTELLATION",
+      "target": "MICROSOFT",
+      "relationship": "NUCLEAR_PPA",
+      "lead_time_days": 720,
+      "criticality": "CRITICAL"
+    },
+    {
+      "source": "VISTRA",
+      "target": "AMAZON",
+      "relationship": "NUCLEAR_PPA",
+      "lead_time_days": 720,
+      "criticality": "HIGH"
+    },
+    {
+      "source": "GEVERNOVA",
+      "target": "CONSTELLATION",
+      "relationship": "TURBINES_GRID_EQUIPMENT",
+      "lead_time_days": 540,
+      "criticality": "HIGH"
+    },
+    {
+      "source": "SCHNEIDER",
+      "target": "AMAZON",
+      "relationship": "DATACENTER_POWER_SYSTEMS",
+      "lead_time_days": 90,
+      "criticality": "HIGH"
+    },
+    {
+      "source": "BLOOM",
+      "target": "GOOGLE",
+      "relationship": "FUEL_CELL_POWER",
+      "lead_time_days": 120,
+      "criticality": "MODERATE"
+    },
+    {
+      "source": "EATON",
+      "target": "MICROSOFT",
+      "relationship": "GRID_SWITCHGEAR",
+      "lead_time_days": 180,
       "criticality": "HIGH"
     }
   ]

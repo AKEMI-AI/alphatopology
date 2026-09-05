@@ -8,7 +8,7 @@
    (paint-order stroke) — no text under lines. */
 
 import React, { useMemo } from 'react';
-import rawData from '@/data/live_telemetry.json';
+import seedData from '@/data/nodes_seed.json';
 import { BASKET_ROLE_VARS } from '@/components/graph/ChokepointNode';
 
 const r3 = (n: number) => Math.round(n * 1000) / 1000;
@@ -40,16 +40,17 @@ const COLUMNS: { key: string; label: string; stages: string[] }[] = [
   {
     key: 'systems',
     label: 'Systems',
-    stages: ['ODM_RACK_INTEGRATION', 'COOLING_THERMAL', 'OPTICAL_FABRIC', 'HYPERSCALE_DEPLOYMENT'],
+    stages: ['ODM_RACK_INTEGRATION', 'COOLING_THERMAL', 'OPTICAL_FABRIC'],
   },
+  { key: 'hyperscale', label: 'Hyperscale', stages: ['HYPERSCALE_DEPLOYMENT'] },
 ];
 
-const VB_W = 1240;
-const VB_H = 780;
+const VB_W = 1400;
+const VB_H = 900;
 const TOP = 64;
 const BOTTOM = 60;
-const R_MIN = 11;
-const R_MAX = 56;
+const R_MIN = 10;
+const R_MAX = 46;
 
 const dim = (pct: number) => `color-mix(in oklab, var(--cream) ${pct}%, transparent)`;
 
@@ -76,7 +77,7 @@ export default function ChokepointMap({ nodes, activeTicker, onSelect }: Chokepo
         );
       const x = r3(colW * ci + colW / 2);
       // stack with breathing room for the under-labels (law zero)
-      const gaps = 30;
+      const gaps = 26;
       const total = members.reduce((s, m) => s + radius(m) * 2 + gaps, -gaps);
       let y = TOP + (VB_H - TOP - BOTTOM - total) / 2;
       const circles = members.map((m) => {
@@ -92,7 +93,7 @@ export default function ChokepointMap({ nodes, activeTicker, onSelect }: Chokepo
     return { columns, placed };
   }, [nodes]);
 
-  const edges = (rawData.edges as { source: string; target: string; criticality: string }[])
+  const edges = (seedData.edges as { source: string; target: string; criticality: string }[])
     .map((e) => {
       const s = layout.placed[e.source];
       const t = layout.placed[e.target];

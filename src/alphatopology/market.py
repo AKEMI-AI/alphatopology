@@ -89,35 +89,40 @@ def get_quotes(tickers: List[str], ttl: float = 60.0) -> Dict[str, Dict[str, Any
     """Latest price/change/volume/market-cap per ticker (Yahoo feed,
     exchange-delayed). Market cap is FX-normalized to USD."""
 
+    def fetch_one(fx: Dict[str, float], t) -> Dict[str, Any]:
+        try:
+            fi = t.fast_info
+            price = fi["last_price"]
+            prev = fi["previous_close"]
+            currency = fi["currency"]
+            cap = fi["market_cap"]
+            cap_usd = (
+                round(float(cap) * fx[currency])
+                if cap and currency in fx
+                else None
+            )
+            return {
+                "price": round(float(price), 2),
+                "change_pct": round((price / prev - 1.0) * 100.0, 2) if prev else 0.0,
+                "volume": int(fi["last_volume"] or 0),
+                "currency": currency,
+                "market_cap_usd": cap_usd,
+                "live": True,
+            }
+        except Exception:
+            return {
+                "price": None, "change_pct": None, "volume": None,
+                "currency": None, "market_cap_usd": None, "live": False,
+            }
+
     def fetch() -> Dict[str, Dict[str, Any]]:
+        from concurrent.futures import ThreadPoolExecutor
+
         fx = get_fx_to_usd()
-        quotes: Dict[str, Dict[str, Any]] = {}
-        for t in yf.Tickers(" ".join(tickers)).tickers.values():
-            try:
-                fi = t.fast_info
-                price = fi["last_price"]
-                prev = fi["previous_close"]
-                currency = fi["currency"]
-                cap = fi["market_cap"]
-                cap_usd = (
-                    round(float(cap) * fx[currency])
-                    if cap and currency in fx
-                    else None
-                )
-                quotes[t.ticker] = {
-                    "price": round(float(price), 2),
-                    "change_pct": round((price / prev - 1.0) * 100.0, 2) if prev else 0.0,
-                    "volume": int(fi["last_volume"] or 0),
-                    "currency": currency,
-                    "market_cap_usd": cap_usd,
-                    "live": True,
-                }
-            except Exception:
-                quotes[t.ticker] = {
-                    "price": None, "change_pct": None, "volume": None,
-                    "currency": None, "market_cap_usd": None, "live": False,
-                }
-        return quotes
+        ts = list(yf.Tickers(" ".join(tickers)).tickers.values())
+        with ThreadPoolExecutor(max_workers=8) as pool:
+            results = pool.map(lambda t: (t.ticker, fetch_one(fx, t)), ts)
+        return dict(results)
 
     return _cached(f"quotes:{','.join(sorted(tickers))}", ttl, fetch)
 

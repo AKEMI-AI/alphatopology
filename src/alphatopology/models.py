@@ -34,6 +34,7 @@ class TopologyNode(BaseModel):
     name: str
     ticker: str
     exchange: Optional[str] = None
+    country: Optional[str] = None  # ISO 3166-1 alpha-2
     layer: int = Field(ge=1, le=5)
     stage: Stage
     chokepoint_rating: float = Field(ge=0.0, le=1.0)

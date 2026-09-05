@@ -12,12 +12,14 @@ import type { ChokepointNodeData } from '@/components/graph/ChokepointNode';
 // Dynamic import with SSR disabled for optimal canvas rendering
 const TopologyGraph = dynamic(() => import('@/components/graph/TopologyGraph'), { ssr: false });
 const ChokepointMap = dynamic(() => import('@/components/map/ChokepointMap'), { ssr: false });
+const GeoView = dynamic(() => import('@/components/map/GeoView'), { ssr: false });
 
 const REFRESH_MS = 60_000;
 
 const VIEWS = [
   { key: 'graph', label: 'Graph' },
   { key: 'map', label: 'Map' },
+  { key: 'geo', label: 'Geo' },
 ] as const;
 type ViewKey = (typeof VIEWS)[number]['key'];
 
@@ -140,8 +142,14 @@ export default function TerminalPage() {
             <TopologyGraph
               onSelect={(node: ChokepointNodeData) => setActiveTicker(node.ticker)}
             />
-          ) : (
+          ) : view === 'map' ? (
             <ChokepointMap
+              nodes={telemetryNodes}
+              activeTicker={activeTicker}
+              onSelect={(node) => setActiveTicker(node.ticker)}
+            />
+          ) : (
+            <GeoView
               nodes={telemetryNodes}
               activeTicker={activeTicker}
               onSelect={(node) => setActiveTicker(node.ticker)}

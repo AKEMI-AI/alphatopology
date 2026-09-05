@@ -12,6 +12,7 @@
           "name": { "type": "string" },
           "ticker": { "type": "string" },
           "exchange": { "type": "string" },
+          "country": { "type": "string", "pattern": "^[A-Z]{2}$" },
           "layer": { "type": "integer", "minimum": 1, "maximum": 5 },
           "stage": {
             "type": "string",
