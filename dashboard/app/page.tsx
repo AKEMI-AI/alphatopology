@@ -8,6 +8,7 @@ import ForecastPanel from '@/components/terminal/ForecastPanel';
 import TelemetryTickerBar from '@/components/terminal/TelemetryTickerBar';
 import CopilotDrawer from '@/components/copilot/CopilotDrawer';
 import CommandPalette from '@/components/terminal/CommandPalette';
+import BookDrawer from '@/components/terminal/BookDrawer';
 import { fetchTelemetry, TelemetryNode } from '@/lib/api';
 import type { ChokepointNodeData } from '@/components/graph/ChokepointNode';
 
@@ -175,6 +176,7 @@ export default function TerminalPage() {
   const [view, setView] = useState<ViewKey>('graph');
   const [activeTicker, setActiveTicker] = useState<string>('NVDA');
   const [sheetOpen, setSheetOpen] = useState(false);
+  const [bookOpen, setBookOpen] = useState(false);
   const [telemetryNodes, setTelemetryNodes] = useState<FullNode[]>(
     fallbackTelemetry.nodes as unknown as FullNode[]
   );
@@ -264,6 +266,17 @@ export default function TerminalPage() {
             >
               ⌘K
             </kbd>
+          </button>
+          <button
+            onClick={() => setBookOpen(true)}
+            className="mono px-3 py-1 text-[11px] rounded-full cursor-pointer"
+            style={{
+              color: dim(60),
+              border: '1px solid color-mix(in oklab, var(--cream) 14%, transparent)',
+              background: 'color-mix(in oklab, var(--cream) 4%, transparent)',
+            }}
+          >
+            Book
           </button>
           <div
             className="flex items-center gap-1 p-0.5 rounded-full"
@@ -392,6 +405,13 @@ export default function TerminalPage() {
       )}
 
       <CopilotDrawer />
+
+      <BookDrawer
+        open={bookOpen}
+        onClose={() => setBookOpen(false)}
+        tickers={telemetryNodes.map((n) => n.ticker)}
+        defaultTicker={activeTicker}
+      />
 
       <CommandPalette
         nodes={telemetryNodes}
