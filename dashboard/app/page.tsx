@@ -10,6 +10,7 @@ import CopilotDrawer from '@/components/copilot/CopilotDrawer';
 import CommandPalette from '@/components/terminal/CommandPalette';
 import KeyPeoplePanel from '@/components/terminal/KeyPeoplePanel';
 import ForcesPanel from '@/components/terminal/ForcesPanel';
+import FrontierModelsPanel from '@/components/terminal/FrontierModelsPanel';
 import { fetchTelemetry, TelemetryNode } from '@/lib/api';
 import type { ChokepointNodeData } from '@/components/graph/ChokepointNode';
 
@@ -116,6 +117,9 @@ function InspectorContent({
 
         {/* Key people (public-record roles) */}
         <KeyPeoplePanel orgId={activeNode.id} />
+
+        {/* Frontier models (Epoch AI, CC BY) */}
+        <FrontierModelsPanel orgId={activeNode.id} />
 
         {/* Industry snapshots touching this entity */}
         <ForcesPanel orgId={activeNode.id} stage={activeNode.stage} />

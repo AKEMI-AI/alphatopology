@@ -1,0 +1,45 @@
+{
+  "_meta": {
+    "as_of": "2026-09",
+    "note": "Materials inputs and environmental footprint of the chip pipeline. Curated from public sources — CSET/ETO Supply Chain Explorer's input taxonomy (chipexplorer.eto.tech), company ESG disclosures, trade press. Editorial layer; verify figures before citing.",
+    "sources": [
+      "CSET Emerging Technology Observatory — Supply Chain Explorer (input/provider taxonomy)",
+      "Company ESG reports (TSMC, Samsung, SK Hynix water/energy disclosures)",
+      "Public reporting on Ga/Ge/rare-earth export controls and PFAS regulation"
+    ]
+  },
+  "stages": [
+    {
+      "stage": "RAW_MATERIALS_CHEMISTRY",
+      "inputs": [
+        { "name": "Polysilicon → monocrystalline ingots", "note": "Extremely energy-intensive refining; ingot pulling concentrated in Japan (Shin-Etsu, SUMCO)", "supplier_nodes": ["SHIN_ETSU", "SUMCO"] },
+        { "name": "Photoresists (ArF/EUV)", "note": "Japanese near-monopoly; EUV resists among the most supply-concentrated chemicals on earth", "supplier_nodes": ["TOK", "SHIN_ETSU"] },
+        { "name": "Specialty & bulk gases (Ne, He, F-compounds, NF3)", "note": "Neon supply shocked by the Ukraine war (2022 price spikes); high-GWP fluorinated gases face abatement mandates", "supplier_nodes": ["LINDE", "AIR_LIQUIDE"] },
+        { "name": "Ultra-pure quartz & EUV mask blanks", "note": "Spruce Pine (US) quartz for crucibles; defect-free mask blanks are a Hoya/AGC duopoly", "supplier_nodes": ["HOYA"] },
+        { "name": "Gallium, germanium, rare earths", "note": "Chinese production dominance; export controls since 2023 — the counter-control lever", "supplier_nodes": [] },
+        { "name": "CMP slurries, filters, ultra-pure chemicals delivery", "note": "Purity logistics as a moat", "supplier_nodes": ["ENTEGRIS"] }
+      ]
+    },
+    {
+      "stage": "FOUNDRY",
+      "inputs": [
+        { "name": "Ultra-pure water", "note": "A leading-edge fab uses on the order of 100–200k tons/day; Taiwan's 2021 drought forced water trucking — climate risk is fab risk", "supplier_nodes": [] },
+        { "name": "Electricity", "note": "TSMC alone consumes a high-single-digit share of Taiwan's power, rising with each EUV node; fab decarbonization = grid decarbonization", "supplier_nodes": [] },
+        { "name": "PFAS ('forever chemicals')", "note": "Pervasive in litho/etch/cooling; tightening EU/US regulation and 3M's exit from PFAS manufacture ripple through the chemical chain", "supplier_nodes": [] }
+      ]
+    },
+    {
+      "stage": "WFE_LITHOGRAPHY",
+      "inputs": [
+        { "name": "EUV consumables (tin, collector optics, CO2 lasers)", "note": "Tin-droplet plasma sources; collector mirror refurbishment loops back to ASML/Zeiss", "supplier_nodes": ["ASML"] },
+        { "name": "Precision optics & Zerodur-class glass", "note": "Zeiss SMT (private, DE) is the unlisted chokepoint inside ASML's chokepoint", "supplier_nodes": [] }
+      ]
+    }
+  ],
+  "environmental_watch": [
+    { "item": "Taiwan reservoir levels / drought indices", "why": "Direct fab-output risk (2021 precedent)" },
+    { "item": "EU PFAS restriction timeline", "why": "Could reprice the entire semiconductor chemicals chain" },
+    { "item": "Fab water-recycling and per-wafer energy disclosures (ESG reports)", "why": "The real efficiency curve under the AI buildout" },
+    { "item": "MOFCOM Ga/Ge/REE quota actions", "why": "Materials as geopolitical instrument (see export_controls.json)" }
+  ]
+}

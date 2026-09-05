@@ -198,12 +198,54 @@ def industry_snapshots(stage: str = "ALL") -> str:
 
 
 @beta_tool
+def frontier_models(org: str = "ALL") -> str:
+    """Notable AI models with training compute (Epoch AI database, CC BY). Filter by lab/org node id or ALL for the frontier set.
+
+    Args:
+        org: Node id/ticker (OPENAI, ANTHROPIC, GOOGLE…) or ALL.
+    """
+    import pathlib
+
+    data = json.loads(
+        (pathlib.Path(__file__).resolve().parents[2] / "data" / "external" / "epoch_models.json").read_text()
+    )
+    models = data["models"]
+    if org != "ALL":
+        key = org.upper()
+        models = [m for m in models if m.get("org_id") == key]
+    else:
+        models = sorted(models, key=lambda m: -(m.get("log10_flop") or 0))[:40]
+    return json.dumps({"_meta": data["_meta"], "models": models})
+
+
+@beta_tool
+def materials_inputs(stage: str = "ALL") -> str:
+    """Material inputs and environmental footprint of the chip pipeline (resists, gases, quartz, water, power, PFAS) with supplier nodes. Curated from CSET/ESG public sources.
+
+    Args:
+        stage: Pipeline stage (e.g. FOUNDRY, RAW_MATERIALS_CHEMISTRY) or ALL.
+    """
+    import pathlib
+
+    data = json.loads(
+        (pathlib.Path(__file__).resolve().parents[2] / "data" / "materials_environment.json").read_text()
+    )
+    if stage != "ALL":
+        data = {
+            "_meta": data["_meta"],
+            "stages": [s for s in data["stages"] if s["stage"] == stage.upper()],
+            "environmental_watch": data["environmental_watch"],
+        }
+    return json.dumps(data)
+
+
+@beta_tool
 def paper_portfolio() -> str:
     """Read the user's paper-trading portfolio: positions, marks, P&L, cash. Read-only."""
     return json.dumps(simulator.portfolio_status())
 
 
-TOOLS = [topology_overview, get_node, trace_upstream, market_snapshot, dislocation_snapshot, key_people, industry_snapshots, paper_portfolio]
+TOOLS = [topology_overview, get_node, trace_upstream, market_snapshot, dislocation_snapshot, key_people, industry_snapshots, frontier_models, materials_inputs, paper_portfolio]
 
 BRIEF_INSTRUCTION = """Compose a structured research brief on the requested topic using the tools \
 — query the dataset first, then write. Format as markdown:

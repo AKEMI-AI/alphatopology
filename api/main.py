@@ -182,6 +182,28 @@ def copilot_brief(body: dict):
         raise HTTPException(status_code=503, detail=str(exc))
 
 
+@app.get("/external/models")
+def external_models():
+    """Epoch AI notable-models database, filtered to our universe (CC BY)."""
+    import json as _json
+    from pathlib import Path as _Path
+
+    return _json.loads(
+        (_Path(__file__).resolve().parents[1] / "data" / "external" / "epoch_models.json").read_text()
+    )
+
+
+@app.get("/materials")
+def get_materials():
+    """Materials & environmental footprint tier (curated, sourced)."""
+    import json as _json
+    from pathlib import Path as _Path
+
+    return _json.loads(
+        (_Path(__file__).resolve().parents[1] / "data" / "materials_environment.json").read_text()
+    )
+
+
 @app.get("/snapshots")
 def get_snapshots():
     """Industry snapshots — curated force models over the pipeline."""
