@@ -6,7 +6,10 @@ Provider chain: FMP (if FMP_API_KEY set) -> yfinance (free, global tickers) -> s
 
 import json
 import os
-from typing import Any, Dict, List
+import sys
+from datetime import datetime, timezone
+from pathlib import Path
+from typing import Any, Dict, List, Tuple
 
 import requests
 from dotenv import load_dotenv
@@ -15,31 +18,12 @@ load_dotenv()
 
 FMP_API_KEY = os.getenv("FMP_API_KEY", "")
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+sys.path.insert(0, str(Path(BASE_DIR) / "src"))
+
+from alphatopology.telemetry import get_physical_proxy  # noqa: E402
+
 SEED_PATH = os.path.join(BASE_DIR, "data", "nodes_seed.json")
 OUTPUT_PATH = os.path.join(BASE_DIR, "data", "live_telemetry.json")
-
-# Physical proxy heuristics for AI hardware bottlenecks.
-# NOTE: static fixture estimates until TrendForce/SEMI/BNEF feeds are wired in —
-# refresh manually from quarterly filings (see CLAUDE.md Phase 2 proxies).
-PHYSICAL_PROXIES = {
-    "TSM": {"metric": "CoWoS Run-Rate", "value": "45k wpm", "status": "CONSTRAINED", "lead_time_trend": "EXPANDING"},
-    "ASML": {"metric": "High-NA EUV Backlog", "value": "€38.5B", "status": "ALLOCATED", "lead_time_trend": "STABLE"},
-    "2802.T": {"metric": "ABF Substrate Lead Time", "value": "28 Weeks", "status": "TIGHT", "lead_time_trend": "EXPANDING"},
-    "6146.T": {"metric": "Dicing Saw Lead Time", "value": "16 Weeks", "status": "OPTIMAL", "lead_time_trend": "STABLE"},
-    "KLAC": {"metric": "Inspection Tool Cycle", "value": "180 Days", "status": "CRITICAL", "lead_time_trend": "EXPANDING"},
-    "000660.KS": {"metric": "HBM3e Allocation", "value": "100% FY26 Sold Out", "status": "CONSTRAINED", "lead_time_trend": "EXPANDING"},
-    "VRT": {"metric": "Liquid Cooling Backlog", "value": "$7.2B", "status": "SURGING", "lead_time_trend": "EXPANDING"},
-    "ETN": {"metric": "Transformer Interconnect Queue", "value": "112 Weeks", "status": "SEVERE_BOTTLENECK", "lead_time_trend": "EXPANDING"},
-    "CEG": {"metric": "PPA Baseload Spread", "value": "$95/MWh", "status": "COMMITTED", "lead_time_trend": "STABLE"},
-    "ANET": {"metric": "800G/1.6T Fabric Demand", "value": "+42% YoY", "status": "OPTIMAL", "lead_time_trend": "STABLE"},
-}
-
-DEFAULT_PROXY = {
-    "metric": "Operational Throughput",
-    "value": "Normal Run-rate",
-    "status": "BALANCED",
-    "lead_time_trend": "STABLE",
-}
 
 
 def normalize_ticker_for_fmp(ticker: str) -> str:
@@ -85,17 +69,27 @@ def fetch_yfinance_quotes(tickers: List[str]) -> Dict[str, Any]:
     return quotes
 
 
-def fetch_live_quotes(tickers: List[str]) -> Dict[str, Any]:
+def fetch_live_quotes(tickers: List[str]) -> Tuple[Dict[str, Any], Dict[str, str]]:
+    quotes: Dict[str, Any] = {}
+    providers: Dict[str, str] = {}
     if FMP_API_KEY:
-        quotes = fetch_fmp_quotes(tickers)
-        if quotes:
-            # Re-key FMP symbols back to the seed's Yahoo-style tickers
-            return {t: quotes[normalize_ticker_for_fmp(t)] for t in tickers
-                    if normalize_ticker_for_fmp(t) in quotes}
-        print("[!] FMP empty — falling back to yfinance.")
+        fmp_quotes = fetch_fmp_quotes(tickers)
+        for ticker in tickers:
+            normalized = normalize_ticker_for_fmp(ticker)
+            if normalized in fmp_quotes:
+                quotes[ticker] = fmp_quotes[normalized]
+                providers[ticker] = "FMP"
+        if len(quotes) < len(tickers):
+            print("[!] FMP incomplete — filling missing tickers with yfinance.")
     else:
         print("[!] No FMP_API_KEY found — using free yfinance feed.")
-    return fetch_yfinance_quotes(tickers)
+
+    missing = [ticker for ticker in tickers if ticker not in quotes]
+    yahoo_quotes = fetch_yfinance_quotes(missing) if missing else {}
+    for ticker, quote in yahoo_quotes.items():
+        quotes[ticker] = quote
+        providers[ticker] = "yfinance"
+    return quotes, providers
 
 
 def run_pipeline() -> None:
@@ -104,7 +98,8 @@ def run_pipeline() -> None:
 
     nodes = seed_data["nodes"]
     tickers = [n["ticker"] for n in nodes]
-    live_quotes = fetch_live_quotes(tickers)
+    live_quotes, providers = fetch_live_quotes(tickers)
+    as_of = datetime.now(timezone.utc).isoformat()
     missing = [t for t in tickers if t not in live_quotes]
     if missing:
         print(f"[!] No live quote for {missing} — writing null market_data (Graceful Failures rule).")
@@ -119,17 +114,20 @@ def run_pipeline() -> None:
                     "price": quote.get("price"),
                     "change_pct": quote.get("change"),
                     "volume": quote.get("volume"),
-                    "currency": quote.get("currency", "USD"),
+                    "currency": quote.get("currency"),
                     "live": bool(quote),
+                    "provider": providers.get(node["ticker"]),
+                    "as_of": as_of,
                 },
-                "telemetry": PHYSICAL_PROXIES.get(node["ticker"], DEFAULT_PROXY),
+                "telemetry": get_physical_proxy(node["ticker"]),
             }
         )
 
     output_payload = {
         "metadata": {
             "source": "AlphaTopology Ingestion Engine",
-            "provider": "FMP" if FMP_API_KEY else "yfinance",
+            "providers": sorted(set(providers.values())),
+            "as_of": as_of,
             "total_nodes": len(enriched_nodes),
             "live_quotes": len(live_quotes),
         },

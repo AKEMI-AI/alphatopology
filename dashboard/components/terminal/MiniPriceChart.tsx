@@ -1,7 +1,14 @@
 'use client';
 
 import React, { useEffect, useRef, useState } from 'react';
-import { createChart, ColorType, LineSeries } from 'lightweight-charts';
+import {
+  createChart,
+  ColorType,
+  LineSeries,
+  type LineData,
+  type Time,
+  type UTCTimestamp,
+} from 'lightweight-charts';
 import { fetchHistory, HistoryPoint } from '@/lib/api';
 
 interface ChartProps {
@@ -10,7 +17,7 @@ interface ChartProps {
 
 export default function MiniPriceChart({ ticker }: ChartProps) {
   const containerRef = useRef<HTMLDivElement>(null);
-  const [source, setSource] = useState<'LIVE' | 'SIM' | 'LOADING'>('LOADING');
+  const [source, setSource] = useState<'MARKET' | 'SIM' | 'LOADING'>('LOADING');
 
   useEffect(() => {
     if (!containerRef.current) return;
@@ -44,12 +51,18 @@ export default function MiniPriceChart({ ticker }: ChartProps) {
 
     fetchHistory(ticker).then((res) => {
       if (disposed) return;
-      let data: HistoryPoint[];
+      let data: LineData<Time>[];
       if (res && res.data.length > 0) {
-        data = res.data;
+        data = res.data.map((point: HistoryPoint) => ({
+          time:
+            typeof point.time === 'number'
+              ? (point.time as UTCTimestamp)
+              : (point.time as Time),
+          value: point.value,
+        }));
         const up = data[data.length - 1].value >= data[0].value;
         series.applyOptions({ color: up ? '#10b981' : '#ef4444' });
-        setSource('LIVE');
+        setSource('MARKET');
       } else {
         // API unreachable — deterministic placeholder, clearly labeled SIM
         const base = 150;
@@ -81,7 +94,7 @@ export default function MiniPriceChart({ ticker }: ChartProps) {
     <div className="relative">
       <span
         className={`absolute right-1 top-0 z-10 text-[9px] font-mono font-bold px-1 rounded ${
-          source === 'LIVE'
+          source === 'MARKET'
             ? 'text-emerald-400 bg-emerald-500/10'
             : source === 'SIM'
               ? 'text-amber-400 bg-amber-500/10'

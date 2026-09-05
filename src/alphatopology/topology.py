@@ -25,6 +25,13 @@ def load_topology(path: Path = DEFAULT_SEED) -> SupplyChainTopology:
     """Load and schema-validate the topology JSON via Pydantic."""
     topo = SupplyChainTopology.model_validate(json.loads(path.read_text()))
     node_ids = {n.id for n in topo.nodes}
+    if len(node_ids) != len(topo.nodes):
+        duplicates = sorted(
+            node_id
+            for node_id in node_ids
+            if sum(node.id == node_id for node in topo.nodes) > 1
+        )
+        raise ValueError(f"Duplicate node ids: {duplicates}")
     dangling = [
         (e.source, e.target)
         for e in topo.edges
@@ -41,6 +48,8 @@ def build_graph(topo: SupplyChainTopology) -> nx.DiGraph:
         g.add_node(n.id, **n.model_dump())
     for e in topo.edges:
         g.add_edge(e.source, e.target, **e.model_dump())
+    if not nx.is_directed_acyclic_graph(g):
+        raise ValueError("Supply-chain topology must be a directed acyclic graph")
     return g
 
 

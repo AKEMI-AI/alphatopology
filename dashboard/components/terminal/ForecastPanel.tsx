@@ -17,22 +17,22 @@ function fmt(v: number | null, digits = 1, suffix = ''): string {
 }
 
 export default function ForecastPanel({ ticker }: { ticker: string }) {
-  const [fc, setFc] = useState<Forecast | null>(null);
-  const [loading, setLoading] = useState(true);
+  const [result, setResult] = useState<{ ticker: string; data: Forecast | null } | null>(null);
 
   useEffect(() => {
     let stale = false;
-    setLoading(true);
     fetchForecast(ticker).then((res) => {
       if (!stale) {
-        setFc(res);
-        setLoading(false);
+        setResult({ ticker, data: res });
       }
     });
     return () => {
       stale = true;
     };
   }, [ticker]);
+
+  const loading = result?.ticker !== ticker;
+  const fc = loading ? null : result.data;
 
   if (loading) {
     return (

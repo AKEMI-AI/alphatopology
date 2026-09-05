@@ -15,12 +15,11 @@ from fastapi import FastAPI, HTTPException  # noqa: E402
 from fastapi.middleware.cors import CORSMiddleware  # noqa: E402
 
 from alphatopology.market import (  # noqa: E402
-    DEFAULT_PROXY,
-    PHYSICAL_PROXIES,
     get_forecast,
     get_history,
     get_quotes,
 )
+from alphatopology.telemetry import FIXTURE_SOURCE, get_physical_proxy  # noqa: E402
 from alphatopology.topology import (  # noqa: E402
     build_graph,
     chokepoints,
@@ -76,15 +75,16 @@ def market_telemetry():
     quotes = get_quotes(tickers)
     return {
         "metadata": {
-            "provider": "yfinance",
+            "market_data_provider": "yfinance",
+            "physical_telemetry_source": FIXTURE_SOURCE,
             "quote_ttl_seconds": 60,
-            "note": "telemetry values are FIXTURE_ESTIMATE until industry feeds are wired in",
+            "note": "Physical telemetry values are fixture estimates until industry feeds are wired in.",
         },
         "nodes": [
             {
                 **n.model_dump(),
                 "market_data": quotes.get(n.ticker, {}),
-                "telemetry": PHYSICAL_PROXIES.get(n.ticker, DEFAULT_PROXY),
+                "telemetry": get_physical_proxy(n.ticker),
             }
             for n in _topo.nodes
         ],
@@ -97,7 +97,13 @@ def market_history(ticker: str, period: str = "1mo", interval: str = "1d"):
     data = get_history(ticker, period=period, interval=interval)
     if not data:
         raise HTTPException(status_code=404, detail=f"No history for '{ticker}'")
-    return {"ticker": ticker, "period": period, "interval": interval, "data": data}
+    return {
+        "ticker": ticker,
+        "period": period,
+        "interval": interval,
+        "provider": "yfinance",
+        "data": data,
+    }
 
 
 @app.get("/market/forecast/{ticker}")

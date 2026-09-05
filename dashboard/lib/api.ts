@@ -6,6 +6,8 @@ export interface MarketData {
   volume: number | null;
   currency: string | null;
   live: boolean;
+  provider?: string | null;
+  as_of?: string | null;
 }
 
 export interface Telemetry {
@@ -13,6 +15,7 @@ export interface Telemetry {
   value: string;
   status: string;
   lead_time_trend: string;
+  data_source?: 'FIXTURE_ESTIMATE' | string;
 }
 
 export interface TelemetryNode {
@@ -25,6 +28,8 @@ export interface TelemetryNode {
 
 export interface Forecast {
   ticker: string;
+  provider: string;
+  as_of: string;
   current_price: number | null;
   target_mean: number | null;
   target_high: number | null;
@@ -40,7 +45,7 @@ export interface Forecast {
 }
 
 export interface HistoryPoint {
-  time: string;
+  time: string | number;
   value: number;
 }
 

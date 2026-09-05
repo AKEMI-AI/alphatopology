@@ -33,8 +33,11 @@ class IngestionAgent:
     is testable offline.
     """
 
-    async def fetch_filing_signals(self, ticker: str) -> Dict[str, float]:
-        fixture = FIXTURES / f"{ticker}.json"
+    def __init__(self, fixtures: Path = FIXTURES):
+        self.fixtures = fixtures
+
+    def fetch_filing_signals(self, ticker: str) -> Dict[str, float]:
+        fixture = self.fixtures / f"{ticker}.json"
         if fixture.exists():
             return {k: float(v) for k, v in json.loads(fixture.read_text()).items()}
         # TODO: EDGAR full-text + XBRL via sec-api / edgartools; MoEA export CSVs.
@@ -126,20 +129,31 @@ class Orchestrator:
     No trade execution: order routing is deliberately not implemented.
     """
 
-    def __init__(self):
-        self.g = build_graph(load_topology())
-        self.ingestion = IngestionAgent()
+    def __init__(
+        self,
+        graph: Optional[nx.DiGraph] = None,
+        ingestion: Optional[IngestionAgent] = None,
+    ):
+        self.g = graph if graph is not None else build_graph(load_topology())
+        self.ingestion = ingestion if ingestion is not None else IngestionAgent()
         self.transmission = TransmissionLagAgent(self.g)
         self.arbitrage = DislocationArbitrageAgent()
 
     def run_daily_cycle(self) -> List[MacroSignal]:
         signals: List[MacroSignal] = []
-        # Propagate any fixture-observed capacity shocks from chokepoint nodes.
+        # Propagate observed capacity shocks from chokepoint nodes. Missing data
+        # produces no signal rather than a fabricated neutral observation.
         for node_id, attrs in self.g.nodes(data=True):
             if attrs["chokepoint_rating"] < 0.95:
                 continue
+            observed = self.ingestion.fetch_filing_signals(attrs["ticker"])
+            capacity_change_pct = observed.get("capacity_change_pct")
+            if capacity_change_pct is None:
+                continue
             for downstream in nx.descendants(self.g, node_id):
-                sig = self.transmission.evaluate_edge_shock(node_id, downstream, 0.0)
+                sig = self.transmission.evaluate_edge_shock(
+                    node_id, downstream, capacity_change_pct
+                )
                 if sig.signal_type != "NEUTRAL":
                     signals.append(sig)
         return signals

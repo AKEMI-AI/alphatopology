@@ -44,7 +44,7 @@ class TopologyEdge(BaseModel):
     source: str
     target: str
     relationship: str
-    lead_time_days: int
+    lead_time_days: int = Field(ge=0)
     criticality: Criticality
 
 

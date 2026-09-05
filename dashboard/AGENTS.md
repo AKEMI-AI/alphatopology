@@ -7,3 +7,10 @@ This version has breaking changes — APIs, conventions, and file structure may 
 This block is written and re-added by `next dev` — verify at `node_modules/next/dist/server/lib/generate-agent-files.js`. Removing it from a diff only re-creates the uncommitted change; committing it with your work keeps the tree clean.
 
 <!-- END:nextjs-agent-rules -->
+
+## AlphaTopology dashboard rules
+
+- Preserve visible provider, as-of, stale, and fixture-estimate labels.
+- Never describe API reachability as proof that every observation is live.
+- Run `npm run lint`, `npx tsc --noEmit --incremental false`, and `npm run build`
+  before opening a pull request that changes the dashboard.

@@ -95,7 +95,7 @@ export default function TerminalPage() {
                 : 'bg-amber-500/10 text-amber-400 border-amber-500/20'
             }`}
           >
-            DATA ENGINE: {live ? 'SYNCHRONIZED' : 'CACHED SNAPSHOT'}
+            MARKET API: {live ? 'CONNECTED' : 'CACHED SNAPSHOT'}
           </span>
         </div>
       </header>

@@ -20,15 +20,15 @@ const STATUS_COLORS: Record<string, string> = {
 
 interface TelemetryEntry {
   ticker: string;
-  market_data: { price: number | null; change_pct: number | null; currency: string; live: boolean };
-  telemetry: { metric: string; value: string; status: string; lead_time_trend: string };
+  market_data: { price: number | null; change_pct: number | null; currency: string | null; live: boolean };
+  telemetry: { metric: string; value: string; status: string; lead_time_trend: string; data_source?: string };
 }
 
 export default function TelemetryTickerBar() {
   const [entries, setEntries] = useState<TelemetryEntry[]>(
     fallbackTelemetry.nodes as TelemetryEntry[]
   );
-  const [isLive, setIsLive] = useState(false);
+  const [apiConnected, setApiConnected] = useState(false);
 
   useEffect(() => {
     let stopped = false;
@@ -36,9 +36,9 @@ export default function TelemetryTickerBar() {
       const res = await fetchTelemetry();
       if (!stopped && res) {
         setEntries(res.nodes as unknown as TelemetryEntry[]);
-        setIsLive(true);
+        setApiConnected(true);
       } else if (!stopped) {
-        setIsLive(false);
+        setApiConnected(false);
       }
     };
     refresh();
@@ -50,6 +50,7 @@ export default function TelemetryTickerBar() {
   }, []);
 
   const nodes = entries.filter((n) => n.telemetry.status !== 'BALANCED');
+  const marketDataAvailable = apiConnected && entries.some((n) => n.market_data.live);
   // Duplicate the strip so the marquee loops seamlessly
   const strip = [...nodes, ...nodes];
 
@@ -57,22 +58,22 @@ export default function TelemetryTickerBar() {
     <div className="w-full h-9 bg-[#060709] border-b border-white/10 overflow-hidden flex items-center shrink-0">
       <div
         className={`flex items-center gap-2 px-3 h-full z-10 border-r ${
-          isLive
+          marketDataAvailable
             ? 'bg-emerald-500/10 border-emerald-500/20'
             : 'bg-amber-500/10 border-amber-500/20'
         }`}
       >
         <span
           className={`w-1.5 h-1.5 rounded-full animate-pulse ${
-            isLive ? 'bg-emerald-400' : 'bg-amber-400'
+            marketDataAvailable ? 'bg-emerald-400' : 'bg-amber-400'
           }`}
         />
         <span
           className={`text-[10px] font-mono font-bold tracking-widest whitespace-nowrap ${
-            isLive ? 'text-emerald-400' : 'text-amber-400'
+            marketDataAvailable ? 'text-emerald-400' : 'text-amber-400'
           }`}
         >
-          {isLive ? 'LIVE TELEMETRY' : 'CACHED SNAPSHOT'}
+          {marketDataAvailable ? 'MARKET DATA AVAILABLE' : apiConnected ? 'MARKET FEED DEGRADED' : 'CACHED SNAPSHOT'}
         </span>
       </div>
       <div className="relative flex-1 overflow-hidden h-full">
@@ -93,6 +94,9 @@ export default function TelemetryTickerBar() {
                 <span className={`font-bold ${STATUS_COLORS[n.telemetry.status] ?? 'text-zinc-400'}`}>
                   [{n.telemetry.status}]
                 </span>
+                {(n.telemetry.data_source ?? 'FIXTURE_ESTIMATE') === 'FIXTURE_ESTIMATE' && (
+                  <span className="text-amber-500 text-[9px]">[FIXTURE]</span>
+                )}
                 {n.telemetry.lead_time_trend === 'EXPANDING' && (
                   <span className="text-amber-400 text-[10px]">LEAD↗</span>
                 )}

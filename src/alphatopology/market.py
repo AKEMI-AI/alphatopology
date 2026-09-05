@@ -8,11 +8,13 @@ often lack analyst coverage fields.
 from __future__ import annotations
 
 import time
-from typing import Any, Dict, List, Optional
+from datetime import datetime, timezone
+from typing import Any, Dict, List, Optional, Union
 
 import yfinance as yf
 
 _CACHE: Dict[str, Any] = {}
+_CACHE_MAX_ENTRIES = 512
 
 
 def _cached(key: str, ttl: float, fn):
@@ -21,33 +23,22 @@ def _cached(key: str, ttl: float, fn):
     if hit and hit[0] > now:
         return hit[1]
     value = fn()
+    if key not in _CACHE and len(_CACHE) >= _CACHE_MAX_ENTRIES:
+        expired = [cache_key for cache_key, (expires, _) in _CACHE.items() if expires <= now]
+        for cache_key in expired:
+            _CACHE.pop(cache_key, None)
+        if len(_CACHE) >= _CACHE_MAX_ENTRIES:
+            oldest = min(_CACHE, key=lambda cache_key: _CACHE[cache_key][0])
+            _CACHE.pop(oldest, None)
     _CACHE[key] = (now + ttl, value)
     return value
 
 
-# Physical proxy heuristics for AI hardware bottlenecks.
-# NOTE: static fixture estimates until TrendForce/SEMI/BNEF feeds are wired in —
-# refresh manually from quarterly filings. Flagged data_source=FIXTURE_ESTIMATE
-# so the UI can distinguish them from live feed values.
-PHYSICAL_PROXIES: Dict[str, Dict[str, str]] = {
-    "TSM": {"metric": "CoWoS Run-Rate", "value": "45k wpm", "status": "CONSTRAINED", "lead_time_trend": "EXPANDING"},
-    "ASML": {"metric": "High-NA EUV Backlog", "value": "€38.5B", "status": "ALLOCATED", "lead_time_trend": "STABLE"},
-    "2802.T": {"metric": "ABF Substrate Lead Time", "value": "28 Weeks", "status": "TIGHT", "lead_time_trend": "EXPANDING"},
-    "6146.T": {"metric": "Dicing Saw Lead Time", "value": "16 Weeks", "status": "OPTIMAL", "lead_time_trend": "STABLE"},
-    "KLAC": {"metric": "Inspection Tool Cycle", "value": "180 Days", "status": "CRITICAL", "lead_time_trend": "EXPANDING"},
-    "000660.KS": {"metric": "HBM3e Allocation", "value": "100% FY26 Sold Out", "status": "CONSTRAINED", "lead_time_trend": "EXPANDING"},
-    "VRT": {"metric": "Liquid Cooling Backlog", "value": "$7.2B", "status": "SURGING", "lead_time_trend": "EXPANDING"},
-    "ETN": {"metric": "Transformer Interconnect Queue", "value": "112 Weeks", "status": "SEVERE_BOTTLENECK", "lead_time_trend": "EXPANDING"},
-    "CEG": {"metric": "PPA Baseload Spread", "value": "$95/MWh", "status": "COMMITTED", "lead_time_trend": "STABLE"},
-    "ANET": {"metric": "800G/1.6T Fabric Demand", "value": "+42% YoY", "status": "OPTIMAL", "lead_time_trend": "STABLE"},
-}
-
-DEFAULT_PROXY = {
-    "metric": "Operational Throughput",
-    "value": "Normal Run-rate",
-    "status": "BALANCED",
-    "lead_time_trend": "STABLE",
-}
+def _history_time(index: Any, interval: str) -> Union[str, int]:
+    """Use business-day strings for daily bars and Unix seconds intraday."""
+    intraday = interval.endswith("m") and not interval.endswith("mo")
+    intraday = intraday or interval.endswith("h")
+    return int(index.timestamp()) if intraday else index.strftime("%Y-%m-%d")
 
 
 def get_quotes(tickers: List[str], ttl: float = 60.0) -> Dict[str, Dict[str, Any]]:
@@ -55,6 +46,7 @@ def get_quotes(tickers: List[str], ttl: float = 60.0) -> Dict[str, Dict[str, Any
 
     def fetch() -> Dict[str, Dict[str, Any]]:
         quotes: Dict[str, Dict[str, Any]] = {}
+        as_of = datetime.now(timezone.utc).isoformat()
         for t in yf.Tickers(" ".join(tickers)).tickers.values():
             try:
                 fi = t.fast_info
@@ -66,11 +58,14 @@ def get_quotes(tickers: List[str], ttl: float = 60.0) -> Dict[str, Dict[str, Any
                     "volume": int(fi["last_volume"] or 0),
                     "currency": fi["currency"],
                     "live": True,
+                    "provider": "yfinance",
+                    "as_of": as_of,
                 }
             except Exception:
                 quotes[t.ticker] = {
                     "price": None, "change_pct": None, "volume": None,
-                    "currency": None, "live": False,
+                    "currency": None, "live": False, "provider": "yfinance",
+                    "as_of": as_of,
                 }
         return quotes
 
@@ -87,7 +82,10 @@ def get_history(
         if df.empty:
             return []
         return [
-            {"time": idx.strftime("%Y-%m-%d"), "value": round(float(row["Close"]), 2)}
+            {
+                "time": _history_time(idx, interval),
+                "value": round(float(row["Close"]), 2),
+            }
             for idx, row in df.iterrows()
         ]
 
@@ -110,6 +108,8 @@ def get_forecast(ticker: str, ttl: float = 3600.0) -> Dict[str, Any]:
 
         return {
             "ticker": ticker,
+            "provider": "yfinance",
+            "as_of": datetime.now(timezone.utc).isoformat(),
             "current_price": g("currentPrice") or g("regularMarketPrice"),
             "target_mean": g("targetMeanPrice"),
             "target_high": g("targetHighPrice"),

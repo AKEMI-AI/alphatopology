@@ -4,6 +4,10 @@ Institutional research index, node-graph dashboard, and multi-agent research
 pipeline modeling the physical supply chain of AI hardware
 (EDA → Materials → WFE → Foundry → Packaging → Test → ODM → Cooling/Power).
 
+Shared product boundaries and collaboration rules live in
+`docs/ARCHITECTURE.md`, `docs/WORKFLOW.md`, and `docs/ROADMAP.md`. Treat those
+files as canonical across Claude Code and Codex.
+
 ## Layout
 - `data/topology_schema.json` — JSON Schema (draft-07) for the graph; the source of truth.
 - `data/nodes_seed.json` — seed topology (24 nodes, 14 edges).
@@ -12,6 +16,7 @@ pipeline modeling the physical supply chain of AI hardware
 - `src/alphatopology/agents.py` — 4-agent pipeline (Ingestion, TransmissionLag, DislocationArbitrage, Orchestrator).
 - `scripts/query_topology.py` — CLI: `--upstream <ticker>`, `--chokepoints`, `--lead-time`.
 - `api/main.py` — FastAPI backend for the future Next.js dashboard (`uvicorn api.main:app`).
+- `docs/` — shared architecture, roadmap, testing, and agent workflow.
 
 ## Invariants
 1. **Physical Reality Rule**: signals propagate along graph edges with physical
@@ -27,3 +32,5 @@ pipeline modeling the physical supply chain of AI hardware
 - Python 3.11+ target; code is kept 3.9-compatible (`from __future__ import annotations`)
   because this machine currently has only 3.9. Venv: `.venv/`.
 - `python scripts/query_topology.py --upstream NVDA` is the smoke test.
+- `pytest` is the backend quality gate; `npm run lint` and `npx tsc --noEmit`
+  are the frontend gates.

@@ -4,8 +4,10 @@ AI hardware supply-chain intelligence engine: graph model of the physical
 Energy → EDA/Materials → WFE → Foundry → Packaging → Test → ODM → Data-Center
 pipeline, a FastAPI market-data backend, and a Next.js terminal dashboard.
 
-Read `CLAUDE.md` for the full layout and invariants — it is the canonical
-project doc and applies to every agent, not just Claude. Key rules:
+Read `docs/ARCHITECTURE.md`, `docs/WORKFLOW.md`, and `docs/ROADMAP.md` before
+changing system boundaries. They are the canonical shared context. `CLAUDE.md`
+is the Claude-specific entry point; this file is the Codex/shared entry point.
+Key rules:
 
 1. **Physical Reality Rule** — signals propagate along graph edges with
    physical `lead_time_days`; quarter lags clamp to [1, 4].
@@ -16,15 +18,17 @@ project doc and applies to every agent, not just Claude. Key rules:
    `2317.TW`, `000660.KS`); missing data becomes `null` + `live: false`,
    never fabricated values.
 4. **Research only** — no brokerage/order-execution code anywhere.
-5. **Real vs fixture** — quote/history/forecast data is live (yfinance).
-   `PHYSICAL_PROXIES` in `src/alphatopology/market.py` are labeled fixture
+5. **Real vs fixture** — quote/history/forecast data comes from yfinance and
+   may be exchange-delayed; availability is not proof of a real-time value.
+   `PHYSICAL_PROXIES` in `src/alphatopology/telemetry.py` are labeled fixture
    estimates; keep the `FIXTURE_ESTIMATE` labeling in any UI that shows them.
 
 ## Quick start
 ```bash
-python3 -m venv .venv && .venv/bin/pip install -r requirements.txt
+python3.11 -m venv .venv && .venv/bin/pip install -r requirements-dev.txt
+.venv/bin/pytest
 .venv/bin/uvicorn api.main:app --port 8000        # market/graph API
-cd dashboard && npm install && npm run dev         # terminal UI on :3000
+cd dashboard && npm ci && npm run lint && npm run dev  # terminal UI on :3000
 .venv/bin/python scripts/query_topology.py --chokepoints   # smoke test
 ```
 
@@ -58,3 +62,10 @@ Rules of engagement:
 5. **Contract-first for new features.** If a feature needs a new endpoint,
    define the response model in `src/alphatopology/models.py` first so both
    sides build against the same shape.
+
+- GitHub `main` is the source of truth; chat history is not project state.
+- One task has one implementation owner and one branch/worktree.
+- The other system reviews the pull request; do not edit one branch concurrently.
+- Update architecture/decision docs in the same PR as contract changes.
+- Required checks: backend tests and schema validation; frontend lint, typecheck,
+  and production build.
