@@ -5,8 +5,11 @@
    chokepoint authority (crit ≥ 0.9). One magenta claim per view: the
    East-Asia concentration figure. */
 
-import React, { useMemo } from 'react';
+import React, { useMemo, useState } from 'react';
+import dynamic from 'next/dynamic';
 import { BASKET_ROLE_VARS } from '@/components/graph/ChokepointNode';
+
+const GlobeView = dynamic(() => import('@/components/geo/GlobeView'), { ssr: false });
 
 const COUNTRY_NAMES: Record<string, string> = {
   US: 'United States',
@@ -43,6 +46,7 @@ const fmtCap = (v: number) =>
   v >= 1e12 ? `$${(v / 1e12).toFixed(1)}T` : `$${Math.round(v / 1e9)}B`;
 
 export default function GeoView({ nodes, activeTicker, onSelect }: GeoViewProps) {
+  const [mode, setMode] = useState<'globe' | 'ledger'>('globe');
   const { rows, eastAsiaAuthorityShare } = useMemo(() => {
     const byCountry = new Map<string, GeoNode[]>();
     for (const n of nodes) {
@@ -88,11 +92,53 @@ export default function GeoView({ nodes, activeTicker, onSelect }: GeoViewProps)
     return Math.round(14 + 44 * Math.sqrt(cap / maxCap));
   };
 
+  const subToggle = (
+    <div
+      className="absolute top-4 right-6 z-20 flex items-center gap-1 p-0.5 rounded-full"
+      style={{ border: '1px solid color-mix(in oklab, var(--cream) 14%, transparent)', background: 'color-mix(in oklab, var(--ink) 70%, transparent)' }}
+    >
+      {(['globe', 'ledger'] as const).map((m) => (
+        <button
+          key={m}
+          onClick={() => setMode(m)}
+          className="mono px-3 py-1 text-[11px] rounded-full transition-colors cursor-pointer capitalize"
+          style={{
+            color: mode === m ? 'var(--ink)' : dim(70),
+            background: mode === m ? 'var(--cream)' : 'transparent',
+          }}
+        >
+          {m}
+        </button>
+      ))}
+    </div>
+  );
+
+  if (mode === 'globe') {
+    return (
+      <div className="relative w-full h-full">
+        {subToggle}
+        <GlobeView
+          nodes={nodes}
+          activeTicker={activeTicker}
+          onSelect={onSelect}
+          onZoomFloor={() => setMode('ledger')}
+        />
+        <div className="absolute top-4 left-1/2 -translate-x-1/2 z-10 pointer-events-none hidden lg:block">
+          <p className="text-[15px]" style={{ color: dim(75) }}>
+            <span className="descent-living-word">{`${eastAsiaAuthorityShare}%`}</span>{' '}
+            of chokepoint authorities sit in TW · KR · JP
+          </p>
+        </div>
+      </div>
+    );
+  }
+
   return (
     <div
       className="relative w-full h-full overflow-y-auto data-grid-dark"
       style={{ background: 'var(--ink)' }}
     >
+      {subToggle}
       <div className="px-6 pt-5 pb-2">
         <div className="descent-eyebrow on-noir">Geography / where the power sits</div>
         <p className="mt-3 text-[16px] max-w-2xl" style={{ color: dim(80) }}>
