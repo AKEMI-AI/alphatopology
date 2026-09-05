@@ -19,14 +19,33 @@ Three inseparable parts:
    documents from your questions. This is the defensible niche feature —
    an analyst that knows *this* dataset, not the internet.
 
-## Audience & pricing shape (hypotheses to test)
+## Audience & pricing (hypotheses to test)
 
-- **Prosumer niche** (core): serious individual investors, analysts,
-  operators, journalists in/around AI. $30–75/mo.
-- **Institutional handful**: funds/corp-dev/policy, $5–15K/yr seats, added
-  only after freshness is proven.
-- **Free tier / funnel**: the Pulse (newsletter) + a read-only snapshot of
-  the map + the methodology page.
+**Primary persona — the concentrated prosumer.** Individual investors and
+tech professionals with meaningful AI/semis exposure (portfolios or equity
+comp), who already read SemiAnalysis-tier content and hold 10+ research tabs.
+They buy *time and confidence*, not data. Secondary: junior buy-side /
+family-office analysts covering AI without a Bloomberg budget; journalists,
+policy, corp-strategy (bubble-sensemaking wedge). Tertiary: institutional
+seats. Honest sizing: this niche is thousands of paying subscribers at
+maturity, not millions — comps (Doomberg, SemiAnalysis prosumer tiers) prove
+four-figure sub counts at premium prices are achievable for singular voices.
+
+**Pricing ladder (anchored to newsletter comps, test everything):**
+- **Free** — Pulse summary + read-only map snapshot + methodology. The funnel.
+- **Member — $25/mo or $240/yr** — full weekly Pulse, deal-ledger access,
+  archive. Newsletter-membership economics; the volume tier.
+- **Pro — $60/mo or $600/yr** — the full terminal + copilot (quota) +
+  briefs. The product tier; where the tool earns beyond the letter.
+- **Founding — $750 one-time, capped (e.g. first 100)** — lifetime Pro.
+  The only defensible one-time sale for a freshness product: early cash +
+  committed evangelists; cap it because lifetime deals age badly.
+- **Institutional — $10–15K/yr** — multi-seat + direct line; sold by hand
+  after freshness is proven. Three of these equal ~100 members — pursue
+  in parallel, not instead.
+
+Rule: recurring-first. A freshness product sold one-time is a contradiction;
+the founding tier is the sole exception and it is marketing, not the model.
 
 ## The Pulse (newsletter)
 
