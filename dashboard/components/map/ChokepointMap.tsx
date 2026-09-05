@@ -23,6 +23,8 @@ interface MapNode {
   basket: string;
   chokepoint_rating: number;
   market_data?: { market_cap_usd?: number | null; live?: boolean };
+  entity_type?: string;
+  valuation_usd_b?: number | null;
   [key: string]: unknown;
 }
 
@@ -39,8 +41,9 @@ const COLUMNS: { key: string; label: string; stages: string[] }[] = [
   { key: 'equipment', label: 'Equipment', stages: ['WFE_LITHOGRAPHY', 'INSPECTION_TESTING'] },
   { key: 'silicon', label: 'Silicon', stages: ['FOUNDRY', 'MEMORY_HBM'] },
   { key: 'package', label: 'Package & test', stages: ['DICING_PACKAGING_SUBSTRATE'] },
-  { key: 'systems', label: 'Systems', stages: ['ODM_RACK_INTEGRATION', 'COOLING_THERMAL', 'OPTICAL_FABRIC'] },
+  { key: 'systems', label: 'Systems', stages: ['ODM_RACK_INTEGRATION', 'COOLING_THERMAL', 'OPTICAL_FABRIC', 'ROBOTICS'] },
   { key: 'hyperscale', label: 'Hyperscale', stages: ['HYPERSCALE_DEPLOYMENT'] },
+  { key: 'models', label: 'Models', stages: ['FOUNDATION_MODELS'] },
 ];
 
 const VB_W = 1400;
@@ -97,11 +100,13 @@ export default function ChokepointMap({ nodes, activeTicker, onSelect, onZoomFlo
 
   /* ── layout (unchanged grammar) ── */
   const layout = useMemo(() => {
-    const maxCap = Math.max(1, ...nodes.map((n) => n.market_data?.market_cap_usd ?? 0));
+    const weightOf = (n: MapNode) =>
+      n.market_data?.market_cap_usd ?? (n.valuation_usd_b ? n.valuation_usd_b * 1e9 : 0);
+    const maxCap = Math.max(1, ...nodes.map(weightOf));
     const radius = (n: MapNode) => {
-      const cap = n.market_data?.market_cap_usd;
-      if (!cap) return R_MIN;
-      return r3(R_MIN + (R_MAX - R_MIN) * Math.sqrt(cap / maxCap));
+      const w = weightOf(n);
+      if (!w) return R_MIN;
+      return r3(R_MIN + (R_MAX - R_MIN) * Math.sqrt(w / maxCap));
     };
     const colW = VB_W / COLUMNS.length;
     const placed: Record<string, { x: number; y: number; r: number; node: MapNode }> = {};
@@ -109,7 +114,7 @@ export default function ChokepointMap({ nodes, activeTicker, onSelect, onZoomFlo
     const columns = COLUMNS.map((col, ci) => {
       const members = nodes
         .filter((n) => col.stages.includes(n.stage))
-        .sort((a, b) => (b.market_data?.market_cap_usd ?? 0) - (a.market_data?.market_cap_usd ?? 0));
+        .sort((a, b) => (b.market_data?.market_cap_usd ?? (b.valuation_usd_b ?? 0) * 1e9) - (a.market_data?.market_cap_usd ?? (a.valuation_usd_b ?? 0) * 1e9));
       const x = r3(colW * ci + colW / 2);
       const gaps = 26;
       const total = members.reduce((s, m) => s + radius(m) * 2 + gaps, -gaps);
@@ -122,7 +127,7 @@ export default function ChokepointMap({ nodes, activeTicker, onSelect, onZoomFlo
         placed[m.id] = c;
         return c;
       });
-      const aggCap = members.reduce((s, m) => s + (m.market_data?.market_cap_usd ?? 0), 0);
+      const aggCap = members.reduce((s, m) => s + (m.market_data?.market_cap_usd ?? (m.valuation_usd_b ?? 0) * 1e9), 0);
       maxAgg = Math.max(maxAgg, aggCap);
       const authorities = members.filter((m) => m.chokepoint_rating >= 0.9).length;
       return { ...col, x, circles, aggCap, authorities, count: members.length };
@@ -132,7 +137,7 @@ export default function ChokepointMap({ nodes, activeTicker, onSelect, onZoomFlo
 
   const edges = useMemo(
     () =>
-      (seedData.edges as { source: string; target: string; criticality: string; lead_time_days: number; relationship: string }[])
+      (seedData.edges as { source: string; target: string; criticality: string; lead_time_days: number; relationship: string; amount_usd_b?: number }[])
         .map((e) => {
           const s = layout.placed[e.source];
           const tt = layout.placed[e.target];
@@ -147,7 +152,8 @@ export default function ChokepointMap({ nodes, activeTicker, onSelect, onZoomFlo
         })
         .filter(Boolean) as {
         source: string; target: string; criticality: string; lead_time_days: number;
-        relationship: string; d: string; mid: { x: number; y: number }; key: string;
+        relationship: string; amount_usd_b?: number; d: string;
+        mid: { x: number; y: number }; key: string;
       }[],
     [layout]
   );
@@ -446,13 +452,20 @@ export default function ChokepointMap({ nodes, activeTicker, onSelect, onZoomFlo
               {edges.map((e) => {
                 const touching = highlightId && (e.source === highlightId || e.target === highlightId);
                 const faded = highlightId && !touching;
+                const capital = e.amount_usd_b != null;
+                const capW = capital ? r3(1 + Math.log10(e.amount_usd_b! + 1) * 1.1) : 0;
                 return (
                   <path
                     key={e.key}
                     d={e.d}
-                    stroke={touching ? 'var(--gold)' : e.criticality === 'CRITICAL' ? 'var(--gold-matte)' : 'var(--plum)'}
-                    strokeOpacity={faded ? 0.08 : touching ? 0.95 : e.criticality === 'CRITICAL' ? 0.55 : 0.4}
-                    strokeWidth={touching ? 2.2 : e.criticality === 'CRITICAL' ? 1.8 : 1.1}
+                    stroke={
+                      capital ? 'var(--gold-matte)'
+                      : touching ? 'var(--gold)'
+                      : e.criticality === 'CRITICAL' ? 'var(--gold-matte)' : 'var(--plum)'
+                    }
+                    strokeDasharray={capital ? '5 4' : undefined}
+                    strokeOpacity={faded ? 0.08 : touching ? 0.95 : capital ? 0.6 : e.criticality === 'CRITICAL' ? 0.55 : 0.4}
+                    strokeWidth={touching ? Math.max(2.2, capW) : capital ? capW : e.criticality === 'CRITICAL' ? 1.8 : 1.1}
                     style={{ transition: 'stroke-opacity 200ms ease' }}
                   />
                 );
@@ -493,6 +506,7 @@ export default function ChokepointMap({ nodes, activeTicker, onSelect, onZoomFlo
                       fill={`color-mix(in oklab, ${role} 22%, var(--ink))`}
                       stroke={isFocus ? 'var(--magenta)' : hovered === node.id ? 'var(--gold)' : role}
                       strokeWidth={isFocus ? 2 : 1.3}
+                      strokeDasharray={node.entity_type === 'PRIVATE' ? '3 2.5' : undefined}
                     />
                     <text
                       x={x}
@@ -519,7 +533,7 @@ export default function ChokepointMap({ nodes, activeTicker, onSelect, onZoomFlo
                     style={{ fontSize: 10, letterSpacing: '0.1em', paintOrder: 'stroke', stroke: 'var(--ink)', strokeWidth: 4 }}
                     fill="var(--gold-matte)"
                   >
-                    {e.lead_time_days}d · {e.relationship.replace(/_/g, ' ').toLowerCase()}
+                    {e.amount_usd_b != null ? `$${e.amount_usd_b}B` : `${e.lead_time_days}d`} · {e.relationship.replace(/_/g, ' ').toLowerCase()}
                   </text>
                 ))}
           </g>

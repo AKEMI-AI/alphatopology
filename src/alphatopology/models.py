@@ -22,9 +22,11 @@ Stage = Literal[
     "COOLING_THERMAL",
     "OPTICAL_FABRIC",
     "HYPERSCALE_DEPLOYMENT",
+    "FOUNDATION_MODELS",
+    "ROBOTICS",
 ]
 
-Basket = Literal["BK_CHOKE", "BK_FRONT", "BK_BACK", "BK_FABLESS", "BK_INFRA"]
+Basket = Literal["BK_CHOKE", "BK_FRONT", "BK_BACK", "BK_FABLESS", "BK_INFRA", "BK_MODELS"]
 
 Criticality = Literal["CRITICAL", "HIGH", "MODERATE"]
 
@@ -39,6 +41,8 @@ class TopologyNode(BaseModel):
     stage: Stage
     chokepoint_rating: float = Field(ge=0.0, le=1.0)
     basket: Basket
+    entity_type: Literal["PUBLIC", "PRIVATE"] = "PUBLIC"
+    valuation_usd_b: Optional[float] = None  # private entities: last documented round
 
 
 class TopologyEdge(BaseModel):
@@ -47,6 +51,7 @@ class TopologyEdge(BaseModel):
     relationship: str
     lead_time_days: int
     criticality: Criticality
+    amount_usd_b: Optional[float] = None  # capital/compute commitments (money flow)
 
 
 class SupplyChainTopology(BaseModel):

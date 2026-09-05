@@ -62,6 +62,17 @@ export const HQ_COORDS: Record<string, [number, number]> = {
   GEVERNOVA: [42.37, -71.08], // Cambridge MA
   SCHNEIDER: [48.88, 2.18], // Rueil-Malmaison
   BLOOM: [37.41, -121.94],
+  OPENAI: [37.76, -122.41], // San Francisco
+  ANTHROPIC: [37.79, -122.4], // San Francisco
+  XAI: [37.77, -122.39], // San Francisco (training ops Memphis)
+  MISTRAL: [48.86, 2.34], // Paris
+  COREWEAVE: [40.79, -74.31], // Livingston NJ
+  ORACLE: [30.27, -97.74], // Austin
+  TESLA: [30.22, -97.62], // Austin
+  FANUC: [35.65, 138.57], // Yamanashi
+  YASKAWA: [33.87, 130.88], // Kitakyushu
+  FIGURE: [37.33, -121.89], // San Jose
+  SOFTBANK: [35.67, 139.74], // Tokyo
   MICROSOFT: [47.64, -122.13], // Redmond
   GOOGLE: [37.42, -122.08], // Mountain View
   AMAZON: [47.61, -122.33], // Seattle

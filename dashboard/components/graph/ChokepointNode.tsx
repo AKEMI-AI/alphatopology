@@ -25,6 +25,7 @@ export const BASKET_ROLE_VARS: Record<string, string> = {
   BK_BACK: 'var(--spectrum-violet)', // society (memory/packaging collective)
   BK_FABLESS: 'var(--spectrum-orange)', // economy
   BK_INFRA: 'var(--spectrum-coral)', // change (power/cooling buildout)
+  BK_MODELS: 'var(--spectrum-amber)', // intelligence — foundation model labs
 };
 
 export const ChokepointNode = memo(({ data, selected }: NodeProps<ChokepointFlowNode>) => {

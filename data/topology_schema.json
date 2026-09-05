@@ -8,12 +8,27 @@
       "items": {
         "type": "object",
         "properties": {
-          "id": { "type": "string" },
-          "name": { "type": "string" },
-          "ticker": { "type": "string" },
-          "exchange": { "type": "string" },
-          "country": { "type": "string", "pattern": "^[A-Z]{2}$" },
-          "layer": { "type": "integer", "minimum": 1, "maximum": 5 },
+          "id": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "ticker": {
+            "type": "string"
+          },
+          "exchange": {
+            "type": "string"
+          },
+          "country": {
+            "type": "string",
+            "pattern": "^[A-Z]{2}$"
+          },
+          "layer": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 5
+          },
           "stage": {
             "type": "string",
             "enum": [
@@ -28,16 +43,48 @@
               "ODM_RACK_INTEGRATION",
               "COOLING_THERMAL",
               "OPTICAL_FABRIC",
-              "HYPERSCALE_DEPLOYMENT"
+              "HYPERSCALE_DEPLOYMENT",
+              "FOUNDATION_MODELS",
+              "ROBOTICS"
             ]
           },
-          "chokepoint_rating": { "type": "number", "minimum": 0.0, "maximum": 1.0 },
+          "chokepoint_rating": {
+            "type": "number",
+            "minimum": 0.0,
+            "maximum": 1.0
+          },
           "basket": {
             "type": "string",
-            "enum": ["BK_CHOKE", "BK_FRONT", "BK_BACK", "BK_FABLESS", "BK_INFRA"]
+            "enum": [
+              "BK_CHOKE",
+              "BK_FRONT",
+              "BK_BACK",
+              "BK_FABLESS",
+              "BK_INFRA",
+              "BK_MODELS"
+            ]
+          },
+          "entity_type": {
+            "type": "string",
+            "enum": [
+              "PUBLIC",
+              "PRIVATE"
+            ]
+          },
+          "valuation_usd_b": {
+            "type": "number",
+            "minimum": 0
           }
         },
-        "required": ["id", "name", "ticker", "layer", "stage", "chokepoint_rating", "basket"]
+        "required": [
+          "id",
+          "name",
+          "ticker",
+          "layer",
+          "stage",
+          "chokepoint_rating",
+          "basket"
+        ]
       }
     },
     "edges": {
@@ -45,13 +92,38 @@
       "items": {
         "type": "object",
         "properties": {
-          "source": { "type": "string" },
-          "target": { "type": "string" },
-          "relationship": { "type": "string" },
-          "lead_time_days": { "type": "integer" },
-          "criticality": { "type": "string", "enum": ["CRITICAL", "HIGH", "MODERATE"] }
+          "source": {
+            "type": "string"
+          },
+          "target": {
+            "type": "string"
+          },
+          "relationship": {
+            "type": "string"
+          },
+          "lead_time_days": {
+            "type": "integer"
+          },
+          "criticality": {
+            "type": "string",
+            "enum": [
+              "CRITICAL",
+              "HIGH",
+              "MODERATE"
+            ]
+          },
+          "amount_usd_b": {
+            "type": "number",
+            "minimum": 0
+          }
         },
-        "required": ["source", "target", "relationship", "lead_time_days", "criticality"]
+        "required": [
+          "source",
+          "target",
+          "relationship",
+          "lead_time_days",
+          "criticality"
+        ]
       }
     }
   }

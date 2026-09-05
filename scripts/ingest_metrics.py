@@ -103,7 +103,7 @@ def run_pipeline() -> None:
         seed_data = json.load(f)
 
     nodes = seed_data["nodes"]
-    tickers = [n["ticker"] for n in nodes]
+    tickers = [n["ticker"] for n in nodes if n.get("entity_type", "PUBLIC") == "PUBLIC"]
     live_quotes = fetch_live_quotes(tickers)
     missing = [t for t in tickers if t not in live_quotes]
     if missing:

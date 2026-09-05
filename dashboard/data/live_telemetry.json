@@ -2,8 +2,8 @@
   "metadata": {
     "source": "AlphaTopology Ingestion Engine",
     "provider": "yfinance",
-    "total_nodes": 61,
-    "live_quotes": 61
+    "total_nodes": 72,
+    "live_quotes": 67
   },
   "nodes": [
     {
@@ -16,6 +16,7 @@
       "chokepoint_rating": 0.85,
       "basket": "BK_FRONT",
       "country": "US",
+      "entity_type": "PUBLIC",
       "market_data": {
         "price": 393.84,
         "change_pct": -5.4,
@@ -40,6 +41,7 @@
       "chokepoint_rating": 0.85,
       "basket": "BK_FRONT",
       "country": "US",
+      "entity_type": "PUBLIC",
       "market_data": {
         "price": 292.7,
         "change_pct": -3.86,
@@ -64,6 +66,7 @@
       "chokepoint_rating": 0.95,
       "basket": "BK_CHOKE",
       "country": "GB",
+      "entity_type": "PUBLIC",
       "market_data": {
         "price": 252.09,
         "change_pct": 4.13,
@@ -88,6 +91,7 @@
       "chokepoint_rating": 0.9,
       "basket": "BK_FRONT",
       "country": "JP",
+      "entity_type": "PUBLIC",
       "market_data": {
         "price": 5786.0,
         "change_pct": -1.23,
@@ -112,6 +116,7 @@
       "chokepoint_rating": 0.8,
       "basket": "BK_FRONT",
       "country": "JP",
+      "entity_type": "PUBLIC",
       "market_data": {
         "price": 3229.0,
         "change_pct": 2.67,
@@ -136,6 +141,7 @@
       "chokepoint_rating": 1.0,
       "basket": "BK_CHOKE",
       "country": "NL",
+      "entity_type": "PUBLIC",
       "market_data": {
         "price": 1714.88,
         "change_pct": 4.17,
@@ -160,6 +166,7 @@
       "chokepoint_rating": 0.85,
       "basket": "BK_FRONT",
       "country": "US",
+      "entity_type": "PUBLIC",
       "market_data": {
         "price": 454.71,
         "change_pct": 4.38,
@@ -184,6 +191,7 @@
       "chokepoint_rating": 0.85,
       "basket": "BK_FRONT",
       "country": "US",
+      "entity_type": "PUBLIC",
       "market_data": {
         "price": 307.65,
         "change_pct": 4.96,
@@ -208,6 +216,7 @@
       "chokepoint_rating": 0.85,
       "basket": "BK_FRONT",
       "country": "JP",
+      "entity_type": "PUBLIC",
       "market_data": {
         "price": 53320.0,
         "change_pct": -0.19,
@@ -232,6 +241,7 @@
       "chokepoint_rating": 0.98,
       "basket": "BK_FRONT",
       "country": "TW",
+      "entity_type": "PUBLIC",
       "market_data": {
         "price": 428.91,
         "change_pct": 3.0,
@@ -256,6 +266,7 @@
       "chokepoint_rating": 0.95,
       "basket": "BK_CHOKE",
       "country": "JP",
+      "entity_type": "PUBLIC",
       "market_data": {
         "price": 54460.0,
         "change_pct": 0.54,
@@ -280,6 +291,7 @@
       "chokepoint_rating": 0.98,
       "basket": "BK_CHOKE",
       "country": "JP",
+      "entity_type": "PUBLIC",
       "market_data": {
         "price": 5174.0,
         "change_pct": -0.42,
@@ -304,6 +316,7 @@
       "chokepoint_rating": 0.9,
       "basket": "BK_BACK",
       "country": "KR",
+      "entity_type": "PUBLIC",
       "market_data": {
         "price": 1647000.0,
         "change_pct": 3.2,
@@ -328,6 +341,7 @@
       "chokepoint_rating": 0.8,
       "basket": "BK_BACK",
       "country": "US",
+      "entity_type": "PUBLIC",
       "market_data": {
         "price": 1016.59,
         "change_pct": 6.58,
@@ -352,6 +366,7 @@
       "chokepoint_rating": 0.95,
       "basket": "BK_CHOKE",
       "country": "US",
+      "entity_type": "PUBLIC",
       "market_data": {
         "price": 185.6,
         "change_pct": 7.28,
@@ -376,6 +391,7 @@
       "chokepoint_rating": 0.85,
       "basket": "BK_BACK",
       "country": "US",
+      "entity_type": "PUBLIC",
       "market_data": {
         "price": 357.03,
         "change_pct": 5.43,
@@ -400,6 +416,7 @@
       "chokepoint_rating": 0.85,
       "basket": "BK_BACK",
       "country": "JP",
+      "entity_type": "PUBLIC",
       "market_data": {
         "price": 33090.0,
         "change_pct": 2.35,
@@ -424,6 +441,7 @@
       "chokepoint_rating": 0.95,
       "basket": "BK_FABLESS",
       "country": "US",
+      "entity_type": "PUBLIC",
       "market_data": {
         "price": 230.36,
         "change_pct": 0.32,
@@ -448,6 +466,7 @@
       "chokepoint_rating": 0.85,
       "basket": "BK_FABLESS",
       "country": "US",
+      "entity_type": "PUBLIC",
       "market_data": {
         "price": 357.9,
         "change_pct": 0.4,
@@ -472,6 +491,7 @@
       "chokepoint_rating": 0.8,
       "basket": "BK_INFRA",
       "country": "TW",
+      "entity_type": "PUBLIC",
       "market_data": {
         "price": 256.0,
         "change_pct": 3.02,
@@ -496,6 +516,7 @@
       "chokepoint_rating": 0.85,
       "basket": "BK_INFRA",
       "country": "US",
+      "entity_type": "PUBLIC",
       "market_data": {
         "price": 193.78,
         "change_pct": 1.36,
@@ -520,6 +541,7 @@
       "chokepoint_rating": 0.85,
       "basket": "BK_INFRA",
       "country": "US",
+      "entity_type": "PUBLIC",
       "market_data": {
         "price": 280.53,
         "change_pct": 4.32,
@@ -544,6 +566,7 @@
       "chokepoint_rating": 0.8,
       "basket": "BK_INFRA",
       "country": "US",
+      "entity_type": "PUBLIC",
       "market_data": {
         "price": 410.85,
         "change_pct": 3.42,
@@ -568,6 +591,7 @@
       "chokepoint_rating": 0.75,
       "basket": "BK_INFRA",
       "country": "US",
+      "entity_type": "PUBLIC",
       "market_data": {
         "price": 298.96,
         "change_pct": 4.77,
@@ -592,6 +616,7 @@
       "chokepoint_rating": 0.92,
       "basket": "BK_CHOKE",
       "country": "JP",
+      "entity_type": "PUBLIC",
       "market_data": {
         "price": 24140.0,
         "change_pct": -1.39,
@@ -616,6 +641,7 @@
       "chokepoint_rating": 0.85,
       "basket": "BK_FRONT",
       "country": "JP",
+      "entity_type": "PUBLIC",
       "market_data": {
         "price": 8276.0,
         "change_pct": 1.82,
@@ -640,6 +666,7 @@
       "chokepoint_rating": 0.75,
       "basket": "BK_FRONT",
       "country": "US",
+      "entity_type": "PUBLIC",
       "market_data": {
         "price": 138.74,
         "change_pct": 5.91,
@@ -664,6 +691,7 @@
       "chokepoint_rating": 0.7,
       "basket": "BK_FRONT",
       "country": "US",
+      "entity_type": "PUBLIC",
       "market_data": {
         "price": 477.57,
         "change_pct": -1.91,
@@ -688,6 +716,7 @@
       "chokepoint_rating": 0.7,
       "basket": "BK_FRONT",
       "country": "FR",
+      "entity_type": "PUBLIC",
       "market_data": {
         "price": 170.44,
         "change_pct": -1.64,
@@ -712,6 +741,7 @@
       "chokepoint_rating": 0.8,
       "basket": "BK_FRONT",
       "country": "JP",
+      "entity_type": "PUBLIC",
       "market_data": {
         "price": 13030.0,
         "change_pct": 0.31,
@@ -736,6 +766,7 @@
       "chokepoint_rating": 0.75,
       "basket": "BK_FRONT",
       "country": "JP",
+      "entity_type": "PUBLIC",
       "market_data": {
         "price": 8295.0,
         "change_pct": -0.36,
@@ -760,6 +791,7 @@
       "chokepoint_rating": 0.85,
       "basket": "BK_FRONT",
       "country": "NL",
+      "entity_type": "PUBLIC",
       "market_data": {
         "price": 825.2,
         "change_pct": 6.59,
@@ -784,6 +816,7 @@
       "chokepoint_rating": 0.97,
       "basket": "BK_CHOKE",
       "country": "JP",
+      "entity_type": "PUBLIC",
       "market_data": {
         "price": 33180.0,
         "change_pct": -1.95,
@@ -808,6 +841,7 @@
       "chokepoint_rating": 0.7,
       "basket": "BK_BACK",
       "country": "US",
+      "entity_type": "PUBLIC",
       "market_data": {
         "price": 268.01,
         "change_pct": 5.06,
@@ -832,6 +866,7 @@
       "chokepoint_rating": 0.85,
       "basket": "BK_BACK",
       "country": "KR",
+      "entity_type": "PUBLIC",
       "market_data": {
         "price": 255500.0,
         "change_pct": 2.2,
@@ -856,6 +891,7 @@
       "chokepoint_rating": 0.7,
       "basket": "BK_FRONT",
       "country": "US",
+      "entity_type": "PUBLIC",
       "market_data": {
         "price": 95.8,
         "change_pct": 4.72,
@@ -880,6 +916,7 @@
       "chokepoint_rating": 0.8,
       "basket": "BK_FABLESS",
       "country": "US",
+      "entity_type": "PUBLIC",
       "market_data": {
         "price": 477.57,
         "change_pct": 4.94,
@@ -904,6 +941,7 @@
       "chokepoint_rating": 0.75,
       "basket": "BK_FABLESS",
       "country": "US",
+      "entity_type": "PUBLIC",
       "market_data": {
         "price": 168.74,
         "change_pct": 0.12,
@@ -928,6 +966,7 @@
       "chokepoint_rating": 0.75,
       "basket": "BK_FABLESS",
       "country": "US",
+      "entity_type": "PUBLIC",
       "market_data": {
         "price": 223.55,
         "change_pct": 7.11,
@@ -952,6 +991,7 @@
       "chokepoint_rating": 0.85,
       "basket": "BK_BACK",
       "country": "JP",
+      "entity_type": "PUBLIC",
       "market_data": {
         "price": 20475.0,
         "change_pct": 3.85,
@@ -976,6 +1016,7 @@
       "chokepoint_rating": 0.8,
       "basket": "BK_BACK",
       "country": "TW",
+      "entity_type": "PUBLIC",
       "market_data": {
         "price": 902.0,
         "change_pct": -2.38,
@@ -1000,6 +1041,7 @@
       "chokepoint_rating": 0.85,
       "basket": "BK_BACK",
       "country": "TW",
+      "entity_type": "PUBLIC",
       "market_data": {
         "price": 588.0,
         "change_pct": -0.34,
@@ -1024,6 +1066,7 @@
       "chokepoint_rating": 0.7,
       "basket": "BK_BACK",
       "country": "US",
+      "entity_type": "PUBLIC",
       "market_data": {
         "price": 47.77,
         "change_pct": 1.85,
@@ -1048,6 +1091,7 @@
       "chokepoint_rating": 0.8,
       "basket": "BK_INFRA",
       "country": "TW",
+      "entity_type": "PUBLIC",
       "market_data": {
         "price": 345.0,
         "change_pct": 3.29,
@@ -1072,6 +1116,7 @@
       "chokepoint_rating": 0.75,
       "basket": "BK_INFRA",
       "country": "TW",
+      "entity_type": "PUBLIC",
       "market_data": {
         "price": 198.0,
         "change_pct": 5.04,
@@ -1096,6 +1141,7 @@
       "chokepoint_rating": 0.65,
       "basket": "BK_INFRA",
       "country": "US",
+      "entity_type": "PUBLIC",
       "market_data": {
         "price": 39.59,
         "change_pct": 4.62,
@@ -1120,6 +1166,7 @@
       "chokepoint_rating": 0.65,
       "basket": "BK_INFRA",
       "country": "US",
+      "entity_type": "PUBLIC",
       "market_data": {
         "price": 524.14,
         "change_pct": 1.77,
@@ -1144,6 +1191,7 @@
       "chokepoint_rating": 0.65,
       "basket": "BK_INFRA",
       "country": "US",
+      "entity_type": "PUBLIC",
       "market_data": {
         "price": 156.03,
         "change_pct": 0.35,
@@ -1168,6 +1216,7 @@
       "chokepoint_rating": 0.8,
       "basket": "BK_INFRA",
       "country": "US",
+      "entity_type": "PUBLIC",
       "market_data": {
         "price": 281.86,
         "change_pct": 6.55,
@@ -1192,6 +1241,7 @@
       "chokepoint_rating": 0.75,
       "basket": "BK_INFRA",
       "country": "US",
+      "entity_type": "PUBLIC",
       "market_data": {
         "price": 881.26,
         "change_pct": 4.01,
@@ -1216,6 +1266,7 @@
       "chokepoint_rating": 0.75,
       "basket": "BK_INFRA",
       "country": "US",
+      "entity_type": "PUBLIC",
       "market_data": {
         "price": 407.4,
         "change_pct": 2.63,
@@ -1240,6 +1291,7 @@
       "chokepoint_rating": 0.7,
       "basket": "BK_INFRA",
       "country": "US",
+      "entity_type": "PUBLIC",
       "market_data": {
         "price": 170.57,
         "change_pct": 3.5,
@@ -1264,6 +1316,7 @@
       "chokepoint_rating": 0.7,
       "basket": "BK_INFRA",
       "country": "US",
+      "entity_type": "PUBLIC",
       "market_data": {
         "price": 310.4,
         "change_pct": 10.69,
@@ -1288,6 +1341,7 @@
       "chokepoint_rating": 0.75,
       "basket": "BK_INFRA",
       "country": "US",
+      "entity_type": "PUBLIC",
       "market_data": {
         "price": 149.3,
         "change_pct": 3.25,
@@ -1312,6 +1366,7 @@
       "chokepoint_rating": 0.8,
       "basket": "BK_INFRA",
       "country": "US",
+      "entity_type": "PUBLIC",
       "market_data": {
         "price": 941.95,
         "change_pct": 0.01,
@@ -1336,6 +1391,7 @@
       "chokepoint_rating": 0.8,
       "basket": "BK_INFRA",
       "country": "FR",
+      "entity_type": "PUBLIC",
       "market_data": {
         "price": 288.0,
         "change_pct": 0.42,
@@ -1360,6 +1416,7 @@
       "chokepoint_rating": 0.6,
       "basket": "BK_INFRA",
       "country": "US",
+      "entity_type": "PUBLIC",
       "market_data": {
         "price": 252.87,
         "change_pct": 7.4,
@@ -1384,6 +1441,7 @@
       "chokepoint_rating": 0.7,
       "basket": "BK_INFRA",
       "country": "US",
+      "entity_type": "PUBLIC",
       "market_data": {
         "price": 499.7,
         "change_pct": -1.94,
@@ -1408,6 +1466,7 @@
       "chokepoint_rating": 0.7,
       "basket": "BK_INFRA",
       "country": "US",
+      "entity_type": "PUBLIC",
       "market_data": {
         "price": 338.46,
         "change_pct": -1.3,
@@ -1432,6 +1491,7 @@
       "chokepoint_rating": 0.7,
       "basket": "BK_INFRA",
       "country": "US",
+      "entity_type": "PUBLIC",
       "market_data": {
         "price": 258.51,
         "change_pct": -0.29,
@@ -1456,11 +1516,292 @@
       "chokepoint_rating": 0.7,
       "basket": "BK_INFRA",
       "country": "US",
+      "entity_type": "PUBLIC",
       "market_data": {
         "price": 616.77,
         "change_pct": 0.47,
         "volume": 15942700,
         "currency": "USD",
+        "live": true
+      },
+      "telemetry": {
+        "metric": "Operational Throughput",
+        "value": "Normal Run-rate",
+        "status": "BALANCED",
+        "lead_time_trend": "STABLE"
+      }
+    },
+    {
+      "id": "OPENAI",
+      "name": "OpenAI",
+      "ticker": "OPENAI",
+      "exchange": "\u2014",
+      "layer": 4,
+      "stage": "FOUNDATION_MODELS",
+      "chokepoint_rating": 0.85,
+      "basket": "BK_MODELS",
+      "country": "US",
+      "entity_type": "PRIVATE",
+      "valuation_usd_b": 500,
+      "market_data": {
+        "price": null,
+        "change_pct": null,
+        "volume": null,
+        "currency": "USD",
+        "live": false
+      },
+      "telemetry": {
+        "metric": "Operational Throughput",
+        "value": "Normal Run-rate",
+        "status": "BALANCED",
+        "lead_time_trend": "STABLE"
+      }
+    },
+    {
+      "id": "ANTHROPIC",
+      "name": "Anthropic",
+      "ticker": "ANTHROPIC",
+      "exchange": "\u2014",
+      "layer": 4,
+      "stage": "FOUNDATION_MODELS",
+      "chokepoint_rating": 0.85,
+      "basket": "BK_MODELS",
+      "country": "US",
+      "entity_type": "PRIVATE",
+      "valuation_usd_b": 183,
+      "market_data": {
+        "price": null,
+        "change_pct": null,
+        "volume": null,
+        "currency": "USD",
+        "live": false
+      },
+      "telemetry": {
+        "metric": "Operational Throughput",
+        "value": "Normal Run-rate",
+        "status": "BALANCED",
+        "lead_time_trend": "STABLE"
+      }
+    },
+    {
+      "id": "XAI",
+      "name": "xAI",
+      "ticker": "XAI_PRIV",
+      "exchange": "\u2014",
+      "layer": 4,
+      "stage": "FOUNDATION_MODELS",
+      "chokepoint_rating": 0.6,
+      "basket": "BK_MODELS",
+      "country": "US",
+      "entity_type": "PRIVATE",
+      "valuation_usd_b": 75,
+      "market_data": {
+        "price": null,
+        "change_pct": null,
+        "volume": null,
+        "currency": "USD",
+        "live": false
+      },
+      "telemetry": {
+        "metric": "Operational Throughput",
+        "value": "Normal Run-rate",
+        "status": "BALANCED",
+        "lead_time_trend": "STABLE"
+      }
+    },
+    {
+      "id": "MISTRAL",
+      "name": "Mistral AI",
+      "ticker": "MISTRAL",
+      "exchange": "\u2014",
+      "layer": 4,
+      "stage": "FOUNDATION_MODELS",
+      "chokepoint_rating": 0.5,
+      "basket": "BK_MODELS",
+      "country": "FR",
+      "entity_type": "PRIVATE",
+      "valuation_usd_b": 14,
+      "market_data": {
+        "price": null,
+        "change_pct": null,
+        "volume": null,
+        "currency": "USD",
+        "live": false
+      },
+      "telemetry": {
+        "metric": "Operational Throughput",
+        "value": "Normal Run-rate",
+        "status": "BALANCED",
+        "lead_time_trend": "STABLE"
+      }
+    },
+    {
+      "id": "COREWEAVE",
+      "name": "CoreWeave",
+      "ticker": "CRWV",
+      "exchange": "NASDAQ",
+      "layer": 4,
+      "stage": "HYPERSCALE_DEPLOYMENT",
+      "chokepoint_rating": 0.7,
+      "basket": "BK_INFRA",
+      "country": "US",
+      "entity_type": "PUBLIC",
+      "market_data": {
+        "price": 89.36,
+        "change_pct": 5.9,
+        "volume": 20732400,
+        "currency": "USD",
+        "live": true
+      },
+      "telemetry": {
+        "metric": "Operational Throughput",
+        "value": "Normal Run-rate",
+        "status": "BALANCED",
+        "lead_time_trend": "STABLE"
+      }
+    },
+    {
+      "id": "ORACLE",
+      "name": "Oracle",
+      "ticker": "ORCL",
+      "exchange": "NYSE",
+      "layer": 4,
+      "stage": "HYPERSCALE_DEPLOYMENT",
+      "chokepoint_rating": 0.7,
+      "basket": "BK_INFRA",
+      "country": "US",
+      "entity_type": "PUBLIC",
+      "market_data": {
+        "price": 158.78,
+        "change_pct": 2.9,
+        "volume": 26430100,
+        "currency": "USD",
+        "live": true
+      },
+      "telemetry": {
+        "metric": "Operational Throughput",
+        "value": "Normal Run-rate",
+        "status": "BALANCED",
+        "lead_time_trend": "STABLE"
+      }
+    },
+    {
+      "id": "TESLA",
+      "name": "Tesla (Optimus/Dojo)",
+      "ticker": "TSLA",
+      "exchange": "NASDAQ",
+      "layer": 3,
+      "stage": "ROBOTICS",
+      "chokepoint_rating": 0.7,
+      "basket": "BK_INFRA",
+      "country": "US",
+      "entity_type": "PUBLIC",
+      "market_data": {
+        "price": 354.08,
+        "change_pct": -5.49,
+        "volume": 64829000,
+        "currency": "USD",
+        "live": true
+      },
+      "telemetry": {
+        "metric": "Operational Throughput",
+        "value": "Normal Run-rate",
+        "status": "BALANCED",
+        "lead_time_trend": "STABLE"
+      }
+    },
+    {
+      "id": "FANUC",
+      "name": "Fanuc",
+      "ticker": "6954.T",
+      "exchange": "TYO",
+      "layer": 3,
+      "stage": "ROBOTICS",
+      "chokepoint_rating": 0.85,
+      "basket": "BK_INFRA",
+      "country": "JP",
+      "entity_type": "PUBLIC",
+      "market_data": {
+        "price": 5931.0,
+        "change_pct": 3.06,
+        "volume": 5339000,
+        "currency": "JPY",
+        "live": true
+      },
+      "telemetry": {
+        "metric": "Operational Throughput",
+        "value": "Normal Run-rate",
+        "status": "BALANCED",
+        "lead_time_trend": "STABLE"
+      }
+    },
+    {
+      "id": "YASKAWA",
+      "name": "Yaskawa Electric",
+      "ticker": "6506.T",
+      "exchange": "TYO",
+      "layer": 3,
+      "stage": "ROBOTICS",
+      "chokepoint_rating": 0.8,
+      "basket": "BK_INFRA",
+      "country": "JP",
+      "entity_type": "PUBLIC",
+      "market_data": {
+        "price": 4570.0,
+        "change_pct": 1.49,
+        "volume": 2829500,
+        "currency": "JPY",
+        "live": true
+      },
+      "telemetry": {
+        "metric": "Operational Throughput",
+        "value": "Normal Run-rate",
+        "status": "BALANCED",
+        "lead_time_trend": "STABLE"
+      }
+    },
+    {
+      "id": "FIGURE",
+      "name": "Figure AI",
+      "ticker": "FIGURE",
+      "exchange": "\u2014",
+      "layer": 3,
+      "stage": "ROBOTICS",
+      "chokepoint_rating": 0.5,
+      "basket": "BK_INFRA",
+      "country": "US",
+      "entity_type": "PRIVATE",
+      "valuation_usd_b": 39,
+      "market_data": {
+        "price": null,
+        "change_pct": null,
+        "volume": null,
+        "currency": "USD",
+        "live": false
+      },
+      "telemetry": {
+        "metric": "Operational Throughput",
+        "value": "Normal Run-rate",
+        "status": "BALANCED",
+        "lead_time_trend": "STABLE"
+      }
+    },
+    {
+      "id": "SOFTBANK",
+      "name": "SoftBank Group",
+      "ticker": "9984.T",
+      "exchange": "TYO",
+      "layer": 5,
+      "stage": "HYPERSCALE_DEPLOYMENT",
+      "chokepoint_rating": 0.6,
+      "basket": "BK_INFRA",
+      "country": "JP",
+      "entity_type": "PUBLIC",
+      "market_data": {
+        "price": 5590.0,
+        "change_pct": 11.22,
+        "volume": 77803600,
+        "currency": "JPY",
         "live": true
       },
       "telemetry": {
@@ -1905,6 +2246,170 @@
       "relationship": "GRID_SWITCHGEAR",
       "lead_time_days": 180,
       "criticality": "HIGH"
+    },
+    {
+      "source": "MICROSOFT",
+      "target": "OPENAI",
+      "relationship": "CAPITAL_INVESTMENT",
+      "lead_time_days": 0,
+      "criticality": "CRITICAL",
+      "amount_usd_b": 13
+    },
+    {
+      "source": "NVIDIA",
+      "target": "OPENAI",
+      "relationship": "CAPITAL_COMMITMENT_PHASED",
+      "lead_time_days": 0,
+      "criticality": "HIGH",
+      "amount_usd_b": 100
+    },
+    {
+      "source": "SOFTBANK",
+      "target": "OPENAI",
+      "relationship": "CAPITAL_INVESTMENT",
+      "lead_time_days": 0,
+      "criticality": "HIGH",
+      "amount_usd_b": 30
+    },
+    {
+      "source": "AMAZON",
+      "target": "ANTHROPIC",
+      "relationship": "CAPITAL_INVESTMENT",
+      "lead_time_days": 0,
+      "criticality": "CRITICAL",
+      "amount_usd_b": 8
+    },
+    {
+      "source": "GOOGLE",
+      "target": "ANTHROPIC",
+      "relationship": "CAPITAL_INVESTMENT",
+      "lead_time_days": 0,
+      "criticality": "HIGH",
+      "amount_usd_b": 3
+    },
+    {
+      "source": "ASML",
+      "target": "MISTRAL",
+      "relationship": "CAPITAL_INVESTMENT",
+      "lead_time_days": 0,
+      "criticality": "MODERATE",
+      "amount_usd_b": 1.5
+    },
+    {
+      "source": "NVIDIA",
+      "target": "COREWEAVE",
+      "relationship": "CAPITAL_AND_BACKSTOP",
+      "lead_time_days": 0,
+      "criticality": "HIGH",
+      "amount_usd_b": 6.3
+    },
+    {
+      "source": "NVIDIA",
+      "target": "FIGURE",
+      "relationship": "CAPITAL_ROUND_PARTICIPATION",
+      "lead_time_days": 0,
+      "criticality": "MODERATE",
+      "amount_usd_b": 0.7
+    },
+    {
+      "source": "OPENAI",
+      "target": "ORACLE",
+      "relationship": "COMPUTE_CONTRACT_MULTIYEAR",
+      "lead_time_days": 0,
+      "criticality": "CRITICAL",
+      "amount_usd_b": 300
+    },
+    {
+      "source": "OPENAI",
+      "target": "COREWEAVE",
+      "relationship": "COMPUTE_CONTRACT",
+      "lead_time_days": 0,
+      "criticality": "HIGH",
+      "amount_usd_b": 22
+    },
+    {
+      "source": "MICROSOFT",
+      "target": "OPENAI",
+      "relationship": "AZURE_COMPUTE_SUPPLY",
+      "lead_time_days": 90,
+      "criticality": "CRITICAL"
+    },
+    {
+      "source": "GOOGLE",
+      "target": "ANTHROPIC",
+      "relationship": "TPU_COMPUTE_SUPPLY",
+      "lead_time_days": 90,
+      "criticality": "CRITICAL"
+    },
+    {
+      "source": "AMAZON",
+      "target": "ANTHROPIC",
+      "relationship": "TRAINIUM_COMPUTE_SUPPLY",
+      "lead_time_days": 90,
+      "criticality": "HIGH"
+    },
+    {
+      "source": "COREWEAVE",
+      "target": "OPENAI",
+      "relationship": "GPU_CLOUD_SUPPLY",
+      "lead_time_days": 60,
+      "criticality": "HIGH"
+    },
+    {
+      "source": "ORACLE",
+      "target": "OPENAI",
+      "relationship": "STARGATE_COMPUTE",
+      "lead_time_days": 180,
+      "criticality": "CRITICAL"
+    },
+    {
+      "source": "NVIDIA",
+      "target": "COREWEAVE",
+      "relationship": "GPU_SUPPLY",
+      "lead_time_days": 90,
+      "criticality": "CRITICAL"
+    },
+    {
+      "source": "NVIDIA",
+      "target": "XAI",
+      "relationship": "GPU_SUPPLY",
+      "lead_time_days": 90,
+      "criticality": "HIGH"
+    },
+    {
+      "source": "NVIDIA",
+      "target": "TESLA",
+      "relationship": "GPU_SUPPLY",
+      "lead_time_days": 90,
+      "criticality": "HIGH"
+    },
+    {
+      "source": "TSMC",
+      "target": "TESLA",
+      "relationship": "DOJO_AI_SILICON",
+      "lead_time_days": 120,
+      "criticality": "MODERATE"
+    },
+    {
+      "source": "NVIDIA",
+      "target": "FIGURE",
+      "relationship": "ROBOT_COMPUTE_PLATFORM",
+      "lead_time_days": 60,
+      "criticality": "MODERATE"
+    },
+    {
+      "source": "FANUC",
+      "target": "TSMC",
+      "relationship": "FAB_AUTOMATION_ROBOTS",
+      "lead_time_days": 180,
+      "criticality": "MODERATE"
+    },
+    {
+      "source": "YASKAWA",
+      "target": "SAMSUNG",
+      "relationship": "FAB_AUTOMATION_ROBOTS",
+      "lead_time_days": 180,
+      "criticality": "MODERATE"
     }
   ]
 }

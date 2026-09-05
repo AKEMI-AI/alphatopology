@@ -32,6 +32,8 @@ type FullNode = TelemetryNode & {
   chokepoint_rating: number;
   stage: string;
   basket: string;
+  entity_type?: string;
+  valuation_usd_b?: number | null;
   [key: string]: unknown;
 };
 
@@ -74,7 +76,21 @@ function InspectorContent({
           </div>
         </div>
 
+        {/* Private entity: valuation instead of tape */}
+        {activeNode.entity_type === 'PRIVATE' && (
+          <div className="glass-electric p-3.5">
+            <div className="descent-eyebrow on-noir mb-1.5">Private entity</div>
+            <div className="display text-[28px]" style={{ color: 'var(--gold-matte)' }}>
+              ${activeNode.valuation_usd_b ?? '—'}B
+            </div>
+            <div className="mono text-[11px] mt-1" style={{ color: dim(45) }}>
+              Last documented round / secondary — no public tape
+            </div>
+          </div>
+        )}
+
         {/* Price artifact */}
+        {activeNode.entity_type !== 'PRIVATE' && (
         <div className="glass-electric p-3.5">
           <div className="flex items-center justify-between mb-1">
             <span className="descent-eyebrow on-noir">30d price</span>
@@ -89,9 +105,10 @@ function InspectorContent({
           </div>
           <MiniPriceChart ticker={activeNode.ticker} />
         </div>
+        )}
 
         {/* Street forecast */}
-        <ForecastPanel ticker={activeNode.ticker} />
+        {activeNode.entity_type !== 'PRIVATE' && <ForecastPanel ticker={activeNode.ticker} />}
 
         {/* Physical telemetry */}
         <div className="glass-electric p-3.5">

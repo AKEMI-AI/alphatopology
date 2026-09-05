@@ -72,7 +72,8 @@ def get_upstream(ticker: str):
 def market_telemetry():
     """Live quotes for every topology node merged with physical proxy fixtures.
     Quotes are Yahoo-feed (exchange-delayed), cached 60s server-side."""
-    tickers = [n.ticker for n in _topo.nodes]
+    # private entities have pseudo-tickers — never send them to the quote feed
+    tickers = [n.ticker for n in _topo.nodes if n.entity_type == "PUBLIC"]
     quotes = get_quotes(tickers)
     return {
         "metadata": {

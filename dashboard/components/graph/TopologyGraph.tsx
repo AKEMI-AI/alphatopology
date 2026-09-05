@@ -37,6 +37,8 @@ const STAGE_Y_POSITIONS: Record<string, number> = {
   COOLING_THERMAL: 840,
   OPTICAL_FABRIC: 840,
   HYPERSCALE_DEPLOYMENT: 980,
+  FOUNDATION_MODELS: 1120,
+  ROBOTICS: 1120,
 };
 
 interface TopologyGraphProps {

@@ -9,7 +9,8 @@
       "stage": "EDA_IP",
       "chokepoint_rating": 0.85,
       "basket": "BK_FRONT",
-      "country": "US"
+      "country": "US",
+      "entity_type": "PUBLIC"
     },
     {
       "id": "CDNS",
@@ -20,7 +21,8 @@
       "stage": "EDA_IP",
       "chokepoint_rating": 0.85,
       "basket": "BK_FRONT",
-      "country": "US"
+      "country": "US",
+      "entity_type": "PUBLIC"
     },
     {
       "id": "ARM",
@@ -31,7 +33,8 @@
       "stage": "EDA_IP",
       "chokepoint_rating": 0.95,
       "basket": "BK_CHOKE",
-      "country": "GB"
+      "country": "GB",
+      "entity_type": "PUBLIC"
     },
     {
       "id": "SHIN_ETSU",
@@ -42,7 +45,8 @@
       "stage": "RAW_MATERIALS_CHEMISTRY",
       "chokepoint_rating": 0.9,
       "basket": "BK_FRONT",
-      "country": "JP"
+      "country": "JP",
+      "entity_type": "PUBLIC"
     },
     {
       "id": "SUMCO",
@@ -53,7 +57,8 @@
       "stage": "RAW_MATERIALS_CHEMISTRY",
       "chokepoint_rating": 0.8,
       "basket": "BK_FRONT",
-      "country": "JP"
+      "country": "JP",
+      "entity_type": "PUBLIC"
     },
     {
       "id": "ASML",
@@ -64,7 +69,8 @@
       "stage": "WFE_LITHOGRAPHY",
       "chokepoint_rating": 1.0,
       "basket": "BK_CHOKE",
-      "country": "NL"
+      "country": "NL",
+      "entity_type": "PUBLIC"
     },
     {
       "id": "AMAT",
@@ -75,7 +81,8 @@
       "stage": "WFE_LITHOGRAPHY",
       "chokepoint_rating": 0.85,
       "basket": "BK_FRONT",
-      "country": "US"
+      "country": "US",
+      "entity_type": "PUBLIC"
     },
     {
       "id": "LRCX",
@@ -86,7 +93,8 @@
       "stage": "WFE_LITHOGRAPHY",
       "chokepoint_rating": 0.85,
       "basket": "BK_FRONT",
-      "country": "US"
+      "country": "US",
+      "entity_type": "PUBLIC"
     },
     {
       "id": "TEL",
@@ -97,7 +105,8 @@
       "stage": "WFE_LITHOGRAPHY",
       "chokepoint_rating": 0.85,
       "basket": "BK_FRONT",
-      "country": "JP"
+      "country": "JP",
+      "entity_type": "PUBLIC"
     },
     {
       "id": "TSMC",
@@ -108,7 +117,8 @@
       "stage": "FOUNDRY",
       "chokepoint_rating": 0.98,
       "basket": "BK_FRONT",
-      "country": "TW"
+      "country": "TW",
+      "entity_type": "PUBLIC"
     },
     {
       "id": "DISCO",
@@ -119,7 +129,8 @@
       "stage": "DICING_PACKAGING_SUBSTRATE",
       "chokepoint_rating": 0.95,
       "basket": "BK_CHOKE",
-      "country": "JP"
+      "country": "JP",
+      "entity_type": "PUBLIC"
     },
     {
       "id": "AJINOMOTO",
@@ -130,7 +141,8 @@
       "stage": "DICING_PACKAGING_SUBSTRATE",
       "chokepoint_rating": 0.98,
       "basket": "BK_CHOKE",
-      "country": "JP"
+      "country": "JP",
+      "entity_type": "PUBLIC"
     },
     {
       "id": "SK_HYNIX",
@@ -141,7 +153,8 @@
       "stage": "MEMORY_HBM",
       "chokepoint_rating": 0.9,
       "basket": "BK_BACK",
-      "country": "KR"
+      "country": "KR",
+      "entity_type": "PUBLIC"
     },
     {
       "id": "MICRON",
@@ -152,7 +165,8 @@
       "stage": "MEMORY_HBM",
       "chokepoint_rating": 0.8,
       "basket": "BK_BACK",
-      "country": "US"
+      "country": "US",
+      "entity_type": "PUBLIC"
     },
     {
       "id": "KLAC",
@@ -163,7 +177,8 @@
       "stage": "INSPECTION_TESTING",
       "chokepoint_rating": 0.95,
       "basket": "BK_CHOKE",
-      "country": "US"
+      "country": "US",
+      "entity_type": "PUBLIC"
     },
     {
       "id": "TERADYNE",
@@ -174,7 +189,8 @@
       "stage": "INSPECTION_TESTING",
       "chokepoint_rating": 0.85,
       "basket": "BK_BACK",
-      "country": "US"
+      "country": "US",
+      "entity_type": "PUBLIC"
     },
     {
       "id": "ADVANTEST",
@@ -185,7 +201,8 @@
       "stage": "INSPECTION_TESTING",
       "chokepoint_rating": 0.85,
       "basket": "BK_BACK",
-      "country": "JP"
+      "country": "JP",
+      "entity_type": "PUBLIC"
     },
     {
       "id": "NVIDIA",
@@ -196,7 +213,8 @@
       "stage": "FOUNDRY",
       "chokepoint_rating": 0.95,
       "basket": "BK_FABLESS",
-      "country": "US"
+      "country": "US",
+      "entity_type": "PUBLIC"
     },
     {
       "id": "BROADCOM",
@@ -207,7 +225,8 @@
       "stage": "FOUNDRY",
       "chokepoint_rating": 0.85,
       "basket": "BK_FABLESS",
-      "country": "US"
+      "country": "US",
+      "entity_type": "PUBLIC"
     },
     {
       "id": "FOXCONN",
@@ -218,7 +237,8 @@
       "stage": "ODM_RACK_INTEGRATION",
       "chokepoint_rating": 0.8,
       "basket": "BK_INFRA",
-      "country": "TW"
+      "country": "TW",
+      "entity_type": "PUBLIC"
     },
     {
       "id": "ARISTA",
@@ -229,7 +249,8 @@
       "stage": "OPTICAL_FABRIC",
       "chokepoint_rating": 0.85,
       "basket": "BK_INFRA",
-      "country": "US"
+      "country": "US",
+      "entity_type": "PUBLIC"
     },
     {
       "id": "VERTIV",
@@ -240,7 +261,8 @@
       "stage": "COOLING_THERMAL",
       "chokepoint_rating": 0.85,
       "basket": "BK_INFRA",
-      "country": "US"
+      "country": "US",
+      "entity_type": "PUBLIC"
     },
     {
       "id": "EATON",
@@ -251,7 +273,8 @@
       "stage": "ENERGY_GRID",
       "chokepoint_rating": 0.8,
       "basket": "BK_INFRA",
-      "country": "US"
+      "country": "US",
+      "entity_type": "PUBLIC"
     },
     {
       "id": "CONSTELLATION",
@@ -262,7 +285,8 @@
       "stage": "ENERGY_GRID",
       "chokepoint_rating": 0.75,
       "basket": "BK_INFRA",
-      "country": "US"
+      "country": "US",
+      "entity_type": "PUBLIC"
     },
     {
       "id": "HOYA",
@@ -273,7 +297,8 @@
       "stage": "RAW_MATERIALS_CHEMISTRY",
       "chokepoint_rating": 0.92,
       "basket": "BK_CHOKE",
-      "country": "JP"
+      "country": "JP",
+      "entity_type": "PUBLIC"
     },
     {
       "id": "TOK",
@@ -284,7 +309,8 @@
       "stage": "RAW_MATERIALS_CHEMISTRY",
       "chokepoint_rating": 0.85,
       "basket": "BK_FRONT",
-      "country": "JP"
+      "country": "JP",
+      "entity_type": "PUBLIC"
     },
     {
       "id": "ENTEGRIS",
@@ -295,7 +321,8 @@
       "stage": "RAW_MATERIALS_CHEMISTRY",
       "chokepoint_rating": 0.75,
       "basket": "BK_FRONT",
-      "country": "US"
+      "country": "US",
+      "entity_type": "PUBLIC"
     },
     {
       "id": "LINDE",
@@ -306,7 +333,8 @@
       "stage": "RAW_MATERIALS_CHEMISTRY",
       "chokepoint_rating": 0.7,
       "basket": "BK_FRONT",
-      "country": "US"
+      "country": "US",
+      "entity_type": "PUBLIC"
     },
     {
       "id": "AIR_LIQUIDE",
@@ -317,7 +345,8 @@
       "stage": "RAW_MATERIALS_CHEMISTRY",
       "chokepoint_rating": 0.7,
       "basket": "BK_FRONT",
-      "country": "FR"
+      "country": "FR",
+      "entity_type": "PUBLIC"
     },
     {
       "id": "SCREEN",
@@ -328,7 +357,8 @@
       "stage": "WFE_LITHOGRAPHY",
       "chokepoint_rating": 0.8,
       "basket": "BK_FRONT",
-      "country": "JP"
+      "country": "JP",
+      "entity_type": "PUBLIC"
     },
     {
       "id": "KOKUSAI",
@@ -339,7 +369,8 @@
       "stage": "WFE_LITHOGRAPHY",
       "chokepoint_rating": 0.75,
       "basket": "BK_FRONT",
-      "country": "JP"
+      "country": "JP",
+      "entity_type": "PUBLIC"
     },
     {
       "id": "ASMI",
@@ -350,7 +381,8 @@
       "stage": "WFE_LITHOGRAPHY",
       "chokepoint_rating": 0.85,
       "basket": "BK_FRONT",
-      "country": "NL"
+      "country": "NL",
+      "entity_type": "PUBLIC"
     },
     {
       "id": "LASERTEC",
@@ -361,7 +393,8 @@
       "stage": "INSPECTION_TESTING",
       "chokepoint_rating": 0.97,
       "basket": "BK_CHOKE",
-      "country": "JP"
+      "country": "JP",
+      "entity_type": "PUBLIC"
     },
     {
       "id": "ONTO",
@@ -372,7 +405,8 @@
       "stage": "INSPECTION_TESTING",
       "chokepoint_rating": 0.7,
       "basket": "BK_BACK",
-      "country": "US"
+      "country": "US",
+      "entity_type": "PUBLIC"
     },
     {
       "id": "SAMSUNG",
@@ -383,7 +417,8 @@
       "stage": "MEMORY_HBM",
       "chokepoint_rating": 0.85,
       "basket": "BK_BACK",
-      "country": "KR"
+      "country": "KR",
+      "entity_type": "PUBLIC"
     },
     {
       "id": "INTEL",
@@ -394,7 +429,8 @@
       "stage": "FOUNDRY",
       "chokepoint_rating": 0.7,
       "basket": "BK_FRONT",
-      "country": "US"
+      "country": "US",
+      "entity_type": "PUBLIC"
     },
     {
       "id": "AMD",
@@ -405,7 +441,8 @@
       "stage": "FOUNDRY",
       "chokepoint_rating": 0.8,
       "basket": "BK_FABLESS",
-      "country": "US"
+      "country": "US",
+      "entity_type": "PUBLIC"
     },
     {
       "id": "QUALCOMM",
@@ -416,7 +453,8 @@
       "stage": "FOUNDRY",
       "chokepoint_rating": 0.75,
       "basket": "BK_FABLESS",
-      "country": "US"
+      "country": "US",
+      "entity_type": "PUBLIC"
     },
     {
       "id": "MARVELL",
@@ -427,7 +465,8 @@
       "stage": "FOUNDRY",
       "chokepoint_rating": 0.75,
       "basket": "BK_FABLESS",
-      "country": "US"
+      "country": "US",
+      "entity_type": "PUBLIC"
     },
     {
       "id": "IBIDEN",
@@ -438,7 +477,8 @@
       "stage": "DICING_PACKAGING_SUBSTRATE",
       "chokepoint_rating": 0.85,
       "basket": "BK_BACK",
-      "country": "JP"
+      "country": "JP",
+      "entity_type": "PUBLIC"
     },
     {
       "id": "UNIMICRON",
@@ -449,7 +489,8 @@
       "stage": "DICING_PACKAGING_SUBSTRATE",
       "chokepoint_rating": 0.8,
       "basket": "BK_BACK",
-      "country": "TW"
+      "country": "TW",
+      "entity_type": "PUBLIC"
     },
     {
       "id": "ASE",
@@ -460,7 +501,8 @@
       "stage": "DICING_PACKAGING_SUBSTRATE",
       "chokepoint_rating": 0.85,
       "basket": "BK_BACK",
-      "country": "TW"
+      "country": "TW",
+      "entity_type": "PUBLIC"
     },
     {
       "id": "AMKOR",
@@ -471,7 +513,8 @@
       "stage": "DICING_PACKAGING_SUBSTRATE",
       "chokepoint_rating": 0.7,
       "basket": "BK_BACK",
-      "country": "US"
+      "country": "US",
+      "entity_type": "PUBLIC"
     },
     {
       "id": "QUANTA",
@@ -482,7 +525,8 @@
       "stage": "ODM_RACK_INTEGRATION",
       "chokepoint_rating": 0.8,
       "basket": "BK_INFRA",
-      "country": "TW"
+      "country": "TW",
+      "entity_type": "PUBLIC"
     },
     {
       "id": "WISTRON",
@@ -493,7 +537,8 @@
       "stage": "ODM_RACK_INTEGRATION",
       "chokepoint_rating": 0.75,
       "basket": "BK_INFRA",
-      "country": "TW"
+      "country": "TW",
+      "entity_type": "PUBLIC"
     },
     {
       "id": "SMCI",
@@ -504,7 +549,8 @@
       "stage": "ODM_RACK_INTEGRATION",
       "chokepoint_rating": 0.65,
       "basket": "BK_INFRA",
-      "country": "US"
+      "country": "US",
+      "entity_type": "PUBLIC"
     },
     {
       "id": "DELL",
@@ -515,7 +561,8 @@
       "stage": "ODM_RACK_INTEGRATION",
       "chokepoint_rating": 0.65,
       "basket": "BK_INFRA",
-      "country": "US"
+      "country": "US",
+      "entity_type": "PUBLIC"
     },
     {
       "id": "NVENT",
@@ -526,7 +573,8 @@
       "stage": "COOLING_THERMAL",
       "chokepoint_rating": 0.65,
       "basket": "BK_INFRA",
-      "country": "US"
+      "country": "US",
+      "entity_type": "PUBLIC"
     },
     {
       "id": "COHERENT",
@@ -537,7 +585,8 @@
       "stage": "OPTICAL_FABRIC",
       "chokepoint_rating": 0.8,
       "basket": "BK_INFRA",
-      "country": "US"
+      "country": "US",
+      "entity_type": "PUBLIC"
     },
     {
       "id": "LUMENTUM",
@@ -548,7 +597,8 @@
       "stage": "OPTICAL_FABRIC",
       "chokepoint_rating": 0.75,
       "basket": "BK_INFRA",
-      "country": "US"
+      "country": "US",
+      "entity_type": "PUBLIC"
     },
     {
       "id": "FABRINET",
@@ -559,7 +609,8 @@
       "stage": "OPTICAL_FABRIC",
       "chokepoint_rating": 0.75,
       "basket": "BK_INFRA",
-      "country": "US"
+      "country": "US",
+      "entity_type": "PUBLIC"
     },
     {
       "id": "CREDO",
@@ -570,7 +621,8 @@
       "stage": "OPTICAL_FABRIC",
       "chokepoint_rating": 0.7,
       "basket": "BK_INFRA",
-      "country": "US"
+      "country": "US",
+      "entity_type": "PUBLIC"
     },
     {
       "id": "ASTERA",
@@ -581,7 +633,8 @@
       "stage": "OPTICAL_FABRIC",
       "chokepoint_rating": 0.7,
       "basket": "BK_INFRA",
-      "country": "US"
+      "country": "US",
+      "entity_type": "PUBLIC"
     },
     {
       "id": "VISTRA",
@@ -592,7 +645,8 @@
       "stage": "ENERGY_GRID",
       "chokepoint_rating": 0.75,
       "basket": "BK_INFRA",
-      "country": "US"
+      "country": "US",
+      "entity_type": "PUBLIC"
     },
     {
       "id": "GEVERNOVA",
@@ -603,7 +657,8 @@
       "stage": "ENERGY_GRID",
       "chokepoint_rating": 0.8,
       "basket": "BK_INFRA",
-      "country": "US"
+      "country": "US",
+      "entity_type": "PUBLIC"
     },
     {
       "id": "SCHNEIDER",
@@ -614,7 +669,8 @@
       "stage": "ENERGY_GRID",
       "chokepoint_rating": 0.8,
       "basket": "BK_INFRA",
-      "country": "FR"
+      "country": "FR",
+      "entity_type": "PUBLIC"
     },
     {
       "id": "BLOOM",
@@ -625,7 +681,8 @@
       "stage": "ENERGY_GRID",
       "chokepoint_rating": 0.6,
       "basket": "BK_INFRA",
-      "country": "US"
+      "country": "US",
+      "entity_type": "PUBLIC"
     },
     {
       "id": "MICROSOFT",
@@ -636,7 +693,8 @@
       "stage": "HYPERSCALE_DEPLOYMENT",
       "chokepoint_rating": 0.7,
       "basket": "BK_INFRA",
-      "country": "US"
+      "country": "US",
+      "entity_type": "PUBLIC"
     },
     {
       "id": "GOOGLE",
@@ -647,7 +705,8 @@
       "stage": "HYPERSCALE_DEPLOYMENT",
       "chokepoint_rating": 0.7,
       "basket": "BK_INFRA",
-      "country": "US"
+      "country": "US",
+      "entity_type": "PUBLIC"
     },
     {
       "id": "AMAZON",
@@ -658,7 +717,8 @@
       "stage": "HYPERSCALE_DEPLOYMENT",
       "chokepoint_rating": 0.7,
       "basket": "BK_INFRA",
-      "country": "US"
+      "country": "US",
+      "entity_type": "PUBLIC"
     },
     {
       "id": "META",
@@ -669,7 +729,145 @@
       "stage": "HYPERSCALE_DEPLOYMENT",
       "chokepoint_rating": 0.7,
       "basket": "BK_INFRA",
-      "country": "US"
+      "country": "US",
+      "entity_type": "PUBLIC"
+    },
+    {
+      "id": "OPENAI",
+      "name": "OpenAI",
+      "ticker": "OPENAI",
+      "exchange": "\u2014",
+      "layer": 4,
+      "stage": "FOUNDATION_MODELS",
+      "chokepoint_rating": 0.85,
+      "basket": "BK_MODELS",
+      "country": "US",
+      "entity_type": "PRIVATE",
+      "valuation_usd_b": 500
+    },
+    {
+      "id": "ANTHROPIC",
+      "name": "Anthropic",
+      "ticker": "ANTHROPIC",
+      "exchange": "\u2014",
+      "layer": 4,
+      "stage": "FOUNDATION_MODELS",
+      "chokepoint_rating": 0.85,
+      "basket": "BK_MODELS",
+      "country": "US",
+      "entity_type": "PRIVATE",
+      "valuation_usd_b": 183
+    },
+    {
+      "id": "XAI",
+      "name": "xAI",
+      "ticker": "XAI_PRIV",
+      "exchange": "\u2014",
+      "layer": 4,
+      "stage": "FOUNDATION_MODELS",
+      "chokepoint_rating": 0.6,
+      "basket": "BK_MODELS",
+      "country": "US",
+      "entity_type": "PRIVATE",
+      "valuation_usd_b": 75
+    },
+    {
+      "id": "MISTRAL",
+      "name": "Mistral AI",
+      "ticker": "MISTRAL",
+      "exchange": "\u2014",
+      "layer": 4,
+      "stage": "FOUNDATION_MODELS",
+      "chokepoint_rating": 0.5,
+      "basket": "BK_MODELS",
+      "country": "FR",
+      "entity_type": "PRIVATE",
+      "valuation_usd_b": 14
+    },
+    {
+      "id": "COREWEAVE",
+      "name": "CoreWeave",
+      "ticker": "CRWV",
+      "exchange": "NASDAQ",
+      "layer": 4,
+      "stage": "HYPERSCALE_DEPLOYMENT",
+      "chokepoint_rating": 0.7,
+      "basket": "BK_INFRA",
+      "country": "US",
+      "entity_type": "PUBLIC"
+    },
+    {
+      "id": "ORACLE",
+      "name": "Oracle",
+      "ticker": "ORCL",
+      "exchange": "NYSE",
+      "layer": 4,
+      "stage": "HYPERSCALE_DEPLOYMENT",
+      "chokepoint_rating": 0.7,
+      "basket": "BK_INFRA",
+      "country": "US",
+      "entity_type": "PUBLIC"
+    },
+    {
+      "id": "TESLA",
+      "name": "Tesla (Optimus/Dojo)",
+      "ticker": "TSLA",
+      "exchange": "NASDAQ",
+      "layer": 3,
+      "stage": "ROBOTICS",
+      "chokepoint_rating": 0.7,
+      "basket": "BK_INFRA",
+      "country": "US",
+      "entity_type": "PUBLIC"
+    },
+    {
+      "id": "FANUC",
+      "name": "Fanuc",
+      "ticker": "6954.T",
+      "exchange": "TYO",
+      "layer": 3,
+      "stage": "ROBOTICS",
+      "chokepoint_rating": 0.85,
+      "basket": "BK_INFRA",
+      "country": "JP",
+      "entity_type": "PUBLIC"
+    },
+    {
+      "id": "YASKAWA",
+      "name": "Yaskawa Electric",
+      "ticker": "6506.T",
+      "exchange": "TYO",
+      "layer": 3,
+      "stage": "ROBOTICS",
+      "chokepoint_rating": 0.8,
+      "basket": "BK_INFRA",
+      "country": "JP",
+      "entity_type": "PUBLIC"
+    },
+    {
+      "id": "FIGURE",
+      "name": "Figure AI",
+      "ticker": "FIGURE",
+      "exchange": "\u2014",
+      "layer": 3,
+      "stage": "ROBOTICS",
+      "chokepoint_rating": 0.5,
+      "basket": "BK_INFRA",
+      "country": "US",
+      "entity_type": "PRIVATE",
+      "valuation_usd_b": 39
+    },
+    {
+      "id": "SOFTBANK",
+      "name": "SoftBank Group",
+      "ticker": "9984.T",
+      "exchange": "TYO",
+      "layer": 5,
+      "stage": "HYPERSCALE_DEPLOYMENT",
+      "chokepoint_rating": 0.6,
+      "basket": "BK_INFRA",
+      "country": "JP",
+      "entity_type": "PUBLIC"
     }
   ],
   "edges": [
@@ -1106,6 +1304,170 @@
       "relationship": "GRID_SWITCHGEAR",
       "lead_time_days": 180,
       "criticality": "HIGH"
+    },
+    {
+      "source": "MICROSOFT",
+      "target": "OPENAI",
+      "relationship": "CAPITAL_INVESTMENT",
+      "lead_time_days": 0,
+      "criticality": "CRITICAL",
+      "amount_usd_b": 13
+    },
+    {
+      "source": "NVIDIA",
+      "target": "OPENAI",
+      "relationship": "CAPITAL_COMMITMENT_PHASED",
+      "lead_time_days": 0,
+      "criticality": "HIGH",
+      "amount_usd_b": 100
+    },
+    {
+      "source": "SOFTBANK",
+      "target": "OPENAI",
+      "relationship": "CAPITAL_INVESTMENT",
+      "lead_time_days": 0,
+      "criticality": "HIGH",
+      "amount_usd_b": 30
+    },
+    {
+      "source": "AMAZON",
+      "target": "ANTHROPIC",
+      "relationship": "CAPITAL_INVESTMENT",
+      "lead_time_days": 0,
+      "criticality": "CRITICAL",
+      "amount_usd_b": 8
+    },
+    {
+      "source": "GOOGLE",
+      "target": "ANTHROPIC",
+      "relationship": "CAPITAL_INVESTMENT",
+      "lead_time_days": 0,
+      "criticality": "HIGH",
+      "amount_usd_b": 3
+    },
+    {
+      "source": "ASML",
+      "target": "MISTRAL",
+      "relationship": "CAPITAL_INVESTMENT",
+      "lead_time_days": 0,
+      "criticality": "MODERATE",
+      "amount_usd_b": 1.5
+    },
+    {
+      "source": "NVIDIA",
+      "target": "COREWEAVE",
+      "relationship": "CAPITAL_AND_BACKSTOP",
+      "lead_time_days": 0,
+      "criticality": "HIGH",
+      "amount_usd_b": 6.3
+    },
+    {
+      "source": "NVIDIA",
+      "target": "FIGURE",
+      "relationship": "CAPITAL_ROUND_PARTICIPATION",
+      "lead_time_days": 0,
+      "criticality": "MODERATE",
+      "amount_usd_b": 0.7
+    },
+    {
+      "source": "OPENAI",
+      "target": "ORACLE",
+      "relationship": "COMPUTE_CONTRACT_MULTIYEAR",
+      "lead_time_days": 0,
+      "criticality": "CRITICAL",
+      "amount_usd_b": 300
+    },
+    {
+      "source": "OPENAI",
+      "target": "COREWEAVE",
+      "relationship": "COMPUTE_CONTRACT",
+      "lead_time_days": 0,
+      "criticality": "HIGH",
+      "amount_usd_b": 22
+    },
+    {
+      "source": "MICROSOFT",
+      "target": "OPENAI",
+      "relationship": "AZURE_COMPUTE_SUPPLY",
+      "lead_time_days": 90,
+      "criticality": "CRITICAL"
+    },
+    {
+      "source": "GOOGLE",
+      "target": "ANTHROPIC",
+      "relationship": "TPU_COMPUTE_SUPPLY",
+      "lead_time_days": 90,
+      "criticality": "CRITICAL"
+    },
+    {
+      "source": "AMAZON",
+      "target": "ANTHROPIC",
+      "relationship": "TRAINIUM_COMPUTE_SUPPLY",
+      "lead_time_days": 90,
+      "criticality": "HIGH"
+    },
+    {
+      "source": "COREWEAVE",
+      "target": "OPENAI",
+      "relationship": "GPU_CLOUD_SUPPLY",
+      "lead_time_days": 60,
+      "criticality": "HIGH"
+    },
+    {
+      "source": "ORACLE",
+      "target": "OPENAI",
+      "relationship": "STARGATE_COMPUTE",
+      "lead_time_days": 180,
+      "criticality": "CRITICAL"
+    },
+    {
+      "source": "NVIDIA",
+      "target": "COREWEAVE",
+      "relationship": "GPU_SUPPLY",
+      "lead_time_days": 90,
+      "criticality": "CRITICAL"
+    },
+    {
+      "source": "NVIDIA",
+      "target": "XAI",
+      "relationship": "GPU_SUPPLY",
+      "lead_time_days": 90,
+      "criticality": "HIGH"
+    },
+    {
+      "source": "NVIDIA",
+      "target": "TESLA",
+      "relationship": "GPU_SUPPLY",
+      "lead_time_days": 90,
+      "criticality": "HIGH"
+    },
+    {
+      "source": "TSMC",
+      "target": "TESLA",
+      "relationship": "DOJO_AI_SILICON",
+      "lead_time_days": 120,
+      "criticality": "MODERATE"
+    },
+    {
+      "source": "NVIDIA",
+      "target": "FIGURE",
+      "relationship": "ROBOT_COMPUTE_PLATFORM",
+      "lead_time_days": 60,
+      "criticality": "MODERATE"
+    },
+    {
+      "source": "FANUC",
+      "target": "TSMC",
+      "relationship": "FAB_AUTOMATION_ROBOTS",
+      "lead_time_days": 180,
+      "criticality": "MODERATE"
+    },
+    {
+      "source": "YASKAWA",
+      "target": "SAMSUNG",
+      "relationship": "FAB_AUTOMATION_ROBOTS",
+      "lead_time_days": 180,
+      "criticality": "MODERATE"
     }
   ]
 }

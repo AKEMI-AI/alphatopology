@@ -1,0 +1,48 @@
+name: CI
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+jobs:
+  data-and-backend:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install
+        run: pip install -r requirements.txt
+      - name: Topology schema validation
+        run: |
+          python -c "
+          import json, jsonschema
+          jsonschema.validate(json.load(open('data/nodes_seed.json')), json.load(open('data/topology_schema.json')))
+          print('seed validates')"
+      - name: Graph integrity + imports
+        run: |
+          PYTHONPATH=src python -c "
+          from alphatopology.topology import load_topology, build_graph, chokepoints, critical_path
+          g = build_graph(load_topology())
+          assert g.number_of_nodes() > 0
+          path, days = critical_path(g)
+          print(f'{g.number_of_nodes()} nodes, {g.number_of_edges()} edges, critical path {days}d')
+          import alphatopology.models, alphatopology.simulator  # import health
+          "
+
+  dashboard:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: dashboard
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+          cache-dependency-path: dashboard/package-lock.json
+      - run: npm ci
+      - run: npm run build
