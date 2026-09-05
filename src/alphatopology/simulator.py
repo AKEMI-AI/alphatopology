@@ -11,7 +11,7 @@ import time
 from pathlib import Path
 from typing import Any, Dict, List, Optional
 
-from .market import get_quotes
+from .market import get_history, get_quotes
 
 DB_PATH = Path(__file__).resolve().parents[2] / "data" / "portfolio.db"
 STARTING_CASH = 1_000_000.0  # paper dollars
@@ -121,11 +121,81 @@ def portfolio_status() -> Dict[str, Any]:
             }
         )
 
+    equity = cash + sum(
+        (quotes.get(p["ticker"]) or {}).get("price", 0) * p["qty"]
+        for p in positions
+        if p["qty"] > 1e-9 and (quotes.get(p["ticker"]) or {}).get("price")
+    )
     return {
         "paper_account": True,
         "starting_cash": STARTING_CASH,
         "cash": round(cash, 2),
+        "equity": round(equity, 2),
+        "return_pct": round((equity / STARTING_CASH - 1) * 100, 3),
         "positions": sorted(positions, key=lambda p: p["ticker"]),
         "unrealized_pnl_total": round(unrealized_total, 2),
         "trade_count": len(rows),
     }
+
+
+def trade_log(limit: int = 50) -> List[Dict[str, Any]]:
+    """Most recent paper fills, newest first."""
+    with _conn() as conn:
+        rows = conn.execute(
+            "SELECT ts, ticker, side, qty, price, currency FROM trades"
+            " ORDER BY ts DESC LIMIT ?",
+            (limit,),
+        ).fetchall()
+    return [
+        {"ts": ts, "ticker": t, "side": s, "qty": q, "price": p, "currency": c}
+        for ts, t, s, q, p, c in rows
+    ]
+
+
+def equity_curve() -> List[Dict[str, Any]]:
+    """Daily account equity since the first paper trade: cash plus holdings
+    marked at each day's close. Same same-currency caveat as the portfolio."""
+    with _conn() as conn:
+        rows = conn.execute(
+            "SELECT ts, ticker, side, qty, price FROM trades ORDER BY ts"
+        ).fetchall()
+    if not rows:
+        return []
+
+    tickers = sorted({r[1] for r in rows})
+    closes: Dict[str, Dict[str, float]] = {
+        t: {pt["time"]: pt["value"] for pt in get_history(t, period="6mo")}
+        for t in tickers
+    }
+    all_days = sorted({d for series in closes.values() for d in series})
+    first_day = time.strftime("%Y-%m-%d", time.localtime(rows[0][0]))
+    days = [d for d in all_days if d >= first_day] or all_days[-1:]
+
+    curve: List[Dict[str, Any]] = []
+    trade_i = 0
+    cash = STARTING_CASH
+    held: Dict[str, float] = {}
+    last_close: Dict[str, float] = {}
+    for day in days:
+        day_end = time.mktime(time.strptime(day + " 23:59:59", "%Y-%m-%d %H:%M:%S"))
+        while trade_i < len(rows) and rows[trade_i][0] <= day_end:
+            _, t, side, qty, price = rows[trade_i]
+            if side == "BUY":
+                held[t] = held.get(t, 0.0) + qty
+                cash -= qty * price
+            else:
+                held[t] = held.get(t, 0.0) - qty
+                cash += qty * price
+            trade_i += 1
+        value = cash
+        for t, qty in held.items():
+            if qty <= 1e-9:
+                continue
+            c = closes.get(t, {}).get(day)
+            if c is not None:
+                last_close[t] = c
+            mark = closes.get(t, {}).get(day, last_close.get(t))
+            if mark is not None:
+                value += qty * mark
+        curve.append({"time": day, "value": round(value, 2)})
+    return curve

@@ -8,7 +8,6 @@ import ForecastPanel from '@/components/terminal/ForecastPanel';
 import TelemetryTickerBar from '@/components/terminal/TelemetryTickerBar';
 import CopilotDrawer from '@/components/copilot/CopilotDrawer';
 import CommandPalette from '@/components/terminal/CommandPalette';
-import BookDrawer from '@/components/terminal/BookDrawer';
 import { fetchTelemetry, TelemetryNode } from '@/lib/api';
 import type { ChokepointNodeData } from '@/components/graph/ChokepointNode';
 
@@ -16,6 +15,7 @@ import type { ChokepointNodeData } from '@/components/graph/ChokepointNode';
 const TopologyGraph = dynamic(() => import('@/components/graph/TopologyGraph'), { ssr: false });
 const ChokepointMap = dynamic(() => import('@/components/map/ChokepointMap'), { ssr: false });
 const GeoView = dynamic(() => import('@/components/map/GeoView'), { ssr: false });
+const BookView = dynamic(() => import('@/components/book/BookView'), { ssr: false });
 
 const REFRESH_MS = 60_000;
 
@@ -23,6 +23,7 @@ const VIEWS = [
   { key: 'graph', label: 'Graph' },
   { key: 'map', label: 'Map' },
   { key: 'geo', label: 'Geo' },
+  { key: 'book', label: 'Book' },
 ] as const;
 type ViewKey = (typeof VIEWS)[number]['key'];
 
@@ -176,7 +177,6 @@ export default function TerminalPage() {
   const [view, setView] = useState<ViewKey>('graph');
   const [activeTicker, setActiveTicker] = useState<string>('NVDA');
   const [sheetOpen, setSheetOpen] = useState(false);
-  const [bookOpen, setBookOpen] = useState(false);
   const [telemetryNodes, setTelemetryNodes] = useState<FullNode[]>(
     fallbackTelemetry.nodes as unknown as FullNode[]
   );
@@ -267,17 +267,6 @@ export default function TerminalPage() {
               ⌘K
             </kbd>
           </button>
-          <button
-            onClick={() => setBookOpen(true)}
-            className="mono px-3 py-1 text-[11px] rounded-full cursor-pointer"
-            style={{
-              color: dim(60),
-              border: '1px solid color-mix(in oklab, var(--cream) 14%, transparent)',
-              background: 'color-mix(in oklab, var(--cream) 4%, transparent)',
-            }}
-          >
-            Book
-          </button>
           <div
             className="flex items-center gap-1 p-0.5 rounded-full"
             style={{ border: '1px solid color-mix(in oklab, var(--cream) 14%, transparent)' }}
@@ -333,11 +322,17 @@ export default function TerminalPage() {
               onSelect={(node) => selectNode(node.ticker)}
               onZoomFloor={() => setView('graph')}
             />
-          ) : (
+          ) : view === 'geo' ? (
             <GeoView
               nodes={telemetryNodes}
               activeTicker={activeTicker}
               onSelect={(node) => selectNode(node.ticker)}
+            />
+          ) : (
+            <BookView
+              nodes={telemetryNodes}
+              activeTicker={activeTicker}
+              onSelect={(ticker) => selectNode(ticker)}
             />
           )}
         </div>
@@ -405,13 +400,6 @@ export default function TerminalPage() {
       )}
 
       <CopilotDrawer />
-
-      <BookDrawer
-        open={bookOpen}
-        onClose={() => setBookOpen(false)}
-        tickers={telemetryNodes.map((n) => n.ticker)}
-        defaultTicker={activeTicker}
-      />
 
       <CommandPalette
         nodes={telemetryNodes}

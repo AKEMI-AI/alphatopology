@@ -23,6 +23,7 @@ const VIEW_CODES: Record<string, string> = {
   g: 'graph', graph: 'graph',
   m: 'map', map: 'map',
   geo: 'geo', globe: 'geo',
+  b: 'book', book: 'book',
   led: 'geo', ledger: 'geo',
 };
 

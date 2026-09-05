@@ -115,6 +115,20 @@ def sim_portfolio():
     return portfolio_status()
 
 
+@app.get("/sim/trades")
+def sim_trades():
+    from alphatopology.simulator import trade_log
+
+    return trade_log()
+
+
+@app.get("/sim/equity")
+def sim_equity():
+    from alphatopology.simulator import equity_curve
+
+    return {"curve": equity_curve()}
+
+
 @app.post("/sim/order")
 def sim_order(order: dict):
     from alphatopology.simulator import place_paper_order
