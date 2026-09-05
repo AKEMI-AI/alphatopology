@@ -6,23 +6,26 @@ import { fetchTelemetry } from '@/lib/api';
 
 const REFRESH_MS = 60_000;
 
-const STATUS_COLORS: Record<string, string> = {
-  SEVERE_BOTTLENECK: 'text-red-400',
-  CRITICAL: 'text-red-400',
-  CONSTRAINED: 'text-amber-400',
-  TIGHT: 'text-amber-400',
-  ALLOCATED: 'text-amber-400',
-  SURGING: 'text-emerald-400',
-  COMMITTED: 'text-emerald-400',
-  OPTIMAL: 'text-emerald-400',
-  BALANCED: 'text-zinc-500',
+/* Status → token. Terracotta = stressed, gold-matte = tight/allocated,
+   neon = live/healthy. Magenta is never spent here. */
+const STATUS_VARS: Record<string, string> = {
+  SEVERE_BOTTLENECK: 'var(--terracotta)',
+  CRITICAL: 'var(--terracotta)',
+  CONSTRAINED: 'var(--gold-matte)',
+  TIGHT: 'var(--gold-matte)',
+  ALLOCATED: 'var(--gold-matte)',
+  SURGING: 'var(--neon)',
+  COMMITTED: 'var(--neon)',
+  OPTIMAL: 'var(--neon)',
 };
 
 interface TelemetryEntry {
   ticker: string;
-  market_data: { price: number | null; change_pct: number | null; currency: string; live: boolean };
+  market_data: { price: number | null; change_pct: number | null; currency: string | null; live: boolean };
   telemetry: { metric: string; value: string; status: string; lead_time_trend: string };
 }
+
+const dim = (pct: number) => `color-mix(in oklab, var(--cream) ${pct}%, transparent)`;
 
 export default function TelemetryTickerBar() {
   const [entries, setEntries] = useState<TelemetryEntry[]>(
@@ -54,62 +57,56 @@ export default function TelemetryTickerBar() {
   const strip = [...nodes, ...nodes];
 
   return (
-    <div className="w-full h-9 bg-[#060709] border-b border-white/10 overflow-hidden flex items-center shrink-0">
+    <div
+      className="w-full h-9 overflow-hidden flex items-center shrink-0"
+      style={{
+        background: 'color-mix(in oklab, var(--ink) 88%, var(--plum))',
+        borderBottom: '1px solid color-mix(in oklab, var(--cream) 8%, transparent)',
+      }}
+    >
       <div
-        className={`flex items-center gap-2 px-3 h-full z-10 border-r ${
-          isLive
-            ? 'bg-emerald-500/10 border-emerald-500/20'
-            : 'bg-amber-500/10 border-amber-500/20'
-        }`}
+        className="flex items-center gap-2 px-3 h-full z-10 shrink-0"
+        style={{ borderRight: '1px solid color-mix(in oklab, var(--gold) 30%, transparent)' }}
       >
         <span
-          className={`w-1.5 h-1.5 rounded-full animate-pulse ${
-            isLive ? 'bg-emerald-400' : 'bg-amber-400'
-          }`}
+          className="w-1.5 h-1.5 rounded-full animate-pulse"
+          style={{ background: isLive ? 'var(--neon)' : 'var(--gold-matte)' }}
         />
         <span
-          className={`text-[10px] font-mono font-bold tracking-widest whitespace-nowrap ${
-            isLive ? 'text-emerald-400' : 'text-amber-400'
-          }`}
+          className="mono text-[11px] whitespace-nowrap"
+          style={{ color: isLive ? 'var(--neon)' : 'var(--gold-matte)' }}
         >
-          {isLive ? 'LIVE TELEMETRY' : 'CACHED SNAPSHOT'}
+          {isLive ? 'Signal' : 'Cached'}
         </span>
       </div>
       <div className="relative flex-1 overflow-hidden h-full">
         <div className="ticker-marquee absolute flex items-center h-full gap-8 whitespace-nowrap pl-4">
           {strip.map((n, i) => {
-            const chg = n.market_data.change_pct ?? 0;
+            const chgVal = n.market_data.change_pct ?? 0;
             return (
-              <span key={`${n.ticker}-${i}`} className="flex items-center gap-2 text-[11px] font-mono">
-                <span className="font-bold text-zinc-100">{n.ticker}</span>
+              <span key={`${n.ticker}-${i}`} className="flex items-center gap-2 text-[12px]">
+                <span className="mono text-[11px]" style={{ color: 'var(--cream)' }}>
+                  {n.ticker}
+                </span>
                 {n.market_data.live && n.market_data.price != null && (
-                  <span className={chg >= 0 ? 'text-emerald-400' : 'text-red-400'}>
+                  <span
+                    style={{ color: chgVal >= 0 ? 'var(--neon)' : 'var(--terracotta)' }}
+                  >
                     {n.market_data.price.toLocaleString()} {n.market_data.currency}{' '}
-                    {chg >= 0 ? '▲' : '▼'}{Math.abs(chg).toFixed(2)}%
+                    {chgVal >= 0 ? '▲' : '▼'}
+                    {Math.abs(chgVal).toFixed(2)}%
                   </span>
                 )}
-                <span className="text-zinc-500">{n.telemetry.metric}:</span>
-                <span className="text-zinc-300">{n.telemetry.value}</span>
-                <span className={`font-bold ${STATUS_COLORS[n.telemetry.status] ?? 'text-zinc-400'}`}>
-                  [{n.telemetry.status}]
+                <span style={{ color: dim(50) }}>{n.telemetry.metric}</span>
+                <span style={{ color: dim(85) }}>{n.telemetry.value}</span>
+                <span style={{ color: STATUS_VARS[n.telemetry.status] ?? dim(60) }}>
+                  {n.telemetry.status.replace(/_/g, ' ').toLowerCase()}
                 </span>
-                {n.telemetry.lead_time_trend === 'EXPANDING' && (
-                  <span className="text-amber-400 text-[10px]">LEAD↗</span>
-                )}
               </span>
             );
           })}
         </div>
       </div>
-      <style jsx>{`
-        .ticker-marquee {
-          animation: ticker-scroll 45s linear infinite;
-        }
-        @keyframes ticker-scroll {
-          from { transform: translateX(0); }
-          to { transform: translateX(-50%); }
-        }
-      `}</style>
     </div>
   );
 }

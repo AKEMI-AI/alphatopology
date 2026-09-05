@@ -1,26 +1,117 @@
-@import "tailwindcss";
+/* AlphaTopology global stylesheet — Culturas design system.
+   Source of truth: docs/design/DESIGN-BIBLE.md (§5 tokens) +
+   docs/design/VISUAL-DATA-SYSTEM.md (data-role spectrum). */
 
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "./culturas.css";
+@import "./culturas-descent.css";
+
+/* ── Bible §2/§5 overrides: two families only (General Sans + Instrument
+   Serif). The "mono" treatment is letterspaced General Sans, per Bible. */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --font-display: "Instrument Serif", ui-serif, Georgia, serif;
+  --font-sans: "General Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "General Sans", ui-sans-serif, system-ui, sans-serif;
+
+  /* VISUAL-DATA-SYSTEM §1 spectrum — data roles ONLY, never chrome */
+  --spectrum-violet: #8B5CF6;  /* society  → BK_BACK   */
+  --spectrum-orange: #FF8A2A;  /* economy  → BK_FABLESS */
+  --spectrum-amber: #F5C518;   /* environment           */
+  --spectrum-coral: #FF5A3C;   /* change   → BK_INFRA  */
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-display: "Instrument Serif", ui-serif, Georgia, serif;
+  --font-sans: "General Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "General Sans", ui-sans-serif, system-ui, sans-serif;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+/* Bible §3 — fluid root, legibility floor */
+html {
+  font-size: clamp(15px, 0.75vw + 13px, 17px);
+}
+html,
+body {
+  overflow-x: clip;
+}
+body {
+  font-family: var(--font-sans);
+  color: var(--foreground);
+  background: var(--background);
+}
+h1,
+h2,
+h3,
+.display {
+  font-family: var(--font-display);
+  font-weight: 400;
+  letter-spacing: -0.01em;
+}
+.mono {
+  font-family: var(--font-mono);
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.24em;
+}
+
+/* Bible §6 — data grid behind glass, dark register */
+.data-grid-dark {
+  background-image:
+    linear-gradient(color-mix(in oklab, var(--cream) 6%, transparent) 1px, transparent 1px),
+    linear-gradient(90deg, color-mix(in oklab, var(--cream) 6%, transparent) 1px, transparent 1px);
+  background-size: 32px 32px;
+}
+
+/* Wordmark: Instrument Serif 400, period intact, gold period on noir */
+.wordmark {
+  font-family: var(--font-display);
+  font-weight: 400;
+}
+.wordmark .period {
+  color: var(--gold);
+}
+
+/* React Flow chrome — tokens only */
+.react-flow__controls {
+  background: color-mix(in oklab, var(--ink) 72%, transparent) !important;
+  border: 1px solid color-mix(in oklab, var(--gold) 30%, transparent) !important;
+  border-radius: 12px !important;
+  overflow: hidden;
+  box-shadow: none !important;
+}
+.react-flow__controls-button {
+  background: transparent !important;
+  border-bottom: 1px solid color-mix(in oklab, var(--cream) 8%, transparent) !important;
+}
+.react-flow__controls-button svg {
+  fill: var(--cream) !important;
+}
+.react-flow__minimap {
+  background: color-mix(in oklab, var(--ink) 85%, transparent) !important;
+  border: 1px solid color-mix(in oklab, var(--gold) 30%, transparent);
+  border-radius: 12px;
+  overflow: hidden;
+}
+.react-flow__attribution {
+  background: transparent !important;
+  color: color-mix(in oklab, var(--cream) 40%, transparent) !important;
+}
+
+/* Ticker marquee (motion is ornament-level; reduced-motion safe) */
+.ticker-marquee {
+  animation: ticker-scroll 45s linear infinite;
+}
+@keyframes ticker-scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
   }
 }
-
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+@media (prefers-reduced-motion: reduce) {
+  .ticker-marquee {
+    animation: none;
+  }
 }

@@ -1,0 +1,149 @@
+/* ============================================================
+   The Descent — site-wide scroll-motion skin
+   ============================================================ */
+
+/* Living-word: italic magenta serif with a signal period.
+   The closing punctuation is inserted via ::after so authors
+   just write <LivingWord>word</LivingWord>. */
+.descent-living-word {
+  position: relative;
+  font-family: "Instrument Serif", ui-serif, Georgia, serif;
+  font-weight: 400;
+  color: var(--magenta);
+  font-style: italic;
+  padding-right: 0.06em;
+}
+.descent-living-word.on-noir { color: var(--gold); }
+.descent-living-word::after {
+  content: ".";
+  color: inherit;
+  font-style: normal;
+  margin-left: 0.02em;
+}
+.descent-living-word em {
+  font-style: italic;
+  background-image: linear-gradient(currentColor, currentColor);
+  background-repeat: no-repeat;
+  background-position: 0 100%;
+  background-size: 0% 2px;
+  transition: background-size 700ms cubic-bezier(.2,.8,.2,1);
+}
+.descent-living-word.is-revealed em {
+  background-size: 100% 2px;
+}
+
+/* Numbered specimen eyebrow — ARTIFACT / 01 */
+.descent-eyebrow {
+  font-family: "Inter Tight", ui-sans-serif, system-ui, sans-serif;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  font-size: 0.72rem;
+  color: var(--ink);
+}
+.descent-eyebrow::before {
+  content: "— ";
+  color: var(--gold);
+  margin-right: 0.15em;
+}
+.descent-eyebrow.on-noir { color: var(--cream); }
+
+/* Glass capsule header — floating, retreats on scroll down */
+.descent-capsule {
+  backdrop-filter: blur(22px) saturate(180%);
+  background: linear-gradient(180deg, rgba(255,255,255,0.55), rgba(255,255,255,0.32));
+  border: 1px solid rgba(255,255,255,0.55);
+  box-shadow:
+    0 1px 0 rgba(255,255,255,0.7) inset,
+    0 12px 40px -18px rgba(26,20,24,0.35);
+  border-radius: 999px;
+  transition: transform 420ms cubic-bezier(.2,.8,.2,1), opacity 320ms ease;
+  will-change: transform, opacity;
+}
+.descent-capsule[data-hidden="true"] {
+  transform: translate3d(-50%, -160%, 0);
+  opacity: 0;
+}
+
+/* Iridescent hairline ring — the signature button */
+.descent-pill {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  padding: 0.7rem 1.15rem;
+  border-radius: 999px;
+  background: var(--cream);
+  color: var(--ink);
+  font-family: "Inter Tight", sans-serif;
+  font-weight: 500;
+  font-size: 0.95rem;
+  line-height: 1;
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,0.9),
+    0 1px 2px rgba(26,20,24,0.08),
+    0 10px 24px -14px rgba(26,20,24,0.35);
+  transition: background 320ms ease, color 320ms ease, transform 240ms ease;
+  isolation: isolate;
+  cursor: pointer;
+}
+.descent-pill::before {
+  content: "";
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--magenta);
+  transition: background 320ms ease, box-shadow 320ms ease;
+  flex: none;
+}
+.descent-pill::after {
+  content: "";
+  position: absolute;
+  inset: -1.5px;
+  border-radius: 999px;
+  padding: 1.5px;
+  background: conic-gradient(from 0deg,
+    var(--neon), var(--magenta), var(--gold), var(--plum), var(--neon));
+  -webkit-mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+          mask-composite: exclude;
+  opacity: 0;
+  transition: opacity 260ms ease;
+  animation: descent-ring-spin 5.5s linear infinite;
+  pointer-events: none;
+}
+.descent-pill:hover, .descent-pill:focus-visible {
+  background: var(--magenta);
+  color: var(--cream);
+  transform: translateY(-1px);
+}
+.descent-pill:hover::before, .descent-pill:focus-visible::before {
+  background: var(--neon);
+  box-shadow: 0 0 0 3px rgba(201,242,39,0.28);
+}
+.descent-pill:hover::after, .descent-pill:focus-visible::after { opacity: 1; }
+
+@keyframes descent-ring-spin { to { transform: rotate(360deg); } }
+
+/* Ground band utilities */
+.ground-blush  { background-color: #F4EAE8; }
+.ground-stone  { background-color: #F2F0EC; }
+.ground-cream  { background-color: #F1E9D9; }
+.ground-noir   { background-color: #1A1418; color: var(--cream); }
+.ground-noir .descent-eyebrow { color: var(--cream); }
+
+/* Hairline rule — burnished gold, only for rules, never fills */
+.descent-hairline {
+  height: 1px;
+  background: var(--gold);
+  opacity: 0.7;
+}
+
+/* Reduced motion — reveal everything, disable transforms/animations */
+@media (prefers-reduced-motion: reduce) {
+  .descent-living-word em { background-size: 100% 2px !important; transition: none !important; }
+  .descent-pill::after { animation: none !important; }
+  .descent-capsule { transition: none !important; }
+}

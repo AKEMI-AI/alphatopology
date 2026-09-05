@@ -14,9 +14,11 @@ import {
   BackgroundVariant,
 } from '@xyflow/react';
 import '@xyflow/react/dist/style.css';
-import { ChokepointNode, ChokepointNodeData } from './ChokepointNode';
+import { ChokepointNode, ChokepointNodeData, BASKET_ROLE_VARS } from './ChokepointNode';
 import rawData from '@/data/live_telemetry.json';
 import { Search } from 'lucide-react';
+
+const BASKETS = ['ALL', 'BK_CHOKE', 'BK_FRONT', 'BK_BACK', 'BK_FABLESS', 'BK_INFRA'];
 
 const nodeTypes = {
   chokepoint: ChokepointNode,
@@ -73,17 +75,23 @@ export default function TopologyGraph({ onSelect }: TopologyGraphProps) {
       target: edge.target,
       animated: edge.criticality === 'CRITICAL',
       label: `${edge.lead_time_days}d (${edge.relationship})`,
+      // Solid = physical supply (culture); gold = the instrument-critical path
       style: {
-        stroke: edge.criticality === 'CRITICAL' ? '#f59e0b' : '#64748b',
+        stroke: edge.criticality === 'CRITICAL' ? 'var(--gold-matte)' : 'var(--plum)',
         strokeWidth: edge.criticality === 'CRITICAL' ? 2 : 1.2,
       },
-      labelStyle: { fill: '#cbd5e1', fontSize: 10, fontFamily: 'monospace' },
-      labelBgStyle: { fill: '#0f172a', fillOpacity: 0.85 },
+      labelStyle: {
+        fill: 'var(--cream)',
+        fontSize: 11,
+        fontFamily: 'var(--font-mono)',
+        letterSpacing: '0.08em',
+      },
+      labelBgStyle: { fill: 'var(--ink)', fillOpacity: 0.85 },
       labelBgPadding: [6, 2] as [number, number],
       labelBgBorderRadius: 4,
       markerEnd: {
         type: MarkerType.ArrowClosed,
-        color: edge.criticality === 'CRITICAL' ? '#f59e0b' : '#64748b',
+        color: edge.criticality === 'CRITICAL' ? 'var(--gold-matte)' : 'var(--plum)',
       },
     }));
   }, []);
@@ -112,34 +120,58 @@ export default function TopologyGraph({ onSelect }: TopologyGraphProps) {
   );
 
   return (
-    <div className="relative w-full h-full bg-[#060709] text-zinc-100 overflow-hidden font-sans">
-      {/* Control Overlay */}
-      <div className="absolute top-4 left-4 z-20 flex flex-wrap gap-2.5 bg-black/60 backdrop-blur-md p-2.5 rounded-xl border border-white/10 shadow-2xl">
-        <div className="flex items-center gap-2 px-2.5 py-1.5 bg-white/5 rounded-lg border border-white/10">
-          <Search className="w-3.5 h-3.5 text-zinc-400" />
+    <div
+      className="relative w-full h-full overflow-hidden data-grid-dark"
+      style={{ background: 'var(--ink)', color: 'var(--cream)' }}
+    >
+      {/* Control Overlay — glass-electric capsule */}
+      <div className="glass-electric absolute top-4 left-4 z-20 flex flex-wrap items-center gap-2.5 p-2.5 !rounded-2xl">
+        <div
+          className="flex items-center gap-2 px-3 py-1.5 rounded-full"
+          style={{
+            background: 'color-mix(in oklab, var(--cream) 6%, transparent)',
+            border: '1px solid color-mix(in oklab, var(--cream) 12%, transparent)',
+          }}
+        >
+          <Search
+            className="w-3.5 h-3.5 shrink-0"
+            style={{ color: 'color-mix(in oklab, var(--cream) 60%, transparent)' }}
+          />
           <input
             type="text"
-            placeholder="Search ticker or entity..."
+            placeholder="Search ticker or entity…"
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
-            className="bg-transparent text-xs text-zinc-100 placeholder-zinc-500 focus:outline-none w-44 font-mono"
+            className="bg-transparent text-[13px] focus:outline-none w-44 min-w-0"
+            style={{ color: 'var(--cream)' }}
           />
         </div>
 
         <div className="flex items-center gap-1">
-          {['ALL', 'BK_CHOKE', 'BK_FRONT', 'BK_BACK', 'BK_FABLESS', 'BK_INFRA'].map((basket) => (
-            <button
-              key={basket}
-              onClick={() => setSelectedBasket(basket)}
-              className={`px-2.5 py-1 text-[11px] font-mono rounded-lg transition-colors border ${
-                selectedBasket === basket
-                  ? 'bg-white/20 border-white/40 text-white font-bold'
-                  : 'bg-white/5 border-white/5 text-zinc-400 hover:text-white'
-              }`}
-            >
-              {basket.replace('BK_', '')}
-            </button>
-          ))}
+          {BASKETS.map((basket) => {
+            const active = selectedBasket === basket;
+            const roleVar = BASKET_ROLE_VARS[basket];
+            return (
+              <button
+                key={basket}
+                onClick={() => setSelectedBasket(basket)}
+                className="mono px-2.5 py-1 text-[11px] rounded-full transition-colors cursor-pointer"
+                style={{
+                  color: active ? 'var(--ink)' : 'color-mix(in oklab, var(--cream) 70%, transparent)',
+                  background: active ? 'var(--cream)' : 'color-mix(in oklab, var(--cream) 6%, transparent)',
+                  border: `1px solid ${
+                    active
+                      ? 'var(--cream)'
+                      : roleVar
+                        ? `color-mix(in oklab, ${roleVar} 40%, transparent)`
+                        : 'color-mix(in oklab, var(--cream) 12%, transparent)'
+                  }`,
+                }}
+              >
+                {basket.replace('BK_', '')}
+              </button>
+            );
+          })}
         </div>
       </div>
 
@@ -152,21 +184,20 @@ export default function TopologyGraph({ onSelect }: TopologyGraphProps) {
         onNodeClick={onNodeClick}
         nodeTypes={nodeTypes}
         fitView
-        className="bg-[#060709]"
+        style={{ background: 'transparent' }}
       >
-        <Background variant={BackgroundVariant.Dots} gap={24} size={1.2} color="#1e293b" />
-        <Controls className="!bg-black/60 !border !border-white/10 !rounded-xl overflow-hidden [&>button]:!border-b-white/10 [&>button]:!fill-zinc-300" />
+        <Background
+          variant={BackgroundVariant.Dots}
+          gap={32}
+          size={1.2}
+          color="color-mix(in oklab, var(--cream) 10%, transparent)"
+        />
+        <Controls />
         <MiniMap
           nodeStrokeWidth={3}
-          nodeColor={(n) => {
-            const b = (n.data as ChokepointNodeData).basket;
-            if (b === 'BK_CHOKE') return '#f59e0b';
-            if (b === 'BK_FRONT') return '#06b6d4';
-            if (b === 'BK_BACK') return '#10b981';
-            if (b === 'BK_FABLESS') return '#a855f7';
-            return '#f43f5e';
-          }}
-          className="!bg-black/80 !border !border-white/10 !rounded-xl"
+          nodeColor={(n) =>
+            BASKET_ROLE_VARS[(n.data as ChokepointNodeData).basket] ?? 'var(--plum)'
+          }
         />
       </ReactFlow>
     </div>

@@ -3,17 +3,32 @@
 import React, { useEffect, useState } from 'react';
 import { fetchForecast, Forecast } from '@/lib/api';
 
-const REC_COLORS: Record<string, string> = {
-  strong_buy: 'text-emerald-400',
-  buy: 'text-emerald-400',
-  hold: 'text-amber-400',
-  underperform: 'text-red-400',
-  sell: 'text-red-400',
+const REC_VARS: Record<string, string> = {
+  strong_buy: 'var(--neon)',
+  buy: 'var(--neon)',
+  hold: 'var(--gold-matte)',
+  underperform: 'var(--terracotta)',
+  sell: 'var(--terracotta)',
 };
+
+const dim = (pct: number) => `color-mix(in oklab, var(--cream) ${pct}%, transparent)`;
 
 function fmt(v: number | null, digits = 1, suffix = ''): string {
   if (v == null) return '—';
   return v.toFixed(digits) + suffix;
+}
+
+function Row({ label, value, valueColor }: { label: string; value: React.ReactNode; valueColor?: string }) {
+  return (
+    <div className="flex items-baseline justify-between gap-3">
+      <span className="mono text-[11px] shrink-0" style={{ color: dim(55) }}>
+        {label}
+      </span>
+      <span className="text-[15px] text-right" style={{ color: valueColor ?? 'var(--cream)' }}>
+        {value}
+      </span>
+    </div>
+  );
 }
 
 export default function ForecastPanel({ ticker }: { ticker: string }) {
@@ -36,80 +51,73 @@ export default function ForecastPanel({ ticker }: { ticker: string }) {
 
   if (loading) {
     return (
-      <div className="p-3 rounded-lg bg-white/5 border border-white/5 text-[11px] font-mono text-zinc-500">
-        Loading analyst consensus…
+      <div className="glass-electric p-3.5 text-[13px]" style={{ color: dim(55) }}>
+        Loading street consensus…
       </div>
     );
   }
 
   if (!fc || (fc.target_mean == null && fc.forward_pe == null)) {
     return (
-      <div className="p-3 rounded-lg bg-white/5 border border-white/5 text-[11px] font-mono text-zinc-500">
-        No analyst coverage data for {ticker} on the free feed.
+      <div className="glass-electric p-3.5 text-[13px]" style={{ color: dim(55) }}>
+        No analyst coverage for {ticker} on the free feed.
       </div>
     );
   }
 
   const upside =
     fc.target_mean != null && fc.current_price != null
-      ? ((fc.target_mean / fc.current_price - 1) * 100)
+      ? (fc.target_mean / fc.current_price - 1) * 100
       : null;
 
   return (
-    <div className="p-3 rounded-lg bg-white/5 border border-white/5 space-y-2">
+    <div className="glass-electric p-3.5 space-y-2">
       <div className="flex items-center justify-between">
-        <div className="text-[11px] font-mono text-zinc-400 uppercase">Street Forecast</div>
+        <span className="descent-eyebrow on-noir">Street forecast</span>
         {fc.recommendation && (
           <span
-            className={`text-[10px] font-mono font-bold uppercase ${
-              REC_COLORS[fc.recommendation] ?? 'text-zinc-300'
-            }`}
+            className="mono text-[11px]"
+            style={{ color: REC_VARS[fc.recommendation] ?? dim(80) }}
           >
             {fc.recommendation.replace('_', ' ')}
-            {fc.analyst_count != null && (
-              <span className="text-zinc-500 font-normal"> ({fc.analyst_count})</span>
-            )}
+            {fc.analyst_count != null && <span style={{ color: dim(45) }}> · {fc.analyst_count}</span>}
           </span>
         )}
       </div>
 
       {fc.target_mean != null && (
-        <div className="flex items-baseline justify-between">
-          <span className="text-[10px] font-mono text-zinc-500">TARGET (LOW/MEAN/HIGH)</span>
-          <span className="text-xs font-mono text-zinc-200">
-            {fmt(fc.target_low, 0)} / <span className="text-amber-400 font-bold">{fmt(fc.target_mean, 0)}</span> / {fmt(fc.target_high, 0)}
-          </span>
-        </div>
+        <Row
+          label="Target low / mean / high"
+          value={
+            <>
+              {fmt(fc.target_low, 0)} /{' '}
+              <span style={{ color: 'var(--gold-matte)', fontWeight: 500 }}>
+                {fmt(fc.target_mean, 0)}
+              </span>{' '}
+              / {fmt(fc.target_high, 0)}
+            </>
+          }
+        />
       )}
 
       {upside != null && (
-        <div className="flex items-baseline justify-between">
-          <span className="text-[10px] font-mono text-zinc-500">IMPLIED UPSIDE</span>
-          <span className={`text-xs font-mono font-bold ${upside >= 0 ? 'text-emerald-400' : 'text-red-400'}`}>
-            {upside >= 0 ? '+' : ''}{upside.toFixed(1)}%
-          </span>
-        </div>
+        <Row
+          label="Implied upside"
+          value={`${upside >= 0 ? '+' : ''}${upside.toFixed(1)}%`}
+          valueColor={upside >= 0 ? 'var(--neon)' : 'var(--terracotta)'}
+        />
       )}
 
-      <div className="grid grid-cols-2 gap-x-4 gap-y-1 pt-1 border-t border-white/5">
-        <div className="flex justify-between text-[10px] font-mono">
-          <span className="text-zinc-500">FWD P/E</span>
-          <span className="text-zinc-200">{fmt(fc.forward_pe)}</span>
-        </div>
-        <div className="flex justify-between text-[10px] font-mono">
-          <span className="text-zinc-500">TTM P/E</span>
-          <span className="text-zinc-200">{fmt(fc.trailing_pe)}</span>
-        </div>
-        <div className="flex justify-between text-[10px] font-mono">
-          <span className="text-zinc-500">EV/EBITDA</span>
-          <span className="text-zinc-200">{fmt(fc.ev_to_ebitda)}</span>
-        </div>
-        <div className="flex justify-between text-[10px] font-mono">
-          <span className="text-zinc-500">REV GRW</span>
-          <span className="text-zinc-200">
-            {fc.revenue_growth != null ? `${(fc.revenue_growth * 100).toFixed(0)}%` : '—'}
-          </span>
-        </div>
+      <div
+        className="space-y-1.5 pt-2"
+        style={{ borderTop: '1px solid color-mix(in oklab, var(--gold) 20%, transparent)' }}
+      >
+        <Row label="Fwd / TTM P/E" value={`${fmt(fc.forward_pe)} / ${fmt(fc.trailing_pe)}`} />
+        <Row label="EV/EBITDA" value={fmt(fc.ev_to_ebitda)} />
+        <Row
+          label="Revenue growth"
+          value={fc.revenue_growth != null ? `${(fc.revenue_growth * 100).toFixed(0)}%` : '—'}
+        />
       </div>
     </div>
   );

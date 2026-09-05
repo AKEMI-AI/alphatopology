@@ -7,20 +7,37 @@ often lack analyst coverage fields.
 
 from __future__ import annotations
 
+import threading
 import time
 from typing import Any, Dict, List, Optional
 
 import yfinance as yf
 
 _CACHE: Dict[str, Any] = {}
+_REFRESHING: Dict[str, bool] = {}
 
 
 def _cached(key: str, ttl: float, fn):
+    """TTL cache with stale-while-revalidate: an expired entry is served
+    immediately while a background thread refreshes it, so slow upstream
+    fetches (24 sequential Yahoo calls) never block a request."""
     now = time.time()
     hit = _CACHE.get(key)
     if hit and hit[0] > now:
         return hit[1]
-    value = fn()
+    if hit:  # stale — serve it, refresh in the background
+        if not _REFRESHING.get(key):
+            _REFRESHING[key] = True
+
+            def refresh():
+                try:
+                    _CACHE[key] = (time.time() + ttl, fn())
+                finally:
+                    _REFRESHING[key] = False
+
+            threading.Thread(target=refresh, daemon=True).start()
+        return hit[1]
+    value = fn()  # cold cache — nothing to serve, fetch synchronously
     _CACHE[key] = (now + ttl, value)
     return value
 

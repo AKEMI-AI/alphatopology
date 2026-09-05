@@ -15,16 +15,21 @@ export default function MiniPriceChart({ ticker }: ChartProps) {
   useEffect(() => {
     if (!containerRef.current) return;
 
+    // lightweight-charts can't parse CSS vars — resolve tokens at runtime
+    const tokens = getComputedStyle(document.documentElement);
+    const t = (name: string, fallback: string) =>
+      tokens.getPropertyValue(name).trim() || fallback;
+
     const chart = createChart(containerRef.current, {
       layout: {
         background: { type: ColorType.Solid, color: 'transparent' },
-        textColor: '#64748b',
-        fontFamily: 'monospace',
-        fontSize: 10,
+        textColor: t('--cream', '#F2F0EC') + '99',
+        fontFamily: t('--font-sans', 'sans-serif'),
+        fontSize: 11,
       },
       grid: {
-        vertLines: { color: 'rgba(255, 255, 255, 0.03)' },
-        horzLines: { color: 'rgba(255, 255, 255, 0.03)' },
+        vertLines: { color: 'rgba(242, 240, 236, 0.04)' },
+        horzLines: { color: 'rgba(242, 240, 236, 0.04)' },
       },
       width: containerRef.current.clientWidth,
       height: 140,
@@ -35,7 +40,7 @@ export default function MiniPriceChart({ ticker }: ChartProps) {
     });
 
     const series = chart.addSeries(LineSeries, {
-      color: '#f59e0b',
+      color: t('--gold-matte', '#B5A06A'),
       lineWidth: 2,
       crosshairMarkerVisible: false,
     });
@@ -48,7 +53,9 @@ export default function MiniPriceChart({ ticker }: ChartProps) {
       if (res && res.data.length > 0) {
         data = res.data;
         const up = data[data.length - 1].value >= data[0].value;
-        series.applyOptions({ color: up ? '#10b981' : '#ef4444' });
+        series.applyOptions({
+          color: up ? t('--neon', '#C9F227') : t('--terracotta', '#E8783A'),
+        });
         setSource('LIVE');
       } else {
         // API unreachable — deterministic placeholder, clearly labeled SIM
@@ -80,13 +87,15 @@ export default function MiniPriceChart({ ticker }: ChartProps) {
   return (
     <div className="relative">
       <span
-        className={`absolute right-1 top-0 z-10 text-[9px] font-mono font-bold px-1 rounded ${
-          source === 'LIVE'
-            ? 'text-emerald-400 bg-emerald-500/10'
-            : source === 'SIM'
-              ? 'text-amber-400 bg-amber-500/10'
-              : 'text-zinc-500'
-        }`}
+        className="mono absolute right-1 top-0 z-10 text-[11px] px-1 rounded"
+        style={{
+          color:
+            source === 'LIVE'
+              ? 'var(--neon)'
+              : source === 'SIM'
+                ? 'var(--gold-matte)'
+                : 'color-mix(in oklab, var(--cream) 50%, transparent)',
+        }}
       >
         {source === 'LOADING' ? '…' : source}
       </span>
