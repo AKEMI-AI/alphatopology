@@ -199,3 +199,4 @@ export default function TopologyGraph({ onSelect }: TopologyGraphProps) {
     </div>
   );
 }
+// cache-bust: edge ids include relationship (unique across parallel money+supply pairs)

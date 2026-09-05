@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useLayoutEffect, useState } from 'react';
 import dynamic from 'next/dynamic';
 import fallbackTelemetry from '@/data/live_telemetry.json';
 import MiniPriceChart from '@/components/terminal/MiniPriceChart';
@@ -240,8 +240,8 @@ export default function TerminalPage() {
     setSheetOpen(true);
   };
 
-  // Deep links: restore #TICKER/view on load (terminal-patterns §1)
-  useEffect(() => {
+  // Deep links: restore #TICKER/view before first paint (terminal-patterns §1)
+  useLayoutEffect(() => {
     const hash = window.location.hash.replace(/^#/, '');
     if (!hash) return;
     const [tickerPart, viewPart] = hash.split('/');

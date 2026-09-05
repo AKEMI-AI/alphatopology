@@ -16,9 +16,22 @@ import type { Topology, Objects } from 'topojson-specification';
 import worldData from 'world-atlas/countries-110m.json';
 import seedData from '@/data/nodes_seed.json';
 import exportControls from '@/data/export_controls.json';
+import peopleData from '@/data/people_seed.json';
 import { GLOBE_R, latLonToVec3, spreadCoords, arcCurve } from '@/lib/geo';
 
 /* world-atlas numeric ids for the countries we shade */
+type ArcsMode = 'supply' | 'money' | 'people';
+
+type MoneyKind = 'investment' | 'vc' | 'services' | 'hardware';
+function moneyKind(rel: string): MoneyKind | null {
+  if (/TRAY|RACK/.test(rel)) return null;
+  if (/CAPITAL_ROUND/.test(rel)) return 'vc';
+  if (/CAPITAL|BACKSTOP|WARRANT/.test(rel)) return 'investment';
+  if (/COMPUTE_CONTRACT|STARGATE|AZURE|TPU|TRAINIUM|GPU_CLOUD|COMPUTE_SUPPLY/.test(rel)) return 'services';
+  if (/GPU_SUPPLY|DOJO|ROBOT_COMPUTE|ADVANCED_NODE/.test(rel)) return 'hardware';
+  return null;
+}
+
 const COUNTRY_IDS: Record<string, string> = {
   US: '840', JP: '392', TW: '158', KR: '410', NL: '528',
   FR: '250', GB: '826', TH: '764', CN: '156',
@@ -249,22 +262,50 @@ function Arcs({
   positions,
   focusId,
   palette,
+  mode,
 }: {
-  edges: { source: string; target: string; criticality: string }[];
+  edges: { source: string; target: string; criticality: string; relationship: string; amount_usd_b?: number }[];
   positions: Record<string, THREE.Vector3>;
   focusId: string | null;
   palette: ReturnType<typeof usePalette>;
+  mode: ArcsMode;
 }) {
   const lines = useMemo(() => {
+    if (mode === 'people') return [];
+    const kindColor: Record<MoneyKind, string> = {
+      hardware: palette.roles.BK_FABLESS,
+      investment: palette.neon,
+      services: palette.roles.BK_BACK,
+      vc: palette.goldMatte,
+    };
     return edges
       .map((e) => {
         const a = positions[e.source];
         const b = positions[e.target];
         if (!a || !b) return null;
+        const kind = moneyKind(e.relationship);
+        if (mode === 'money') {
+          if (!kind) return null;
+        } else if (e.amount_usd_b != null) {
+          return null; // capital flows live in the Money lens
+        }
         const touching = focusId && (e.source === focusId || e.target === focusId);
         const faded = focusId && !touching;
         const pts = arcCurve(a, b).getPoints(40);
         const g = new THREE.BufferGeometry().setFromPoints(pts);
+        if (mode === 'money' && kind) {
+          const m = new THREE.LineDashedMaterial({
+            color: kindColor[kind],
+            transparent: true,
+            opacity: faded ? 0.05 : touching ? 0.95 : 0.7,
+            dashSize: 0.14,
+            gapSize: 0.08,
+            linewidth: 1,
+          });
+          const line = new THREE.Line(g, m);
+          line.computeLineDistances();
+          return line;
+        }
         const m = new THREE.LineBasicMaterial({
           color: touching ? palette.gold : e.criticality === 'CRITICAL' ? palette.goldMatte : palette.plum,
           transparent: true,
@@ -273,12 +314,114 @@ function Arcs({
         return new THREE.Line(g, m);
       })
       .filter(Boolean) as THREE.Line[];
-  }, [edges, positions, focusId, palette]);
+  }, [edges, positions, focusId, palette, mode]);
   return (
     <group>
       {lines.map((l, i) => (
         <primitive key={i} object={l} />
       ))}
+    </group>
+  );
+}
+
+/* People lens: 51 humans pinned at their primary org's HQ, diaspora as arcs */
+interface PersonRec {
+  id: string;
+  name: string;
+  roles: { org: string; relationship: string }[];
+  lineage?: { from_org: string; note: string }[];
+}
+
+function PeopleLayer({
+  positions,
+  palette,
+  focusId,
+}: {
+  positions: Record<string, THREE.Vector3>;
+  palette: ReturnType<typeof usePalette>;
+  focusId: string | null;
+}) {
+  const [hoveredP, setHoveredP] = useState<string | null>(null);
+  const people = peopleData.people as PersonRec[];
+
+  const marks = useMemo(() => {
+    const byOrg = new Map<string, number>();
+    return people
+      .map((p) => {
+        const org = p.roles[0]?.org ?? p.lineage?.[0]?.from_org;
+        if (!org || !positions[org]) return null;
+        const i = byOrg.get(org) ?? 0;
+        byOrg.set(org, i + 1);
+        const base = positions[org];
+        const n = base.clone().normalize();
+        const tangent = new THREE.Vector3(0, 1, 0).cross(n).normalize();
+        const bitangent = n.clone().cross(tangent);
+        const ang = i * 2.4;
+        const rad = 0.09 + 0.05 * Math.sqrt(i);
+        const pos = base
+          .clone()
+          .add(tangent.clone().multiplyScalar(Math.cos(ang) * rad))
+          .add(bitangent.clone().multiplyScalar(Math.sin(ang) * rad))
+          .normalize()
+          .multiplyScalar(GLOBE_R * 1.03);
+        return { p, org, pos };
+      })
+      .filter(Boolean) as { p: PersonRec; org: string; pos: THREE.Vector3 }[];
+  }, [people, positions]);
+
+  const lineageLines = useMemo(() => {
+    const lines: THREE.Line[] = [];
+    for (const m of marks) {
+      for (const l of m.p.lineage ?? []) {
+        const from = positions[l.from_org];
+        if (!from) continue;
+        const pts = arcCurve(from.clone().normalize().multiplyScalar(GLOBE_R * 1.02), m.pos).getPoints(32);
+        const g = new THREE.BufferGeometry().setFromPoints(pts);
+        const mat = new THREE.LineDashedMaterial({
+          color: palette.goldMatte, transparent: true, opacity: 0.5, dashSize: 0.1, gapSize: 0.07,
+        });
+        const line = new THREE.Line(g, mat);
+        line.computeLineDistances();
+        lines.push(line);
+      }
+    }
+    return lines;
+  }, [marks, positions, palette]);
+
+  return (
+    <group>
+      {lineageLines.map((l, i) => (
+        <primitive key={`lin-${i}`} object={l} />
+      ))}
+      {marks.map(({ p, org, pos }) => {
+        const lit = !focusId || org === focusId || (p.lineage ?? []).some((l) => l.from_org === focusId);
+        const showLabel = hoveredP === p.id || (focusId != null && org === focusId);
+        return (
+          <group key={p.id} position={pos}>
+            <mesh
+              onPointerOver={(e) => { e.stopPropagation(); setHoveredP(p.id); document.body.style.cursor = 'pointer'; }}
+              onPointerOut={() => { setHoveredP(null); document.body.style.cursor = 'auto'; }}
+            >
+              <sphereGeometry args={[0.055, 10, 10]} />
+              <meshBasicMaterial color={palette.cream} transparent opacity={lit ? 0.95 : 0.25} />
+            </mesh>
+            {showLabel && (
+              <Html center distanceFactor={11} style={{ pointerEvents: 'none' }}>
+                <div className="mono" style={{
+                  fontSize: 11, letterSpacing: '0.08em', whiteSpace: 'nowrap',
+                  color: palette.cream, textShadow: `0 0 4px ${palette.ink}, 0 0 8px ${palette.ink}`,
+                  transform: 'translateY(-14px)',
+                }}>
+                  {p.name}
+                  <span style={{ color: palette.goldMatte, marginLeft: 6 }}>
+                    {p.roles[0]?.relationship.replace(/_/g, ' ').toLowerCase() ?? 'alumni'}
+                  </span>
+                </div>
+              </Html>
+            )}
+          </group>
+        );
+      })}
     </group>
   );
 }
@@ -353,7 +496,8 @@ function Scene({
   onSelect,
   onZoomFloor,
   shadeMode,
-}: GlobeViewProps & { shadeMode: 'density' | 'controls' }) {
+  arcsMode,
+}: GlobeViewProps & { shadeMode: 'density' | 'controls'; arcsMode: ArcsMode }) {
   const palette = usePalette();
   const [hovered, setHovered] = useState<string | null>(null);
   const pulses = useRef<Pulse[]>([]);
@@ -378,7 +522,7 @@ function Scene({
   const active = nodes.find((n) => n.ticker === activeTicker);
   const focusId = active?.id ?? null;
 
-  const edges = seedData.edges as { source: string; target: string; criticality: string }[];
+  const edges = seedData.edges as { source: string; target: string; criticality: string; relationship: string; amount_usd_b?: number }[];
   const neighborIds = useMemo(() => {
     const s = new Set<string>();
     if (!focusId) return s;
@@ -449,7 +593,8 @@ function Scene({
       <CountryShading mode={shadeMode} densities={densities} palette={palette} />
       <PulseRings pulses={pulses} />
       <StraitRing color={focusId ? palette.gold : palette.magenta} />
-      <Arcs edges={edges} positions={positions} focusId={focusId} palette={palette} />
+      <Arcs edges={edges} positions={positions} focusId={focusId} palette={palette} mode={arcsMode} />
+      {arcsMode === 'people' && <PeopleLayer positions={positions} palette={palette} focusId={focusId} />}
 
       {nodes.map((n) => {
         const pos = positions[n.id];
@@ -522,6 +667,7 @@ const dimc = (pct: number) => `color-mix(in oklab, var(--cream) ${pct}%, transpa
 
 export default function GlobeView(props: GlobeViewProps) {
   const [shadeMode, setShadeMode] = useState<'density' | 'controls'>('density');
+  const [arcsMode, setArcsMode] = useState<ArcsMode>('supply');
 
   return (
     <div className="relative w-full h-full select-none" style={{ background: 'var(--ink)' }}>
@@ -530,11 +676,32 @@ export default function GlobeView(props: GlobeViewProps) {
         dpr={typeof window !== 'undefined' ? Math.min(window.devicePixelRatio, 2) : 1}
         gl={{ antialias: true, alpha: true }}
       >
-        <Scene {...props} shadeMode={shadeMode} />
+        <Scene {...props} shadeMode={shadeMode} arcsMode={arcsMode} />
       </Canvas>
 
       <div className="absolute top-4 left-6 z-10 pointer-events-none">
         <div className="descent-eyebrow on-noir">Geography / the physical board</div>
+      </div>
+
+      {/* arc lens: what the arcs mean */}
+      <div className="absolute top-16 left-6 z-10 flex items-center gap-1.5">
+        {(['supply', 'money', 'people'] as const).map((m) => {
+          const on = arcsMode === m;
+          return (
+            <button
+              key={m}
+              onClick={() => setArcsMode(m)}
+              className="mono px-2.5 py-1 text-[11px] rounded-full cursor-pointer capitalize"
+              style={{
+                color: on ? 'var(--ink)' : dimc(65),
+                background: on ? 'var(--cream)' : 'color-mix(in oklab, var(--ink) 70%, transparent)',
+                border: `1px solid ${on ? 'var(--cream)' : dimc(14)}`,
+              }}
+            >
+              {m}
+            </button>
+          );
+        })}
       </div>
 
       {/* shading mode toggle */}
@@ -604,8 +771,10 @@ export default function GlobeView(props: GlobeViewProps) {
 
       <div className="absolute left-6 bottom-6 z-10 pointer-events-none max-w-[270px] hidden sm:block">
         <div className="text-[13px]" style={{ color: dimc(50) }}>
-          Drag to rotate. Scroll to descend — fully in falls through to the ledger. Mark size =
-          live market cap; wire ring = chokepoint authority; dashed ring = Taiwan Strait.{' '}
+          Drag to rotate. Scroll to descend — fully in falls through to the ledger.{' '}
+          {arcsMode === 'supply' && 'Solid arcs = physical supply; gold = critical.'}
+          {arcsMode === 'money' && 'Dashed arcs = capital & compute flows, colored by deal kind (lime invest, violet compute, orange chips, gold rounds).'}
+          {arcsMode === 'people' && 'Cream marks = key people at their primary affiliation; dashed gold = career lineage (the diaspora). Hover a mark for the name.'}{' '}
           {shadeMode === 'density'
             ? 'Country dots glow gold with chokepoint density.'
             : 'Gold = control regimes, matte = aligned, terracotta = counter-controls.'}{' '}
