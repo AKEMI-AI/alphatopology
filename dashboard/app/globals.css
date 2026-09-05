@@ -97,6 +97,12 @@ h3,
   background: transparent !important;
   color: color-mix(in oklab, var(--cream) 40%, transparent) !important;
 }
+/* minimap earns its footprint only on larger screens */
+@media (max-width: 767px) {
+  .react-flow__minimap {
+    display: none;
+  }
+}
 
 /* Ticker marquee (motion is ornament-level; reduced-motion safe) */
 .ticker-marquee {

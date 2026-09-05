@@ -557,7 +557,7 @@ export default function ChokepointMap({ nodes, activeTicker, onSelect, onZoomFlo
       </div>
 
       {/* HUD — layer + descent hint */}
-      <div className="absolute left-6 bottom-6 z-10 pointer-events-none">
+      <div className="absolute left-6 bottom-6 z-10 pointer-events-none hidden sm:block">
         <div className="mono text-[11px]" style={{ color: dim(70) }}>
           Layer {layerName}
         </div>
@@ -567,7 +567,7 @@ export default function ChokepointMap({ nodes, activeTicker, onSelect, onZoomFlo
         </div>
       </div>
 
-      <div className="absolute right-6 bottom-6 z-10 pointer-events-none flex flex-col items-end gap-2">
+      <div className="absolute right-6 bottom-6 z-10 pointer-events-none hidden md:flex flex-col items-end gap-2">
         <span className="flex items-center gap-4">
           {Object.entries(BASKET_ROLE_VARS).map(([basket, roleVar]) => (
             <span key={basket} className="flex items-center gap-1.5 mono text-[11px]" style={{ color: dim(64) }}>

@@ -562,7 +562,7 @@ export default function GlobeView(props: GlobeViewProps) {
 
       {/* export-control regime panel */}
       {shadeMode === 'controls' && (
-        <aside className="glass-electric absolute top-28 right-6 z-10 w-[330px] max-h-[60%] overflow-y-auto p-4">
+        <aside className="glass-electric absolute top-28 right-3 md:right-6 z-10 w-[min(330px,calc(100vw-1.5rem))] max-h-[55%] overflow-y-auto p-4">
           <div className="descent-eyebrow on-noir mb-3">The control map</div>
           <div className="space-y-3.5">
             {exportControls.regimes.map((r) => (
@@ -602,7 +602,7 @@ export default function GlobeView(props: GlobeViewProps) {
         </aside>
       )}
 
-      <div className="absolute left-6 bottom-6 z-10 pointer-events-none max-w-[270px]">
+      <div className="absolute left-6 bottom-6 z-10 pointer-events-none max-w-[270px] hidden sm:block">
         <div className="text-[13px]" style={{ color: dimc(50) }}>
           Drag to rotate. Scroll to descend — fully in falls through to the ledger. Mark size =
           live market cap; wire ring = chokepoint authority; dashed ring = Taiwan Strait.{' '}

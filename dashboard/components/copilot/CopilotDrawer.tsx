@@ -71,7 +71,7 @@ export default function CopilotDrawer() {
   }
 
   return (
-    <div className="glass-electric fixed bottom-6 right-6 z-40 w-[400px] h-[540px] flex flex-col overflow-hidden !rounded-2xl">
+    <div className="glass-electric fixed bottom-4 right-4 md:bottom-6 md:right-6 z-40 w-[calc(100vw-2rem)] max-w-[400px] h-[min(540px,72vh)] flex flex-col overflow-hidden !rounded-2xl">
       <div
         className="flex items-center justify-between px-4 py-3 shrink-0"
         style={{ borderBottom: '1px solid color-mix(in oklab, var(--gold) 25%, transparent)' }}

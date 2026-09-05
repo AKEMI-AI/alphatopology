@@ -125,10 +125,10 @@ export default function TopologyGraph({ onSelect }: TopologyGraphProps) {
       className="relative w-full h-full overflow-hidden data-grid-dark"
       style={{ background: 'var(--ink)', color: 'var(--cream)' }}
     >
-      {/* Control Overlay — glass-electric capsule */}
-      <div className="glass-electric absolute top-4 left-4 z-20 flex flex-wrap items-center gap-2.5 p-2.5 !rounded-2xl">
+      {/* Control Overlay — glass-electric capsule; scrolling strip on mobile */}
+      <div className="glass-electric absolute top-3 left-3 right-3 md:right-auto md:top-4 md:left-4 z-20 flex flex-nowrap md:flex-wrap items-center gap-2.5 p-2.5 !rounded-2xl overflow-x-auto">
         <div
-          className="flex items-center gap-2 px-3 py-1.5 rounded-full"
+          className="flex items-center gap-2 px-3 py-1.5 rounded-full shrink-0"
           style={{
             background: 'color-mix(in oklab, var(--cream) 6%, transparent)',
             border: '1px solid color-mix(in oklab, var(--cream) 12%, transparent)',
@@ -143,12 +143,12 @@ export default function TopologyGraph({ onSelect }: TopologyGraphProps) {
             placeholder="Search ticker or entity…"
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
-            className="bg-transparent text-[13px] focus:outline-none w-44 min-w-0"
+            className="bg-transparent text-[13px] focus:outline-none w-32 md:w-44 min-w-0"
             style={{ color: 'var(--cream)' }}
           />
         </div>
 
-        <div className="flex items-center gap-1">
+        <div className="flex items-center gap-1 shrink-0">
           {BASKETS.map((basket) => {
             const active = selectedBasket === basket;
             const roleVar = BASKET_ROLE_VARS[basket];
