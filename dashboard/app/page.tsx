@@ -6,6 +6,7 @@ import fallbackTelemetry from '@/data/live_telemetry.json';
 import MiniPriceChart from '@/components/terminal/MiniPriceChart';
 import ForecastPanel from '@/components/terminal/ForecastPanel';
 import TelemetryTickerBar from '@/components/terminal/TelemetryTickerBar';
+import CopilotDrawer from '@/components/copilot/CopilotDrawer';
 import { fetchTelemetry, TelemetryNode } from '@/lib/api';
 import type { ChokepointNodeData } from '@/components/graph/ChokepointNode';
 
@@ -281,6 +282,8 @@ export default function TerminalPage() {
           </button>
         </aside>
       </div>
+
+      <CopilotDrawer />
     </div>
   );
 }

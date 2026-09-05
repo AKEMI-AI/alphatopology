@@ -14,6 +14,9 @@ dashboard/out/
 *.tsbuildinfo
 dashboard/next-env.d.ts
 
+# Paper-trading ledger (local state)
+data/portfolio.db
+
 # Generated data snapshot (rebuild with scripts/ingest_metrics.py).
 # dashboard/data/live_telemetry.json IS committed — it's the build-time fallback.
 data/live_telemetry.json

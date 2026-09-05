@@ -34,7 +34,7 @@ app = FastAPI(title="AlphaTopology Graph API", version="0.1.0")
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["http://localhost:3000"],
-    allow_methods=["GET"],
+    allow_methods=["GET", "POST"],
     allow_headers=["*"],
 )
 
@@ -104,3 +104,41 @@ def market_history(ticker: str, period: str = "1mo", interval: str = "1d"):
 def market_forecast(ticker: str):
     """Analyst consensus, price targets, and forward multiples (cached 1h)."""
     return get_forecast(ticker)
+
+
+# ── Paper simulator (simulation only; no brokerage connection) ──
+
+@app.get("/sim/portfolio")
+def sim_portfolio():
+    from alphatopology.simulator import portfolio_status
+
+    return portfolio_status()
+
+
+@app.post("/sim/order")
+def sim_order(order: dict):
+    from alphatopology.simulator import place_paper_order
+
+    try:
+        return place_paper_order(
+            str(order.get("ticker", "")), str(order.get("side", "")), float(order.get("qty", 0))
+        )
+    except (ValueError, TypeError) as exc:
+        raise HTTPException(status_code=400, detail=str(exc))
+
+
+# ── Copilot ──
+
+@app.post("/copilot/chat")
+def copilot_chat(body: dict):
+    """One research-copilot turn. body: {"history": [{"role","content"}...]}"""
+    from alphatopology.copilot import run_copilot
+
+    history = body.get("history", [])
+    if not history:
+        raise HTTPException(status_code=400, detail="history is required")
+    try:
+        reply = run_copilot(history)
+    except RuntimeError as exc:  # missing credentials
+        raise HTTPException(status_code=503, detail=str(exc))
+    return {"reply": reply}
