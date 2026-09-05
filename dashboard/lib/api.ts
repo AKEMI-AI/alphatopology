@@ -5,6 +5,7 @@ export interface MarketData {
   change_pct: number | null;
   volume: number | null;
   currency: string | null;
+  market_cap_usd?: number | null;
   live: boolean;
 }
 

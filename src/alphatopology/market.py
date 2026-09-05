@@ -67,27 +67,55 @@ DEFAULT_PROXY = {
 }
 
 
+def get_fx_to_usd(ttl: float = 3600.0) -> Dict[str, float]:
+    """USD per 1 unit of each foreign currency the topology trades in."""
+
+    def fetch() -> Dict[str, float]:
+        rates: Dict[str, float] = {"USD": 1.0}
+        for ccy in ("JPY", "KRW", "TWD", "EUR"):
+            try:
+                # USDJPY=X quotes JPY per USD → invert for USD per JPY
+                per_usd = yf.Ticker(f"USD{ccy}=X").fast_info["last_price"]
+                if per_usd:
+                    rates[ccy] = 1.0 / float(per_usd)
+            except Exception:
+                pass  # missing rate → market_cap_usd stays None for that ccy
+        return rates
+
+    return _cached("fx:usd", ttl, fetch)
+
+
 def get_quotes(tickers: List[str], ttl: float = 60.0) -> Dict[str, Dict[str, Any]]:
-    """Latest price/change/volume per ticker (Yahoo feed, exchange-delayed)."""
+    """Latest price/change/volume/market-cap per ticker (Yahoo feed,
+    exchange-delayed). Market cap is FX-normalized to USD."""
 
     def fetch() -> Dict[str, Dict[str, Any]]:
+        fx = get_fx_to_usd()
         quotes: Dict[str, Dict[str, Any]] = {}
         for t in yf.Tickers(" ".join(tickers)).tickers.values():
             try:
                 fi = t.fast_info
                 price = fi["last_price"]
                 prev = fi["previous_close"]
+                currency = fi["currency"]
+                cap = fi["market_cap"]
+                cap_usd = (
+                    round(float(cap) * fx[currency])
+                    if cap and currency in fx
+                    else None
+                )
                 quotes[t.ticker] = {
                     "price": round(float(price), 2),
                     "change_pct": round((price / prev - 1.0) * 100.0, 2) if prev else 0.0,
                     "volume": int(fi["last_volume"] or 0),
-                    "currency": fi["currency"],
+                    "currency": currency,
+                    "market_cap_usd": cap_usd,
                     "live": True,
                 }
             except Exception:
                 quotes[t.ticker] = {
                     "price": None, "change_pct": None, "volume": None,
-                    "currency": None, "live": False,
+                    "currency": None, "market_cap_usd": None, "live": False,
                 }
         return quotes
 

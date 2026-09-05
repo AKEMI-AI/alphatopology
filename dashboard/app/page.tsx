@@ -11,13 +11,22 @@ import type { ChokepointNodeData } from '@/components/graph/ChokepointNode';
 
 // Dynamic import with SSR disabled for optimal canvas rendering
 const TopologyGraph = dynamic(() => import('@/components/graph/TopologyGraph'), { ssr: false });
+const ChokepointMap = dynamic(() => import('@/components/map/ChokepointMap'), { ssr: false });
 
 const REFRESH_MS = 60_000;
+
+const VIEWS = [
+  { key: 'graph', label: 'Graph' },
+  { key: 'map', label: 'Map' },
+] as const;
+type ViewKey = (typeof VIEWS)[number]['key'];
 
 type FullNode = TelemetryNode & {
   layer: number;
   chokepoint_rating: number;
   stage: string;
+  basket: string;
+  [key: string]: unknown;
 };
 
 function substitutionRisk(rating: number): { label: string; varName: string } {
@@ -29,6 +38,7 @@ function substitutionRisk(rating: number): { label: string; varName: string } {
 const dim = (pct: number) => `color-mix(in oklab, var(--cream) ${pct}%, transparent)`;
 
 export default function TerminalPage() {
+  const [view, setView] = useState<ViewKey>('graph');
   const [activeTicker, setActiveTicker] = useState<string>('NVDA');
   const [telemetryNodes, setTelemetryNodes] = useState<FullNode[]>(
     fallbackTelemetry.nodes as unknown as FullNode[]
@@ -80,6 +90,27 @@ export default function TerminalPage() {
         </div>
 
         <div className="flex items-center gap-5">
+          <div
+            className="flex items-center gap-1 p-0.5 rounded-full"
+            style={{ border: '1px solid color-mix(in oklab, var(--cream) 14%, transparent)' }}
+          >
+            {VIEWS.map((v) => {
+              const active = view === v.key;
+              return (
+                <button
+                  key={v.key}
+                  onClick={() => setView(v.key)}
+                  className="mono px-3 py-1 text-[11px] rounded-full transition-colors cursor-pointer"
+                  style={{
+                    color: active ? 'var(--ink)' : dim(70),
+                    background: active ? 'var(--cream)' : 'transparent',
+                  }}
+                >
+                  {v.label}
+                </button>
+              );
+            })}
+          </div>
           <span className="mono text-[11px] hidden lg:inline" style={{ color: dim(65) }}>
             Chokepoints{' '}
             <strong style={{ color: 'var(--gold-matte)', fontWeight: 600 }}>
@@ -103,11 +134,19 @@ export default function TerminalPage() {
 
       {/* 3 · Main Workspace */}
       <div className="flex-1 flex relative overflow-hidden">
-        {/* Left: Interactive Canvas */}
+        {/* Left: Interactive Canvas — shiftable view */}
         <div className="flex-1 h-full relative min-w-0">
-          <TopologyGraph
-            onSelect={(node: ChokepointNodeData) => setActiveTicker(node.ticker)}
-          />
+          {view === 'graph' ? (
+            <TopologyGraph
+              onSelect={(node: ChokepointNodeData) => setActiveTicker(node.ticker)}
+            />
+          ) : (
+            <ChokepointMap
+              nodes={telemetryNodes}
+              activeTicker={activeTicker}
+              onSelect={(node) => setActiveTicker(node.ticker)}
+            />
+          )}
         </div>
 
         {/* Right: Inspector — glass-electric stage */}
