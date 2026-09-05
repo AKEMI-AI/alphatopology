@@ -24,6 +24,7 @@ const VIEW_CODES: Record<string, string> = {
   m: 'map', map: 'map',
   geo: 'geo', globe: 'geo',
   b: 'book', book: 'book',
+  f: 'flows', flows: 'flows', money: 'flows',
   led: 'geo', ledger: 'geo',
 };
 

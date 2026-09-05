@@ -18,6 +18,7 @@ const TopologyGraph = dynamic(() => import('@/components/graph/TopologyGraph'), 
 const ChokepointMap = dynamic(() => import('@/components/map/ChokepointMap'), { ssr: false });
 const GeoView = dynamic(() => import('@/components/map/GeoView'), { ssr: false });
 const BookView = dynamic(() => import('@/components/book/BookView'), { ssr: false });
+const FlowsView = dynamic(() => import('@/components/flows/FlowsView'), { ssr: false });
 
 const REFRESH_MS = 60_000;
 
@@ -25,6 +26,7 @@ const VIEWS = [
   { key: 'graph', label: 'Graph' },
   { key: 'map', label: 'Map' },
   { key: 'geo', label: 'Geo' },
+  { key: 'flows', label: 'Flows' },
   { key: 'book', label: 'Book' },
 ] as const;
 type ViewKey = (typeof VIEWS)[number]['key'];
@@ -346,6 +348,12 @@ export default function TerminalPage() {
               activeTicker={activeTicker}
               onSelect={(node) => selectNode(node.ticker)}
               onZoomFloor={() => setView('graph')}
+            />
+          ) : view === 'flows' ? (
+            <FlowsView
+              nodes={telemetryNodes}
+              activeTicker={activeTicker}
+              onSelect={(node) => selectNode(node.ticker)}
             />
           ) : view === 'geo' ? (
             <GeoView

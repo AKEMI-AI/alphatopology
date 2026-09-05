@@ -124,3 +124,19 @@ h3,
     animation: none;
   }
 }
+
+/* Money-machine flow drift — direction of the dollars; reduced-motion safe */
+.flow-dash {
+  stroke-dasharray: 7 5;
+  animation: flow-drift 1.4s linear infinite;
+}
+@keyframes flow-drift {
+  to {
+    stroke-dashoffset: -12;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .flow-dash {
+    animation: none;
+  }
+}
