@@ -144,6 +144,38 @@ def get_history(
     return _cached(f"hist:{ticker}:{period}:{interval}", ttl, fetch)
 
 
+def get_returns(tickers: List[str], ttl: float = 600.0) -> Dict[str, Dict[str, Any]]:
+    """1-day / 1-week / 1-month percent returns per ticker, from daily closes."""
+
+    def one(t: str) -> Dict[str, Any]:
+        hist = get_history(t, period="3mo")
+        if len(hist) < 2:
+            return {"d1": None, "w1": None, "m1": None, "spark": []}
+        closes = [p["value"] for p in hist]
+        last = closes[-1]
+
+        def ret(back: int):
+            if len(closes) <= back:
+                return None
+            base = closes[-1 - back]
+            return round((last / base - 1) * 100, 2) if base else None
+
+        return {
+            "d1": ret(1),
+            "w1": ret(5),
+            "m1": ret(21),
+            "spark": [round(v, 2) for v in closes[-21:]],
+        }
+
+    def fetch() -> Dict[str, Dict[str, Any]]:
+        from concurrent.futures import ThreadPoolExecutor
+
+        with ThreadPoolExecutor(max_workers=8) as pool:
+            return dict(pool.map(lambda t: (t, one(t)), tickers))
+
+    return _cached(f"returns:{','.join(sorted(tickers))}", ttl, fetch)
+
+
 def get_forecast(ticker: str, ttl: float = 3600.0) -> Dict[str, Any]:
     """Analyst consensus + forward multiples. Fields are None where Yahoo
     has no coverage (common for non-US listings)."""

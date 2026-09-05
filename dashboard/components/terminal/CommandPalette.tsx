@@ -25,6 +25,7 @@ const VIEW_CODES: Record<string, string> = {
   geo: 'geo', globe: 'geo',
   b: 'book', book: 'book',
   f: 'flows', flows: 'flows', money: 'flows',
+  mkt: 'market', market: 'market', pulse: 'market',
   led: 'geo', ledger: 'geo',
 };
 

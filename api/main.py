@@ -20,6 +20,7 @@ from alphatopology.market import (  # noqa: E402
     get_forecast,
     get_history,
     get_quotes,
+    get_returns,
 )
 from alphatopology.topology import (  # noqa: E402
     build_graph,
@@ -89,6 +90,29 @@ def market_telemetry():
             }
             for n in _topo.nodes
         ],
+    }
+
+
+@app.get("/market/movers")
+def market_movers():
+    """Multi-horizon returns (1d/1w/1m + sparkline) for every public node."""
+    public = [n for n in _topo.nodes if n.entity_type == "PUBLIC"]
+    rets = get_returns([n.ticker for n in public])
+    quotes = get_quotes([n.ticker for n in public])
+    return {
+        "rows": [
+            {
+                "id": n.id,
+                "ticker": n.ticker,
+                "name": n.name,
+                "basket": n.basket,
+                "stage": n.stage,
+                "price": (quotes.get(n.ticker) or {}).get("price"),
+                "currency": (quotes.get(n.ticker) or {}).get("currency"),
+                **(rets.get(n.ticker) or {}),
+            }
+            for n in public
+        ]
     }
 
 
