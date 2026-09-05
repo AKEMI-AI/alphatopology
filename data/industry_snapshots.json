@@ -1,0 +1,150 @@
+{
+  "_meta": {
+    "as_of": "2026-09",
+    "note": "Industry snapshots — nested models of the forces acting on the AI pipeline. Curated editorial layer (the thesis in structured form); verify current state before citing. Each snapshot: what it is, why it moves the thesis, what to watch."
+  },
+  "snapshots": [
+    {
+      "id": "POWER_WALL",
+      "title": "The power wall",
+      "scope_stages": ["ENERGY_GRID", "HYPERSCALE_DEPLOYMENT", "COOLING_THERMAL"],
+      "summary": "Data-center power demand is growing faster than grid interconnection, turbine supply, and transformer manufacturing can absorb. Electricity, not silicon, is becoming the binding constraint of the buildout.",
+      "thesis_impact": "Shifts chokepoint gravity downstream: whoever controls generation, interconnection queues, and grid equipment taxes every layer above. Supports BK_INFRA overweight independent of chip cycle.",
+      "drivers": [
+        "Interconnection queues measured in years (PJM/ERCOT)",
+        "Transformer and turbine lead times at multi-year highs",
+        "Nuclear PPAs signed at premium $/MWh (CEG–MSFT archetype)",
+        "On-site generation (fuel cells, gas) as queue bypass"
+      ],
+      "watch": [
+        { "item": "Hyperscaler capex guidance splits (compute vs facilities/power)", "why": "Reveals where the constraint actually binds" },
+        { "item": "GEV/ETN/SU.PA backlog and book-to-bill", "why": "Grid equipment is the slowest-clearing bottleneck" },
+        { "item": "New nuclear/PPA announcements per quarter", "why": "Premium baseload pricing = scarcity signal" }
+      ],
+      "affected_nodes": ["CONSTELLATION", "VISTRA", "GEVERNOVA", "EATON", "SCHNEIDER", "BLOOM", "MICROSOFT", "AMAZON", "GOOGLE", "META", "ORACLE", "VERTIV", "NVENT"]
+    },
+    {
+      "id": "HBM_SUPERCYCLE",
+      "title": "Memory becomes the second monopoly",
+      "scope_stages": ["MEMORY_HBM", "FOUNDRY", "DICING_PACKAGING_SUBSTRATE"],
+      "summary": "HBM converts commodity DRAM into an allocated, negotiated, near-sold-out product. Capacity decisions two years out determine accelerator supply, and packaging (CoWoS-class) is the coupling constraint.",
+      "thesis_impact": "The memory tier graduates from cyclical to chokepoint-adjacent; HBM allocation share is a leading indicator for accelerator shipments and for who wins the next accelerator generation.",
+      "drivers": [
+        "HBM output sold out ~a year ahead across the big three",
+        "HBM4 transition raises stacking/packaging complexity again",
+        "Advanced packaging capacity is the coupling constraint between logic and memory"
+      ],
+      "watch": [
+        { "item": "SK Hynix / Micron / Samsung HBM capacity and allocation statements", "why": "Direct read on the binding constraint" },
+        { "item": "DRAM spot vs contract divergence", "why": "Conventional memory squeeze funds/starves HBM expansion" },
+        { "item": "CoWoS-class capacity adds at TSMC and OSATs", "why": "Packaging gates both logic and memory into product" }
+      ],
+      "affected_nodes": ["SK_HYNIX", "MICRON", "SAMSUNG", "TSMC", "ASE", "AMKOR", "IBIDEN", "NVIDIA", "AMD"]
+    },
+    {
+      "id": "CIRCULAR_FINANCING",
+      "title": "Circular financing — the bubble's plumbing",
+      "scope_stages": ["FOUNDATION_MODELS", "HYPERSCALE_DEPLOYMENT", "FOUNDRY"],
+      "summary": "Chip vendors invest in labs; labs commit compute spend to clouds; clouds buy chips. Money loops through the graph (NVDA→OpenAI→Oracle/CoreWeave→NVDA) inflating everyone's bookings simultaneously.",
+      "thesis_impact": "The core sensemaking question: how much end demand is real vs recycled capital? Circularity is measurable as cycles in this graph — rising loop volume without matching application revenue is the bubble signature.",
+      "drivers": [
+        "Vendor financing at unprecedented scale (NVDA→OpenAI class commitments)",
+        "RPO/backlog figures inflated by intra-loop contracts (ORCL archetype)",
+        "Private lab valuations priced off compute commitments, not revenue"
+      ],
+      "watch": [
+        { "item": "AI application-layer revenue vs aggregate capex, quarterly", "why": "The only exit from the loop is end-user money" },
+        { "item": "Terms of vendor-financing deals (equity vs prepay vs backstop)", "why": "Determines who eats losses if demand disappoints" },
+        { "item": "Neocloud debt loads and GPU-collateralized lending", "why": "Leverage inside the loop amplifies unwind speed" }
+      ],
+      "affected_nodes": ["NVIDIA", "OPENAI", "ORACLE", "COREWEAVE", "MICROSOFT", "ANTHROPIC", "AMAZON", "GOOGLE", "SOFTBANK", "XAI"]
+    },
+    {
+      "id": "EXPORT_CONTROL_REGIME",
+      "title": "The silicon curtain",
+      "scope_stages": ["WFE_LITHOGRAPHY", "FOUNDRY", "RAW_MATERIALS_CHEMISTRY", "INSPECTION_TESTING"],
+      "summary": "US/NL/JP export controls versus Chinese counter-controls on gallium, germanium, and rare earths split the industry into blocs. Policy, not economics, sets addressable markets for the equipment tier.",
+      "thesis_impact": "Repricing mechanism for the whole WFE tier: each rule change moves 10–25% of revenue exposure. Counter-controls hit optics, power electronics, and magnets — the BK_INFRA underbelly.",
+      "drivers": [
+        "BIS rule cadence (2022/2023/2024 pattern suggests annual tightening)",
+        "China indigenization push (SMIC/Big Fund III) reducing long-run TAM",
+        "Rare-earth and Ga/Ge counter-controls touching Western supply"
+      ],
+      "watch": [
+        { "item": "China revenue share in AMAT/LRCX/KLAC/TEL/ASML prints", "why": "Direct exposure readout each quarter" },
+        { "item": "New BIS/METI/MOFCOM actions (see export_controls.json)", "why": "Each action re-draws the map" },
+        { "item": "SMIC advanced-node yield rumors", "why": "Indigenization speed sets the long-run bear case for controls" }
+      ],
+      "affected_nodes": ["ASML", "AMAT", "LRCX", "KLAC", "TEL", "SCREEN", "KOKUSAI", "LASERTEC", "TSMC", "COHERENT", "LUMENTUM", "GEVERNOVA"]
+    },
+    {
+      "id": "PACKAGING_BOTTLENECK",
+      "title": "Advanced packaging — the quiet chokepoint",
+      "scope_stages": ["DICING_PACKAGING_SUBSTRATE", "FOUNDRY"],
+      "summary": "Chip-on-wafer-on-substrate class packaging (and its substrate/materials chain: ABF, mask blanks, dicing) is the least-substitutable, least-visible link between fabricated silicon and shippable accelerators.",
+      "thesis_impact": "Small-cap monopolies (Ajinomoto, Disco, Ibiden) carry outsized systemic weight — the original AlphaTopology insight. Capacity announcements here predict accelerator supply 2–3 quarters out.",
+      "drivers": [
+        "CoWoS capacity repeatedly the stated shipment constraint",
+        "ABF film and substrate expansion measured in years",
+        "Panel-level packaging as the next transition risk/opportunity"
+      ],
+      "watch": [
+        { "item": "TSMC advanced-packaging capex line", "why": "The best public proxy for the constraint" },
+        { "item": "Ibiden/Unimicron expansion timelines", "why": "Substrate lead the accelerator ramp" },
+        { "item": "OSAT (ASE/Amkor) advanced-packaging revenue mix", "why": "Overflow capacity signal" }
+      ],
+      "affected_nodes": ["AJINOMOTO", "DISCO", "IBIDEN", "UNIMICRON", "ASE", "AMKOR", "TSMC", "NVIDIA", "AMD"]
+    },
+    {
+      "id": "TALENT_DIASPORA",
+      "title": "The researcher diaspora",
+      "scope_stages": ["FOUNDATION_MODELS"],
+      "summary": "Frontier capability concentrates in a few hundred researchers whose movements found companies and redirect billions. Lab departures are leading indicators of new nodes and of lab trajectory changes.",
+      "thesis_impact": "Talent flow is the second money flow: OpenAI alumni founded Anthropic, SSI, Thinking Machines. Compensation escalation (9-figure packages) is itself a capex line and a bubble signal.",
+      "drivers": [
+        "Acqui-hire structures replacing acquisitions (Inflection/Scale archetypes)",
+        "Compensation arms race for frontier researchers",
+        "Safety-vs-scale disagreements as the recurring departure trigger"
+      ],
+      "watch": [
+        { "item": "Senior departures from top labs (tracked in people_seed)", "why": "Predicts new entrants and lab strategy shifts" },
+        { "item": "New lab funding rounds within months of departures", "why": "The diaspora pattern repeating" }
+      ],
+      "affected_nodes": ["OPENAI", "ANTHROPIC", "XAI", "MISTRAL", "GOOGLE", "META", "MICROSOFT"]
+    },
+    {
+      "id": "ROBOTICS_EMBODIMENT",
+      "title": "Embodiment — the next demand layer",
+      "scope_stages": ["ROBOTICS", "FOUNDATION_MODELS", "ODM_RACK_INTEGRATION"],
+      "summary": "Humanoid and industrial robotics is where AI compute demand escapes the data center. Early, hype-heavy, but structurally the same graph: actuators, compute platforms, and training data as new chokepoints.",
+      "thesis_impact": "Optionality layer on the thesis: if embodiment works, a second demand curve for silicon/power begins; its supply chain (reducers, actuators, sensors — heavily Japanese) mirrors the semiconductor chokepoint pattern.",
+      "drivers": [
+        "Humanoid pilots at automotive/logistics scale (Figure, Optimus)",
+        "Robot-foundation-model progress (sim-to-real transfer)",
+        "Actuator/harmonic-reducer supply concentration in Japan"
+      ],
+      "watch": [
+        { "item": "Deployment counts moving from pilots to fleet orders", "why": "The hype/reality gate" },
+        { "item": "Fanuc/Yaskawa orders and China robot demand", "why": "Industrial base rate for the sector" }
+      ],
+      "affected_nodes": ["TESLA", "FIGURE", "FANUC", "YASKAWA", "NVIDIA"]
+    },
+    {
+      "id": "MACRO_LIQUIDITY",
+      "title": "Rates, liquidity, and the duration trade",
+      "scope_stages": ["HYPERSCALE_DEPLOYMENT", "FOUNDATION_MODELS", "ENERGY_GRID"],
+      "summary": "AI infrastructure is a duration asset: decade-payback capex funded in public markets and private credit. The rate/liquidity environment sets both the discount rate on the dream and the financing cost of the buildout.",
+      "thesis_impact": "The macro overlay every stage shares: multiple compression hits long-duration names (labs, neoclouds) hardest; credit tightening threatens leveraged loop participants first.",
+      "drivers": [
+        "Private credit's growing share of data-center financing",
+        "Hyperscaler shift from cash-funded to debt-funded capex",
+        "Index concentration making AI the market's macro factor"
+      ],
+      "watch": [
+        { "item": "Data-center ABS/private-credit issuance and spreads", "why": "Financing stress shows here before equity" },
+        { "item": "Capex-to-OCF ratios at the hyperscalers", "why": "Cash discipline vs balance-sheet stretch" }
+      ],
+      "affected_nodes": ["MICROSOFT", "META", "ORACLE", "COREWEAVE", "OPENAI", "SOFTBANK", "CONSTELLATION", "VISTRA"]
+    }
+  ]
+}

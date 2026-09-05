@@ -166,3 +166,28 @@ def copilot_chat(body: dict):
     except RuntimeError as exc:  # missing credentials
         raise HTTPException(status_code=503, detail=str(exc))
     return {"reply": reply}
+
+
+@app.post("/copilot/brief")
+def copilot_brief(body: dict):
+    """Structured research brief. body: {"topic": str}"""
+    from alphatopology.copilot import run_brief
+
+    topic = (body.get("topic") or "").strip()
+    if not topic:
+        raise HTTPException(status_code=400, detail="topic is required")
+    try:
+        return {"brief": run_brief(topic)}
+    except RuntimeError as exc:
+        raise HTTPException(status_code=503, detail=str(exc))
+
+
+@app.get("/snapshots")
+def get_snapshots():
+    """Industry snapshots — curated force models over the pipeline."""
+    import json as _json
+    from pathlib import Path as _Path
+
+    return _json.loads(
+        (_Path(__file__).resolve().parents[1] / "data" / "industry_snapshots.json").read_text()
+    )

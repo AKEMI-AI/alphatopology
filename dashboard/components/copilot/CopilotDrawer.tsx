@@ -58,6 +58,34 @@ export default function CopilotDrawer() {
     }
   };
 
+  const sendBrief = async () => {
+    const topic = input.trim();
+    if (!topic || busy) return;
+    const history = [...msgs, { role: 'user' as const, content: `Brief: ${topic}` }];
+    setMsgs(history);
+    setInput('');
+    setBusy(true);
+    try {
+      const res = await fetch(`${API_BASE}/copilot/brief`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ topic }),
+      });
+      const data = await res.json().catch(() => null);
+      setMsgs([
+        ...history,
+        {
+          role: 'assistant',
+          content: res.ok && data?.brief ? data.brief : (data?.detail ?? 'Brief unavailable — API/key?'),
+        },
+      ]);
+    } catch {
+      setMsgs([...history, { role: 'assistant', content: 'Could not reach the API at ' + API_BASE + '.' }]);
+    } finally {
+      setBusy(false);
+    }
+  };
+
   if (!open) {
     return (
       <button
@@ -144,6 +172,19 @@ export default function CopilotDrawer() {
           style={{ background: 'var(--cream)', color: 'var(--ink)' }}
         >
           Send
+        </button>
+        <button
+          onClick={sendBrief}
+          disabled={busy}
+          title="Compose a structured research brief on this topic"
+          className="mono text-[12px] px-3 rounded-full cursor-pointer disabled:opacity-50"
+          style={{
+            background: 'transparent',
+            color: 'var(--gold-matte)',
+            border: '1px solid color-mix(in oklab, var(--gold) 35%, transparent)',
+          }}
+        >
+          Brief
         </button>
       </div>
     </div>

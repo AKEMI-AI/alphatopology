@@ -179,15 +179,58 @@ def key_people(org: str = "ALL") -> str:
 
 
 @beta_tool
+def industry_snapshots(stage: str = "ALL") -> str:
+    """Curated nested models of the forces acting on the AI pipeline (power wall, HBM cycle, circular financing, export controls, packaging, talent, robotics, macro). Each has thesis impact, drivers, and watch items.
+
+    Args:
+        stage: A pipeline stage (e.g. FOUNDATION_MODELS, MEMORY_HBM) or snapshot id, or ALL.
+    """
+    import pathlib
+
+    data = json.loads(
+        (pathlib.Path(__file__).resolve().parents[2] / "data" / "industry_snapshots.json").read_text()
+    )
+    snaps = data["snapshots"]
+    if stage != "ALL":
+        key = stage.upper()
+        snaps = [s for s in snaps if s["id"] == key or key in s["scope_stages"]]
+    return json.dumps({"_meta": data["_meta"], "snapshots": snaps})
+
+
+@beta_tool
 def paper_portfolio() -> str:
     """Read the user's paper-trading portfolio: positions, marks, P&L, cash. Read-only."""
     return json.dumps(simulator.portfolio_status())
 
 
-TOOLS = [topology_overview, get_node, trace_upstream, market_snapshot, dislocation_snapshot, key_people, paper_portfolio]
+TOOLS = [topology_overview, get_node, trace_upstream, market_snapshot, dislocation_snapshot, key_people, industry_snapshots, paper_portfolio]
+
+BRIEF_INSTRUCTION = """Compose a structured research brief on the requested topic using the tools \
+— query the dataset first, then write. Format as markdown:
+
+# <Title>
+*AlphaTopology brief · <date> · research, not investment advice*
+
+## The read  (3-5 sentences: the answer)
+## What the data shows  (grounded findings; name the tool each number came from)
+## Forces in play  (relevant industry snapshots, applied to the topic)
+## What to watch  (specific, checkable items)
+## Test runs  (optional: 1-3 paper-book scenarios framed as hypotheses to track, never instructions)
+
+Keep it under ~700 words. Flag fixture estimates and verify-tagged data. \
+End with: "Methodology: AlphaTopology graph + delayed market data; curated layers dated in-line."
+"""
 
 
-def run_copilot(history: List[Dict[str, str]]) -> str:
+def run_brief(topic: str) -> str:
+    """Generate a structured research brief on a topic. Raises RuntimeError without credentials."""
+    return run_copilot(
+        [{"role": "user", "content": f"{BRIEF_INSTRUCTION}\n\nTopic: {topic}"}],
+        max_tokens=8000,
+    )
+
+
+def run_copilot(history: List[Dict[str, str]], max_tokens: int = 4096) -> str:
     """Run one copilot turn over the chat history. Raises RuntimeError without credentials."""
     if not (os.getenv("ANTHROPIC_API_KEY") or os.getenv("ANTHROPIC_AUTH_TOKEN")):
         raise RuntimeError(
@@ -197,7 +240,7 @@ def run_copilot(history: List[Dict[str, str]]) -> str:
     client = anthropic.Anthropic()
     runner = client.beta.messages.tool_runner(
         model=MODEL,
-        max_tokens=4096,
+        max_tokens=max_tokens,
         system=[{"type": "text", "text": SYSTEM, "cache_control": {"type": "ephemeral"}}],
         tools=TOOLS,
         messages=[{"role": m["role"], "content": m["content"]} for m in history],

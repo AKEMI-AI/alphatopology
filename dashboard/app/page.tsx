@@ -9,6 +9,7 @@ import TelemetryTickerBar from '@/components/terminal/TelemetryTickerBar';
 import CopilotDrawer from '@/components/copilot/CopilotDrawer';
 import CommandPalette from '@/components/terminal/CommandPalette';
 import KeyPeoplePanel from '@/components/terminal/KeyPeoplePanel';
+import ForcesPanel from '@/components/terminal/ForcesPanel';
 import { fetchTelemetry, TelemetryNode } from '@/lib/api';
 import type { ChokepointNodeData } from '@/components/graph/ChokepointNode';
 
@@ -113,6 +114,9 @@ function InspectorContent({
 
         {/* Key people (public-record roles) */}
         <KeyPeoplePanel orgId={activeNode.id} />
+
+        {/* Industry snapshots touching this entity */}
+        <ForcesPanel orgId={activeNode.id} stage={activeNode.stage} />
 
         {/* Physical telemetry */}
         <div className="glass-electric p-3.5">
