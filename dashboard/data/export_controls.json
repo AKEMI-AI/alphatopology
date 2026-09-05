@@ -1,0 +1,63 @@
+{
+  "_note": "Semiconductor export-control regimes relevant to the topology. Compiled from public policy through early 2026 — verify against current BIS/METI/EU announcements before relying on dates in research output.",
+  "regimes": [
+    {
+      "country": "US",
+      "role": "controller",
+      "authority": "Commerce / BIS (Export Administration Regulations)",
+      "instruments": [
+        { "date": "2022-10-07", "name": "Advanced computing & semiconductor manufacturing controls", "summary": "License requirements on advanced-node logic/memory equipment and high-end AI accelerators to China; US-person restrictions; foreign direct product rules." },
+        { "date": "2023-10-17", "name": "Performance-density update", "summary": "Closed A800/H800-class workarounds; tightened compute-density thresholds; country-scope widened." },
+        { "date": "2024-12-02", "name": "HBM & SME expansion", "summary": "Controls on HBM exports and 24 additional semiconductor-manufacturing-equipment types; entity-list additions across the Chinese toolchain." }
+      ],
+      "touches": ["NVIDIA", "AMD", "INTEL", "AMAT", "LRCX", "KLAC", "MICRON", "MARVELL", "BROADCOM"]
+    },
+    {
+      "country": "NL",
+      "role": "controller",
+      "authority": "Dutch government (aligned with US)",
+      "instruments": [
+        { "date": "2023-06-30", "name": "Advanced DUV licensing", "summary": "License requirement for advanced immersion DUV lithography (NXT:2000i and above). EUV has never shipped to China." }
+      ],
+      "touches": ["ASML", "ASMI"]
+    },
+    {
+      "country": "JP",
+      "role": "controller",
+      "authority": "METI",
+      "instruments": [
+        { "date": "2023-07-23", "name": "23-category SME licensing", "summary": "Export licensing for 23 categories of semiconductor manufacturing equipment: lithography, deposition, etch, cleaning, inspection." }
+      ],
+      "touches": ["TEL", "SCREEN", "KOKUSAI", "LASERTEC", "DISCO", "ADVANTEST", "HOYA", "TOK"]
+    },
+    {
+      "country": "TW",
+      "role": "aligned",
+      "authority": "Taiwan MOEA",
+      "instruments": [
+        { "date": "2024-12-01", "name": "Advanced-node foundry restrictions", "summary": "Foundry services at advanced nodes restricted for Chinese AI-chip designers following diversion findings; strategic high-tech commodity list alignment." }
+      ],
+      "touches": ["TSMC", "ASE", "UNIMICRON", "FOXCONN"]
+    },
+    {
+      "country": "KR",
+      "role": "aligned",
+      "authority": "MOTIE",
+      "instruments": [
+        { "date": "2024-01-01", "name": "Multilateral alignment", "summary": "Alignment with US-led controls; VEU carve-outs govern Samsung/SK Hynix fabs operating in China." }
+      ],
+      "touches": ["SAMSUNG", "SK_HYNIX"]
+    },
+    {
+      "country": "CN",
+      "role": "counter-controller",
+      "authority": "MOFCOM",
+      "instruments": [
+        { "date": "2023-08-01", "name": "Gallium & germanium permits", "summary": "Export permits required for Ga/Ge — inputs to power semiconductors and optics." },
+        { "date": "2024-12-03", "name": "Dual-use ban to US", "summary": "Ban on gallium, germanium, antimony and superhard-material exports to the US; stricter graphite review." },
+        { "date": "2025-04-04", "name": "Heavy rare-earth controls", "summary": "Export controls on seven heavy rare-earth elements and magnets — upstream of motors, optics, and power systems." }
+      ],
+      "touches": ["COHERENT", "LUMENTUM", "VERTIV", "EATON", "GEVERNOVA"]
+    }
+  ]
+}
