@@ -7,6 +7,7 @@ import MiniPriceChart from '@/components/terminal/MiniPriceChart';
 import ForecastPanel from '@/components/terminal/ForecastPanel';
 import TelemetryTickerBar from '@/components/terminal/TelemetryTickerBar';
 import CopilotDrawer from '@/components/copilot/CopilotDrawer';
+import CommandPalette from '@/components/terminal/CommandPalette';
 import { fetchTelemetry, TelemetryNode } from '@/lib/api';
 import type { ChokepointNodeData } from '@/components/graph/ChokepointNode';
 
@@ -210,6 +211,21 @@ export default function TerminalPage() {
     setSheetOpen(true);
   };
 
+  // Deep links: restore #TICKER/view on load (terminal-patterns §1)
+  useEffect(() => {
+    const hash = window.location.hash.replace(/^#/, '');
+    if (!hash) return;
+    const [tickerPart, viewPart] = hash.split('/');
+    if (viewPart && VIEWS.some((v) => v.key === viewPart)) setView(viewPart as ViewKey);
+    else if (!tickerPart && VIEWS.some((v) => v.key === hash.slice(1))) return;
+    if (tickerPart) {
+      const upper = decodeURIComponent(tickerPart).toUpperCase();
+      if ((fallbackTelemetry.nodes as { ticker: string }[]).some((n) => n.ticker === upper)) {
+        setActiveTicker(upper);
+      }
+    }
+  }, []);
+
   return (
     <div
       className="flex flex-col h-screen w-screen overflow-hidden"
@@ -230,6 +246,25 @@ export default function TerminalPage() {
         </div>
 
         <div className="flex items-center gap-2.5 sm:gap-5 shrink-0">
+          <button
+            onClick={() =>
+              window.dispatchEvent(new KeyboardEvent('keydown', { key: 'k', metaKey: true }))
+            }
+            className="mono hidden sm:flex items-center gap-2 px-3 py-1 text-[11px] rounded-full cursor-pointer"
+            style={{
+              color: dim(60),
+              border: '1px solid color-mix(in oklab, var(--cream) 14%, transparent)',
+              background: 'color-mix(in oklab, var(--cream) 4%, transparent)',
+            }}
+          >
+            Search
+            <kbd
+              className="mono text-[10px] px-1 rounded"
+              style={{ border: `1px solid ${dim(20)}`, color: dim(50) }}
+            >
+              ⌘K
+            </kbd>
+          </button>
           <div
             className="flex items-center gap-1 p-0.5 rounded-full"
             style={{ border: '1px solid color-mix(in oklab, var(--cream) 14%, transparent)' }}
@@ -357,6 +392,12 @@ export default function TerminalPage() {
       )}
 
       <CopilotDrawer />
+
+      <CommandPalette
+        nodes={telemetryNodes}
+        onSelect={(ticker) => selectNode(ticker)}
+        onView={(v) => setView(v as ViewKey)}
+      />
     </div>
   );
 }
