@@ -1,16 +1,19 @@
 'use client';
 
 /* The Chokepoint Map — a zoomable instrument of the pipeline.
-   Descend the taxonomy: stage clusters → companies → a company's
-   interaction profile. VISUAL-DATA-SYSTEM grammar: circles only; size
-   encodes magnitude (live USD market cap); dashed gold halo = chokepoint
-   authority; solid ribbons = physical supply; one magenta focus. */
+   Interaction engine per docs/design/depth-globe-map-patterns.md:
+   one continuous depth scalar; input writes to a target ref, a rAF loop
+   chases it (glide) while drag snaps; cursor-anchored zoom; layer
+   cross-fades derived from scale; zoom-floor handoff to the graph view.
+   Visual grammar per VISUAL-DATA-SYSTEM: circles only, size = magnitude,
+   dashed gold halo = authority, one magenta focus. */
 
 import React, { useMemo, useRef, useState, useEffect, useCallback } from 'react';
 import seedData from '@/data/nodes_seed.json';
 import { BASKET_ROLE_VARS } from '@/components/graph/ChokepointNode';
 
 const r3 = (n: number) => Math.round(n * 1000) / 1000;
+const clamp = (v: number, lo: number, hi: number) => Math.max(lo, Math.min(hi, v));
 
 interface MapNode {
   id: string;
@@ -27,6 +30,7 @@ interface ChokepointMapProps {
   nodes: MapNode[];
   activeTicker: string;
   onSelect: (node: MapNode) => void;
+  onZoomFloor?: () => void; // fall through the map into the next view
 }
 
 const COLUMNS: { key: string; label: string; stages: string[] }[] = [
@@ -46,26 +50,52 @@ const BOTTOM = 60;
 const R_MIN = 10;
 const R_MAX = 46;
 
-/* Semantic zoom: below this scale the map resolves into stage clusters */
-const CLUSTER_K = 0.85;
-const K_MIN = 0.5;
-const K_MAX = 3.5;
+/* one continuous depth axis */
+const K_MIN = 0.45;
+const K_MAX = 3.2;
+const K_DEFAULT = 0.72;
+const CLUSTER_K = 0.85; // below → Layer I
+const PROFILE_K = 1.15; // above, with a selection → Layer III
+const FLOOR_K = K_MAX - 0.1;
+const GLIDE = 0.18;
+const EPS = 5e-4;
+
+type View = { tx: number; ty: number; k: number };
 
 const dim = (pct: number) => `color-mix(in oklab, var(--cream) ${pct}%, transparent)`;
 
-/* midpoint of the cubic used for ribbons (t = 0.5) */
 const bezMid = (sx: number, sy: number, tx: number, ty: number) => {
   const mx = (sx + tx) / 2;
   return { x: r3((sx + 3 * mx + 3 * mx + tx) / 8), y: r3((sy + 3 * sy + 3 * ty + ty) / 8) };
 };
 
-export default function ChokepointMap({ nodes, activeTicker, onSelect }: ChokepointMapProps) {
+const defaultView = (): View => ({ k: K_DEFAULT, tx: VB_W * 0.14, ty: VB_H * 0.14 });
+
+export default function ChokepointMap({ nodes, activeTicker, onSelect, onZoomFloor }: ChokepointMapProps) {
   const svgRef = useRef<SVGSVGElement>(null);
-  const [t, setT] = useState({ k: 0.72, x: VB_W * 0.14, y: VB_H * 0.14 });
-  const [hovered, setHovered] = useState<string | null>(null);
+  const worldRef = useRef<SVGGElement>(null);
+  const clusterRef = useRef<SVGGElement>(null);
+  const companyRef = useRef<SVGGElement>(null);
+  const hudCamRef = useRef<HTMLSpanElement>(null);
+
+  const viewRef = useRef<View>(defaultView());
+  const targetRef = useRef<View>(defaultView());
+  const rafRef = useRef<number | null>(null);
+  const floorFired = useRef(false);
   const pointers = useRef<Map<number, { x: number; y: number }>>(new Map());
   const pinchDist = useRef<number | null>(null);
+  const lastTap = useRef<{ t: number; x: number; y: number } | null>(null);
 
+  const [hovered, setHovered] = useState<string | null>(null);
+  // low-frequency semantic state; only changes at threshold crossings
+  const [band, setBand] = useState<'cluster' | 'company' | 'profile'>('cluster');
+
+  const active = nodes.find((n) => n.ticker === activeTicker);
+  const focusId = active?.id ?? null;
+  const focusIdRef = useRef(focusId);
+  focusIdRef.current = focusId;
+
+  /* ── layout (unchanged grammar) ── */
   const layout = useMemo(() => {
     const maxCap = Math.max(1, ...nodes.map((n) => n.market_data?.market_cap_usd ?? 0));
     const radius = (n: MapNode) => {
@@ -73,7 +103,6 @@ export default function ChokepointMap({ nodes, activeTicker, onSelect }: Chokepo
       if (!cap) return R_MIN;
       return r3(R_MIN + (R_MAX - R_MIN) * Math.sqrt(cap / maxCap));
     };
-
     const colW = VB_W / COLUMNS.length;
     const placed: Record<string, { x: number; y: number; r: number; node: MapNode }> = {};
     let maxAgg = 1;
@@ -123,7 +152,6 @@ export default function ChokepointMap({ nodes, activeTicker, onSelect }: Chokepo
     [layout]
   );
 
-  /* aggregated stage-to-stage ribbons for cluster level */
   const clusterEdges = useMemo(() => {
     const colOf: Record<string, number> = {};
     layout.columns.forEach((c, i) => c.circles.forEach(({ node }) => (colOf[node.id] = i)));
@@ -140,8 +168,6 @@ export default function ChokepointMap({ nodes, activeTicker, onSelect }: Chokepo
     return [...agg.values()];
   }, [edges, layout]);
 
-  const active = nodes.find((n) => n.ticker === activeTicker);
-  const focusId = active?.id ?? null;
   const neighborIds = useMemo(() => {
     if (!focusId) return new Set<string>();
     const s = new Set<string>([focusId]);
@@ -151,50 +177,167 @@ export default function ChokepointMap({ nodes, activeTicker, onSelect }: Chokepo
     }
     return s;
   }, [edges, focusId]);
-  const profileOn = t.k >= 1.15 && !!focusId; // deepest layer: interaction profile
-  const highlightId = hovered ?? (profileOn ? focusId : null);
 
-  const clusterLevel = t.k < CLUSTER_K;
-  // crossfade between taxonomy layers around the threshold
-  const clusterOpacity = Math.max(0, Math.min(1, (CLUSTER_K + 0.15 - t.k) / 0.3));
-  const companyOpacity = 1 - clusterOpacity;
-
-  /* ── pan / zoom (wheel, drag, pinch) ── */
-  const clientToLocal = useCallback((cx: number, cy: number) => {
-    const svg = svgRef.current!;
-    const rect = svg.getBoundingClientRect();
-    return {
-      x: ((cx - rect.left) / rect.width) * VB_W,
-      y: ((cy - rect.top) / rect.height) * VB_H,
-    };
+  /* ── the animation loop: rendered view chases the target ── */
+  const applyFrame = useCallback((v: View) => {
+    worldRef.current?.setAttribute('transform', `translate(${r3(v.tx)} ${r3(v.ty)}) scale(${r3(v.k)})`);
+    const clusterOpacity = clamp((CLUSTER_K + 0.15 - v.k) / 0.3, 0, 1);
+    if (clusterRef.current) {
+      clusterRef.current.style.opacity = String(r3(clusterOpacity));
+      clusterRef.current.style.pointerEvents = v.k < CLUSTER_K ? 'auto' : 'none';
+    }
+    if (companyRef.current) {
+      companyRef.current.style.opacity = String(r3(1 - clusterOpacity));
+      companyRef.current.style.pointerEvents = v.k < CLUSTER_K ? 'none' : 'auto';
+    }
+    if (hudCamRef.current) hudCamRef.current.textContent = v.k.toFixed(2);
   }, []);
 
-  const zoomAt = useCallback(
-    (px: number, py: number, factor: number) => {
-      setT((prev) => {
-        const k = Math.max(K_MIN, Math.min(K_MAX, prev.k * factor));
-        const f = k / prev.k;
-        return { k, x: px - (px - prev.x) * f, y: py - (py - prev.y) * f };
-      });
+  const syncBand = useCallback((k: number) => {
+    const next = k < CLUSTER_K ? 'cluster' : k >= PROFILE_K && focusIdRef.current ? 'profile' : 'company';
+    setBand((prev) => (prev === next ? prev : next));
+  }, []);
+
+  const tick = useCallback(() => {
+    const cur = viewRef.current;
+    const tgt = targetRef.current;
+    const next: View = {
+      tx: cur.tx + (tgt.tx - cur.tx) * GLIDE,
+      ty: cur.ty + (tgt.ty - cur.ty) * GLIDE,
+      k: cur.k + (tgt.k - cur.k) * GLIDE,
+    };
+    const done =
+      Math.abs(next.tx - tgt.tx) < 0.05 &&
+      Math.abs(next.ty - tgt.ty) < 0.05 &&
+      Math.abs(next.k - tgt.k) < EPS;
+    viewRef.current = done ? { ...tgt } : next;
+    applyFrame(viewRef.current);
+    syncBand(viewRef.current.k);
+
+    // zoom-floor sentinel: fully in + a focus → fall through to the next view
+    if (!floorFired.current && tgt.k >= FLOOR_K && viewRef.current.k >= FLOOR_K - 0.15) {
+      if (focusIdRef.current && onZoomFloor) {
+        floorFired.current = true;
+        onZoomFloor();
+      }
+    } else if (tgt.k < FLOOR_K - 0.6) {
+      floorFired.current = false;
+    }
+
+    if (done) {
+      rafRef.current = null;
+      return;
+    }
+    rafRef.current = requestAnimationFrame(tick);
+  }, [applyFrame, syncBand, onZoomFloor]);
+
+  const kick = useCallback(() => {
+    if (rafRef.current == null) rafRef.current = requestAnimationFrame(tick);
+  }, [tick]);
+
+  const glideTo = useCallback(
+    (updater: (v: View) => View) => {
+      targetRef.current = updater(targetRef.current);
+      targetRef.current.k = clamp(targetRef.current.k, K_MIN, K_MAX);
+      kick();
     },
-    []
+    [kick]
   );
 
+  const snapTo = useCallback(
+    (updater: (v: View) => View) => {
+      const v = updater(viewRef.current);
+      v.k = clamp(v.k, K_MIN, K_MAX);
+      viewRef.current = v;
+      targetRef.current = { ...v };
+      applyFrame(v);
+      syncBand(v.k);
+    },
+    [applyFrame, syncBand]
+  );
+
+  /* first paint + Esc/keyboard */
   useEffect(() => {
-    const svg = svgRef.current;
-    if (!svg) return;
+    snapTo(() => defaultView());
+    const onKey = (e: KeyboardEvent) => {
+      if (e.target instanceof HTMLInputElement) return;
+      if (e.key === '+' || e.key === '=') zoomAtCenter(1.35);
+      else if (e.key === '-') zoomAtCenter(1 / 1.35);
+      else if (e.key === '0') glideTo(() => defaultView());
+      else if (e.key === 'Escape') {
+        setHovered(null);
+        glideTo(() => defaultView());
+      } else if (e.key.startsWith('Arrow')) {
+        const d = 120;
+        glideTo((v) => ({
+          ...v,
+          tx: v.tx + (e.key === 'ArrowLeft' ? d : e.key === 'ArrowRight' ? -d : 0),
+          ty: v.ty + (e.key === 'ArrowUp' ? d : e.key === 'ArrowDown' ? -d : 0),
+        }));
+      }
+    };
+    window.addEventListener('keydown', onKey);
+    return () => {
+      window.removeEventListener('keydown', onKey);
+      if (rafRef.current != null) cancelAnimationFrame(rafRef.current);
+    };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  const clientToLocal = useCallback((cx: number, cy: number) => {
+    const rect = svgRef.current!.getBoundingClientRect();
+    return { x: ((cx - rect.left) / rect.width) * VB_W, y: ((cy - rect.top) / rect.height) * VB_H };
+  }, []);
+
+  const anchoredZoom = useCallback(
+    (px: number, py: number, factor: number, snap = false) => {
+      const apply = (v: View): View => {
+        const k = clamp(v.k * factor, K_MIN, K_MAX);
+        const f = k / v.k;
+        return { k, tx: px - (px - v.tx) * f, ty: py - (py - v.ty) * f };
+      };
+      (snap ? snapTo : glideTo)(apply);
+    },
+    [glideTo, snapTo]
+  );
+
+  const zoomAtCenter = useCallback(
+    (factor: number) => anchoredZoom(VB_W / 2, VB_H / 2, factor),
+    [anchoredZoom]
+  );
+
+  /* wheel — native listener (React onWheel is passive) */
+  useEffect(() => {
+    const el = svgRef.current;
+    if (!el) return;
     const onWheel = (e: WheelEvent) => {
       e.preventDefault();
+      const dy = e.deltaY * (e.deltaMode === 1 ? 16 : e.deltaMode === 2 ? 100 : 1);
+      const intensity = e.ctrlKey ? 0.012 : 0.0022; // trackpad pinch sends ctrlKey
       const p = clientToLocal(e.clientX, e.clientY);
-      zoomAt(p.x, p.y, Math.exp(-e.deltaY * 0.0016));
+      anchoredZoom(p.x, p.y, Math.exp(-dy * intensity));
     };
-    svg.addEventListener('wheel', onWheel, { passive: false });
-    return () => svg.removeEventListener('wheel', onWheel);
-  }, [clientToLocal, zoomAt]);
+    el.addEventListener('wheel', onWheel, { passive: false });
+    return () => el.removeEventListener('wheel', onWheel);
+  }, [clientToLocal, anchoredZoom]);
 
+  /* drag pan (snap — the pointer is the animation), pinch, double-tap */
   const onPointerDown = (e: React.PointerEvent) => {
-    (e.target as Element).setPointerCapture?.(e.pointerId);
+    (e.currentTarget as Element).setPointerCapture?.(e.pointerId);
     pointers.current.set(e.pointerId, { x: e.clientX, y: e.clientY });
+    if (e.pointerType !== 'mouse') {
+      const now = performance.now();
+      const prev = lastTap.current;
+      if (prev && now - prev.t < 300 && Math.hypot(e.clientX - prev.x, e.clientY - prev.y) < 30) {
+        const p = clientToLocal(e.clientX, e.clientY);
+        const zoomedIn = viewRef.current.k > K_DEFAULT * 1.6;
+        if (zoomedIn) glideTo(() => defaultView());
+        else anchoredZoom(p.x, p.y, 2.2 / viewRef.current.k);
+        lastTap.current = null;
+        return;
+      }
+      lastTap.current = { t: now, x: e.clientX, y: e.clientY };
+    }
   };
   const onPointerMove = (e: React.PointerEvent) => {
     const prev = pointers.current.get(e.pointerId);
@@ -202,18 +345,17 @@ export default function ChokepointMap({ nodes, activeTicker, onSelect }: Chokepo
     pointers.current.set(e.pointerId, { x: e.clientX, y: e.clientY });
     const pts = [...pointers.current.values()];
     if (pts.length === 2) {
-      const d = Math.hypot(pts[0].x - pts[1].x, pts[0].y - pts[1].y);
+      const d = Math.hypot(pts[0].x - pts[1].x, pts[0].y - pts[1].y) || 1;
       if (pinchDist.current != null) {
         const c = clientToLocal((pts[0].x + pts[1].x) / 2, (pts[0].y + pts[1].y) / 2);
-        zoomAt(c.x, c.y, d / pinchDist.current);
+        anchoredZoom(c.x, c.y, d / pinchDist.current, true);
       }
       pinchDist.current = d;
     } else if (pts.length === 1) {
-      const svg = svgRef.current!;
-      const rect = svg.getBoundingClientRect();
+      const rect = svgRef.current!.getBoundingClientRect();
       const dx = ((e.clientX - prev.x) / rect.width) * VB_W;
       const dy = ((e.clientY - prev.y) / rect.height) * VB_H;
-      setT((p) => ({ ...p, x: p.x + dx, y: p.y + dy }));
+      snapTo((v) => ({ ...v, tx: v.tx + dx, ty: v.ty + dy }));
     }
   };
   const onPointerUp = (e: React.PointerEvent) => {
@@ -221,7 +363,10 @@ export default function ChokepointMap({ nodes, activeTicker, onSelect }: Chokepo
     if (pointers.current.size < 2) pinchDist.current = null;
   };
 
-  const layerName = clusterLevel ? 'I · Stages' : profileOn ? 'III · Interaction profile' : 'II · Entities';
+  const profileOn = band === 'profile';
+  const highlightId = hovered ?? (profileOn ? focusId : null);
+  const layerName =
+    band === 'cluster' ? 'I · Stages' : band === 'profile' ? 'III · Interaction profile' : 'II · Entities';
 
   return (
     <div className="relative w-full h-full overflow-hidden data-grid-dark" style={{ background: 'var(--ink)' }}>
@@ -241,9 +386,9 @@ export default function ChokepointMap({ nodes, activeTicker, onSelect }: Chokepo
         onPointerUp={onPointerUp}
         onPointerCancel={onPointerUp}
       >
-        <g transform={`translate(${r3(t.x)} ${r3(t.y)}) scale(${r3(t.k)})`}>
+        <g ref={worldRef}>
           {/* ── Layer I: stage clusters ── */}
-          <g style={{ opacity: clusterOpacity, transition: 'opacity 240ms ease' }} pointerEvents={clusterLevel ? 'auto' : 'none'}>
+          <g ref={clusterRef}>
             {clusterEdges.map((ce) => {
               const a = layout.columns[ce.a], b = layout.columns[ce.b];
               const y = VB_H / 2;
@@ -264,14 +409,12 @@ export default function ChokepointMap({ nodes, activeTicker, onSelect }: Chokepo
               col.circles.forEach(({ node }) =>
                 roleCounts.set(node.basket, (roleCounts.get(node.basket) ?? 0) + 1)
               );
-              const domRole =
-                [...roleCounts.entries()].sort((a, b) => b[1] - a[1])[0]?.[0] ?? 'BK_INFRA';
+              const domRole = [...roleCounts.entries()].sort((a, b) => b[1] - a[1])[0]?.[0] ?? 'BK_INFRA';
               const roleVar = BASKET_ROLE_VARS[domRole] ?? 'var(--plum)';
-              // alternate labels above/below so neighbors never collide (law zero)
               const above = ci % 2 === 0;
               const labelY = above ? VB_H / 2 - R - 34 : VB_H / 2 + R + 30;
               return (
-                <g key={col.key} onClick={() => zoomAt(col.x, VB_H / 2, 1.8 / t.k)} style={{ cursor: 'zoom-in' }}>
+                <g key={col.key} onClick={() => anchoredZoom(col.x, VB_H / 2, 1.4 / viewRef.current.k)} style={{ cursor: 'zoom-in' }}>
                   <circle
                     cx={col.x} cy={VB_H / 2} r={R}
                     fill={`color-mix(in oklab, ${roleVar} 13%, transparent)`}
@@ -297,8 +440,8 @@ export default function ChokepointMap({ nodes, activeTicker, onSelect }: Chokepo
             })}
           </g>
 
-          {/* ── Layer II/III: companies + interaction profile ── */}
-          <g style={{ opacity: companyOpacity, transition: 'opacity 240ms ease' }} pointerEvents={clusterLevel ? 'none' : 'auto'}>
+          {/* ── Layer II/III: links first, then circles, labels last ── */}
+          <g ref={companyRef}>
             <g fill="none">
               {edges.map((e) => {
                 const touching = highlightId && (e.source === highlightId || e.target === highlightId);
@@ -315,21 +458,6 @@ export default function ChokepointMap({ nodes, activeTicker, onSelect }: Chokepo
                 );
               })}
             </g>
-
-            {/* lead-time labels on the focused node's ribbons (Layer III) */}
-            {profileOn &&
-              edges
-                .filter((e) => e.source === focusId || e.target === focusId)
-                .map((e) => (
-                  <text
-                    key={`lbl-${e.key}`}
-                    x={e.mid.x} y={e.mid.y - 6} textAnchor="middle" className="mono"
-                    style={{ fontSize: 10, letterSpacing: '0.1em', paintOrder: 'stroke', stroke: 'var(--ink)', strokeWidth: 4 }}
-                    fill="var(--gold-matte)"
-                  >
-                    {e.lead_time_days}d · {e.relationship.replace(/_/g, ' ').toLowerCase()}
-                  </text>
-                ))}
 
             {layout.columns.map((col) => (
               <text
@@ -354,7 +482,7 @@ export default function ChokepointMap({ nodes, activeTicker, onSelect }: Chokepo
                     onClick={() => onSelect(node)}
                     onMouseEnter={() => setHovered(node.id)}
                     onMouseLeave={() => setHovered(null)}
-                    style={{ cursor: 'pointer', opacity: inProfile ? 1 : 0.18, transition: 'opacity 200ms ease' }}
+                    style={{ cursor: 'pointer', opacity: inProfile ? 1 : 0.15, transition: 'opacity 200ms ease' }}
                   >
                     <title>{`${node.name} — crit ${(node.chokepoint_rating * 100).toFixed(0)}%`}</title>
                     {isAuthority && (
@@ -379,25 +507,66 @@ export default function ChokepointMap({ nodes, activeTicker, onSelect }: Chokepo
                 );
               })
             )}
+
+            {/* lead-time labels on the focused ribbons — labels render last */}
+            {profileOn &&
+              edges
+                .filter((e) => e.source === focusId || e.target === focusId)
+                .map((e) => (
+                  <text
+                    key={`lbl-${e.key}`}
+                    x={e.mid.x} y={e.mid.y - 6} textAnchor="middle" className="mono"
+                    style={{ fontSize: 10, letterSpacing: '0.1em', paintOrder: 'stroke', stroke: 'var(--ink)', strokeWidth: 4 }}
+                    fill="var(--gold-matte)"
+                  >
+                    {e.lead_time_days}d · {e.relationship.replace(/_/g, ' ').toLowerCase()}
+                  </text>
+                ))}
           </g>
         </g>
       </svg>
 
-      {/* zoom HUD — descend the taxonomy */}
+      {/* zoom rail — own vertical strip, never overlapping titled regions */}
+      <div className="absolute left-6 top-1/2 -translate-y-1/2 z-10 flex flex-col items-center gap-2">
+        <button
+          onClick={() => zoomAtCenter(1.35)}
+          className="glass-electric w-9 h-9 !rounded-full mono text-[14px] cursor-pointer"
+          style={{ color: 'var(--cream)' }}
+          aria-label="Zoom in"
+        >
+          +
+        </button>
+        <span ref={hudCamRef} className="mono text-[11px]" style={{ color: dim(55) }}>
+          {K_DEFAULT.toFixed(2)}
+        </span>
+        <button
+          onClick={() => zoomAtCenter(1 / 1.35)}
+          className="glass-electric w-9 h-9 !rounded-full mono text-[14px] cursor-pointer"
+          style={{ color: 'var(--cream)' }}
+          aria-label="Zoom out"
+        >
+          −
+        </button>
+        <button
+          onClick={() => glideTo(() => defaultView())}
+          className="mono text-[11px] mt-1 cursor-pointer bg-transparent border-0"
+          style={{ color: dim(55) }}
+        >
+          Reset
+        </button>
+      </div>
+
+      {/* HUD — layer + descent hint */}
       <div className="absolute left-6 bottom-6 z-10 pointer-events-none">
-        <div className="mono text-[11px]" style={{ color: dim(50) }}>
-          Cam dist · {t.k.toFixed(2)}
-        </div>
-        <div className="mono text-[11px] mt-1" style={{ color: dim(70) }}>
+        <div className="mono text-[11px]" style={{ color: dim(70) }}>
           Layer {layerName}
         </div>
-        <div className="text-[13px] mt-1.5 max-w-[240px]" style={{ color: dim(50) }}>
-          Scroll / pinch to descend the taxonomy. Select an entity, then zoom in for its
-          interaction profile.
+        <div className="text-[13px] mt-1.5 max-w-[250px]" style={{ color: dim(50) }}>
+          Scroll / pinch to descend the taxonomy. Zoom fully into a selected entity to fall
+          through into the graph.
         </div>
       </div>
 
-      {/* caption + legend */}
       <div className="absolute right-6 bottom-6 z-10 pointer-events-none flex flex-col items-end gap-2">
         <span className="flex items-center gap-4">
           {Object.entries(BASKET_ROLE_VARS).map(([basket, roleVar]) => (

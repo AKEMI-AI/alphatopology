@@ -147,6 +147,7 @@ export default function TerminalPage() {
               nodes={telemetryNodes}
               activeTicker={activeTicker}
               onSelect={(node) => setActiveTicker(node.ticker)}
+              onZoomFloor={() => setView('graph')}
             />
           ) : (
             <GeoView
