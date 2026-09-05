@@ -2,8 +2,8 @@
   "metadata": {
     "source": "AlphaTopology Ingestion Engine",
     "provider": "yfinance",
-    "total_nodes": 72,
-    "live_quotes": 67
+    "total_nodes": 80,
+    "live_quotes": 72
   },
   "nodes": [
     {
@@ -1810,6 +1810,207 @@
         "status": "BALANCED",
         "lead_time_trend": "STABLE"
       }
+    },
+    {
+      "id": "ALIBABA",
+      "name": "Alibaba (Qwen)",
+      "ticker": "BABA",
+      "exchange": "NYSE",
+      "layer": 4,
+      "stage": "HYPERSCALE_DEPLOYMENT",
+      "chokepoint_rating": 0.7,
+      "basket": "BK_INFRA",
+      "country": "CN",
+      "entity_type": "PUBLIC",
+      "market_data": {
+        "price": 113.24,
+        "change_pct": 1.39,
+        "volume": 7165300,
+        "currency": "USD",
+        "live": true
+      },
+      "telemetry": {
+        "metric": "Operational Throughput",
+        "value": "Normal Run-rate",
+        "status": "BALANCED",
+        "lead_time_trend": "STABLE"
+      }
+    },
+    {
+      "id": "TENCENT",
+      "name": "Tencent",
+      "ticker": "0700.HK",
+      "exchange": "HKEX",
+      "layer": 4,
+      "stage": "HYPERSCALE_DEPLOYMENT",
+      "chokepoint_rating": 0.65,
+      "basket": "BK_INFRA",
+      "country": "CN",
+      "entity_type": "PUBLIC",
+      "market_data": {
+        "price": 442.8,
+        "change_pct": 2.26,
+        "volume": 24025286,
+        "currency": "HKD",
+        "live": true
+      },
+      "telemetry": {
+        "metric": "Operational Throughput",
+        "value": "Normal Run-rate",
+        "status": "BALANCED",
+        "lead_time_trend": "STABLE"
+      }
+    },
+    {
+      "id": "BAIDU",
+      "name": "Baidu (Ernie/Kunlun)",
+      "ticker": "BIDU",
+      "exchange": "NASDAQ",
+      "layer": 4,
+      "stage": "HYPERSCALE_DEPLOYMENT",
+      "chokepoint_rating": 0.6,
+      "basket": "BK_INFRA",
+      "country": "CN",
+      "entity_type": "PUBLIC",
+      "market_data": {
+        "price": 99.47,
+        "change_pct": 4.09,
+        "volume": 2574500,
+        "currency": "USD",
+        "live": true
+      },
+      "telemetry": {
+        "metric": "Operational Throughput",
+        "value": "Normal Run-rate",
+        "status": "BALANCED",
+        "lead_time_trend": "STABLE"
+      }
+    },
+    {
+      "id": "BYTEDANCE",
+      "name": "ByteDance",
+      "ticker": "BYTEDANCE",
+      "exchange": "\u2014",
+      "layer": 4,
+      "stage": "FOUNDATION_MODELS",
+      "chokepoint_rating": 0.7,
+      "basket": "BK_MODELS",
+      "country": "CN",
+      "entity_type": "PRIVATE",
+      "valuation_usd_b": 300,
+      "market_data": {
+        "price": null,
+        "change_pct": null,
+        "volume": null,
+        "currency": "USD",
+        "live": false
+      },
+      "telemetry": {
+        "metric": "Operational Throughput",
+        "value": "Normal Run-rate",
+        "status": "BALANCED",
+        "lead_time_trend": "STABLE"
+      }
+    },
+    {
+      "id": "DEEPSEEK",
+      "name": "DeepSeek",
+      "ticker": "DEEPSEEK",
+      "exchange": "\u2014",
+      "layer": 4,
+      "stage": "FOUNDATION_MODELS",
+      "chokepoint_rating": 0.65,
+      "basket": "BK_MODELS",
+      "country": "CN",
+      "entity_type": "PRIVATE",
+      "market_data": {
+        "price": null,
+        "change_pct": null,
+        "volume": null,
+        "currency": "USD",
+        "live": false
+      },
+      "telemetry": {
+        "metric": "Operational Throughput",
+        "value": "Normal Run-rate",
+        "status": "BALANCED",
+        "lead_time_trend": "STABLE"
+      }
+    },
+    {
+      "id": "HUAWEI",
+      "name": "Huawei (Ascend)",
+      "ticker": "HUAWEI",
+      "exchange": "\u2014",
+      "layer": 2,
+      "stage": "FOUNDRY",
+      "chokepoint_rating": 0.8,
+      "basket": "BK_FABLESS",
+      "country": "CN",
+      "entity_type": "PRIVATE",
+      "market_data": {
+        "price": null,
+        "change_pct": null,
+        "volume": null,
+        "currency": "USD",
+        "live": false
+      },
+      "telemetry": {
+        "metric": "Operational Throughput",
+        "value": "Normal Run-rate",
+        "status": "BALANCED",
+        "lead_time_trend": "STABLE"
+      }
+    },
+    {
+      "id": "SMIC",
+      "name": "SMIC",
+      "ticker": "0981.HK",
+      "exchange": "HKEX",
+      "layer": 2,
+      "stage": "FOUNDRY",
+      "chokepoint_rating": 0.75,
+      "basket": "BK_FRONT",
+      "country": "CN",
+      "entity_type": "PUBLIC",
+      "market_data": {
+        "price": 67.2,
+        "change_pct": -1.25,
+        "volume": 84932765,
+        "currency": "HKD",
+        "live": true
+      },
+      "telemetry": {
+        "metric": "Operational Throughput",
+        "value": "Normal Run-rate",
+        "status": "BALANCED",
+        "lead_time_trend": "STABLE"
+      }
+    },
+    {
+      "id": "NEBIUS",
+      "name": "Nebius",
+      "ticker": "NBIS",
+      "exchange": "NASDAQ",
+      "layer": 4,
+      "stage": "HYPERSCALE_DEPLOYMENT",
+      "chokepoint_rating": 0.6,
+      "basket": "BK_INFRA",
+      "country": "NL",
+      "entity_type": "PUBLIC",
+      "market_data": {
+        "price": 226.39,
+        "change_pct": 7.98,
+        "volume": 14890300,
+        "currency": "USD",
+        "live": true
+      },
+      "telemetry": {
+        "metric": "Operational Throughput",
+        "value": "Normal Run-rate",
+        "status": "BALANCED",
+        "lead_time_trend": "STABLE"
+      }
     }
   ],
   "edges": [
@@ -2410,6 +2611,92 @@
       "relationship": "FAB_AUTOMATION_ROBOTS",
       "lead_time_days": 180,
       "criticality": "MODERATE"
+    },
+    {
+      "source": "SMIC",
+      "target": "HUAWEI",
+      "relationship": "ADVANCED_NODE_WAFERS",
+      "lead_time_days": 120,
+      "criticality": "CRITICAL"
+    },
+    {
+      "source": "NVIDIA",
+      "target": "BYTEDANCE",
+      "relationship": "GPU_SUPPLY",
+      "lead_time_days": 90,
+      "criticality": "MODERATE"
+    },
+    {
+      "source": "NVIDIA",
+      "target": "ALIBABA",
+      "relationship": "GPU_SUPPLY",
+      "lead_time_days": 90,
+      "criticality": "MODERATE"
+    },
+    {
+      "source": "NVIDIA",
+      "target": "BAIDU",
+      "relationship": "GPU_SUPPLY",
+      "lead_time_days": 90,
+      "criticality": "MODERATE"
+    },
+    {
+      "source": "NVIDIA",
+      "target": "TENCENT",
+      "relationship": "GPU_SUPPLY",
+      "lead_time_days": 90,
+      "criticality": "MODERATE"
+    },
+    {
+      "source": "HUAWEI",
+      "target": "DEEPSEEK",
+      "relationship": "ASCEND_COMPUTE_SUPPLY",
+      "lead_time_days": 90,
+      "criticality": "HIGH"
+    },
+    {
+      "source": "ALIBABA",
+      "target": "DEEPSEEK",
+      "relationship": "GPU_CLOUD_SUPPLY",
+      "lead_time_days": 60,
+      "criticality": "MODERATE"
+    },
+    {
+      "source": "MICROSOFT",
+      "target": "NEBIUS",
+      "relationship": "COMPUTE_CONTRACT",
+      "lead_time_days": 0,
+      "criticality": "HIGH",
+      "amount_usd_b": 17.4
+    },
+    {
+      "source": "NVIDIA",
+      "target": "NEBIUS",
+      "relationship": "CAPITAL_INVESTMENT",
+      "lead_time_days": 0,
+      "criticality": "MODERATE",
+      "amount_usd_b": 0.7
+    },
+    {
+      "source": "NEBIUS",
+      "target": "MICROSOFT",
+      "relationship": "GPU_CLOUD_SUPPLY",
+      "lead_time_days": 60,
+      "criticality": "HIGH"
+    },
+    {
+      "source": "AMD",
+      "target": "OPENAI",
+      "relationship": "GPU_SUPPLY_6GW",
+      "lead_time_days": 120,
+      "criticality": "HIGH"
+    },
+    {
+      "source": "OPENAI",
+      "target": "AMD",
+      "relationship": "CAPITAL_EQUITY_WARRANT",
+      "lead_time_days": 0,
+      "criticality": "HIGH"
     }
   ]
 }

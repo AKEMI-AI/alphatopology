@@ -62,6 +62,14 @@ export const HQ_COORDS: Record<string, [number, number]> = {
   GEVERNOVA: [42.37, -71.08], // Cambridge MA
   SCHNEIDER: [48.88, 2.18], // Rueil-Malmaison
   BLOOM: [37.41, -121.94],
+  ALIBABA: [30.19, 120.19], // Hangzhou
+  TENCENT: [22.54, 114.06], // Shenzhen
+  BAIDU: [39.99, 116.3], // Beijing
+  BYTEDANCE: [39.98, 116.31], // Beijing
+  DEEPSEEK: [30.27, 120.16], // Hangzhou
+  HUAWEI: [22.65, 113.88], // Shenzhen
+  SMIC: [31.18, 121.6], // Shanghai
+  NEBIUS: [52.37, 4.9], // Amsterdam
   OPENAI: [37.76, -122.41], // San Francisco
   ANTHROPIC: [37.79, -122.4], // San Francisco
   XAI: [37.77, -122.39], // San Francisco (training ops Memphis)

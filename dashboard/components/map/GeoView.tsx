@@ -19,6 +19,7 @@ const COUNTRY_NAMES: Record<string, string> = {
   NL: 'Netherlands',
   FR: 'France',
   GB: 'United Kingdom',
+  CN: 'China',
 };
 
 const EAST_ASIA = new Set(['TW', 'KR', 'JP']);

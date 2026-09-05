@@ -72,7 +72,7 @@ def get_fx_to_usd(ttl: float = 3600.0) -> Dict[str, float]:
 
     def fetch() -> Dict[str, float]:
         rates: Dict[str, float] = {"USD": 1.0}
-        for ccy in ("JPY", "KRW", "TWD", "EUR"):
+        for ccy in ("JPY", "KRW", "TWD", "EUR", "HKD"):
             try:
                 # USDJPY=X quotes JPY per USD → invert for USD per JPY
                 per_usd = yf.Ticker(f"USD{ccy}=X").fast_info["last_price"]
