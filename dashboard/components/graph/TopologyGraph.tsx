@@ -17,7 +17,7 @@ import { ChokepointNode, ChokepointNodeData, BASKET_ROLE_VARS } from './Chokepoi
 import rawData from '@/data/live_telemetry.json';
 import { Search } from 'lucide-react';
 
-const BASKETS = ['ALL', 'BK_CHOKE', 'BK_FRONT', 'BK_BACK', 'BK_FABLESS', 'BK_INFRA'];
+const BASKETS = ['ALL', 'BK_CHOKE', 'BK_FRONT', 'BK_BACK', 'BK_FABLESS', 'BK_INFRA', 'BK_MODELS'];
 
 const nodeTypes = {
   chokepoint: ChokepointNode,
@@ -72,7 +72,7 @@ export default function TopologyGraph({ onSelect }: TopologyGraphProps) {
 
   const initialEdges: Edge[] = useMemo(() => {
     return rawData.edges.map((edge) => ({
-      id: `${edge.source}->${edge.target}`,
+      id: `${edge.source}->${edge.target}:${edge.relationship}`,
       source: edge.source,
       target: edge.target,
       animated: edge.criticality === 'CRITICAL',

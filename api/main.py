@@ -107,6 +107,15 @@ def market_forecast(ticker: str):
     return get_forecast(ticker)
 
 
+@app.get("/people")
+def get_people():
+    """Key-person graph (public-record professional roles; see _meta.note)."""
+    import json as _json
+    from pathlib import Path as _Path
+
+    return _json.loads((_Path(__file__).resolve().parents[1] / "data" / "people_seed.json").read_text())
+
+
 # ── Paper simulator (simulation only; no brokerage connection) ──
 
 @app.get("/sim/portfolio")

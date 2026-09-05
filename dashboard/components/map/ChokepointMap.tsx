@@ -147,7 +147,7 @@ export default function ChokepointMap({ nodes, activeTicker, onSelect, onZoomFlo
             ...e,
             d: `M ${r3(s.x)} ${r3(s.y)} C ${mx} ${r3(s.y)}, ${mx} ${r3(tt.y)}, ${r3(tt.x)} ${r3(tt.y)}`,
             mid: bezMid(s.x, s.y, tt.x, tt.y),
-            key: `${e.source}-${e.target}`,
+            key: `${e.source}-${e.target}:${e.relationship}`,
           };
         })
         .filter(Boolean) as {

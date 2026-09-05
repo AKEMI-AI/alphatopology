@@ -1,0 +1,629 @@
+{
+  "_meta": {
+    "as_of": "2026-01",
+    "note": "Key-person graph v1 \u2014 professional, public-record facts only. Entries with verify:true need confirmation against current sources before citing. Target roster ~250; remainder enters via the curation pipeline (copilot-drafted, human-confirmed).",
+    "count": 51
+  },
+  "people": [
+    {
+      "id": "P_JENSEN_HUANG",
+      "name": "Jensen Huang",
+      "country": "US",
+      "roles": [
+        {
+          "org": "NVIDIA",
+          "relationship": "FOUNDER_CEO"
+        }
+      ]
+    },
+    {
+      "id": "P_COLETTE_KRESS",
+      "name": "Colette Kress",
+      "country": "US",
+      "roles": [
+        {
+          "org": "NVIDIA",
+          "relationship": "CFO"
+        }
+      ]
+    },
+    {
+      "id": "P_LISA_SU",
+      "name": "Lisa Su",
+      "country": "US",
+      "roles": [
+        {
+          "org": "AMD",
+          "relationship": "CEO"
+        }
+      ]
+    },
+    {
+      "id": "P_HOCK_TAN",
+      "name": "Hock Tan",
+      "country": "US",
+      "roles": [
+        {
+          "org": "BROADCOM",
+          "relationship": "CEO"
+        }
+      ]
+    },
+    {
+      "id": "P_CRISTIANO_AMON",
+      "name": "Cristiano Amon",
+      "country": "US",
+      "roles": [
+        {
+          "org": "QUALCOMM",
+          "relationship": "CEO"
+        }
+      ]
+    },
+    {
+      "id": "P_LIPBU_TAN",
+      "name": "Lip-Bu Tan",
+      "country": "US",
+      "roles": [
+        {
+          "org": "INTEL",
+          "relationship": "CEO",
+          "note": "since 2025"
+        }
+      ]
+    },
+    {
+      "id": "P_SANJAY_MEHROTRA",
+      "name": "Sanjay Mehrotra",
+      "country": "US",
+      "roles": [
+        {
+          "org": "MICRON",
+          "relationship": "CEO"
+        }
+      ]
+    },
+    {
+      "id": "P_RENE_HAAS",
+      "name": "Rene Haas",
+      "country": "US",
+      "roles": [
+        {
+          "org": "ARM",
+          "relationship": "CEO"
+        }
+      ]
+    },
+    {
+      "id": "P_CC_WEI",
+      "name": "C.C. Wei",
+      "country": "TW",
+      "roles": [
+        {
+          "org": "TSMC",
+          "relationship": "CHAIRMAN_CEO"
+        }
+      ]
+    },
+    {
+      "id": "P_MORRIS_CHANG",
+      "name": "Morris Chang",
+      "country": "TW",
+      "roles": [
+        {
+          "org": "TSMC",
+          "relationship": "FOUNDER",
+          "note": "retired"
+        }
+      ]
+    },
+    {
+      "id": "P_CHRISTOPHE_FOUQUET",
+      "name": "Christophe Fouquet",
+      "country": "FR",
+      "roles": [
+        {
+          "org": "ASML",
+          "relationship": "CEO",
+          "note": "since 2024"
+        }
+      ]
+    },
+    {
+      "id": "P_JAY_Y_LEE",
+      "name": "Jay Y. Lee",
+      "country": "KR",
+      "roles": [
+        {
+          "org": "SAMSUNG",
+          "relationship": "EXECUTIVE_CHAIRMAN"
+        }
+      ]
+    },
+    {
+      "id": "P_CHEY_TAEWON",
+      "name": "Chey Tae-won",
+      "country": "KR",
+      "roles": [
+        {
+          "org": "SK_HYNIX",
+          "relationship": "GROUP_CHAIRMAN",
+          "note": "SK Group"
+        }
+      ]
+    },
+    {
+      "id": "P_KWAK_NOHJUNG",
+      "name": "Kwak Noh-jung",
+      "country": "KR",
+      "roles": [
+        {
+          "org": "SK_HYNIX",
+          "relationship": "CEO"
+        }
+      ],
+      "verify": true
+    },
+    {
+      "id": "P_GARY_DICKERSON",
+      "name": "Gary Dickerson",
+      "country": "US",
+      "roles": [
+        {
+          "org": "AMAT",
+          "relationship": "CEO"
+        }
+      ]
+    },
+    {
+      "id": "P_TIM_ARCHER",
+      "name": "Tim Archer",
+      "country": "US",
+      "roles": [
+        {
+          "org": "LRCX",
+          "relationship": "CEO"
+        }
+      ]
+    },
+    {
+      "id": "P_RICK_WALLACE",
+      "name": "Rick Wallace",
+      "country": "US",
+      "roles": [
+        {
+          "org": "KLAC",
+          "relationship": "CEO"
+        }
+      ]
+    },
+    {
+      "id": "P_TOSHIKI_KAWAI",
+      "name": "Toshiki Kawai",
+      "country": "JP",
+      "roles": [
+        {
+          "org": "TEL",
+          "relationship": "CEO"
+        }
+      ]
+    },
+    {
+      "id": "P_SAM_ALTMAN",
+      "name": "Sam Altman",
+      "country": "US",
+      "roles": [
+        {
+          "org": "OPENAI",
+          "relationship": "CEO_COFOUNDER"
+        }
+      ]
+    },
+    {
+      "id": "P_GREG_BROCKMAN",
+      "name": "Greg Brockman",
+      "country": "US",
+      "roles": [
+        {
+          "org": "OPENAI",
+          "relationship": "PRESIDENT_COFOUNDER"
+        }
+      ]
+    },
+    {
+      "id": "P_JAKUB_PACHOCKI",
+      "name": "Jakub Pachocki",
+      "country": "US",
+      "roles": [
+        {
+          "org": "OPENAI",
+          "relationship": "CHIEF_SCIENTIST"
+        }
+      ]
+    },
+    {
+      "id": "P_SARAH_FRIAR",
+      "name": "Sarah Friar",
+      "country": "US",
+      "roles": [
+        {
+          "org": "OPENAI",
+          "relationship": "CFO"
+        }
+      ]
+    },
+    {
+      "id": "P_ILYA_SUTSKEVER",
+      "name": "Ilya Sutskever",
+      "country": "US",
+      "roles": [],
+      "lineage": [
+        {
+          "from_org": "OPENAI",
+          "note": "cofounder & chief scientist; departed 2024 \u2192 founded Safe Superintelligence (SSI)"
+        }
+      ]
+    },
+    {
+      "id": "P_MIRA_MURATI",
+      "name": "Mira Murati",
+      "country": "US",
+      "roles": [],
+      "lineage": [
+        {
+          "from_org": "OPENAI",
+          "note": "CTO; departed 2024 \u2192 founded Thinking Machines Lab"
+        }
+      ]
+    },
+    {
+      "id": "P_JOHN_SCHULMAN",
+      "name": "John Schulman",
+      "country": "US",
+      "roles": [],
+      "lineage": [
+        {
+          "from_org": "OPENAI",
+          "note": "cofounder; \u2192 Anthropic 2024 \u2192 Thinking Machines 2025"
+        }
+      ],
+      "verify": true
+    },
+    {
+      "id": "P_DARIO_AMODEI",
+      "name": "Dario Amodei",
+      "country": "US",
+      "roles": [
+        {
+          "org": "ANTHROPIC",
+          "relationship": "CEO_COFOUNDER"
+        }
+      ],
+      "lineage": [
+        {
+          "from_org": "OPENAI",
+          "note": "ex-VP of Research"
+        }
+      ]
+    },
+    {
+      "id": "P_DANIELA_AMODEI",
+      "name": "Daniela Amodei",
+      "country": "US",
+      "roles": [
+        {
+          "org": "ANTHROPIC",
+          "relationship": "PRESIDENT_COFOUNDER"
+        }
+      ],
+      "lineage": [
+        {
+          "from_org": "OPENAI",
+          "note": "ex-VP"
+        }
+      ]
+    },
+    {
+      "id": "P_JARED_KAPLAN",
+      "name": "Jared Kaplan",
+      "country": "US",
+      "roles": [
+        {
+          "org": "ANTHROPIC",
+          "relationship": "COFOUNDER_CSO"
+        }
+      ]
+    },
+    {
+      "id": "P_CHRIS_OLAH",
+      "name": "Chris Olah",
+      "country": "US",
+      "roles": [
+        {
+          "org": "ANTHROPIC",
+          "relationship": "COFOUNDER",
+          "note": "interpretability"
+        }
+      ]
+    },
+    {
+      "id": "P_MIKE_KRIEGER",
+      "name": "Mike Krieger",
+      "country": "US",
+      "roles": [
+        {
+          "org": "ANTHROPIC",
+          "relationship": "CPO",
+          "note": "Instagram cofounder"
+        }
+      ]
+    },
+    {
+      "id": "P_ELON_MUSK",
+      "name": "Elon Musk",
+      "country": "US",
+      "roles": [
+        {
+          "org": "XAI",
+          "relationship": "FOUNDER"
+        },
+        {
+          "org": "TESLA",
+          "relationship": "CEO"
+        }
+      ],
+      "lineage": [
+        {
+          "from_org": "OPENAI",
+          "note": "early backer; departed board 2018"
+        }
+      ]
+    },
+    {
+      "id": "P_ARTHUR_MENSCH",
+      "name": "Arthur Mensch",
+      "country": "FR",
+      "roles": [
+        {
+          "org": "MISTRAL",
+          "relationship": "CEO_COFOUNDER"
+        }
+      ],
+      "lineage": [
+        {
+          "from_org": "GOOGLE",
+          "note": "ex-DeepMind"
+        }
+      ]
+    },
+    {
+      "id": "P_SATYA_NADELLA",
+      "name": "Satya Nadella",
+      "country": "US",
+      "roles": [
+        {
+          "org": "MICROSOFT",
+          "relationship": "CEO"
+        }
+      ]
+    },
+    {
+      "id": "P_KEVIN_SCOTT",
+      "name": "Kevin Scott",
+      "country": "US",
+      "roles": [
+        {
+          "org": "MICROSOFT",
+          "relationship": "CTO"
+        }
+      ]
+    },
+    {
+      "id": "P_MUSTAFA_SULEYMAN",
+      "name": "Mustafa Suleyman",
+      "country": "GB",
+      "roles": [
+        {
+          "org": "MICROSOFT",
+          "relationship": "CEO_MICROSOFT_AI"
+        }
+      ],
+      "lineage": [
+        {
+          "from_org": "GOOGLE",
+          "note": "DeepMind cofounder; via Inflection 2024"
+        }
+      ]
+    },
+    {
+      "id": "P_SUNDAR_PICHAI",
+      "name": "Sundar Pichai",
+      "country": "US",
+      "roles": [
+        {
+          "org": "GOOGLE",
+          "relationship": "CEO"
+        }
+      ]
+    },
+    {
+      "id": "P_DEMIS_HASSABIS",
+      "name": "Demis Hassabis",
+      "country": "GB",
+      "roles": [
+        {
+          "org": "GOOGLE",
+          "relationship": "CEO_DEEPMIND",
+          "note": "Nobel laureate 2024"
+        }
+      ]
+    },
+    {
+      "id": "P_JEFF_DEAN",
+      "name": "Jeff Dean",
+      "country": "US",
+      "roles": [
+        {
+          "org": "GOOGLE",
+          "relationship": "CHIEF_SCIENTIST"
+        }
+      ]
+    },
+    {
+      "id": "P_MARK_ZUCKERBERG",
+      "name": "Mark Zuckerberg",
+      "country": "US",
+      "roles": [
+        {
+          "org": "META",
+          "relationship": "FOUNDER_CEO"
+        }
+      ]
+    },
+    {
+      "id": "P_ALEXANDR_WANG",
+      "name": "Alexandr Wang",
+      "country": "US",
+      "roles": [
+        {
+          "org": "META",
+          "relationship": "CHIEF_AI_OFFICER",
+          "note": "via Scale AI deal 2025"
+        }
+      ]
+    },
+    {
+      "id": "P_YANN_LECUN",
+      "name": "Yann LeCun",
+      "country": "FR",
+      "roles": [
+        {
+          "org": "META",
+          "relationship": "CHIEF_AI_SCIENTIST",
+          "note": "departure to found startup reported late 2025"
+        }
+      ],
+      "verify": true
+    },
+    {
+      "id": "P_ANDY_JASSY",
+      "name": "Andy Jassy",
+      "country": "US",
+      "roles": [
+        {
+          "org": "AMAZON",
+          "relationship": "CEO"
+        }
+      ]
+    },
+    {
+      "id": "P_MATT_GARMAN",
+      "name": "Matt Garman",
+      "country": "US",
+      "roles": [
+        {
+          "org": "AMAZON",
+          "relationship": "CEO_AWS"
+        }
+      ]
+    },
+    {
+      "id": "P_LARRY_ELLISON",
+      "name": "Larry Ellison",
+      "country": "US",
+      "roles": [
+        {
+          "org": "ORACLE",
+          "relationship": "FOUNDER_CTO_CHAIRMAN"
+        }
+      ]
+    },
+    {
+      "id": "P_SAFRA_CATZ",
+      "name": "Safra Catz",
+      "country": "US",
+      "roles": [
+        {
+          "org": "ORACLE",
+          "relationship": "EXEC_VICE_CHAIR",
+          "note": "co-CEOs appointed 2025"
+        }
+      ],
+      "verify": true
+    },
+    {
+      "id": "P_MICHAEL_INTRATOR",
+      "name": "Michael Intrator",
+      "country": "US",
+      "roles": [
+        {
+          "org": "COREWEAVE",
+          "relationship": "CEO_COFOUNDER"
+        }
+      ]
+    },
+    {
+      "id": "P_MASAYOSHI_SON",
+      "name": "Masayoshi Son",
+      "country": "JP",
+      "roles": [
+        {
+          "org": "SOFTBANK",
+          "relationship": "FOUNDER_CEO"
+        },
+        {
+          "org": "ARM",
+          "relationship": "CHAIRMAN",
+          "note": "SoftBank majority owner"
+        }
+      ]
+    },
+    {
+      "id": "P_JOSH_KUSHNER",
+      "name": "Josh Kushner",
+      "country": "US",
+      "roles": [
+        {
+          "org": "OPENAI",
+          "relationship": "MAJOR_INVESTOR",
+          "note": "via Thrive Capital"
+        }
+      ]
+    },
+    {
+      "id": "P_BRETT_ADCOCK",
+      "name": "Brett Adcock",
+      "country": "US",
+      "roles": [
+        {
+          "org": "FIGURE",
+          "relationship": "FOUNDER_CEO"
+        }
+      ]
+    },
+    {
+      "id": "P_JAYSHREE_ULLAL",
+      "name": "Jayshree Ullal",
+      "country": "US",
+      "roles": [
+        {
+          "org": "ARISTA",
+          "relationship": "CHAIRPERSON_CHIEF_STRATEGIST",
+          "note": "CEO transition 2025"
+        }
+      ],
+      "verify": true
+    },
+    {
+      "id": "P_JOE_DOMINGUEZ",
+      "name": "Joe Dominguez",
+      "country": "US",
+      "roles": [
+        {
+          "org": "CONSTELLATION",
+          "relationship": "CEO"
+        }
+      ]
+    }
+  ]
+}

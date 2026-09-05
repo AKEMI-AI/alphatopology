@@ -152,12 +152,39 @@ def dislocation_snapshot() -> str:
 
 
 @beta_tool
+def key_people(org: str = "ALL") -> str:
+    """Key people in the AI industry graph: roles, affiliations, and lineage (e.g. lab departures).
+
+    Args:
+        org: A node id/ticker (e.g. NVIDIA, OPENAI) to filter by, or ALL.
+    """
+    import pathlib
+
+    data = json.loads(
+        (pathlib.Path(__file__).resolve().parents[2] / "data" / "people_seed.json").read_text()
+    )
+    people = data["people"]
+    if org != "ALL":
+        g = _g()
+        try:
+            org_id = resolve_ticker(g, org)
+        except KeyError:
+            org_id = org.upper()
+        people = [
+            p for p in people
+            if any(r["org"] == org_id for r in p.get("roles", []))
+            or any(l.get("from_org") == org_id for l in p.get("lineage", []))
+        ]
+    return json.dumps({"_meta": data["_meta"], "people": people})
+
+
+@beta_tool
 def paper_portfolio() -> str:
     """Read the user's paper-trading portfolio: positions, marks, P&L, cash. Read-only."""
     return json.dumps(simulator.portfolio_status())
 
 
-TOOLS = [topology_overview, get_node, trace_upstream, market_snapshot, dislocation_snapshot, paper_portfolio]
+TOOLS = [topology_overview, get_node, trace_upstream, market_snapshot, dislocation_snapshot, key_people, paper_portfolio]
 
 
 def run_copilot(history: List[Dict[str, str]]) -> str:
