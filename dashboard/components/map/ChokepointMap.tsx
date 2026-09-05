@@ -10,6 +10,7 @@
 
 import React, { useMemo, useRef, useState, useEffect, useCallback } from 'react';
 import seedData from '@/data/nodes_seed.json';
+import snapshotData from '@/data/industry_snapshots.json';
 import { BASKET_ROLE_VARS } from '@/components/graph/ChokepointNode';
 
 const r3 = (n: number) => Math.round(n * 1000) / 1000;
@@ -67,6 +68,26 @@ type View = { tx: number; ty: number; k: number };
 
 const dim = (pct: number) => `color-mix(in oklab, var(--cream) ${pct}%, transparent)`;
 
+interface ForceSnapshot {
+  id: string;
+  title: string;
+  summary: string;
+  thesis_impact: string;
+  watch: { item: string; why: string }[];
+  affected_nodes: string[];
+}
+const FORCES = snapshotData.snapshots as ForceSnapshot[];
+const FORCE_LABELS: Record<string, string> = {
+  POWER_WALL: 'Power',
+  HBM_SUPERCYCLE: 'HBM',
+  CIRCULAR_FINANCING: 'Money loops',
+  EXPORT_CONTROL_REGIME: 'Controls',
+  PACKAGING_BOTTLENECK: 'Packaging',
+  TALENT_DIASPORA: 'Talent',
+  ROBOTICS_EMBODIMENT: 'Robotics',
+  MACRO_LIQUIDITY: 'Macro',
+};
+
 const bezMid = (sx: number, sy: number, tx: number, ty: number) => {
   const mx = (sx + tx) / 2;
   return { x: r3((sx + 3 * mx + 3 * mx + tx) / 8), y: r3((sy + 3 * sy + 3 * ty + ty) / 8) };
@@ -90,8 +111,12 @@ export default function ChokepointMap({ nodes, activeTicker, onSelect, onZoomFlo
   const lastTap = useRef<{ t: number; x: number; y: number } | null>(null);
 
   const [hovered, setHovered] = useState<string | null>(null);
+  const [forceId, setForceId] = useState<string | null>(null);
   // low-frequency semantic state; only changes at threshold crossings
   const [band, setBand] = useState<'cluster' | 'company' | 'profile'>('cluster');
+
+  const force = forceId ? FORCES.find((f) => f.id === forceId) ?? null : null;
+  const forceSet = useMemo(() => new Set(force?.affected_nodes ?? []), [force]);
 
   const active = nodes.find((n) => n.ticker === activeTicker);
   const focusId = active?.id ?? null;
@@ -454,6 +479,8 @@ export default function ChokepointMap({ nodes, activeTicker, onSelect, onZoomFlo
                 const faded = highlightId && !touching;
                 const capital = e.amount_usd_b != null;
                 const capW = capital ? r3(1 + Math.log10(e.amount_usd_b! + 1) * 1.1) : 0;
+                const forceLit = force && forceSet.has(e.source) && forceSet.has(e.target);
+                const forceFaded = force && !forceLit;
                 return (
                   <path
                     key={e.key}
@@ -464,9 +491,18 @@ export default function ChokepointMap({ nodes, activeTicker, onSelect, onZoomFlo
                       : e.criticality === 'CRITICAL' ? 'var(--gold-matte)' : 'var(--plum)'
                     }
                     strokeDasharray={capital ? '5 4' : undefined}
-                    strokeOpacity={faded ? 0.08 : touching ? 0.95 : capital ? 0.6 : e.criticality === 'CRITICAL' ? 0.55 : 0.4}
-                    strokeWidth={touching ? Math.max(2.2, capW) : capital ? capW : e.criticality === 'CRITICAL' ? 1.8 : 1.1}
-                    style={{ transition: 'stroke-opacity 200ms ease' }}
+                    strokeOpacity={
+                      faded || forceFaded ? 0.06
+                      : touching ? 0.95
+                      : forceLit ? 0.85
+                      : capital ? 0.6 : e.criticality === 'CRITICAL' ? 0.55 : 0.4
+                    }
+                    strokeWidth={
+                      touching ? Math.max(2.2, capW)
+                      : forceLit ? Math.max(2, capW)
+                      : capital ? capW : e.criticality === 'CRITICAL' ? 1.8 : 1.1
+                    }
+                    style={{ transition: 'stroke-opacity 450ms ease, stroke-width 450ms ease' }}
                   />
                 );
               })}
@@ -488,6 +524,7 @@ export default function ChokepointMap({ nodes, activeTicker, onSelect, onZoomFlo
                 const isAuthority = node.chokepoint_rating >= 0.9;
                 const isFocus = node.ticker === activeTicker;
                 const inProfile = !highlightId || neighborIds.has(node.id) || node.id === highlightId || hovered === node.id;
+                const inForce = !force || forceSet.has(node.id) || hovered === node.id;
                 const labelInside = r >= 26;
                 return (
                   <g
@@ -495,7 +532,7 @@ export default function ChokepointMap({ nodes, activeTicker, onSelect, onZoomFlo
                     onClick={() => onSelect(node)}
                     onMouseEnter={() => setHovered(node.id)}
                     onMouseLeave={() => setHovered(null)}
-                    style={{ cursor: 'pointer', opacity: inProfile ? 1 : 0.15, transition: 'opacity 200ms ease' }}
+                    style={{ cursor: 'pointer', opacity: inProfile && inForce ? 1 : 0.12, transition: 'opacity 450ms ease' }}
                   >
                     <title>{`${node.name} — crit ${(node.chokepoint_rating * 100).toFixed(0)}%`}</title>
                     {isAuthority && (
@@ -570,15 +607,66 @@ export default function ChokepointMap({ nodes, activeTicker, onSelect, onZoomFlo
         </button>
       </div>
 
-      {/* HUD — layer + descent hint */}
-      <div className="absolute left-6 bottom-6 z-10 pointer-events-none hidden sm:block">
-        <div className="mono text-[11px]" style={{ color: dim(70) }}>
-          Layer {layerName}
-        </div>
-        <div className="text-[13px] mt-1.5 max-w-[250px]" style={{ color: dim(50) }}>
-          Scroll / pinch to descend the taxonomy. Zoom fully into a selected entity to fall
-          through into the graph.
-        </div>
+      {/* Forces lens — snapshots as morphing overlays */}
+      <div className="absolute top-12 left-6 right-6 md:right-auto z-10 flex flex-nowrap md:flex-wrap items-center gap-1.5 overflow-x-auto pb-1">
+        <button
+          onClick={() => setForceId(null)}
+          className="mono px-2.5 py-1 text-[11px] rounded-full cursor-pointer shrink-0"
+          style={{
+            color: !forceId ? 'var(--ink)' : dim(60),
+            background: !forceId ? 'var(--cream)' : 'color-mix(in oklab, var(--ink) 60%, transparent)',
+            border: `1px solid ${!forceId ? 'var(--cream)' : dim(14)}`,
+          }}
+        >
+          All
+        </button>
+        {FORCES.map((f) => {
+          const on = forceId === f.id;
+          return (
+            <button
+              key={f.id}
+              onClick={() => setForceId(on ? null : f.id)}
+              className="mono px-2.5 py-1 text-[11px] rounded-full cursor-pointer shrink-0"
+              style={{
+                color: on ? 'var(--ink)' : 'var(--gold-matte)',
+                background: on ? 'var(--gold-matte)' : 'color-mix(in oklab, var(--ink) 60%, transparent)',
+                border: `1px solid color-mix(in oklab, var(--gold) ${on ? 80 : 35}%, transparent)`,
+              }}
+            >
+              {FORCE_LABELS[f.id] ?? f.title}
+            </button>
+          );
+        })}
+      </div>
+
+      {/* HUD — force narrative, or layer + descent hint */}
+      <div className="absolute left-6 bottom-6 z-10 pointer-events-none hidden sm:block max-w-[340px]">
+        {force ? (
+          <div className="glass-electric p-3.5 pointer-events-auto">
+            <div className="descent-eyebrow on-noir">Force / {FORCE_LABELS[force.id]}</div>
+            <div className="display text-[22px] mt-1.5" style={{ color: 'var(--cream)' }}>
+              {force.title}
+            </div>
+            <div className="text-[13px] mt-1.5" style={{ color: dim(75) }}>
+              {force.thesis_impact}
+            </div>
+            {force.watch[0] && (
+              <div className="mono text-[11px] mt-2 pt-2" style={{ color: dim(50), borderTop: `1px solid ${dim(10)}` }}>
+                Watch · {force.watch[0].item}
+              </div>
+            )}
+          </div>
+        ) : (
+          <>
+            <div className="mono text-[11px]" style={{ color: dim(70) }}>
+              Layer {layerName}
+            </div>
+            <div className="text-[13px] mt-1.5 max-w-[250px]" style={{ color: dim(50) }}>
+              Scroll / pinch to descend the taxonomy. Pick a force above to see its story on
+              the map. Zoom fully into a selected entity to fall through into the graph.
+            </div>
+          </>
+        )}
       </div>
 
       <div className="absolute right-6 bottom-6 z-10 pointer-events-none hidden md:flex flex-col items-end gap-2">
