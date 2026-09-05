@@ -193,6 +193,15 @@ def external_models():
     )
 
 
+@app.get("/deals")
+def get_deals():
+    """The deal ledger — dated, cited records behind every capital flow."""
+    import json as _json
+    from pathlib import Path as _Path
+
+    return _json.loads((_Path(__file__).resolve().parents[1] / "data" / "deals.json").read_text())
+
+
 @app.get("/materials")
 def get_materials():
     """Materials & environmental footprint tier (curated, sourced)."""

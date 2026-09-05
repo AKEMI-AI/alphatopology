@@ -1,0 +1,317 @@
+{
+  "_meta": {
+    "as_of": "2026-09",
+    "note": "The deal ledger \u2014 dated, sourced records behind every capital/compute flow. Citations point to the announcing party or primary press coverage; domain-level URLs are used where a deep link could not be verified. verify:true = terms reported but not fully confirmed. Amounts in USD billions as announced/reported.",
+    "count": 14
+  },
+  "deals": [
+    {
+      "id": "DEAL_MSFT_OPENAI_CUMULATIVE",
+      "source": "MICROSOFT",
+      "target": "OPENAI",
+      "kind": "investment",
+      "announced": "2023-01-23",
+      "amount_usd_b": 13,
+      "headline": "Microsoft extends OpenAI partnership \u2014 third investment round",
+      "notes": "Follows the 2019 ($1B) and 2021 rounds; cumulative commitment widely reported \u2248$13B. Partnership restructured 2025 with revised revenue-share and IP terms.",
+      "citations": [
+        {
+          "publisher": "Microsoft Official Blog",
+          "title": "Microsoft and OpenAI extend partnership",
+          "date": "2023-01-23",
+          "url": "https://blogs.microsoft.com/blog/2023/01/23/microsoftandopenaiextendpartnership/"
+        }
+      ]
+    },
+    {
+      "id": "DEAL_NVDA_OPENAI_100B",
+      "source": "NVIDIA",
+      "target": "OPENAI",
+      "kind": "investment",
+      "announced": "2025-09-22",
+      "amount_usd_b": 100,
+      "headline": "NVIDIA letter of intent: up to $100B invested progressively alongside 10GW of systems",
+      "notes": "Phased investment tied to gigawatt-scale deployments of NVIDIA systems; structure (LOI, tranches per GW) reported at announcement. The canonical circular-financing exhibit.",
+      "verify": true,
+      "citations": [
+        {
+          "publisher": "NVIDIA Newsroom",
+          "title": "NVIDIA and OpenAI announce strategic partnership",
+          "date": "2025-09-22",
+          "url": "https://nvidianews.nvidia.com/"
+        },
+        {
+          "publisher": "OpenAI",
+          "title": "Partnership announcement",
+          "date": "2025-09-22",
+          "url": "https://openai.com/news/"
+        }
+      ]
+    },
+    {
+      "id": "DEAL_SOFTBANK_OPENAI_2025",
+      "source": "SOFTBANK",
+      "target": "OPENAI",
+      "kind": "investment",
+      "announced": "2025-03-31",
+      "amount_usd_b": 30,
+      "headline": "SoftBank leads $40B round at $300B post-money; SoftBank portion \u2248$30B",
+      "notes": "Largest private round on record at announcement; SoftBank portion subject to tranche conditions. OpenAI valuation later marked \u2248$500B in secondary sales (Oct 2025).",
+      "verify": true,
+      "citations": [
+        {
+          "publisher": "OpenAI",
+          "title": "New funding announcement",
+          "date": "2025-03-31",
+          "url": "https://openai.com/news/"
+        },
+        {
+          "publisher": "SoftBank Group",
+          "title": "Investor relations",
+          "date": "2025-03-31",
+          "url": "https://group.softbank/en/"
+        }
+      ]
+    },
+    {
+      "id": "DEAL_AMZN_ANTHROPIC_8B",
+      "source": "AMAZON",
+      "target": "ANTHROPIC",
+      "kind": "investment",
+      "announced": "2024-11-22",
+      "amount_usd_b": 8,
+      "headline": "Amazon completes $8B total investment in Anthropic",
+      "notes": "$4B (Sep 2023) + $4B (Nov 2024); AWS named primary cloud & training partner; Trainium commitment deepened.",
+      "citations": [
+        {
+          "publisher": "About Amazon",
+          "title": "Amazon\u2013Anthropic investment announcements",
+          "date": "2024-11-22",
+          "url": "https://www.aboutamazon.com/news"
+        },
+        {
+          "publisher": "Anthropic",
+          "title": "Announcements",
+          "date": "2024-11-22",
+          "url": "https://www.anthropic.com/news"
+        }
+      ]
+    },
+    {
+      "id": "DEAL_GOOGLE_ANTHROPIC",
+      "source": "GOOGLE",
+      "target": "ANTHROPIC",
+      "kind": "investment",
+      "announced": "2023-10-27",
+      "amount_usd_b": 3,
+      "headline": "Google commits up to $2B (2023), building on earlier ~$550M stake; total \u2248$3B+",
+      "notes": "Convertible structure reported; separate from the 2025 TPU capacity expansion (see compute deal).",
+      "verify": true,
+      "citations": [
+        {
+          "publisher": "Reuters / primary reporting",
+          "title": "Google agrees to invest up to $2 billion in Anthropic",
+          "date": "2023-10-27",
+          "url": "https://www.reuters.com/"
+        }
+      ]
+    },
+    {
+      "id": "DEAL_GOOGLE_ANTHROPIC_TPU",
+      "source": "GOOGLE",
+      "target": "ANTHROPIC",
+      "kind": "compute",
+      "announced": "2025-10-23",
+      "amount_usd_b": null,
+      "headline": "Anthropic expands to up to one million Google TPUs",
+      "notes": "Multi-gigawatt TPU capacity coming online through 2026; reported as tens of billions of dollars of committed capacity.",
+      "verify": true,
+      "citations": [
+        {
+          "publisher": "Anthropic",
+          "title": "Expanding our use of Google Cloud TPUs",
+          "date": "2025-10-23",
+          "url": "https://www.anthropic.com/news"
+        }
+      ]
+    },
+    {
+      "id": "DEAL_OPENAI_ORACLE_STARGATE",
+      "source": "OPENAI",
+      "target": "ORACLE",
+      "kind": "compute",
+      "announced": "2025-09-10",
+      "amount_usd_b": 300,
+      "headline": "OpenAI\u2013Oracle \u2248$300B, ~5-year cloud compute agreement (Stargate)",
+      "notes": "Reported alongside Oracle's RPO jump to \u2248$455B in Sep 2025 earnings; part of the broader Stargate buildout with Abilene TX flagship site.",
+      "verify": true,
+      "citations": [
+        {
+          "publisher": "Wall Street Journal",
+          "title": "OpenAI, Oracle sign $300 billion cloud deal",
+          "date": "2025-09-10",
+          "url": "https://www.wsj.com/"
+        },
+        {
+          "publisher": "Oracle IR",
+          "title": "Q1 FY26 earnings (RPO disclosure)",
+          "date": "2025-09-09",
+          "url": "https://investor.oracle.com/"
+        }
+      ]
+    },
+    {
+      "id": "DEAL_OPENAI_COREWEAVE",
+      "source": "OPENAI",
+      "target": "COREWEAVE",
+      "kind": "compute",
+      "announced": "2025-03-10",
+      "amount_usd_b": 22.4,
+      "headline": "OpenAI\u2013CoreWeave compute contracts: $11.9B initial, expanded to \u2248$22.4B",
+      "notes": "Initial five-year agreement (March 2025, incl. ~$350M equity to OpenAI) with subsequent expansions through 2025.",
+      "verify": true,
+      "citations": [
+        {
+          "publisher": "CoreWeave",
+          "title": "News / S-1 and expansion announcements",
+          "date": "2025-03-10",
+          "url": "https://www.coreweave.com/"
+        },
+        {
+          "publisher": "Reuters",
+          "title": "OpenAI signs CoreWeave deal",
+          "date": "2025-03-10",
+          "url": "https://www.reuters.com/"
+        }
+      ]
+    },
+    {
+      "id": "DEAL_NVDA_COREWEAVE",
+      "source": "NVIDIA",
+      "target": "COREWEAVE",
+      "kind": "investment",
+      "announced": "2025-09-23",
+      "amount_usd_b": 6.3,
+      "headline": "NVIDIA equity stake plus $6.3B cloud-capacity backstop order",
+      "notes": "NVIDIA holds an equity position from earlier rounds; Sep 2025 filing disclosed an order guaranteeing purchase of unsold capacity through 2032.",
+      "verify": true,
+      "citations": [
+        {
+          "publisher": "CoreWeave SEC filing / Reuters",
+          "title": "NVIDIA capacity backstop disclosure",
+          "date": "2025-09-23",
+          "url": "https://www.reuters.com/"
+        }
+      ]
+    },
+    {
+      "id": "DEAL_MSFT_NEBIUS",
+      "source": "MICROSOFT",
+      "target": "NEBIUS",
+      "kind": "compute",
+      "announced": "2025-09-08",
+      "amount_usd_b": 17.4,
+      "headline": "Microsoft\u2013Nebius GPU capacity deal: $17.4B over ~5 years (expandable to $19.4B)",
+      "notes": "Capacity from Nebius's Vineland NJ data center; one of the defining neocloud contracts.",
+      "citations": [
+        {
+          "publisher": "Nebius",
+          "title": "Press release",
+          "date": "2025-09-08",
+          "url": "https://nebius.com/"
+        },
+        {
+          "publisher": "Reuters",
+          "title": "Microsoft signs $17.4B deal with Nebius",
+          "date": "2025-09-08",
+          "url": "https://www.reuters.com/"
+        }
+      ]
+    },
+    {
+      "id": "DEAL_AMD_OPENAI_6GW",
+      "source": "AMD",
+      "target": "OPENAI",
+      "kind": "hardware+warrant",
+      "announced": "2025-10-06",
+      "amount_usd_b": null,
+      "headline": "OpenAI to deploy 6GW of AMD Instinct GPUs; AMD grants warrant for up to 160M shares",
+      "notes": "Warrant (~10% of AMD) vests in tranches tied to deployment milestones and share-price targets; first 1GW on MI450 series. Reported as tens of billions in expected revenue.",
+      "verify": true,
+      "citations": [
+        {
+          "publisher": "AMD",
+          "title": "AMD and OpenAI announce strategic partnership",
+          "date": "2025-10-06",
+          "url": "https://www.amd.com/en/newsroom.html"
+        }
+      ]
+    },
+    {
+      "id": "DEAL_ASML_MISTRAL",
+      "source": "ASML",
+      "target": "MISTRAL",
+      "kind": "investment",
+      "announced": "2025-09-09",
+      "amount_usd_b": 1.5,
+      "headline": "ASML leads Mistral AI's \u20ac1.7B Series C with \u2248\u20ac1.3B (~$1.5B), taking ~11%",
+      "notes": "Round valued Mistral \u2248\u20ac11.7B post-money; the equipment chokepoint buying into the European model lab.",
+      "citations": [
+        {
+          "publisher": "ASML",
+          "title": "Press release",
+          "date": "2025-09-09",
+          "url": "https://www.asml.com/en/news"
+        },
+        {
+          "publisher": "Mistral AI",
+          "title": "Series C announcement",
+          "date": "2025-09-09",
+          "url": "https://mistral.ai/news/"
+        }
+      ]
+    },
+    {
+      "id": "DEAL_NVDA_FIGURE",
+      "source": "NVIDIA",
+      "target": "FIGURE",
+      "kind": "vc",
+      "announced": "2024-02-29",
+      "amount_usd_b": 0.675,
+      "headline": "Figure's $675M Series B \u2014 NVIDIA, Microsoft, OpenAI Startup Fund, Bezos among investors",
+      "notes": "Valued Figure \u2248$2.6B then; Figure later raised at \u2248$39B (Sep 2025 Series C led by Parkway).",
+      "citations": [
+        {
+          "publisher": "Reuters",
+          "title": "Figure raises $675 million",
+          "date": "2024-02-29",
+          "url": "https://www.reuters.com/"
+        },
+        {
+          "publisher": "Figure",
+          "title": "Announcements",
+          "date": "2024-02-29",
+          "url": "https://www.figure.ai/"
+        }
+      ]
+    },
+    {
+      "id": "DEAL_NVDA_NEBIUS",
+      "source": "NVIDIA",
+      "target": "NEBIUS",
+      "kind": "investment",
+      "announced": "2024-12-02",
+      "amount_usd_b": 0.7,
+      "headline": "NVIDIA participates in Nebius $700M private placement",
+      "notes": "Alongside Accel and Orbis; NVIDIA equity position in the neocloud tier.",
+      "citations": [
+        {
+          "publisher": "Nebius",
+          "title": "Private placement announcement",
+          "date": "2024-12-02",
+          "url": "https://nebius.com/"
+        }
+      ]
+    }
+  ]
+}

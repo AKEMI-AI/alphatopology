@@ -8,6 +8,7 @@
 
 import React, { useMemo, useRef, useState, useEffect, useCallback } from 'react';
 import seedData from '@/data/nodes_seed.json';
+import dealsData from '@/data/deals.json';
 
 const r3 = (n: number) => Math.round(n * 1000) / 1000;
 const clamp = (v: number, lo: number, hi: number) => Math.max(lo, Math.min(hi, v));
@@ -24,6 +25,14 @@ interface FlowNode {
   market_data?: { market_cap_usd?: number | null };
   [key: string]: unknown;
 }
+
+interface DealCitation { publisher: string; title: string; date: string; url: string }
+interface DealRec {
+  id: string; source: string; target: string; kind: string;
+  announced: string; amount_usd_b: number | null; headline: string;
+  notes: string; verify?: boolean; citations: DealCitation[];
+}
+const DEALS = (dealsData as { deals: DealRec[] }).deals;
 
 interface FlowsViewProps {
   nodes: FlowNode[];
@@ -82,6 +91,7 @@ export default function FlowsView({ nodes, activeTicker, onSelect }: FlowsViewPr
   const [hovered, setHovered] = useState<string | null>(null);
   const [blocKey, setBlocKey] = useState('global');
   const [centerId, setCenterId] = useState<string | null>(null);
+  const [dealFlow, setDealFlow] = useState<{ source: string; target: string; relationship: string } | null>(null);
 
   const bloc = BLOCS.find((b) => b.key === blocKey) ?? BLOCS[0];
 
@@ -307,16 +317,28 @@ export default function FlowsView({ nodes, activeTicker, onSelect }: FlowsViewPr
               const w = e.amount_usd_b != null ? r3(1.2 + Math.log10(e.amount_usd_b + 1) * 1.15) : 1.3;
               const touching = highlightId && (e.source === highlightId || e.target === highlightId);
               return (
-                <path
-                  key={`${e.source}-${e.target}-${e.relationship}`}
-                  d={p.d}
-                  className="flow-dash"
-                  stroke={KIND_META[e.kind].varName}
-                  strokeOpacity={!vis ? 0.05 : touching ? 0.95 : 0.55}
-                  strokeWidth={touching ? Math.max(2.4, w) : w}
-                  markerEnd={`url(#arrow-${e.kind})`}
-                  style={{ transition: 'stroke-opacity 450ms ease' }}
-                />
+                <g key={`${e.source}-${e.target}-${e.relationship}`}>
+                  <path
+                    d={p.d}
+                    className="flow-dash"
+                    stroke={KIND_META[e.kind].varName}
+                    strokeOpacity={!vis ? 0.05 : touching ? 0.95 : 0.55}
+                    strokeWidth={touching ? Math.max(2.4, w) : w}
+                    markerEnd={`url(#arrow-${e.kind})`}
+                    style={{ transition: 'stroke-opacity 450ms ease' }}
+                  />
+                  {/* invisible hit area — click a flow to open its ledger card */}
+                  <path
+                    d={p.d}
+                    stroke="transparent"
+                    strokeWidth={14}
+                    style={{ cursor: 'pointer', pointerEvents: 'stroke' }}
+                    onClick={(ev) => {
+                      ev.stopPropagation();
+                      setDealFlow({ source: e.source, target: e.target, relationship: e.relationship });
+                    }}
+                  />
+                </g>
               );
             })}
           </g>
@@ -413,6 +435,72 @@ export default function FlowsView({ nodes, activeTicker, onSelect }: FlowsViewPr
           })}
         </g>
       </svg>
+
+      {/* the ledger card — dated, cited record behind a clicked flow */}
+      {dealFlow && (() => {
+        const matches = DEALS.filter(
+          (d) => d.source === dealFlow.source && d.target === dealFlow.target
+        );
+        const tickerOf = (id: string) => nodes.find((n) => n.id === id)?.ticker ?? id;
+        return (
+          <aside className="glass-electric absolute top-16 right-3 md:right-6 z-20 w-[min(380px,calc(100vw-1.5rem))] max-h-[70%] overflow-y-auto p-4">
+            <div className="flex items-baseline justify-between gap-2">
+              <span className="descent-eyebrow on-noir">
+                Ledger / {tickerOf(dealFlow.source)} → {tickerOf(dealFlow.target)}
+              </span>
+              <button onClick={() => setDealFlow(null)} className="mono text-[11px] cursor-pointer bg-transparent border-0" style={{ color: dim(55) }}>
+                Close
+              </button>
+            </div>
+            {matches.length === 0 && (
+              <div className="text-[14px] mt-3" style={{ color: dim(60) }}>
+                {dealFlow.relationship.replace(/_/g, ' ').toLowerCase()} — no dated ledger record
+                yet. This flow is in the graph from public reporting; a cited entry belongs in
+                data/deals.json.
+              </div>
+            )}
+            <div className="space-y-4 mt-3">
+              {matches.map((d) => (
+                <div key={d.id}>
+                  <div className="flex items-baseline justify-between gap-3">
+                    <span className="mono text-[11px]" style={{ color: 'var(--gold-matte)' }}>
+                      {d.announced} · {d.kind}
+                    </span>
+                    {d.amount_usd_b != null && (
+                      <span className="display text-[20px]" style={{ color: 'var(--cream)' }}>
+                        ${d.amount_usd_b}B
+                      </span>
+                    )}
+                  </div>
+                  <div className="text-[15px] mt-1" style={{ color: 'var(--cream)', fontWeight: 500 }}>
+                    {d.headline}
+                  </div>
+                  <div className="text-[13px] mt-1" style={{ color: dim(65) }}>{d.notes}</div>
+                  <div className="mt-2 space-y-1">
+                    {d.citations.map((c) => (
+                      <a
+                        key={c.url + c.title}
+                        href={c.url}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="block mono text-[11px] hover:underline"
+                        style={{ color: dim(50) }}
+                      >
+                        ↗ {c.publisher} · {c.title} · {c.date}
+                      </a>
+                    ))}
+                  </div>
+                  {d.verify && (
+                    <div className="mono text-[11px] mt-1.5" style={{ color: 'var(--terracotta)' }}>
+                      verify — terms reported, not fully confirmed
+                    </div>
+                  )}
+                </div>
+              ))}
+            </div>
+          </aside>
+        );
+      })()}
 
       <div className="absolute left-6 bottom-6 z-10 pointer-events-none">
         <div className="flex flex-wrap items-center gap-x-4 gap-y-1.5 max-w-[440px]">

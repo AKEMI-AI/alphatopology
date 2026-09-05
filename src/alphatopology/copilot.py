@@ -240,12 +240,31 @@ def materials_inputs(stage: str = "ALL") -> str:
 
 
 @beta_tool
+def deal_ledger(org: str = "ALL") -> str:
+    """Dated, cited deal records behind the capital/compute flows (announcement dates, amounts, citations, verify flags).
+
+    Args:
+        org: Node id/ticker to filter deals touching it, or ALL.
+    """
+    import pathlib
+
+    data = json.loads(
+        (pathlib.Path(__file__).resolve().parents[2] / "data" / "deals.json").read_text()
+    )
+    deals = data["deals"]
+    if org != "ALL":
+        key = org.upper()
+        deals = [d for d in deals if d["source"] == key or d["target"] == key]
+    return json.dumps({"_meta": data["_meta"], "deals": deals})
+
+
+@beta_tool
 def paper_portfolio() -> str:
     """Read the user's paper-trading portfolio: positions, marks, P&L, cash. Read-only."""
     return json.dumps(simulator.portfolio_status())
 
 
-TOOLS = [topology_overview, get_node, trace_upstream, market_snapshot, dislocation_snapshot, key_people, industry_snapshots, frontier_models, materials_inputs, paper_portfolio]
+TOOLS = [topology_overview, get_node, trace_upstream, market_snapshot, dislocation_snapshot, key_people, industry_snapshots, frontier_models, materials_inputs, deal_ledger, paper_portfolio]
 
 BRIEF_INSTRUCTION = """Compose a structured research brief on the requested topic using the tools \
 — query the dataset first, then write. Format as markdown:
