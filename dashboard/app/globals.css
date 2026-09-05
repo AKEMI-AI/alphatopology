@@ -104,9 +104,12 @@ h3,
   }
 }
 
-/* Ticker marquee (motion is ornament-level; reduced-motion safe) */
+/* Ticker marquee — slow enough to read; pauses under the cursor */
 .ticker-marquee {
-  animation: ticker-scroll 45s linear infinite;
+  animation: ticker-scroll 120s linear infinite;
+}
+.ticker-marquee:hover {
+  animation-play-state: paused;
 }
 @keyframes ticker-scroll {
   from {

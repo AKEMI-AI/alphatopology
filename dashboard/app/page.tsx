@@ -379,7 +379,7 @@ export default function TerminalPage() {
       {!sheetOpen && (
         <button
           onClick={() => setSheetOpen(true)}
-          className="lg:hidden fixed bottom-6 left-4 z-20 mono text-[11px] px-3.5 py-2 rounded-full cursor-pointer"
+          className="lg:hidden fixed bottom-5 left-1/2 -translate-x-1/2 z-20 mono text-[11px] px-3.5 py-2 rounded-full cursor-pointer"
           style={{
             background: 'color-mix(in oklab, var(--ink) 75%, transparent)',
             border: '1px solid color-mix(in oklab, var(--gold) 30%, transparent)',

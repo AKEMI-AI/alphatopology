@@ -5,7 +5,6 @@ import {
   ReactFlow,
   Controls,
   Background,
-  MiniMap,
   useNodesState,
   useEdgesState,
   MarkerType,
@@ -194,12 +193,6 @@ export default function TopologyGraph({ onSelect }: TopologyGraphProps) {
           color="color-mix(in oklab, var(--cream) 10%, transparent)"
         />
         <Controls />
-        <MiniMap
-          nodeStrokeWidth={3}
-          nodeColor={(n) =>
-            BASKET_ROLE_VARS[(n.data as ChokepointNodeData).basket] ?? 'var(--plum)'
-          }
-        />
       </ReactFlow>
     </div>
   );

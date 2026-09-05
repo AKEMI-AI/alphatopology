@@ -62,10 +62,16 @@ export default function CopilotDrawer() {
     return (
       <button
         onClick={() => setOpen(true)}
-        className="descent-pill fixed bottom-6 right-6 z-40"
+        className="descent-pill fixed bottom-5 right-5 z-40"
         aria-label="Open the copilot"
+        style={{
+          position: 'fixed', // .descent-pill's own position:relative would win otherwise
+          width: 'fit-content',
+          fontSize: '0.8rem',
+          padding: '0.5rem 0.9rem',
+        }}
       >
-        Ask the copilot
+        Copilot
       </button>
     );
   }
