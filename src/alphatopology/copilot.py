@@ -259,12 +259,30 @@ def deal_ledger(org: str = "ALL") -> str:
 
 
 @beta_tool
+def news_digest(force: str = "ALL") -> str:
+    """Thesis-filtered AI-industry news clusters from the latest crawl (headline, matched nodes/forces, sources with publishers and dates). Filter by force id or ALL.
+
+    Args:
+        force: A force/snapshot id (e.g. HBM_SUPERCYCLE, POWER_WALL) or ALL.
+    """
+    import pathlib
+
+    data = json.loads(
+        (pathlib.Path(__file__).resolve().parents[2] / "data" / "news.json").read_text()
+    )
+    stories = data["stories"]
+    if force != "ALL":
+        stories = [s for s in stories if force.upper() in s["forces"]]
+    return json.dumps({"_meta": data["_meta"], "stories": stories[:30]})
+
+
+@beta_tool
 def paper_portfolio() -> str:
     """Read the user's paper-trading portfolio: positions, marks, P&L, cash. Read-only."""
     return json.dumps(simulator.portfolio_status())
 
 
-TOOLS = [topology_overview, get_node, trace_upstream, market_snapshot, dislocation_snapshot, key_people, industry_snapshots, frontier_models, materials_inputs, deal_ledger, paper_portfolio]
+TOOLS = [topology_overview, get_node, trace_upstream, market_snapshot, dislocation_snapshot, key_people, industry_snapshots, frontier_models, materials_inputs, deal_ledger, news_digest, paper_portfolio]
 
 BRIEF_INSTRUCTION = """Compose a structured research brief on the requested topic using the tools \
 — query the dataset first, then write. Format as markdown:

@@ -1,0 +1,22 @@
+{
+  "_meta": {
+    "note": "News crawl configuration — Google News RSS search queries shaped by the thesis. Every fetched item is matched against the full entity/force lexicon regardless of which query surfaced it; unmatched items are dropped (the thesis filter). Add queries freely; keep them thesis-shaped, not generic."
+  },
+  "google_news_queries": [
+    "Nvidia",
+    "OpenAI",
+    "TSMC",
+    "ASML",
+    "Anthropic",
+    "SK Hynix HBM",
+    "semiconductor export controls",
+    "AI data center power",
+    "CoWoS advanced packaging",
+    "AI capex hyperscaler",
+    "humanoid robot factory",
+    "AI chip China",
+    "neocloud GPU CoreWeave",
+    "foundation model funding round",
+    "semiconductor materials photoresist"
+  ]
+}

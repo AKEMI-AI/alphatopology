@@ -21,6 +21,7 @@ const GeoView = dynamic(() => import('@/components/map/GeoView'), { ssr: false }
 const BookView = dynamic(() => import('@/components/book/BookView'), { ssr: false });
 const FlowsView = dynamic(() => import('@/components/flows/FlowsView'), { ssr: false });
 const MarketView = dynamic(() => import('@/components/market/MarketView'), { ssr: false });
+const NewsView = dynamic(() => import('@/components/news/NewsView'), { ssr: false });
 
 const REFRESH_MS = 60_000;
 
@@ -30,6 +31,7 @@ const VIEWS = [
   { key: 'geo', label: 'Geo' },
   { key: 'flows', label: 'Flows' },
   { key: 'market', label: 'Market' },
+  { key: 'news', label: 'News' },
   { key: 'book', label: 'Book' },
 ] as const;
 type ViewKey = (typeof VIEWS)[number]['key'];
@@ -355,6 +357,8 @@ export default function TerminalPage() {
               onSelect={(node) => selectNode(node.ticker)}
               onZoomFloor={() => setView('graph')}
             />
+          ) : view === 'news' ? (
+            <NewsView onSelect={(t) => selectNode(t)} />
           ) : view === 'market' ? (
             <MarketView activeTicker={activeTicker} onSelect={(t) => selectNode(t)} />
           ) : view === 'flows' ? (

@@ -1,0 +1,1618 @@
+{
+ "_meta": {
+  "fetched_at": "2026-09-06 16:17",
+  "note": "Thesis-filtered AI-industry news via Google News RSS. Headlines/links belong to their publishers; we store titles + links only. Matching is keyword-based (v1) \u2014 expect some misses and false positives.",
+  "queries": [
+   "Nvidia",
+   "OpenAI",
+   "TSMC",
+   "ASML",
+   "Anthropic",
+   "SK Hynix HBM",
+   "semiconductor export controls",
+   "AI data center power",
+   "CoWoS advanced packaging",
+   "AI capex hyperscaler",
+   "humanoid robot factory",
+   "AI chip China",
+   "neocloud GPU CoreWeave",
+   "foundation model funding round",
+   "semiconductor materials photoresist"
+  ],
+  "stories": 156
+ },
+ "stories": [
+  {
+   "id": "S000",
+   "headline": "GTC - NVIDIA",
+   "nodes": [
+    "NVIDIA"
+   ],
+   "forces": [],
+   "source_count": 3,
+   "latest": "2026-09-06 06:04",
+   "sources": [
+    {
+     "title": "GTC - NVIDIA",
+     "publisher": "NVIDIA",
+     "url": "https://news.google.com/rss/articles/CBMiY0FVX3lxTE5IX1lvZGNiMnNKQkk5dzZ1X2g5Y2xnbjgzQU56cnlNcHhMM3V4Szdncl9MVUVEVmtaZzJXUXBxNGtUQ2lBZlNWeXhIWVBad0xVeW8tTWFxQkRmbjFtRHJMdkJETQ?oc=5",
+     "published": "2026-09-06 06:04"
+    },
+    {
+     "title": "GTC - NVIDIA",
+     "publisher": "NVIDIA",
+     "url": "https://news.google.com/rss/articles/CBMiY0FVX3lxTE5Xc2Y5eWRzZ2NhaVY2cURNUDM2VC1VczhUdVdLSWM5Ql8xdG5KMXNxUWdhanJfUFc2SncyTnFPWktwbWd3TDI2SWg2SkVKZmlvMFk1SC05REswc29WSlF4bGZIWQ?oc=5",
+     "published": "2026-09-05 23:15"
+    },
+    {
+     "title": "GTC - NVIDIA",
+     "publisher": "NVIDIA",
+     "url": "https://news.google.com/rss/articles/CBMiY0FVX3lxTE5vM2wzV1pSQUZuQTBGa1ZsTFB2UlZaRnpsRDZNNlJ2OXRvTlRrYWNodUxIc0tyMEtvNERNYlpSVmVpVmJ5cW1FRFBQWWNLczlBcHN5QWNsc1pzZXpOc2FIYlh5bw?oc=5",
+     "published": "2026-09-05 19:56"
+    }
+   ]
+  },
+  {
+   "id": "S001",
+   "headline": "ASML vs. Taiwan Semiconductor: Which Semiconductor Monopoly Is the Safer Investment?",
+   "nodes": [
+    "ASML",
+    "TSMC"
+   ],
+   "forces": [],
+   "source_count": 3,
+   "latest": "2026-09-05 20:00",
+   "sources": [
+    {
+     "title": "ASML vs. Taiwan Semiconductor: Which Semiconductor Monopoly Is the Safer Investment?",
+     "publisher": "The Motley Fool",
+     "url": "https://news.google.com/rss/articles/CBMilgFBVV95cUxNN1lEME52UDBPSjNDTEZOLWVpV2s2QTJpVGVuNEEteHNHMjRObXNWaWttYnVrR1N3SkNpT1dMMzh3UjRSZjJ2TVVMNU1vclVtSmFEdmFWRC1jSnhaNmdva3poX29MQ2VsWG1kRE50dGQ4MUtxZE1EZVlMWS1WWFhKU1Q1eUE1cWhUOUZaZ1BRSzdLVVJ5M2c?oc=5",
+     "published": "2026-09-05 20:00"
+    },
+    {
+     "title": "ASML vs. Taiwan Semiconductor: Which Semiconductor Monopoly Is the Safer Investment?",
+     "publisher": "The Globe and Mail",
+     "url": "https://news.google.com/rss/articles/CBMi-gFBVV95cUxQNndPOEVMVWRLbmxWUURhNzRvcWU4U3VTYTFvcmRjTWtCR1gwcC1PN29CV1Bic1lfOFcwRExSaUJmMHJLeHFnMmlwQ3d4bWRxcUZsbGxIak5TYTVLSU9jZzkzZUdpbFh5b0ZBN1VHaWxBbWpueTBjcTdCRDJUNXdQdmRRV1VMVkNYc3hEYmFzaTdfcTdIMHhhTUNvYjhTM29yX0MxVmdIaFRsT3dDYnN3Z0tFRmNiMzR2VzZNLW9YUWc5N203cFV1OEZWaEUtUjZTYkZXbGFxWDhqTzE1QkFzb0M5TDZnVVVXaTFvNjk5Wkw0WHE5WTBIRldR?oc=5",
+     "published": "2026-09-05 19:20"
+    },
+    {
+     "title": "ASML vs. Taiwan Semiconductor: Which Semiconductor Monopoly Is the Safer Investment?",
+     "publisher": "finance.yahoo.com",
+     "url": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxNd2FFeUUya2tHR3JoaHJQQUd5Y25IVHowMVVMQ1RONkpNVTE5TVg3SUVEWWxDR1RxS292N2xraXNkcGlibjZOOXI0LW1xOFZDWHlMQ1pfN3BrVk95UllCb3NNejJ2Vi1veDVBSGZ0cHBSdHh2b1BmMkEtR2FnV0NZTnVzNmlwQzVHYXdjYjAteVRSYU1sRXdRX0xnYnQ3cGVDUmFKWll6SmFfRjQ?oc=5",
+     "published": "2026-09-05 19:20"
+    }
+   ]
+  },
+  {
+   "id": "S002",
+   "headline": "Sweden Fused Silica Wafers - Market Analysis, Forecast, Size, Trends and Insights",
+   "nodes": [],
+   "forces": [
+    "MATERIALS_ENVIRONMENT"
+   ],
+   "source_count": 2,
+   "latest": "2026-09-06 04:16",
+   "sources": [
+    {
+     "title": "Sweden Fused Silica Wafers - Market Analysis, Forecast, Size, Trends and Insights",
+     "publisher": "IndexBox",
+     "url": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxPOGExU1RwNEc2c3U2Y2QtWXhzdHhsYVN4XzlXSkQyOTBqT0c1TVVPTllOVWh2cG9vSVVtREZzT01oal9Uc1k0RFZ4OGlOODgxd0ZuaHFUYnJkTVFPSXd0NWlzTjRxdUpHeGotYTlWUXhoOGFEUXhEdUVTZ3hoeE92MkJIVWRTZmMxTmU1Y0ZMdFVyTmlxcExLekNSX25rMXJsbEdSLUdfd3pIVWc?oc=5",
+     "published": "2026-09-06 04:16"
+    },
+    {
+     "title": "United Kingdom Photoresist Stripping Chemicals - Market Analysis, Forecast, Size, Trends and Insights",
+     "publisher": "IndexBox",
+     "url": "https://news.google.com/rss/articles/CBMixgFBVV95cUxOZ0lhaGN4bXA5UXNIMFFmdWEzUFpCdE9qQnJNTzA1UXdNc3AzbEdGaDZjVWlic1JmUGg1SmI2cXAtb0dmOGphWnQxUXltY1E0Z3p2OExhWnJ0ZVJDUjZPRzJWS0JBcU91S0toQjdPckxsY01KZFVUdVNVNWJnbVNGTFBfLUJxTVFUcHpWT2JwQ3JGTFgtcF81OFZZTzY1N0Y1bGdyRFpEc0FwSGNJckhTaVQzb2QxLUMzc0pWaXJIWWliNmxlVEE?oc=5",
+     "published": "2026-09-06 04:16"
+    }
+   ]
+  },
+  {
+   "id": "S003",
+   "headline": "Micron plans to double HBM capacity to around 100,000 wafers per month \u2013 HBM4 share expected to rise sharply",
+   "nodes": [
+    "MICRON",
+    "SAMSUNG",
+    "SK_HYNIX"
+   ],
+   "forces": [
+    "HBM_SUPERCYCLE",
+    "MATERIALS_ENVIRONMENT"
+   ],
+   "source_count": 2,
+   "latest": "2026-09-06 04:00",
+   "sources": [
+    {
+     "title": "Micron plans to double HBM capacity to around 100,000 wafers per month \u2013 HBM4 share expected to rise sharply",
+     "publisher": "igor\u00b4sLAB",
+     "url": "https://news.google.com/rss/articles/CBMimgFBVV95cUxQcnB5dFEzMGc0ejR6Y1ZfemxRVFhXcHRFdzNUZkNBX2NEbkp0SjdfeU8tY0RReG1xel81SWdRQ0puMnlLdmEzTTJiVEw3ZlVtcVFVWW4yQ1A5M3dVV0pCT01jS29LRzRmS2x6Zm1tLTUycHlUZ0VjV2JBV0ZQOXFrZnltNWpaV1lGcWRmbG45c3JCN2ZQdnMxV0d3?oc=5",
+     "published": "2026-09-06 04:00"
+    },
+    {
+     "title": "Micron Plans to Double Monthly HBM Capacity to 100,000 Wafers to Catch Up With Samsung and SK Hynix",
+     "publisher": "TradingKey",
+     "url": "https://news.google.com/rss/articles/CBMi4gFBVV95cUxPVTBMVS1nbGpGUGJPQm5td0RPMkRGQkdNTzBVN3VreW14Q1ZkdUo5M2hQNG9uSFlYYVZIZkdKcUQ2RHZiMWhnU052WkRxaVBPNERqT1I5azFsMl9mX1AzVUlnMmFkN3lyRDhQeVJJOWxWcC1SMDlOcnotX095RWN1YVVOUEhaX29zZS1YZUN2YW9HSUVkOWt1Sjl1cFpRQ2RFX2VEOXlJVnlBS3FLN0VoaXNxZVk4c0Mtb2lLNy1TWU05Y0lmWXpPdldvcUJoZjFKOW8yWjh6MFNESy1SVXoxUjh3?oc=5",
+     "published": "2026-09-04 15:47"
+    }
+   ]
+  },
+  {
+   "id": "S004",
+   "headline": "Seattle Times and Newsday are the latest publications to sue OpenAI and Microsoft",
+   "nodes": [
+    "MICROSOFT",
+    "OPENAI"
+   ],
+   "forces": [],
+   "source_count": 2,
+   "latest": "2026-09-05 22:49",
+   "sources": [
+    {
+     "title": "Seattle Times and Newsday are the latest publications to sue OpenAI and Microsoft",
+     "publisher": "TechCrunch",
+     "url": "https://news.google.com/rss/articles/CBMitwFBVV95cUxONTdOTkJNdUJEQng2RTROVzFoM1NjeUN2d1ROa0xmNlItOFpfQkctMHhVQ0pFUVcwVlY0bzcxSXBsUVFRU3lhX1JFQ0U0NXhmNzF5RnZucmdodFJvWElrS3dnck1IWGMtSEtXZHpjRU9nWkxMZTZKcXdsVlpJcGp3OE15amdkejVkTnk2dWd2bVRJR29IMmNpNzdNb1BDOV85aFlIN3VEQkFNVkJwcHhFSkRGaGdRXzQ?oc=5",
+     "published": "2026-09-05 22:49"
+    },
+    {
+     "title": "Seattle Times, Newsday sue OpenAI, Microsoft, alleging copyright infringement",
+     "publisher": "Reuters",
+     "url": "https://news.google.com/rss/articles/CBMixgFBVV95cUxPOE83d29ldlZFZGYwMXNLVWtXaUpMLS1xWmpDWjIzREhzTUk0cklteXNPX0ZnMlZ5M3JUcktaLUhlbVJGNHNnTTJwMy1DMFRTWWpFRy1VdmwwZVYtLTNTS0Q4WFZlLUgyd3VqSUxZX3VSTDVzeE1xOHhiclJFLVJGUjB6emhPNFVfWHgzbzBKQ0FiQ29wRmNEYkc4MjFIYjVuSW9Gc2VObDMwdjh4c0xiTFZmd3doU2NPV2I0eTJLZ0N3aDl5alE?oc=5",
+     "published": "2026-09-05 03:00"
+    }
+   ]
+  },
+  {
+   "id": "S005",
+   "headline": "AMD Committed Up to $5 Billion to Anthropic, and Anthropic's IPO Prospectus Is Reportedly Days Away",
+   "nodes": [
+    "AMD",
+    "ANTHROPIC"
+   ],
+   "forces": [
+    "MACRO_LIQUIDITY"
+   ],
+   "source_count": 2,
+   "latest": "2026-09-05 22:43",
+   "sources": [
+    {
+     "title": "AMD Committed Up to $5 Billion to Anthropic, and Anthropic's IPO Prospectus Is Reportedly Days Away",
+     "publisher": "The Motley Fool",
+     "url": "https://news.google.com/rss/articles/CBMi2wFBVV95cUxNcEpxQW10OUd2LTR6UkZ2aTU4TlZlUVlrLUY4cnZmb1MtNmZId2RTbko1Um5vSXNpNlI3aVlIMlk1czlFNGRKY3F2SG00RGhmdk5VSUJjZ2I5NWgxaWhvRDVnRW0yczFmUVJoVXBRMl83R2plbFhtQ3ZsOHM4VWhYck9BdEMyNHdLel9EeUx3VHprM0lCeWJmaDIyX0tZVXQ0dUpBZjNGeUJvN2ViVlN5amxIWHhZdmJqWWFua0M5MGJVcEotZElJSGhIRzNRRnFnbTRUV0stT3pHSmc?oc=5",
+     "published": "2026-09-05 22:43"
+    },
+    {
+     "title": "AMD Committed Up to $5 Billion to Anthropic, and Anthropic's IPO Prospectus Is Reportedly Days Away",
+     "publisher": "finance.yahoo.com",
+     "url": "https://news.google.com/rss/articles/CBMingFBVV95cUxPNVd3dzNSOFVFMEt5MGdCenVMT3lXNm9URlNNUDFiUVNuaXF5YlE4MGVzeF9jTnJNTkxmamVqOGhWRDVfYXlRVnlaTUxaZmdnOHhmcVNUV3d0bWNQZmNRclZfZkVRNnRZSnludFJySEtQSTY3bUEwUkRMbHhaQkdIN3k2SWQwLURMa1ZTWEh4QWRnbjlmeWJEZzBSSW1Zdw?oc=5",
+     "published": "2026-09-05 22:03"
+    }
+   ]
+  },
+  {
+   "id": "S006",
+   "headline": "OpenAI confirms the wiki incident and promises a disclosure framework within weeks",
+   "nodes": [
+    "OPENAI"
+   ],
+   "forces": [],
+   "source_count": 2,
+   "latest": "2026-09-05 18:50",
+   "sources": [
+    {
+     "title": "OpenAI confirms the wiki incident and promises a disclosure framework within weeks",
+     "publisher": "The Next Web",
+     "url": "https://news.google.com/rss/articles/CBMi4AFBVV95cUxQb0RuMkZqT1RZTjFCc3BjS0FWVWt4ZDNnYkk5OTI2TnYxVFV2cnAzdVFfc1ZsX0o3bzgwNXRtWUhxMlVsUHljOFludUhDOHREMkxpLVNsR3llY0hWMUxZVkkzbGRqd0FMaVBDTkxUUExsV0FwZTNwRURYMHNCc1lRTHZKeFBJMGFHT0RJckRJdUJPNl92RkwyT3ZnWDhaS1d2aThxOE9TN2pXa0owc0lJUmFDTlZTblB4dS1sM3NuU2RQQkFBLWVmUU8zLTdsSDdKWGp2S1RtTzNUOTVTTGc4Xw?oc=5",
+     "published": "2026-09-05 18:50"
+    },
+    {
+     "title": "OpenAI confirms \u2018wiki incident,\u2019 says it\u2019s \u2018working on a framework\u2019 for more disclosure",
+     "publisher": "TechCrunch",
+     "url": "https://news.google.com/rss/articles/CBMitwFBVV95cUxOaXFFeGc1SDlwN0VKcFZmZFRYdUFCdTZuOFVEVVA2dzdHWjVIOGN4ZlFrZ0toYVR2V1ZtNHJlRFFpaW1aNEJMSl9hS0NEWXZIQm1vcFB3NXdyQTI0NE9uRDNfVFBKNElfM193Ym1hX2dPMUNXZmMyZFRpaF85el9QU25OSFVkZDBvQjJ3dFVpZVpwTFU5VFJpVW14QzE0NUhEX0Z2SnNjLVJ1d3RydDduQkI3NzZOMWs?oc=5",
+     "published": "2026-09-05 18:05"
+    }
+   ]
+  },
+  {
+   "id": "S007",
+   "headline": "NVIDIA Offers GeForce RTX 50-Series Founders Edition GPUs at MSRP at PAX West",
+   "nodes": [
+    "NVIDIA"
+   ],
+   "forces": [],
+   "source_count": 2,
+   "latest": "2026-09-05 16:45",
+   "sources": [
+    {
+     "title": "NVIDIA Offers GeForce RTX 50-Series Founders Edition GPUs at MSRP at PAX West",
+     "publisher": "TechPowerUp",
+     "url": "https://news.google.com/rss/articles/CBMisgFBVV95cUxQSTVkSmVwYXB6Zk9XTzRwOWtwbHlSVVQ0UW1vMi1ubzB4SEt6akpWWHd1ajFWUjZMNGFVR1ZrX2lHZTN1UjhOaEdXR2tIeUZIcFVkNk1mSmFBTmQzN2k5V2NwSEhXWktNZjUzQUhxb1UtMm8yakR1UW5vWE91ZkQtbklvRUgwekdhTW5xZnotMnVfUDl1STZfLXZLQ1BGcUk1VTdGUzB0YVRTU19SY3RTVmFR0gG3AUFVX3lxTE5qMlhPbGpFeHJTTWdBbkNMSlQwcU9wVVhWdTFKLVpTUEdZNUR4R1dxZGRTQmdpQWNIbVROM2s4a1IyaDRlb2YzNDl4Q0lwdGZSbmtCZWNUR1N4Ti1DNE8yZHJGb0ZqUzZtNjB2WVdHbzVxNHZPWnJET3NNVUYzWnlMQjdsY1hyRi1HNU9vQjhqX203a3Y0cURXbDRFVWV4cGl4V2JCN3l0Z1lsUFdTMVN5UnlDRDVscw?oc=5",
+     "published": "2026-09-05 16:45"
+    },
+    {
+     "title": "Nvidia returns to selling Founder's Edition RTX 50-series GPUs at MSRP in person at PAX West \u2014 Verified Priority Access has RTX 5090, RTX 5080, and RTX 5070 at list price",
+     "publisher": "Tom's Hardware",
+     "url": "https://news.google.com/rss/articles/CBMiuAJBVV95cUxOckp3UlROa3BicU9sV09MVnpSZDBhWlhVWEJDeUtWMTZ0MHBmMjlHN01YUmIzNHFWTXV5V1ZkVjhrTF9HSlg4R3o3UmR4Tm1iWGZvSzQ1MjhqVFZUTE9xOE9PVDFnbDVSTDRUR2I1dElhLW9WVXpnTnk4WXVLWU9OQ04zMW9kMnUzOXRnYjR1azZSM3R2MkpLWjk1WUhrYU8wMThrZDJNdTRlcnpKWU5wODh3NDliYmlzbktSaGd4bHYteUlmcVRDY3lVMG83QTRLdzFta3BfTFVuMVRlS2hTYThJMWZnUzVacVR6Ulg5NzdQazNVWkVNdGlnZjJIMU1BVXJjZkVTcFlHa3ZvNkxPRzl2eE13YWdkT3JJZEJNMkRER1pTU3VlQzFhaDNpdmppc1c5aTM4ZlY?oc=5",
+     "published": "2026-09-05 15:04"
+    }
+   ]
+  },
+  {
+   "id": "S008",
+   "headline": "Why ASML Holding Stock Bumped 4% Higher Today",
+   "nodes": [
+    "ASML"
+   ],
+   "forces": [],
+   "source_count": 2,
+   "latest": "2026-09-04 23:31",
+   "sources": [
+    {
+     "title": "Why ASML Holding Stock Bumped 4% Higher Today",
+     "publisher": "The Motley Fool",
+     "url": "https://news.google.com/rss/articles/CBMikAFBVV95cUxOcXJ2cVp6SEVLRkhtRjJkb2NySXlIU1JSaUdDbm5kNXVpT291ZVdvYTF0dmRpM29adHh6dzlDVlpxNmF1RXhRWFJOZFVDX1lSTkVjLThTZk5hWjhjYjJfYUZvUmhGNHpQT0tOTDBWZlUwQ0tjUGJPankxNFlJYVJpb3JDVms4NnBfZkFyLVQ0cXc?oc=5",
+     "published": "2026-09-04 23:31"
+    },
+    {
+     "title": "Why ASML Holding Stock Bumped 4% Higher Today",
+     "publisher": "finance.yahoo.com",
+     "url": "https://news.google.com/rss/articles/CBMimgFBVV95cUxNeFpCOUxOZjJiNXpFTFRvYU9ZeDJ4c01ZS0IxblZSdkc4SFc0a3JOenpYMTZRWExpVTh3R3pqcnltMkEzbW13bTBzUEZUc1Q5aDVrLVM0ckNfYUFBUlRJYzVtaG9femhFbXJ6YXVOUUtmd0l4dl9KN1h2N25JLTZZWlFGRnM5Vmd5ZG1maU5JeHoySjRyRkpRUE9B?oc=5",
+     "published": "2026-09-04 22:51"
+    }
+   ]
+  },
+  {
+   "id": "S009",
+   "headline": "SK Hynix Surges 7% as Memory Bid Widens Beyond NAND; Seagate Rallies 5%",
+   "nodes": [
+    "SK_HYNIX"
+   ],
+   "forces": [],
+   "source_count": 2,
+   "latest": "2026-09-04 19:07",
+   "sources": [
+    {
+     "title": "SK Hynix Surges 7% as Memory Bid Widens Beyond NAND; Seagate Rallies 5%",
+     "publisher": "finance.yahoo.com",
+     "url": "https://news.google.com/rss/articles/CBMikwFBVV95cUxQRWNNX0hDYzdTdnNUWXI2WmVwVHJfRUxVM2dHZ3hXd1VULWhZMm9sWXNfWXJvajhrc3hjVXdmb0dPOGktYkk5TlUwVVcxM2NrbEptOG94YW5UVW5odnhQV25NNnR2eWtsWUtzVm9EUXQ4RFV6dTdHWDR5a3pob0VudmxYbnZFeDc2LTZmcnpIWjZiR28?oc=5",
+     "published": "2026-09-04 19:07"
+    },
+    {
+     "title": "SK Hynix Surges 7% as Memory Bid Widens Beyond NAND; Seagate Rallies 5%",
+     "publisher": "24/7 Wall St.",
+     "url": "https://news.google.com/rss/articles/CBMisgFBVV95cUxNWmxmbjQwV0Ezek9nWXJHeWJqYUxteDFMT0x5Slp1SkZSLTltd09JeFQxUlEzQ0pUT1hrZDBJVVgwNVR6ZzFxWVFteko1TGJWZmZ5QUNBQ3VzWGphNmpaXzA5TzJEVkt4SXFkNUhoX3JXQ2sxYm5oX0VwenFDZ3JTWFFtcW9ZdGQ3QjBDbFNnMUhLczZRTWtOd1RVYS11WGhNeHVzYWF2anYyY25nM016NmJ3?oc=5",
+     "published": "2026-09-04 19:07"
+    }
+   ]
+  },
+  {
+   "id": "S010",
+   "headline": "$ASML Holding (ASML.US)$",
+   "nodes": [
+    "ASML"
+   ],
+   "forces": [],
+   "source_count": 2,
+   "latest": "2026-09-04 14:35",
+   "sources": [
+    {
+     "title": "$ASML Holding (ASML.US)$",
+     "publisher": "Moomoo",
+     "url": "https://news.google.com/rss/articles/CBMi4AJBVV95cUxOSHRRbXFmM3ZDRlAwZFBkNmRGSVJ5ZWxfeE5DUWhIQXdud2JkbGZfUWh3RnpodkktbE91azBwaVBDX2s0bmdXd2QybTJ0RnhUNFNDNTVON3pndFI5ZlBaRWtPcktlaWo2b3FOUVlNYTV6S3JPYndINUh4NmdlbnRYX0lMeWhGQzhYRWh6T3pQM0p0SEVoTnM2S3o5eVhUOHhRT2dYeDVMUEM0WlFPUnZvYWRoeGZCM1g3TUlzTE5nMlZha0Q2Rl9hZlZEVVJmdzhEN0hDMkRFR1dhcHBxc0NONERHaV96bVFkUXc5ZTZIVTVHQk1Yei13bllVNkRiR2JEdXBIUnNUb0w1RUR5TEdoNThhZFZGR1llRWpjMHJ1YTJnZTJOaDJPVWJYZk1EczVwVHZaSHJiN2VsT3BLLVI3RTcwd3ltR2RtSXZ2VEtJTVZ1bHRiOEI5MGNLYkY4Y2ZU?oc=5",
+     "published": "2026-09-04 14:35"
+    },
+    {
+     "title": "$ASML Holding (ASML.US)$ You must strive to succeed [Concerned]",
+     "publisher": "Moomoo",
+     "url": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxQanUyODNOQmZhQk9pYVFaQzY5eFhZQWlHMUdRUEYwSWQ3MXNmZnFrcFRWOWFIZ2wwRnhHeUFncFh5aV80bDV3d0lpOWFYOHBqZV94UWw5SDBveU9RWnFFV09abHROVm1zQk5xM1A5UkpabmY2Z0E4MUZUUDQ0Uk1OMy1TSy00bUFDTUN0SkN0VklwbjhDLU5WbmdJbW1NVURpMTI5T1dPZG1Gdw?oc=5",
+     "published": "2026-09-04 13:59"
+    }
+   ]
+  },
+  {
+   "id": "S011",
+   "headline": "Humanoid Robot Shipments Forecast to Reach 26 Million Annually by 2040",
+   "nodes": [],
+   "forces": [
+    "ROBOTICS_EMBODIMENT"
+   ],
+   "source_count": 2,
+   "latest": "2026-09-04 14:27",
+   "sources": [
+    {
+     "title": "Humanoid Robot Shipments Forecast to Reach 26 Million Annually by 2040",
+     "publisher": "iotbusinessnews.com",
+     "url": "https://news.google.com/rss/articles/CBMirwFBVV95cUxNcTdxaTJLR2dVNnZrZFduLXRFNjZiRTdoOExTQ3JmZEhTWDVsSS0waXVPZzZlQ1RfV3BPRUdycURHU2pwcVUxQXdmcEpXcHV4VWUwUlFMLS00WmNRbkl0MGpSZlZ5Z1VESW8xVEZ2OFB1MU1idjNKUDNlSU9ZM0EtSFYxRkdEaWxEOEx1b05YVVpuc0E1VnBTNEtiR0llMjkxOWhETGxJa2VKZEpFd2FZ?oc=5",
+     "published": "2026-09-04 14:27"
+    },
+    {
+     "title": "Humanoid Robot Shipments to Reach 26M Units Annually by 2040 - I-Connect007",
+     "publisher": "I-Connect007",
+     "url": "https://news.google.com/rss/articles/CBMirwFBVV95cUxQbnN1VzJfSE1QVng2aE4yVHVjVnpHUVFEaDh0WExldmJENTdqdHh0WkNiLVh4WDBYQjBWVEkwYmFzd0hsdmx1RDRkcW1ZVjVaQ2pzaFlTVXpOamppNnMyZ3p2NkhUNTA2YmJZWThwdFlyaEYwcy1QZVZPRzBQUld3VnRWaWtHRFpiUTFISEgzdXpfTTNDVThDTzNHd0g0X0FzbEw3ZEd5RVN3X0hWQVpN?oc=5",
+     "published": "2026-09-04 13:57"
+    }
+   ]
+  },
+  {
+   "id": "S012",
+   "headline": "TSMC's 67.7% Margin Now Needs Twice the Cleaning Chemistry",
+   "nodes": [
+    "TSMC"
+   ],
+   "forces": [],
+   "source_count": 2,
+   "latest": "2026-09-04 12:20",
+   "sources": [
+    {
+     "title": "TSMC's 67.7% Margin Now Needs Twice the Cleaning Chemistry",
+     "publisher": "finance.yahoo.com",
+     "url": "https://news.google.com/rss/articles/CBMiigFBVV95cUxOSEhIOVhmdG5paF9OVi1KZTlOYjAycXV6ZTN2WjVvV3VRLVAxb1V5dmc1WGZxY0Qzb1NjeTF1ZjBDVlE2WmxFSWlFakpVYzkyY2Fab2R3T2FXdTZqLWJ3WlJSTDFIa01UMzRmdUVwSFBSUVF4VkluRmNRT3dXaDZRU0Z6aVpPSklxOWc?oc=5",
+     "published": "2026-09-04 12:20"
+    },
+    {
+     "title": "TSMC's 67.7% Margin Now Needs Twice the Cleaning Chemistry",
+     "publisher": "Yahoo! Finance Canada",
+     "url": "https://news.google.com/rss/articles/CBMiekFVX3lxTE56VWpXVzZRRlJLYmNycVlWdF9XbWMzVkYyb2hFZzA1LU9BSEJoeGg0MXMtQmRQUlJ6a1hVaW5majBjYjNTYy1tQmZ5X2IxQnRTaEVHX1pwUi1kaU9Sa3o2SG8wU1dxQWtVZm1sbHpsNjVydUl2X3ZncFBB?oc=5",
+     "published": "2026-09-04 12:20"
+    }
+   ]
+  },
+  {
+   "id": "S013",
+   "headline": "Nvidia is no longer just an AI chip company. It is financing the revolution it built",
+   "nodes": [
+    "NVIDIA"
+   ],
+   "forces": [],
+   "source_count": 1,
+   "latest": "2026-09-06 08:34",
+   "sources": [
+    {
+     "title": "Nvidia is no longer just an AI chip company. It is financing the revolution it built",
+     "publisher": "calcalistech.com",
+     "url": "https://news.google.com/rss/articles/CBMiZ0FVX3lxTFBmdDJMVzIyMzM5TFlrMXNMM1dvVFljaTRyZVBkZlVhUlBDSHo3elQ3VlhyT3V2bmVqOVpmVGZjVGZyTWNnb28wUDNUUlJLRHVmczZMYnBudVRheTNjVXpCTEJ2dlhyRjg?oc=5",
+     "published": "2026-09-06 08:34"
+    }
+   ]
+  },
+  {
+   "id": "S014",
+   "headline": "LG Electronics Targets Big Tech Orders for Humanoid Robot Actuators",
+   "nodes": [],
+   "forces": [
+    "ROBOTICS_EMBODIMENT"
+   ],
+   "source_count": 1,
+   "latest": "2026-09-06 08:01",
+   "sources": [
+    {
+     "title": "LG Electronics Targets Big Tech Orders for Humanoid Robot Actuators",
+     "publisher": "\uc870\uc120\uc77c\ubcf4",
+     "url": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxOa291ZUVMSGxJLXZWSjVxTjhVSG5adlBqVUxyNmRvM1lSRUUyeUhWSUtVNXM1NkRGMlotTWQyb2Z1cnB3cGVyUGFJZnJySDJTZXRkdlNuQllBSzloX2dxZFRGVy1RZm8zRm1aRkF2SzViY2hXSkRVazhUb3dVT3VhWnpDb2RBc2ho?oc=5",
+     "published": "2026-09-06 08:01"
+    }
+   ]
+  },
+  {
+   "id": "S015",
+   "headline": "TVA says it's prepared for continued heat wave as electricity demand sets 2026 record",
+   "nodes": [],
+   "forces": [
+    "POWER_WALL"
+   ],
+   "source_count": 1,
+   "latest": "2026-09-06 08:00",
+   "sources": [
+    {
+     "title": "TVA says it's prepared for continued heat wave as electricity demand sets 2026 record",
+     "publisher": "News Channel 5 Nashville",
+     "url": "https://news.google.com/rss/articles/CBMiugFBVV95cUxPWUpQbmFNT1hwclM2RzdMRXZxa09WdWNnS3d0UjNmSVNMc0V5bWp1MVpoRmh0ZEFUaC02bkg3TnhXTFI3MHVibTZNWFBEWW4zQW9aRGxJMGdmSnJBSmZxaExqUlNrNVUxRFdPekVWY190c2cxLXJsTlc4YU9uSVY0R3FjUFRNaGdSeXJwVWIzM3dOSUQ5djhXdGN6R3ExSEtySFk4djVobjJZOTY4eTlOVFIxN0V4cjJ2b1E?oc=5",
+     "published": "2026-09-06 08:00"
+    }
+   ]
+  },
+  {
+   "id": "S016",
+   "headline": "More details of the mega Anthropic IPO are coming out: here\u2019s what we know",
+   "nodes": [
+    "ANTHROPIC"
+   ],
+   "forces": [
+    "MACRO_LIQUIDITY"
+   ],
+   "source_count": 1,
+   "latest": "2026-09-06 07:56",
+   "sources": [
+    {
+     "title": "More details of the mega Anthropic IPO are coming out: here\u2019s what we know",
+     "publisher": "TradingView",
+     "url": "https://news.google.com/rss/articles/CBMiygFBVV95cUxQM3p5cEdNTlNseENLbUVHVjFOcWRtVzZrUTRGazIwSWlBbk9lNm9hNVpsS3J2NVptamtsTzh0Q3VkYnktQTdlb0wzWkJNYXNnRzF2Yk1mNFVwVTQ5eExuVVEtUldCc1VoanpUNW1KX0VsMGlYNHRFZTF4LWM1WVFhVTl4eTRSc0czdG1melc5Njh1T044TU5Ga21mSWpuZWZFVnlaUTFXbFlXanpPQ2R1d09fYVpGUXo5ck45MzRlbmRWTVVGRmtMb1ZR?oc=5",
+     "published": "2026-09-06 07:56"
+    }
+   ]
+  },
+  {
+   "id": "S017",
+   "headline": "NVIDIA Corporation $NVDA is Clearwave Capital LLC's 7th Largest Position",
+   "nodes": [
+    "NVIDIA"
+   ],
+   "forces": [],
+   "source_count": 1,
+   "latest": "2026-09-06 07:32",
+   "sources": [
+    {
+     "title": "NVIDIA Corporation $NVDA is Clearwave Capital LLC's 7th Largest Position",
+     "publisher": "marketbeat.com",
+     "url": "https://news.google.com/rss/articles/CBMiywFBVV95cUxObnE1cWM2RnczbmRINlh3T0ZiOFBBTTByb0hZX1R2VWlCNWF4T2JkRUE1aWdSVTFQX2pqVnJRVW1Bc0x3bkxqeUpieWJpYkw1ZE5HTllqMTRJdGwwWDhqcHJLT3o5ZWI3bjZId1pUVC13eVNzX3dHUzJNRVgxYnk3NWs4cFJuZFRuQUFDSnBvU0xUWmRTZjZzeGJZXzBxTmRUVUNyaXZJbUY0R0F6MmxDWEdWUzdWeU9NWGJHbEZqWThyZDJyX3p4bTJaWQ?oc=5",
+     "published": "2026-09-06 07:32"
+    }
+   ]
+  },
+  {
+   "id": "S018",
+   "headline": "Nvidia's $13B Hugging Face Deal Locks Out Rivals",
+   "nodes": [
+    "NVIDIA"
+   ],
+   "forces": [],
+   "source_count": 1,
+   "latest": "2026-09-06 07:10",
+   "sources": [
+    {
+     "title": "Nvidia's $13B Hugging Face Deal Locks Out Rivals",
+     "publisher": "shattered.io",
+     "url": "https://news.google.com/rss/articles/CBMigAFBVV95cUxQRjRkWDBreEFQZmtaV2w0a1hheUdkRWZSNEtVTnpPYXFaTGRXdl92RDdrVWxGYV9TVWpDR0cyMEpwVkRqVXIxYi1SdUYtUWZsOUtsNUJpTTZkZXVTbnN3aEhlSU5ibktSVzJrZ05hbmVycV9tME5sdXJNNGNnTnZEdw?oc=5",
+     "published": "2026-09-06 07:10"
+    }
+   ]
+  },
+  {
+   "id": "S019",
+   "headline": "OpenAI has admitted that its agents used wiki sites as message boards",
+   "nodes": [
+    "OPENAI"
+   ],
+   "forces": [],
+   "source_count": 1,
+   "latest": "2026-09-06 06:52",
+   "sources": [
+    {
+     "title": "OpenAI has admitted that its agents used wiki sites as message boards",
+     "publisher": "UkrMedia News",
+     "url": "https://news.google.com/rss/articles/CBMidEFVX3lxTE9FMG1YYzA4S0ZHaVFLcDhMNDRWdVZKQWxSeGFQSS1wUDZNb2ljMXRIUjFKR0dUVEVaSmZyUG15cnQwdXQzUC1mcFdZSHE0OVFibmptYVNwMEptYkN1X09HOUpvbjFNcllHS2s0bHJFeGlPby1I?oc=5",
+     "published": "2026-09-06 06:52"
+    }
+   ]
+  },
+  {
+   "id": "S020",
+   "headline": "Nvidia and CrowdStrike Develop New Cybersecurity AI Models | The Morning Download for Sept. 2",
+   "nodes": [
+    "NVIDIA"
+   ],
+   "forces": [],
+   "source_count": 1,
+   "latest": "2026-09-06 06:38",
+   "sources": [
+    {
+     "title": "Nvidia and CrowdStrike Develop New Cybersecurity AI Models | The Morning Download for Sept. 2",
+     "publisher": "WSJ",
+     "url": "https://news.google.com/rss/articles/CBMioAFBVV95cUxNa19QTkMyU3B3eUJFcXB3TmFIWVJ5RW5aNTN4LVhBby1oaVhaei12N2VmYW9kTUFPc0pPajNLSkhXWTFsOXF5RDRIWkhJNUoyN29HcGd1UUU3bDhLMUtvLWhvb2l1bUdTaHMwWUR4RDFrS21Xc1VRWXJ5c25nR0E1TVAxV2IxR3QyT0MzOC1GTFNxeDY0RDdxenA0bmQ4WFlZ?oc=5",
+     "published": "2026-09-06 06:38"
+    }
+   ]
+  },
+  {
+   "id": "S021",
+   "headline": "ASML Stock Adds $26 Billion on Someone Else\u2019s Bull Case. The Memory Read-Through Is Real",
+   "nodes": [
+    "ASML"
+   ],
+   "forces": [],
+   "source_count": 1,
+   "latest": "2026-09-06 06:37",
+   "sources": [
+    {
+     "title": "ASML Stock Adds $26 Billion on Someone Else\u2019s Bull Case. The Memory Read-Through Is Real",
+     "publisher": "ts2.tech",
+     "url": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxNdWd0ZHRueUgwcmxFMU1RTEYwWHNqRU9CWkRaQUtWLUgwaHk1WXNoQ0hPWW0yWDV1c3VTWDFzY05FNV8yU0l6UldfLUlxTTZXZElrVEJCTkZRVnp6eDZTVC1XcUdqR3ExZnBpSktxZTVYTVpRSVBhcUlXWFh3Yi1UZXFwMkY1TnEzTTd2Vk9QVmp2aDdxVzVmcWlubWMtRnBHODg5UGtzeVVZdw?oc=5",
+     "published": "2026-09-06 06:37"
+    }
+   ]
+  },
+  {
+   "id": "S022",
+   "headline": "NVIDIA\u2019s $12.9 Billion Hugging Face Deal Signals the Next Phase of Business AI",
+   "nodes": [
+    "NVIDIA"
+   ],
+   "forces": [],
+   "source_count": 1,
+   "latest": "2026-09-06 04:57",
+   "sources": [
+    {
+     "title": "NVIDIA\u2019s $12.9 Billion Hugging Face Deal Signals the Next Phase of Business AI",
+     "publisher": "Times Square Chronicles",
+     "url": "https://news.google.com/rss/articles/CBMioAFBVV95cUxOU0RIeUJLWFpGbWVHWmVMNTZVeVJsSG5WeFZfQm9QdVF0WUtPbkRKNFFEb08xSURsRnZjTWJVaEZ4Ml9RQ294UVBESlcwaFJ5TmllV3paSE1CMENQUzNvSXdHTEhoUDk0TlBOalptekhLa1MwMUhVLXluU0hPRzJUcHRRVHBtbWZMeWVuUDl3NEFsRThhblVFY3FHcDhweE5I?oc=5",
+     "published": "2026-09-06 04:57"
+    }
+   ]
+  },
+  {
+   "id": "S023",
+   "headline": "Rumors claim Anthropic's Claude has solved the Navier-Stokes Millennium Problem; Terence Tao clarifies.",
+   "nodes": [
+    "ANTHROPIC"
+   ],
+   "forces": [],
+   "source_count": 1,
+   "latest": "2026-09-06 04:16",
+   "sources": [
+    {
+     "title": "Rumors claim Anthropic's Claude has solved the Navier-Stokes Millennium Problem; Terence Tao clarifies.",
+     "publisher": "KuCoin",
+     "url": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxNcUUtR1FZZkJkOU5feHpMd2VnT3hqd2JEOVZYZ1hKNGpMM1RQYWFTbkFRckFTdkV3cmJ1M01MTTBlZXAzZTZVWWpiS240NWhMZm5CdEpHTjc3bHpCRlJvRzRfX2VzTXEzS2xPWUplellyTm9XQ0dfWGF4MjV1QUFjLXdWZ0dIY1F3ZmI1WklmNksyUkZLNVhXZ3hCNDh3Mlh3WEQ1VWk4STBtRTA4dGlaUnpSOUM1LTVGRFhITEZWTXdGUQ?oc=5",
+     "published": "2026-09-06 04:16"
+    }
+   ]
+  },
+  {
+   "id": "S024",
+   "headline": "Dean Ball (OpenAI): \"We should not think about AI as a race\"",
+   "nodes": [
+    "OPENAI"
+   ],
+   "forces": [],
+   "source_count": 1,
+   "latest": "2026-09-06 03:50",
+   "sources": [
+    {
+     "title": "Dean Ball (OpenAI): \"We should not think about AI as a race\"",
+     "publisher": "Agenda P\u00fablica",
+     "url": "https://news.google.com/rss/articles/CBMilwFBVV95cUxQV21rb0JHM1A4LWtZNFRqX1Y0YVVaNVJ0VFVtWTF0WmZoVm9rY0IxTk9JRUI3NUljUEU1RXRzbVN0cXdfRzZCUk56eW9VY2VNLWRyVjFDQlAwWTRLVjZUb1FZQ2J6WENyQi1QVmZVa0FLZFBCWU5KSXduNC1OVEg2X2p3ZlhfRGR1NWVuQkF2dXNEWnl5ZjJF?oc=5",
+     "published": "2026-09-06 03:50"
+    }
+   ]
+  },
+  {
+   "id": "S025",
+   "headline": "Gamescom 2026 Ray Reconstruction and game announcements - NVIDIA",
+   "nodes": [
+    "NVIDIA"
+   ],
+   "forces": [],
+   "source_count": 1,
+   "latest": "2026-09-06 03:34",
+   "sources": [
+    {
+     "title": "Gamescom 2026 Ray Reconstruction and game announcements - NVIDIA",
+     "publisher": "NVIDIA",
+     "url": "https://news.google.com/rss/articles/CBMi0AFBVV95cUxQamNnTlREbVVWc1BOWXFnRXczM2RQb3VGVW56NW9vbHBjYXNodE9kNHp0MGhPS0VoVlNmaE5iUkgzZktSRFVDUmZFUjI3V3hwT0d6eU1yMmhYd3JmSzRSWlllRElfZkZEOTFmcDNyc2VJZmkxcEZRV0NDbXJQZGVvdWVpV0QzbVFSSzhHOFNsY1JPMUZ5Q2d0LXlaOE53OWFsTnRhOHZ3OHhlaWJZbjJZeVkxRk92LWZtODh5Z2FTdEJVSWJ5MEpjN00wcUt5SHRR?oc=5",
+     "published": "2026-09-06 03:34"
+    }
+   ]
+  },
+  {
+   "id": "S026",
+   "headline": "Dow Jones Futures: U.S., Iran Exchange Attacks; Nvidia, Micron, Sandisk Flash Buy Signals",
+   "nodes": [
+    "MICRON",
+    "NVIDIA"
+   ],
+   "forces": [],
+   "source_count": 1,
+   "latest": "2026-09-06 02:42",
+   "sources": [
+    {
+     "title": "Dow Jones Futures: U.S., Iran Exchange Attacks; Nvidia, Micron, Sandisk Flash Buy Signals",
+     "publisher": "Investor's Business Daily",
+     "url": "https://news.google.com/rss/articles/CBMizwFBVV95cUxONnVmdkRaNDVMaV96YWJ1eGMzRlFGUTRMeDVfSlotMHFRaGJlN2VMTFpGVzQtM2JDVndXazFpY3VVajNBdG9BemQzZ0xKV1d2ejJkVVAzbWlOUGQwLVB1dU0tWnNuM2t1WEhaSlBwbDlmd1BDM3BaUU1od242RXhEanBPeEJJUF9LQS1GVzZwQTV3Q0c3bkVMN3lLbDhHU0tPY2xYc1p6NWRMMVBKTTF2dHJqNm8wR0NEMllEWkpLN0hmMEU1Y1ZhXzlQNDRYemM?oc=5",
+     "published": "2026-09-06 02:42"
+    }
+   ]
+  },
+  {
+   "id": "S027",
+   "headline": "Applied Materials (AMAT) Could Be 28% Undervalued As AI Chip Rally Lifts Interest",
+   "nodes": [
+    "AMAT"
+   ],
+   "forces": [
+    "MATERIALS_ENVIRONMENT"
+   ],
+   "source_count": 1,
+   "latest": "2026-09-06 02:41",
+   "sources": [
+    {
+     "title": "Applied Materials (AMAT) Could Be 28% Undervalued As AI Chip Rally Lifts Interest",
+     "publisher": "simplywall.st",
+     "url": "https://news.google.com/rss/articles/CBMi2gFBVV95cUxPT3FWT1hVRUtic2g4RzNrMzc0SUxYT25OMThNUmV4ZlRxZDhfbWdPMjZ6MElfazFEM3JhaWN3OFVYaVVYeGZWTFlQRGJEalFTbG5vcEM4TFBhcFJqNmxZdTR6d2xlYmZkTGF5OUMzUnFtNUxjWkdFRnNMYmVEakUwSlNwR1U3VFpLVWVaZEpRUmFJcmYxYng2dTl3WmlHbTdfWnVvUkRFVDlPTXhqd3FoUmU1MnMwY3Npb2VfUGZvblV6ZDZpUHdJa2FMT0VvM1YwR1FKaGVmUzB2QdIB3wFBVV95cUxNSlRzUmlHUy1sVXIxT0hpTm4wc2RoaGRySFBtOFlPZ3N0SS1aeEhpRXV1QXE3NHBTRmNZalhyNnp4OUJEZ09oZjFkdE9tYWx0RmR0dEJaczB1SmY5VkgwV2pubkxaTjZCUVlCMlA4UkM4RXVxQkFwVHdKRGdfVmxyeUtqVkRCWWVLdlhGUDc4bFpyMUVNaVNlbTF6amwza1MyLW1KaUhGU01wT0RUX3RORU5QV0hBUVJEV3NHMW1UcDNfbHlKYXFrd3RWWFh5aXBNcm5MN256eDJiT3lOY09n?oc=5",
+     "published": "2026-09-06 02:41"
+    }
+   ]
+  },
+  {
+   "id": "S028",
+   "headline": "Redditors say Anthropic's expensive Claude plans offer far less usage than advertised",
+   "nodes": [
+    "ANTHROPIC"
+   ],
+   "forces": [],
+   "source_count": 1,
+   "latest": "2026-09-06 02:36",
+   "sources": [
+    {
+     "title": "Redditors say Anthropic's expensive Claude plans offer far less usage than advertised",
+     "publisher": "Mashable",
+     "url": "https://news.google.com/rss/articles/CBMiekFVX3lxTFBsQkxWVDFMTnFDZUl0VjZLNHN2dXJNOTJVWk9VY2IxXzZLVldnWHV1OTBQNFJQUnFUX2pKdXExcHI5VFRkRFU0TS1kWXFZQTU0ZGQzRDZfOWpkQ0UyUW9xbERnczlJTmVyNF8zWVgzSzdpMUVmYnAteHNB?oc=5",
+     "published": "2026-09-06 02:36"
+    }
+   ]
+  },
+  {
+   "id": "S029",
+   "headline": "EcoPro targets humanoid robot batteries with ternary and solid-state tech - CHOSUNBIZ",
+   "nodes": [],
+   "forces": [
+    "ROBOTICS_EMBODIMENT"
+   ],
+   "source_count": 1,
+   "latest": "2026-09-06 01:49",
+   "sources": [
+    {
+     "title": "EcoPro targets humanoid robot batteries with ternary and solid-state tech - CHOSUNBIZ",
+     "publisher": "Chosunbiz",
+     "url": "https://news.google.com/rss/articles/CBMiggFBVV95cUxNcjFfNlREOWdzeHh3dzljSkJFcUhGajJZREZTd0JWem1kT0R2UEZTbFJpdTdub1ExUzBDaDZ1MzRmaTB2bmVTNWdtY2R5d0VjUzZyc3ZzM0ZCYjA5ajF1WEpmT1Z1c0syWGs4dGh6SGFMd3dfdEg4b0toc3VrSml0Yk5R0gGWAUFVX3lxTE5YZXNzRXIxZ2ZMT0lYUDZiSW1wRm93WUtXZmV6RlRFSHBXelN0OWNmdGpUai05T0pOSkQ2UHpodGNvNEZOM1p5Zk9ubF9ibnNYYWlyZW9QMTdtMC1XQTBIMGhaeEo4S0VoNVVBNU1CZlMyaEF5RFNUVzVMR2ZuQTE3WW5nS2h1aEotMGtEMGxSeUd2aGhsUQ?oc=5",
+     "published": "2026-09-06 01:49"
+    }
+   ]
+  },
+  {
+   "id": "S030",
+   "headline": "Robots electrify IFA 2026 as China leads humanoid surge - CHOSUNBIZ",
+   "nodes": [],
+   "forces": [
+    "ROBOTICS_EMBODIMENT"
+   ],
+   "source_count": 1,
+   "latest": "2026-09-06 01:28",
+   "sources": [
+    {
+     "title": "Robots electrify IFA 2026 as China leads humanoid surge - CHOSUNBIZ",
+     "publisher": "Chosunbiz",
+     "url": "https://news.google.com/rss/articles/CBMiekFVX3lxTE9KbVFxeGQycmZmRmk3U3RIWjlxWVFJaUlMWDdnRjlSQVVXWU1sOFh6VWNKaVJJRm90aGxoai1yQW1UanFrc1JpczVWS2pZN21vTDRSMDlFMG90QTlaRUt2LVFMOXY2MkNQWi1IcDRDSkhuZHRZaDVEQWJR0gGOAUFVX3lxTFBqMkRyV19PVi16T3NLOGljZksyQy1rYjhkWHY2S19DRlhBak1UQjYyWWNlLTZKUTVIOVNfMnRTZTBmSlluZzZ4Z2ItUlNIbHpsaWw4aC1jOFhVLXlkWUR0OHUtYkVIN1ZRRHQzbUhfMzdjd2NjRXFENXVuTTBFU1pVY05uZTRhUlJuTG1RYkE?oc=5",
+     "published": "2026-09-06 01:28"
+    }
+   ]
+  },
+  {
+   "id": "S031",
+   "headline": "Day 6 Check-In: Taiwan Semiconductor & The Monopoly Hidden at a Discount",
+   "nodes": [
+    "TSMC"
+   ],
+   "forces": [],
+   "source_count": 1,
+   "latest": "2026-09-06 01:02",
+   "sources": [
+    {
+     "title": "Day 6 Check-In: Taiwan Semiconductor & The Monopoly Hidden at a Discount",
+     "publisher": "Moomoo",
+     "url": "https://news.google.com/rss/articles/CBMisgFBVV95cUxPT2N5QVBDcmYzMDJlR1hGUFdVRjZkZFNyWVp2WXAybnhvQlJKVWtua3h1ZWt4Sl9mVFVwTzcxemx3VUNXSlRYX0NadHFmd3FGTHhmV2RRS2Q1NXE5SzZxVUpSOWpsN0hqYjBFazcxaHVTMTNQUXdpZWhwTFNCSjRCaUV4ZTNiOFp4UnlyOWExMHUzSWxrRU9lOWNwcGVoMUl2MjkxeWI3S3R0WEN3X1AzUXdB?oc=5",
+     "published": "2026-09-06 01:02"
+    }
+   ]
+  },
+  {
+   "id": "S032",
+   "headline": "Hot Chips 2026: HBM Base Die Evolves from a Memory Interface into a Computing Engine \u2014 Samsung Unveils a Three-Phase Roadmap Toward Custom HBM, aHBM, and zHBM",
+   "nodes": [
+    "SAMSUNG"
+   ],
+   "forces": [
+    "HBM_SUPERCYCLE"
+   ],
+   "source_count": 1,
+   "latest": "2026-09-06 01:00",
+   "sources": [
+    {
+     "title": "Hot Chips 2026: HBM Base Die Evolves from a Memory Interface into a Computing Engine \u2014 Samsung Unveils a Three-Phase Roadmap Toward Custom HBM, aHBM, and zHBM",
+     "publisher": "semivision",
+     "url": "https://news.google.com/rss/articles/CBMiggFBVV95cUxNUkNpbDZ6SFZ1ZlZRQXUzMjU3TmtpMWg4N2xnWTRBSHJ1Z2xtdW9BZWpLUE1xVGdNTlNYaXlqX0VteE56Y2VjbXNzNV9zRlNBTHBJa1VzbUJiVVE1OVhLaTUxMFhHMUZuM0NVSl9tTHY2VzBRNVpsTk1WUG5ZUk1uM253?oc=5",
+     "published": "2026-09-06 01:00"
+    }
+   ]
+  },
+  {
+   "id": "S033",
+   "headline": "LG Electronics: \"Robots May Arrive in Homes Faster... Preparing Bipedal Humanoids\"",
+   "nodes": [],
+   "forces": [
+    "ROBOTICS_EMBODIMENT"
+   ],
+   "source_count": 1,
+   "latest": "2026-09-06 01:00",
+   "sources": [
+    {
+     "title": "LG Electronics: \"Robots May Arrive in Homes Faster... Preparing Bipedal Humanoids\"",
+     "publisher": "\uc544\uc2dc\uc544\uacbd\uc81c",
+     "url": "https://news.google.com/rss/articles/CBMiZEFVX3lxTFBtU1dHOGZKSV9QMFJVZUNyNnNMYVN5TlgzNlRLejduWlo4TGVrMzlMVFdkMkdyLTF1VHA2cFl4UUN3SXVqU0tQVzE1QllUb1BaSUlJZks2eVRFM3E0RDlVb01kVVA?oc=5",
+     "published": "2026-09-06 01:00"
+    }
+   ]
+  },
+  {
+   "id": "S034",
+   "headline": "CLAS Raises \u00a51.38 Billion from Panasonic-Linked Fund and Others, Merging Assets with Panasonic\u2019s Refurbishment Operations",
+   "nodes": [],
+   "forces": [
+    "EXPORT_CONTROL_REGIME"
+   ],
+   "source_count": 1,
+   "latest": "2026-09-06 00:59",
+   "sources": [
+    {
+     "title": "CLAS Raises \u00a51.38 Billion from Panasonic-Linked Fund and Others, Merging Assets with Panasonic\u2019s Refurbishment Operations",
+     "publisher": "Circular Economy Hub",
+     "url": "https://news.google.com/rss/articles/CBMi6AFBVV95cUxNTmFOOEdVV0UxOE9sWFBKVjlpdjNxZ1AyNUxEV21RNkh6d1FfNFYwbk5BNkZ3ZWpRSDVZWkxpdWF4OGUwNURUbGpMaU1kT1JyOS1kcUN6cWFFN2tJbG9vQjJSMW1BTmNsZF9ib0s1el93SnlOcnZzaTgySW1RdGFiQzhZT25tYlI2bXpoU0Q3ZldjNlRiVk9VaGlIR2dwLWh1ekEzQk52ZzhVdFNlZmp1R2d2RXI2M3BpdkoxOFVfdFNqdnNaMGNzYUwtdlJINXhXeUJITFNYYVR1QVczVDczOVhEM0FUb0NY?oc=5",
+     "published": "2026-09-06 00:59"
+    }
+   ]
+  },
+  {
+   "id": "S035",
+   "headline": "Micron CEO touts U.S. investment as differentiator amid targeted tariff pressure on Samsung, SK",
+   "nodes": [
+    "MICRON",
+    "SAMSUNG"
+   ],
+   "forces": [
+    "EXPORT_CONTROL_REGIME"
+   ],
+   "source_count": 1,
+   "latest": "2026-09-06 00:25",
+   "sources": [
+    {
+     "title": "Micron CEO touts U.S. investment as differentiator amid targeted tariff pressure on Samsung, SK",
+     "publisher": "finance.biggo.com",
+     "url": "https://news.google.com/rss/articles/CBMidkFVX3lxTE42R1luYk05MG1OamhNRGpXeFNMYnUxWnpOeFBOR3JLVnlPamJSdkR5WElyTkJUdzdDd3B2Rk5RSDZPeU1IbFdzUlpzb1J6RnZPNS1YSzZjUjZENGlZUlE5M1UzNF9uU2V0RWswTGFVMGlCSVU3bWc?oc=5",
+     "published": "2026-09-06 00:25"
+    }
+   ]
+  },
+  {
+   "id": "S036",
+   "headline": "Nvidia Stock Draws Attention As Culper Research Takes Short Position Over China Ties",
+   "nodes": [
+    "NVIDIA"
+   ],
+   "forces": [],
+   "source_count": 1,
+   "latest": "2026-09-05 23:55",
+   "sources": [
+    {
+     "title": "Nvidia Stock Draws Attention As Culper Research Takes Short Position Over China Ties",
+     "publisher": "stocktwits.com",
+     "url": "https://news.google.com/rss/articles/CBMi4gFBVV95cUxQMUlHNWw0S3dWQ2NHbERpWHViTmNXTTl5YTVTTTdGUGtWYnFITW14c1pOUHhjWkdscEpZMzhfRW5ZdlQxVkNaSWg1LS1PczJVY3BvbjY5N1FfajlSeFNhN3FqOGhkNWJxX040ejIzU2xRNENnOFNTZ0tjUUpodFljaWljS0RsUUcweWZFb3F0clFQWVBZVG82UEdVX2FxeWpreGtSbzRmbzVBTVRNUEdPZlpXMTh4c0lTUGFGbHFhTVljSXJEWWV5MUFGMW1zTG9vRWk3RkVXTU1qM29KcVphVFRn?oc=5",
+     "published": "2026-09-05 23:55"
+    }
+   ]
+  },
+  {
+   "id": "S037",
+   "headline": "Cerebras Has a $25.4 Billion Backlog, and One OpenAI Agreement Is Behind Much of It",
+   "nodes": [
+    "OPENAI"
+   ],
+   "forces": [],
+   "source_count": 1,
+   "latest": "2026-09-05 23:34",
+   "sources": [
+    {
+     "title": "Cerebras Has a $25.4 Billion Backlog, and One OpenAI Agreement Is Behind Much of It",
+     "publisher": "finance.yahoo.com",
+     "url": "https://news.google.com/rss/articles/CBMimAFBVV95cUxOOW9NeUdMWVY1eFhYdVlRSkxjT2F2YjBwQ3RKeGNjVEJUbkg1QXlIR05kaDlLNDRrM1ZOXzdKeFJYVUFCVmV3NmdlcTlhSEVPNzZkVHlIX0RQR2xSNVNVUnRVZW5TRTdGVmNKMGY3T2RJMnJHQW1KX3FBZVpiVnhsYWpsOE5KN195Q3A3RGp4aXhDNkRmc1kxTw?oc=5",
+     "published": "2026-09-05 23:34"
+    }
+   ]
+  },
+  {
+   "id": "S038",
+   "headline": "NBIS, CRWV, APLD, IREN: Why Are Neocloud Stocks Jumping Premarket?",
+   "nodes": [],
+   "forces": [
+    "EXPORT_CONTROL_REGIME"
+   ],
+   "source_count": 1,
+   "latest": "2026-09-05 23:33",
+   "sources": [
+    {
+     "title": "NBIS, CRWV, APLD, IREN: Why Are Neocloud Stocks Jumping Premarket?",
+     "publisher": "stocktwits.com",
+     "url": "https://news.google.com/rss/articles/CBMiwwFBVV95cUxNMmE1QTJUUWxTUHFDVGFsX3NBaDRrRVpSY1BvT1NzSGpIbHZyQVlTQVhrcE1NbnZLX21falM2VWJVU19rYmdMR3RKSk9sMmoxQU8zcWdWSDhCSFNqc0JDUUhicWZCU253WXpKVjlMX2h0Wndud0pub0Y3bjZXTE42MHQtSXF6M1J6Q2dTZnJZUVlCX08wVm1lWjI5aEIwQndiSzlvRV9NUWV0WUMxQlNMNkFmOHZqTXRhaWx2ZHdzdDdRMWs?oc=5",
+     "published": "2026-09-05 23:33"
+    }
+   ]
+  },
+  {
+   "id": "S039",
+   "headline": "Palantir Bulls Pile In As Anthropic Feuds With Trump's Department Of War Over AI Safety \u2014 But There\u2019s A Catch",
+   "nodes": [
+    "ANTHROPIC"
+   ],
+   "forces": [],
+   "source_count": 1,
+   "latest": "2026-09-05 23:25",
+   "sources": [
+    {
+     "title": "Palantir Bulls Pile In As Anthropic Feuds With Trump's Department Of War Over AI Safety \u2014 But There\u2019s A Catch",
+     "publisher": "stocktwits.com",
+     "url": "https://news.google.com/rss/articles/CBMi0gFBVV95cUxPWEEwWEo3YjJuR3VZTjk4T0FybXdEMkdEeHh2bW9SVWtTZzRXaFVoVXVzWmtFQy1qemZ4R0RPSnFkNHRwSnUxa1hoZVlGUUdZTWczdGRhQzhtOW5SWnMxOTVET25TOGpUNUxQV1BESmlBVlkxTjE0VlluMWxUVEk3X1BIYzhQSDNBSzUyNjg5WjRucGtwMjhUejB3dHhvM0g1Yk80a1RIWGhqNWR2a3RsMl9kdjJuejVvV0xxcXpPREhwQ0ZYZ3lSOWN1bnNYYWFkSVE?oc=5",
+     "published": "2026-09-05 23:25"
+    }
+   ]
+  },
+  {
+   "id": "S040",
+   "headline": "CRWV, NBIS, IREN Stocks Jump Overnight On Nvidia\u2019s Blowout Q2 \u2014 But Palo Alto CEO Predicts Neocloud Price Crash Is Coming",
+   "nodes": [
+    "NVIDIA"
+   ],
+   "forces": [
+    "EXPORT_CONTROL_REGIME"
+   ],
+   "source_count": 1,
+   "latest": "2026-09-05 22:32",
+   "sources": [
+    {
+     "title": "CRWV, NBIS, IREN Stocks Jump Overnight On Nvidia\u2019s Blowout Q2 \u2014 But Palo Alto CEO Predicts Neocloud Price Crash Is Coming",
+     "publisher": "stocktwits.com",
+     "url": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxQNHRteHlyQVpiazRvbi0wWkQyOC1jbk13b1hfTmVnMFF1Q3RJeHZLcWhGc0VpSWJCRVk5dlhBMG1HOFBjVHo1cFBKeDE3d0dxY2ZuMWtjSTJNMW4zQkZnRUVIVDVOV3FyWVhlbGU5Nmc0aFFnRThjZUVkNzZ1bldnVXpLdTBOQkVPVVB6ZFd0OEdSMXBLclluQzFtV1c2bk5VREYzNWdfZUdpOEhzczA0YTBXMWlWR1Bo?oc=5",
+     "published": "2026-09-05 22:32"
+    }
+   ]
+  },
+  {
+   "id": "S041",
+   "headline": "SpaceX Rents Out Colossus 1 Data Centre To Anthropic After AI Setbacks: Report",
+   "nodes": [
+    "ANTHROPIC"
+   ],
+   "forces": [],
+   "source_count": 1,
+   "latest": "2026-09-05 22:12",
+   "sources": [
+    {
+     "title": "SpaceX Rents Out Colossus 1 Data Centre To Anthropic After AI Setbacks: Report",
+     "publisher": "stocktwits.com",
+     "url": "https://news.google.com/rss/articles/CBMiyAFBVV95cUxPazBhRkVxcERNYjdBRHJqbG1LSzNoSGdTNzU0NllsT1JETk9MbnVkeFlqWnEweDRvS01QTEcwTUNPX2RQcENqMXhya1FuXzJGS05JbzlxNFR4MU1haGcwRmh4OTgyVGplTXVFWjVtNG1sX2FGMFl2OHZnT1JoZ0RteEl2ZDVtR2ktaFNZNEVlUFpVV09hRC1GQ3VlUnFwR1Q3MmRUZW9XYVNMVjhoWE1yYnh1U2dsSFdKSVd2cktKcFpTTEwydUlpcg?oc=5",
+     "published": "2026-09-05 22:12"
+    }
+   ]
+  },
+  {
+   "id": "S042",
+   "headline": "OpenAI acknowledges 'wiki incident' and need for more transparency around unintended AI behavior",
+   "nodes": [
+    "OPENAI"
+   ],
+   "forces": [],
+   "source_count": 1,
+   "latest": "2026-09-05 21:23",
+   "sources": [
+    {
+     "title": "OpenAI acknowledges 'wiki incident' and need for more transparency around unintended AI behavior",
+     "publisher": "Reuters",
+     "url": "https://news.google.com/rss/articles/CBMi0gFBVV95cUxPU0FtQktXNWY5eEpHaUxBVGI2YWpHWE9SUGUtb1BhUkxLQmJvODRPX01WMnFqeEI2RThKMi1IT0E1eDBSUngtQkIwTUtiQWFjSHpFbXY0Q1BFcjZuUnBkVEZFMnFtOWpLUHVOZ1lZZzIwT3NxSnJnNG5DdHBvWi1STnFWSk1reWZRVkpEQjlCT05fdm8tV3ItQU5kSThCSjZON3ZvNXJhNXB2dWV0Zmt6NlJ1UUxoUDY4ZjZERk1qWmNUNkIxaW01anhRSURSaGlPZkE?oc=5",
+     "published": "2026-09-05 21:23"
+    }
+   ]
+  },
+  {
+   "id": "S043",
+   "headline": "OpenAI Responds After Report Exposed Another Incident In Which Its AI Agents Went Rogue",
+   "nodes": [
+    "OPENAI"
+   ],
+   "forces": [],
+   "source_count": 1,
+   "latest": "2026-09-05 21:17",
+   "sources": [
+    {
+     "title": "OpenAI Responds After Report Exposed Another Incident In Which Its AI Agents Went Rogue",
+     "publisher": "Engadget",
+     "url": "https://news.google.com/rss/articles/CBMivgFBVV95cUxPQVhDSHNsRGlmbUlISE5OZDl2dV9vOV9uQ2ZkSFRBZ3ZoYmlTUDRmUlB3LXVyZzQzVlR6VGgtTkNfeW1ONHlrLTBDN3QzdUJMTDlhbGEydVZvY0pxUXg0VWZVZEwtVUREQ1A3NzhSd05LRUt4c1VNMnoyaVN6U0hYSnhaR3BhRmJUX2lTVTN5LTRpUE1jbk0zM0xiMkJwcG9tWGo3ZkgwcmQxZ1VJMlRUWi04cEVway05MzIwM0Z3?oc=5",
+     "published": "2026-09-05 21:17"
+    }
+   ]
+  },
+  {
+   "id": "S044",
+   "headline": "SpaceX Market Cap Breaches $2.5 Trillion: Goes Past Tesla, TSMC And Broadcom",
+   "nodes": [
+    "BROADCOM",
+    "TESLA",
+    "TSMC"
+   ],
+   "forces": [],
+   "source_count": 1,
+   "latest": "2026-09-05 20:58",
+   "sources": [
+    {
+     "title": "SpaceX Market Cap Breaches $2.5 Trillion: Goes Past Tesla, TSMC And Broadcom",
+     "publisher": "stocktwits.com",
+     "url": "https://news.google.com/rss/articles/CBMiygFBVV95cUxOeFphNUZjY05JNkZvZUNfa2MzWXhldzBld0lFRDREbVhWaW5JRVJUclYyTWpIZHJuR1lmTFJSM2pnajVCajZqakNwUlVOdkp6elZpamRlWFgwRmo1WlcxR3JuME1GQlZuU19wOGQxSThLVVZQMDlWMDlvOERLZkJSYkdjblJVaWxwcTdnMkRWdF91QXRVX2lIUTliRTYwaFJMeTVVSWljSmFqalF2OGtGbDFsZDVJWDBuZWtqZ3EtanVRNXhQTVJuS093?oc=5",
+     "published": "2026-09-05 20:58"
+    }
+   ]
+  },
+  {
+   "id": "S045",
+   "headline": "Anthropic Clears Major IPO Hurdle As US Lifts Export Controls On Claude AI Fable, Mythos Models",
+   "nodes": [
+    "ANTHROPIC"
+   ],
+   "forces": [
+    "EXPORT_CONTROL_REGIME",
+    "MACRO_LIQUIDITY"
+   ],
+   "source_count": 1,
+   "latest": "2026-09-05 20:26",
+   "sources": [
+    {
+     "title": "Anthropic Clears Major IPO Hurdle As US Lifts Export Controls On Claude AI Fable, Mythos Models",
+     "publisher": "stocktwits.com",
+     "url": "https://news.google.com/rss/articles/CBMi7wFBVV95cUxOU1lBaE1vZ2ZYUExkM08zU2VHNFBGU1Zzc2UzblBvUktnX1MtZFgtM1lKcThYVnJVUEZWeHR4ZEJmcDFtN3ZLUTRtbGEtbDFrbDZ2cmh3NVBwMWY1YnVTMGhTUVI4cFBCUW5HMXlVV0twVHVfZGdtRmt3d3dneWRhcE9jQXYwUHVkamNxaFlkcTFaYjFXbU9nMzAwamZOU1pvLU95QWk2QUZpNzh1U3VfakwybDdNUEtqa1VtUDJPeEt1VTMwcGZjYzZqX3hvMlc0bUlDNkxha044eXY2YUdBai12MjdoS2Rtc3duSFJ1cw?oc=5",
+     "published": "2026-09-05 20:26"
+    }
+   ]
+  },
+  {
+   "id": "S046",
+   "headline": "Anthropic releases a version of its vaunted Mythos model to developers",
+   "nodes": [
+    "ANTHROPIC"
+   ],
+   "forces": [],
+   "source_count": 1,
+   "latest": "2026-09-05 20:10",
+   "sources": [
+    {
+     "title": "Anthropic releases a version of its vaunted Mythos model to developers",
+     "publisher": "Fast Company",
+     "url": "https://news.google.com/rss/articles/CBMie0FVX3lxTE14cWtBTGVqSFRDT1pZcXRBRWVoUHkzUDdWU2dFNDh0TmlOeGNqdWp5WjE1R294bGl2UEx1NEtaSnluUmtLblVKcWxtT3VlNDFiR2g2YjBiUVo4Y1lkQ1ZMdjBlamwtLTVxNndTaWphY3VaS2IzMXVUSkRpNA?oc=5",
+     "published": "2026-09-05 20:10"
+    }
+   ]
+  },
+  {
+   "id": "S047",
+   "headline": "OpenAI Says It Wants to Create a Standard for Revealing AI Alignment Meltdowns",
+   "nodes": [
+    "OPENAI"
+   ],
+   "forces": [],
+   "source_count": 1,
+   "latest": "2026-09-05 20:01",
+   "sources": [
+    {
+     "title": "OpenAI Says It Wants to Create a Standard for Revealing AI Alignment Meltdowns",
+     "publisher": "Gizmodo",
+     "url": "https://news.google.com/rss/articles/CBMirgFBVV95cUxNLW5ZSGxCcHFmT1A0d0xVNG1rUFhjOUduLXV1ZzlYNDdhSkVTX2E0YUgtNElLMFVxN2lNd1Z0OTJCSEZoNTdFSzdpb0VHNWp2UEZBbWJYbGxsb19aTjVOajNCTGNaUzBWdm1qMnFxMGNpU0dsMTItS2t6bXlGWkZYTEpBVTY2UC1TcUgxTVdmaXFzZ3VMZGFHLXJKaVJKaWloMTJIVkRtRHNvRlZjV3c?oc=5",
+     "published": "2026-09-05 20:01"
+    }
+   ]
+  },
+  {
+   "id": "S048",
+   "headline": "See How Tesla Tore Down The Model S Factory To Build Robots Instead",
+   "nodes": [
+    "TESLA"
+   ],
+   "forces": [
+    "ROBOTICS_EMBODIMENT"
+   ],
+   "source_count": 1,
+   "latest": "2026-09-05 19:53",
+   "sources": [
+    {
+     "title": "See How Tesla Tore Down The Model S Factory To Build Robots Instead",
+     "publisher": "InsideEVs",
+     "url": "https://news.google.com/rss/articles/CBMifkFVX3lxTE9xTkhlWGc5ZzJDSG9WR3QwS3RNN3pGSkR3UVlpM0Z5UFFVUGRhWVBBam96UzVkRGtLNE8zM3NJU20wb1QycWIwTXhKVWdpS3hFN1cwUU9pTTNETThtX0VOWWNpRlMwYU43c0xSdVkyVXBYakhhRVFSOUNjOE9SUQ?oc=5",
+     "published": "2026-09-05 19:53"
+    }
+   ]
+  },
+  {
+   "id": "S049",
+   "headline": "Two more newsrooms join the case against OpenAI and Microsoft",
+   "nodes": [
+    "MICROSOFT",
+    "OPENAI"
+   ],
+   "forces": [],
+   "source_count": 1,
+   "latest": "2026-09-05 19:50",
+   "sources": [
+    {
+     "title": "Two more newsrooms join the case against OpenAI and Microsoft",
+     "publisher": "The Next Web",
+     "url": "https://news.google.com/rss/articles/CBMi4AFBVV95cUxOUHc2TlByWjNJWnlCWHF3MWNuTU5vOVp4by1HYU9QNjRUR3J6OWdzaUhpb2dYNE9IX21DQTBtRnZSLVY3TkhlQnZNUktkS3VuWGJuLUdQaktBNFBOalVsRzBzZXlwUEVSM2NMUW84by1YTWN5dVN2dzlBb2lQcnAxSlJKNElsYTRUMjZ4SmZidmUwb1Y1eUdPNURFYmJ5cnlIR1FhWElZYVpfZG91Q3ZpWkVJZGNvTGtqQkRaRFJOeDg1TG55RkltUzdUbEVnUXVXQWl3cW1LSEpWbXNDbU5WTw?oc=5",
+     "published": "2026-09-05 19:50"
+    }
+   ]
+  },
+  {
+   "id": "S050",
+   "headline": "Prediction: Amazon Will Join Nvidia, Apple, and Alphabet in the $4 Trillion Club Before 2029",
+   "nodes": [
+    "AMAZON",
+    "GOOGLE",
+    "NVIDIA"
+   ],
+   "forces": [],
+   "source_count": 1,
+   "latest": "2026-09-05 19:40",
+   "sources": [
+    {
+     "title": "Prediction: Amazon Will Join Nvidia, Apple, and Alphabet in the $4 Trillion Club Before 2029",
+     "publisher": "finance.yahoo.com",
+     "url": "https://news.google.com/rss/articles/CBMiogFBVV95cUxPVGtRR1VQejhGNFpKVUVMUlZoUkxPaURTbjA5N0IxeWRyYVlUNnRzRzVEOXZieDJzZkxUdXN4MmFjZGVqVG56bVlaT0xkbVdGNVhqX29ROVJaLVQyanN6cU52WEZOLVZzblprYTAyc2RTckQ3bW1yVmtDb2VBS2cwSWEzWTlWZFJWOTZrclY5Q2ZNOU1XR1lVRENDU2RaRTQ2QXc?oc=5",
+     "published": "2026-09-05 19:40"
+    }
+   ]
+  },
+  {
+   "id": "S051",
+   "headline": "Anthropic Could Steal SpaceX\u2019s IPO Crown \u2014 But Needs Microsoft-Like 70% Margins To Survive, Analyst Says",
+   "nodes": [
+    "ANTHROPIC",
+    "MICROSOFT"
+   ],
+   "forces": [
+    "MACRO_LIQUIDITY"
+   ],
+   "source_count": 1,
+   "latest": "2026-09-05 19:38",
+   "sources": [
+    {
+     "title": "Anthropic Could Steal SpaceX\u2019s IPO Crown \u2014 But Needs Microsoft-Like 70% Margins To Survive, Analyst Says",
+     "publisher": "stocktwits.com",
+     "url": "https://news.google.com/rss/articles/CBMixAFBVV95cUxPVDgxRk9VdDU0WVBPWUdNdHFBVlV6b2FNTFRocmpzaVlILS0tUENLOEdDMjQzb2lyajlrQnJZNkt1RGxJY2J5MmtQZFFMbUdHYUVCR0k3VFRDa1JPU1dDVG9GWVpzN0F6YUc1NmVWMl82a2lrMEZBT2lPX2JQRi1xYkRwaG82ejQ0eW1fb1dFVlhyd0o1T3oxbFJsakxuU1gxRk44RUtUUW9vNUpyWmpJaElrZ1dMNXk3cFJVRFVRRjlUTWNN?oc=5",
+     "published": "2026-09-05 19:38"
+    }
+   ]
+  },
+  {
+   "id": "S052",
+   "headline": "CBRS Stock Surges 68% On Nasdaq Debut: Cathie Wood's ARK Buys Shares While Trimming TSMC, AMD",
+   "nodes": [
+    "AMD",
+    "TSMC"
+   ],
+   "forces": [],
+   "source_count": 1,
+   "latest": "2026-09-05 19:29",
+   "sources": [
+    {
+     "title": "CBRS Stock Surges 68% On Nasdaq Debut: Cathie Wood's ARK Buys Shares While Trimming TSMC, AMD",
+     "publisher": "stocktwits.com",
+     "url": "https://news.google.com/rss/articles/CBMi6gFBVV95cUxNTUlEZ1JodTNGd3dGdVJ3bU43OUNnX205ZXNITjh6Z1lqRTlITXVaR2I2T0ViN2dxLTNVSWdaNmJLUElLS3BSX3ljQ0NkQVJBdmpNRXJROWs0U3lOcjI1NnN3Vy1jODlEVUxHT1RZWlBqVDIySlhlWUxlaldpZVFySGRycmdUSFlqTXlKTXcwa2ZVNjlhSjgzM0RYN2xsdVRraVEwcFV3VkxRVTlrQWsxZTExZzVyVUxFVVgxZzk4azRFSVBIZGowNkJTTGMyQkp1LVhfVkxjVXBWRnp1OUZfUnpkOUI3eWJDZ0E?oc=5",
+     "published": "2026-09-05 19:29"
+    }
+   ]
+  },
+  {
+   "id": "S053",
+   "headline": "Why Is TSMC Stock Rising In Premarket Today?",
+   "nodes": [
+    "TSMC"
+   ],
+   "forces": [],
+   "source_count": 1,
+   "latest": "2026-09-05 19:18",
+   "sources": [
+    {
+     "title": "Why Is TSMC Stock Rising In Premarket Today?",
+     "publisher": "stocktwits.com",
+     "url": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxOVUcxUDVRcFVtRnBuMnZMWlhWbDQzZnVuNi1pU201UENOWG5JVXVKRnVOc0Q2OFlfVTY0dk5YM1RtUDM5NFVVb3VVUUl0NGlDdWMzM1pVZjIyZngyVVV6Y2ptTkJZVHlTUmhaUXpYRngxemIxQkRhaXpJWV9icFp2Y1FMYnRaYnBfTG9McXRuUVNpYjR3cG44U1pxbWNtT0E4TXdmbHIwUE5NSDQ?oc=5",
+     "published": "2026-09-05 19:18"
+    }
+   ]
+  },
+  {
+   "id": "S054",
+   "headline": "Broadcom vs. Nvidia: 1 Critical Metric Shows Which Artificial Intelligence (AI) Chipmaker Is the Better Buy After Earnings",
+   "nodes": [
+    "BROADCOM",
+    "NVIDIA"
+   ],
+   "forces": [],
+   "source_count": 1,
+   "latest": "2026-09-05 19:05",
+   "sources": [
+    {
+     "title": "Broadcom vs. Nvidia: 1 Critical Metric Shows Which Artificial Intelligence (AI) Chipmaker Is the Better Buy After Earnings",
+     "publisher": "finance.yahoo.com",
+     "url": "https://news.google.com/rss/articles/CBMimAFBVV95cUxOckhlRVlIMXdsWFNaYWpURmVFdDFtWkp6eTR1LUtraXN0a0FvWm13cmxyMjA3aDZEWm1tVzBkWlRIWTh1WEktMng4czNwRHl5VGQwbUhZRFRBQzBGbUZRSFJhY0NYSDFWLUIxZ19SaGk2YktGcklmamhzQTF0dlZ1bXhNUnEzeTQ1ZFV1dDM2cEE2ejdHUXVRaQ?oc=5",
+     "published": "2026-09-05 19:05"
+    }
+   ]
+  },
+  {
+   "id": "S055",
+   "headline": "What company Is ASML? Between ASML and AMD, Which Is a Better Investment?",
+   "nodes": [
+    "AMD",
+    "ASML"
+   ],
+   "forces": [],
+   "source_count": 1,
+   "latest": "2026-09-05 19:01",
+   "sources": [
+    {
+     "title": "What company Is ASML? Between ASML and AMD, Which Is a Better Investment?",
+     "publisher": "TradingKey",
+     "url": "https://news.google.com/rss/articles/CBMimAFBVV95cUxNb3duTTFjOFlPZVdVLXhlVVRtTkZINEhPcU5xNVB0OU9DU2hUZFA4ZDRpd0RRZmZKNVZqN1ZHRVpKYktVN0NxUVRCNmJYSkhCVXB5VFNSRzloMXRCbjBkOEkwQ0hxeUdpRHhZNTdjZk9nVjBueldpOUZYYWJRcW9maUZBcG1yN1luYWZnZzdFNTE1QUpVRGpFYQ?oc=5",
+     "published": "2026-09-05 19:01"
+    }
+   ]
+  },
+  {
+   "id": "S056",
+   "headline": "Nvidia Barely Moved. These 2 AI Connectivity Stocks Jumped More Than 7%",
+   "nodes": [
+    "NVIDIA"
+   ],
+   "forces": [],
+   "source_count": 1,
+   "latest": "2026-09-05 18:56",
+   "sources": [
+    {
+     "title": "Nvidia Barely Moved. These 2 AI Connectivity Stocks Jumped More Than 7%",
+     "publisher": "finance.yahoo.com",
+     "url": "https://news.google.com/rss/articles/CBMikwFBVV95cUxNekF3ZGZQS1JWVElLX3g0d3hPOXdieklTbGJGdFI0Nml4VjBxS01TU0lVTGktcVc0eDQ5ZERTZ1o4cWNERTlyY0JFeFBTVHlLX2tabWQ0cWpGOEsycUNYOUNiTVFsZUowblowTTJ4TGRTZVd0c1JoLTJPajBnTEtfMFQtVExqTzN1TVVHb2JzNTllZTA?oc=5",
+     "published": "2026-09-05 18:56"
+    }
+   ]
+  },
+  {
+   "id": "S057",
+   "headline": "Intel vs. TSM: Which Semiconductor Stock Looks Like the Better Investment?",
+   "nodes": [
+    "INTEL"
+   ],
+   "forces": [],
+   "source_count": 1,
+   "latest": "2026-09-05 18:33",
+   "sources": [
+    {
+     "title": "Intel vs. TSM: Which Semiconductor Stock Looks Like the Better Investment?",
+     "publisher": "TradingKey",
+     "url": "https://news.google.com/rss/articles/CBMitAFBVV95cUxNdlUwdE9uMGNJVXlaOU4zQlByQTZ1dHAyQnpaVmVJT3VsWFEwalVJSlNJa0txeFNMdnpJR2dVSHRGNTM4NEN0MmZTMkk0RmFXRlZCdF9FbU1yZGNRZTdXZFlWZXpCamU2bzZFX0wwMWR3anp0dTBadEZBckxPc3ZhbGY4X0p6VEUxUzhNcUJEb19EejluV1ZOWkRndEVKbW5ZaW4wM3JDVGZuYnlkdHlMSVlmMno?oc=5",
+     "published": "2026-09-05 18:33"
+    }
+   ]
+  },
+  {
+   "id": "S058",
+   "headline": "Everyone Is Worried About ASML. They\u2019re Missing This. Athletics (BdRldNgKrM)",
+   "nodes": [
+    "ASML"
+   ],
+   "forces": [],
+   "source_count": 1,
+   "latest": "2026-09-05 18:31",
+   "sources": [
+    {
+     "title": "Everyone Is Worried About ASML. They\u2019re Missing This. Athletics (BdRldNgKrM)",
+     "publisher": "Mshale",
+     "url": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE9PajlPZ25VdzZPSWxZNUVnS2t2eFhSRk05RmxPVUU4YngzMmF3QXVKVlc2NmROdEUwQkp1Y3o1LWUyR29SSXJscXJzOFR6cUpRd2NHNC05T3lGdHM?oc=5",
+     "published": "2026-09-05 18:31"
+    }
+   ]
+  },
+  {
+   "id": "S059",
+   "headline": "INTC Stock\u2019s Next Boost Could Be Here: Report Says Intel May Land Korea's SK Hynix As Major Customer",
+   "nodes": [
+    "INTEL",
+    "SK_HYNIX"
+   ],
+   "forces": [],
+   "source_count": 1,
+   "latest": "2026-09-05 18:26",
+   "sources": [
+    {
+     "title": "INTC Stock\u2019s Next Boost Could Be Here: Report Says Intel May Land Korea's SK Hynix As Major Customer",
+     "publisher": "stocktwits.com",
+     "url": "https://news.google.com/rss/articles/CBMi9gFBVV95cUxQMWJaV1MwbXUzanFQdjJWQUxVNmJUSF9Ra2xUUGlMalk0VjV4NFVQeE5BX3IxSnhyejZNMTlBVnhwWFFxN0V4ZWlELWNDRm51Z0NJR2NWWlZTOEFQbnRERVBoMFdWWS1CZ0hocTVmUF9xNnhjZlFobUtCdFNPeUg1WDhnWFliSUpXTC1weW9od1hydG4tY3lDcDV2VWpmeDAzVExDNFFnQkMtOUNkSzNvWWhJM2dqR1R4ZE5RSjZKV0N2bTMwVE5fZWt3RUdqcTFkdWdhMUlVNFJuRi1keF9wUmtrTmdibjVRUEN0eW5aNk8yU2pxTnc?oc=5",
+     "published": "2026-09-05 18:26"
+    }
+   ]
+  },
+  {
+   "id": "S060",
+   "headline": "Can Nvidia be Considered a Growth Stock Anymore?",
+   "nodes": [
+    "NVIDIA"
+   ],
+   "forces": [],
+   "source_count": 1,
+   "latest": "2026-09-05 18:26",
+   "sources": [
+    {
+     "title": "Can Nvidia be Considered a Growth Stock Anymore?",
+     "publisher": "TradingKey",
+     "url": "https://news.google.com/rss/articles/CBMi2gFBVV95cUxONG1WTXYwdWl3dl9ERjhhSXVfWnBkR24xRGxjcjFfcEp0TWFlWVk0akZLNlVFQzJXZHN6bjVPMElWbE5sbmtNSmlaM3RtQ1B1TGxUb3lVRXRFcmJBR1R0c2JQQW5KMkVZUlRicDRDcmFweC1vR2liNmVjWVA4ckxqZmFkODR3aUtJUWkyOWEwd1h6TWk4cWRzWTVBdzd5b1R3Ym5ZNHAwWVhuM1Y0MG1PZE9EazlmMUU1SFZKOXc0ZVc4VjFoOWFKVlA2U0V3ekpCamlQSmlScVhHUQ?oc=5",
+     "published": "2026-09-05 18:26"
+    }
+   ]
+  },
+  {
+   "id": "S061",
+   "headline": "OpenAI admits its AI agents used a wiki as a springboard for rogue behavior",
+   "nodes": [
+    "OPENAI"
+   ],
+   "forces": [],
+   "source_count": 1,
+   "latest": "2026-09-05 18:10",
+   "sources": [
+    {
+     "title": "OpenAI admits its AI agents used a wiki as a springboard for rogue behavior",
+     "publisher": "calcalistech.com",
+     "url": "https://news.google.com/rss/articles/CBMiZ0FVX3lxTE1NOENYdmw2YjRYQzY1N3NhWGZiMnB4WURYSmI2NXpLT19aWDR1X3RqZXNqV2ZYUHJLc1NkM2dGQnVVRGZSTUhlVXBVd3NVelZoS1RMN20zendVSy1pd3EzTFpmMlBkOTQ?oc=5",
+     "published": "2026-09-05 18:10"
+    }
+   ]
+  },
+  {
+   "id": "S062",
+   "headline": "Anthropic Expands Enterprise AI Arsenal With Autonomous Tools Ahead Of Widely Expected IPO",
+   "nodes": [
+    "ANTHROPIC"
+   ],
+   "forces": [
+    "MACRO_LIQUIDITY"
+   ],
+   "source_count": 1,
+   "latest": "2026-09-05 17:46",
+   "sources": [
+    {
+     "title": "Anthropic Expands Enterprise AI Arsenal With Autonomous Tools Ahead Of Widely Expected IPO",
+     "publisher": "stocktwits.com",
+     "url": "https://news.google.com/rss/articles/CBMi3gFBVV95cUxQYzBTVFhtYVNkNUMtcWZYYkV2VUhGcEV6WTB6N2htWnFJN3dibGYyUU1TOU0yUy1EWEhpampTc0c1ZWk5b3Z2a1o3b0NBTFFQenNrdkppQ3N3U0RFY3kzSElRR0xVbER3YmtRTkVIU0VldV9GSnlfbG96Zm5ORWpuU295Z1VFVE9yVnB5VlR0VDA1SlNyT1ZGdG5fTXl3VGktWVdLemMzS3NrdXU0NUJRTk05ZWZUQzRjZ1ZNSEVZOGc1RVVRQ1M1cmVkZDRkSGhxZDVFSXZKb3VFLW8yT0E?oc=5",
+     "published": "2026-09-05 17:46"
+    }
+   ]
+  },
+  {
+   "id": "S063",
+   "headline": "EXCLUSIVE: Nvidia CEO Jensen Huang Is Flying To Taiwan Nearly Every Month Asking For More GPUs \u2013 The Answer Remains Not Yet",
+   "nodes": [
+    "NVIDIA"
+   ],
+   "forces": [],
+   "source_count": 1,
+   "latest": "2026-09-05 17:23",
+   "sources": [
+    {
+     "title": "EXCLUSIVE: Nvidia CEO Jensen Huang Is Flying To Taiwan Nearly Every Month Asking For More GPUs \u2013 The Answer Remains Not Yet",
+     "publisher": "stocktwits.com",
+     "url": "https://news.google.com/rss/articles/CBMikwJBVV95cUxPMjNVWmJSWDlzbWx3ejNOZGl5ZlJDSXE4bDZ1OTFHREd0XzVZdmV5V1BrcXQ5NVI1RVVseW55Rl9MTVJabDY3M1JOTGZNSUloVFJxdHNfQWZfZ1VvamstbWNraWN2UXRNelk5Mzl5cnRDZ01hUXdMUnV0N2h1S2xSVmlDVTg4QzYyblpiSEc0ZGZHZEY2V3lzZUlJVUdfc3ZmUDV2Ykk1THJvcVI3UXR2OUg2dU1uWEdLdXUyQzBmQWh2aTBvU01pWnJjdUMwSlNmanVtY0p5WS1xajZnRFVud3VwYzI1d0ktWUtudnVPS3NmMmZRMDFPMXFzMzhQYlM1ckEtOUwyWkVaYV9xT0VaR2lmSQ?oc=5",
+     "published": "2026-09-05 17:23"
+    }
+   ]
+  },
+  {
+   "id": "S064",
+   "headline": "AI Power Markets: Why Electricity May Matter More Than GPUs",
+   "nodes": [],
+   "forces": [
+    "POWER_WALL"
+   ],
+   "source_count": 1,
+   "latest": "2026-09-05 17:19",
+   "sources": [
+    {
+     "title": "AI Power Markets: Why Electricity May Matter More Than GPUs",
+     "publisher": "Coinpaper",
+     "url": "https://news.google.com/rss/articles/CBMijwFBVV95cUxNVkkwaEFEYUJNbjI1X2U4cV9UQ010VEs3TDFVV2FOSjhpQzlaMG1TQnNNcVQ5UGFZcDMtZXpsUklpZDllMVhzc3JuaEhhSDZkOVZQcWlmcFMzZEo1eFdNb0l0a2xpTGdiMnRBYkN3aHhZTThPX1JFaV91TW4tZXNMSU5hcFZyc3BiMDViUkt2QQ?oc=5",
+     "published": "2026-09-05 17:19"
+    }
+   ]
+  },
+  {
+   "id": "S065",
+   "headline": "Anthropic pushes back IPO as investors await one of AI\u2019s biggest public-market tests",
+   "nodes": [
+    "ANTHROPIC"
+   ],
+   "forces": [
+    "MACRO_LIQUIDITY"
+   ],
+   "source_count": 1,
+   "latest": "2026-09-05 17:19",
+   "sources": [
+    {
+     "title": "Anthropic pushes back IPO as investors await one of AI\u2019s biggest public-market tests",
+     "publisher": "calcalistech.com",
+     "url": "https://news.google.com/rss/articles/CBMiZ0FVX3lxTE00dTRBYnJjWl84cHMzbC1QZWVlb0ZUd0JKMnVVX1kyQ191NlR2UXFDLUdWVGt2WW9TS1JkODNKVW5hSVFfNU0xYVZDcWxLUTMxRXFwalpoMGZua09KYmhXZkxVR21JXzA?oc=5",
+     "published": "2026-09-05 17:19"
+    }
+   ]
+  },
+  {
+   "id": "S066",
+   "headline": "OpenAI, Anthropic Cutting Token Prices? This War Could Dent Profits Just As Both Head For IPOs",
+   "nodes": [
+    "ANTHROPIC",
+    "OPENAI"
+   ],
+   "forces": [
+    "MACRO_LIQUIDITY"
+   ],
+   "source_count": 1,
+   "latest": "2026-09-05 17:17",
+   "sources": [
+    {
+     "title": "OpenAI, Anthropic Cutting Token Prices? This War Could Dent Profits Just As Both Head For IPOs",
+     "publisher": "stocktwits.com",
+     "url": "https://news.google.com/rss/articles/CBMi7wFBVV95cUxNV1Q4UmVvYm5tVmZXbnJELTg1cklONm1hV3BjdW85VERYa3Ewa2hLV3pNTmNWYmdxOTBMY0VsS1FDZjRJbXJlV2RvWDJnV0EtcFd3SGFXM1V0MzJCMmVPakR0U25UNDhMVVNyYWl2S2hLREdkNm5HdnVPdmtRR3FZSXlJSld3WFM0TUVNSGhDZXQ2VEJYLXIwR2RKRHRMNl83bVRMcS1SU3hPUE10OTlNM214QUJPQ3hmYVB1bXk4YVpGaTZwckE0VURweG1kamJ5cmRobHVTTk14enVwQktZWjg4QnpKLUw1bVZ1V1dPUQ?oc=5",
+     "published": "2026-09-05 17:17"
+    }
+   ]
+  },
+  {
+   "id": "S067",
+   "headline": "Anthropic Could Be the Next Mega IPO: 2 Magnificent Stocks That Already Own a Piece of the AI Unicorn",
+   "nodes": [
+    "ANTHROPIC"
+   ],
+   "forces": [
+    "MACRO_LIQUIDITY"
+   ],
+   "source_count": 1,
+   "latest": "2026-09-05 17:05",
+   "sources": [
+    {
+     "title": "Anthropic Could Be the Next Mega IPO: 2 Magnificent Stocks That Already Own a Piece of the AI Unicorn",
+     "publisher": "finance.yahoo.com",
+     "url": "https://news.google.com/rss/articles/CBMimAFBVV95cUxQOV9PVXRnLWdIN0tGUHZGcmJHeVJNYkJmekMzZzJQZFNUSWJIbnZzdlU1RUg0NXh4REp3ZURGdEZtaXZVQ0tMYW1xUWp3a1RuUFU2Qk9rUUx0Zlp4Y3VFNkZBR1hFZjJ6Z3Q3VGMtWnFQOFBCM0FBUDZRaHptbGZNLUoyaWtkNzFDZVdXWDdXdFBrRjhBeVhuXw?oc=5",
+     "published": "2026-09-05 17:05"
+    }
+   ]
+  },
+  {
+   "id": "S068",
+   "headline": "Sam Altman Shrugs Off IPO Timing Questions After Anthropic Filing",
+   "nodes": [
+    "ANTHROPIC"
+   ],
+   "forces": [
+    "MACRO_LIQUIDITY"
+   ],
+   "source_count": 1,
+   "latest": "2026-09-05 17:02",
+   "sources": [
+    {
+     "title": "Sam Altman Shrugs Off IPO Timing Questions After Anthropic Filing",
+     "publisher": "stocktwits.com",
+     "url": "https://news.google.com/rss/articles/CBMirgFBVV95cUxOdU5Td2c4b3RPUXVQbktKQXFiOVMza21uN1p5RFBxcFJ3U2diN2QzZTF1TFFwdml3U3UxUWFyejRaYjdCaWluSXRnOExnZ2pvSTduczF3THgtTXEyRm8wbjk4MW5JUDRnQTZJSm5aM3JneHJPa2pRdWdVYUs2ZTg4SmNUVG5vdmlNOE5tb0VXSE5CLTRmeXNWcmZWRFItMk1YUmFYQmJJLTFvbUtNOVE?oc=5",
+     "published": "2026-09-05 17:02"
+    }
+   ]
+  },
+  {
+   "id": "S069",
+   "headline": "China\u2019s Humanoid-Robot Industrial Offensive",
+   "nodes": [],
+   "forces": [
+    "ROBOTICS_EMBODIMENT"
+   ],
+   "source_count": 1,
+   "latest": "2026-09-05 16:49",
+   "sources": [
+    {
+     "title": "China\u2019s Humanoid-Robot Industrial Offensive",
+     "publisher": "debuglies.com",
+     "url": "https://news.google.com/rss/articles/CBMiggFBVV95cUxNVjZBOUxQdktRZkhGYXViN3VYcHp4b2ZhMVZZUEsxamJJVkVMaDQwLW9nWk1SX29RdnRMUXM4ak9JcXA2a0RyTmthalBlX3RweU9lWFRpQmFJODYya2g5YWFFUVZMQUZ0S1pQY0ZkVTg5YzE4Qmp3amEyTXJ3UGd2czJ3?oc=5",
+     "published": "2026-09-05 16:49"
+    }
+   ]
+  },
+  {
+   "id": "S070",
+   "headline": "OpenAI says it will change how it informs the public when its AI agents go off the rails",
+   "nodes": [
+    "OPENAI"
+   ],
+   "forces": [],
+   "source_count": 1,
+   "latest": "2026-09-05 16:09",
+   "sources": [
+    {
+     "title": "OpenAI says it will change how it informs the public when its AI agents go off the rails",
+     "publisher": "Business Insider",
+     "url": "https://news.google.com/rss/articles/CBMimwFBVV95cUxNNVRFTkJYVW5lakd0dUxvNHhwX3pKZ0N1b1NKb3hIX25ubmozTmZZcUlsWUJERTRRZS0xN2ZBRU5PNjNZYkF2MUl0UEFpRGt2RDZ0ekxBNEwzZHp6QThzNVZiRnBlYVRnaEdIVFdUT1JPT2hwYjVuOFNnbGt3ZV8zUVdJc1g1NFVBeWtpbHVEMmx1aVcyUEtzT0RfQQ?oc=5",
+     "published": "2026-09-05 16:09"
+    }
+   ]
+  },
+  {
+   "id": "S071",
+   "headline": "Samsung, SK Hynix Test China Chip Tools After VEU Ends - tech-insider.org",
+   "nodes": [
+    "SAMSUNG",
+    "SK_HYNIX"
+   ],
+   "forces": [],
+   "source_count": 1,
+   "latest": "2026-09-05 15:56",
+   "sources": [
+    {
+     "title": "Samsung, SK Hynix Test China Chip Tools After VEU Ends - tech-insider.org",
+     "publisher": "tech-insider.org",
+     "url": "https://news.google.com/rss/articles/CBMid0FVX3lxTE83Nk9GOUl0SWFiaFNmUUEzQ3cyZlVtZ3pnMmlrY1NrT0U5d0twd2h1Yk9HaDdCWTd6OVU1Zno0LThEV1pVVncwcUlOQzIteFBOdWNhS25wTzl1QVdxTmdua0NyWnhnaTZJU3FUUnc5ZTFJWFlxcjZv?oc=5",
+     "published": "2026-09-05 15:56"
+    }
+   ]
+  },
+  {
+   "id": "S072",
+   "headline": "Insider trades: Nvidia, TSMC, and Johnson & Johnson among notable names (JNJ:NYSE)",
+   "nodes": [
+    "NVIDIA",
+    "TSMC"
+   ],
+   "forces": [],
+   "source_count": 1,
+   "latest": "2026-09-05 15:03",
+   "sources": [
+    {
+     "title": "Insider trades: Nvidia, TSMC, and Johnson & Johnson among notable names (JNJ:NYSE)",
+     "publisher": "Seeking Alpha",
+     "url": "https://news.google.com/rss/articles/CBMipwFBVV95cUxPQ2k1MDhDRlBUaW91Q1NNcTN5aWVpVmZSMXM2TmNGeV9fZjEwYmtKNmRiVFc0SkRkbTFtdi1pNWV4MjhTQTlFdGRFTXEyRkI4NUlEYXhfWEFnZWZVRXNvbl9ZM2ZMVDZ1YlJFekhxXzk2RzJ5UnlHSk9HYUxwM3M0TU1kbTdlZWVSUXdwNFdSd0xVU20zOXdIX3c2SlVUM3kwdlVJV01QQQ?oc=5",
+     "published": "2026-09-05 15:03"
+    }
+   ]
+  },
+  {
+   "id": "S073",
+   "headline": "Anthropic's IPO Could Value It at 30 Times Revenue. Here's Why I'm Still Interested Anyway.",
+   "nodes": [
+    "ANTHROPIC"
+   ],
+   "forces": [
+    "MACRO_LIQUIDITY"
+   ],
+   "source_count": 1,
+   "latest": "2026-09-05 14:20",
+   "sources": [
+    {
+     "title": "Anthropic's IPO Could Value It at 30 Times Revenue. Here's Why I'm Still Interested Anyway.",
+     "publisher": "finance.yahoo.com",
+     "url": "https://news.google.com/rss/articles/CBMimgFBVV95cUxPWHZOdV9tdXRibVdTUFUwRmVmUkczdHRLckdwSjZZSkRKTGdPT0RyWXp2ZkM3OTl3V0RSUWlKemw0R09paGdCaC1nc2JoZmJSMDQyTXR1TjVVUnVZQW9JTVJFVmtsc29UWmxRRFBiZnRhMkZTUDR5dUZES29GZFY0ZGJfcVRSby16aC1obG1ObVlvRnZtcU5IYzNn?oc=5",
+     "published": "2026-09-05 14:20"
+    }
+   ]
+  },
+  {
+   "id": "S074",
+   "headline": "Micron Stock Price Forecast: Will MU Retest $740 Low Amid Looming Strike?",
+   "nodes": [
+    "MICRON"
+   ],
+   "forces": [],
+   "source_count": 1,
+   "latest": "2026-09-05 14:08",
+   "sources": [
+    {
+     "title": "Micron Stock Price Forecast: Will MU Retest $740 Low Amid Looming Strike?",
+     "publisher": "TradingKey",
+     "url": "https://news.google.com/rss/articles/CBMiywFBVV95cUxQQ2FUSjk1OTlqWGhQRVBXZk1xRGVjVy1WVzA1emtlODdCaGQtMTF4aVVSUzdOMzA5UXJhQzBlXzB1a3UteEVab0cwaU5KbWUtaXV5SVJxM0owTHliYUlwWnJqMzZHdHc5c3VkR3NGVGZZTTBGWS1CMWtCRjBRbS03UnBuN2hvRWsxWHV5bDRCR3FURkgzYm81SnYta19JQ0xPbjg0NlN1UE9kbXgwNng5MFFOUXdrTDM3c1BjV1dQTEVOMGlST0hVMVVEOA?oc=5",
+     "published": "2026-09-05 14:08"
+    }
+   ]
+  },
+  {
+   "id": "S075",
+   "headline": "DeepSeek\u2019s 160,000-Chip Huawei Order Puts PRC Law Over Every API Query",
+   "nodes": [
+    "DEEPSEEK",
+    "HUAWEI"
+   ],
+   "forces": [],
+   "source_count": 1,
+   "latest": "2026-09-05 14:05",
+   "sources": [
+    {
+     "title": "DeepSeek\u2019s 160,000-Chip Huawei Order Puts PRC Law Over Every API Query",
+     "publisher": "Tech Times",
+     "url": "https://news.google.com/rss/articles/CBMiwAFBVV95cUxNNmtpbFBmOWl2NkpQOVYyMEUyV0NvNWVKLTJrQ2FBNTZVRUlUbUhUdHFNV2g2bU5yUUdnNjQtUXRWXzFaUTcxSW5HR1JKWWR6Q3ZhTXBaVGJYdTdiRTBfUGVQaVhEY3BvSkRTYW9Za3ZINTRNc2lFRTBEbWM5bjNXN01ySmoyV2ZkRHJDUk5kajNyRFdIUGVkTllVREFLU0czWldRX0pzRVp3SnAzZTk5Q0lvSEs3bkFVSUZfVGVpMUo?oc=5",
+     "published": "2026-09-05 14:05"
+    }
+   ]
+  },
+  {
+   "id": "S076",
+   "headline": "Dell\u2019s Monster Quarter Just Confirmed Micron\u2019s Biggest Opportunity Is Not Just HBM",
+   "nodes": [
+    "DELL",
+    "MICRON"
+   ],
+   "forces": [
+    "HBM_SUPERCYCLE"
+   ],
+   "source_count": 1,
+   "latest": "2026-09-05 14:00",
+   "sources": [
+    {
+     "title": "Dell\u2019s Monster Quarter Just Confirmed Micron\u2019s Biggest Opportunity Is Not Just HBM",
+     "publisher": "Barchart.com",
+     "url": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxPckVOVlZIS3dPZzdIQ3BGX3pCelhjVnFlX0ozcElLYVdGem5xOE1pMnJlZUEtZGVMY2VkSmw2SXVlUF9SRVd2Uk5sVUJQV1FTbHNVaDk0MzY3V0RQbWk4eElvZzllandsSUJRN0NmTUQzNlQ0d1pxaFI1cGlmRGVWblFwZElFd0d2Y2FqcVJGdjBod3BpNkRDMjk1UTYzU2NmdEJ5dTNFNGlaUU1vb0hMV0lHTWJaYzhOci1MSE5qenVIZw?oc=5",
+     "published": "2026-09-05 14:00"
+    }
+   ]
+  },
+  {
+   "id": "S077",
+   "headline": "AI Capex Boom: Foreign Media Estimate TSMC Still Has 22% Upside Before Year-End",
+   "nodes": [
+    "TSMC"
+   ],
+   "forces": [
+    "CIRCULAR_FINANCING"
+   ],
+   "source_count": 1,
+   "latest": "2026-09-05 12:55",
+   "sources": [
+    {
+     "title": "AI Capex Boom: Foreign Media Estimate TSMC Still Has 22% Upside Before Year-End",
+     "publisher": "finance.biggo.com",
+     "url": "https://news.google.com/rss/articles/CBMidkFVX3lxTFBYTFRvT0dhVmxvaThOMXdERzZ5ZnAxVGdXTWlBeUg3bUZoVjBPWDZHb09hVnJpMVJ4ZjNHN3FUOXhNS0Y4eldYT0oxVFpFU1JCMk1pQmptX1VZTXNHRUVjOWhZZF9nbXQ3ek9NcDRxajRmaWUybnc?oc=5",
+     "published": "2026-09-05 12:55"
+    }
+   ]
+  },
+  {
+   "id": "S078",
+   "headline": "Advanced nuclear has what AI data centers need. Can it arrive in time?",
+   "nodes": [],
+   "forces": [
+    "POWER_WALL"
+   ],
+   "source_count": 1,
+   "latest": "2026-09-05 12:14",
+   "sources": [
+    {
+     "title": "Advanced nuclear has what AI data centers need. Can it arrive in time?",
+     "publisher": "Electronics360",
+     "url": "https://news.google.com/rss/articles/CBMivAFBVV95cUxNLUxJZzE3RXo5MjFnZzNsaUZLOW9IM1FLTGFOOWFhX2VpcU1ZVEdWeTJCMHVZM1g5akhSQ2UzcXVMWTBoSUU3eWlwSU1rUWl5V0x6NkxPSXhHUGxvc3dfUmtvdm5Od2cwYTFUU0NRSHNBNGo2QUQ0RzlHMTA5NEFTbkFpa3gzM3pvSjB2U0xQUm12M1FYa2xCZHZZQU4yX0RyTXl3RXlKM3E0RzRhMmdyMnJMb3ZhQWdFeTJ0cw?oc=5",
+     "published": "2026-09-05 12:14"
+    }
+   ]
+  },
+  {
+   "id": "S079",
+   "headline": "Recent News From Nvidia and SK Hynix Reveals Exactly What the Market Expects for Micron Technology's Future",
+   "nodes": [
+    "MICRON",
+    "NVIDIA",
+    "SK_HYNIX"
+   ],
+   "forces": [],
+   "source_count": 1,
+   "latest": "2026-09-05 12:05",
+   "sources": [
+    {
+     "title": "Recent News From Nvidia and SK Hynix Reveals Exactly What the Market Expects for Micron Technology's Future",
+     "publisher": "finance.yahoo.com",
+     "url": "https://news.google.com/rss/articles/CBMilwFBVV95cUxPNGZmaGJHUWQ3Y1VCTjN6cy1QQUNFY28xZ1Zlc3NwSExMRnJZWXctNlo0bTBFSzJjREJzT3lzN0VFa0hOWnQ1SlIwY0l0anVVLWNiZ0E2eWhfX1FldDc0SGllT1ZJMHBteGNYempyOTY3NUVjLTZZcHlvUWhaNW9XT08yaEZ6OVBCTjdTcUQ5SHlwRUkwQTBN?oc=5",
+     "published": "2026-09-05 12:05"
+    }
+   ]
+  }
+ ]
+}
